@@ -1,4 +1,5 @@
 ![MISS]()
+![MISS01](https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg)
 
 # 0.목차    
 -Project 목적  
