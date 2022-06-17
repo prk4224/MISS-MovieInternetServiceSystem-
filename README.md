@@ -18,7 +18,8 @@
 
 
 # 2. MISS 팀 소개  
-![팀소개]()
+![MISS 구성원](https://user-images.githubusercontent.com/107021908/174239775-f0246d77-d0c0-4c9e-a522-450a1d7fdb1b.png)
+
 
 ### 2-1.담당업무 
 |이름|담당업무|
