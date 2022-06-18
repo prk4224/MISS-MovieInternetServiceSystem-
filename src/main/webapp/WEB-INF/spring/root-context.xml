@@ -10,6 +10,8 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+    <!-- * 해당 root-context는 필수적인 transaction 등등의 정보만 들어가게 됨.
+        * 우리가 applicationContext에서 썼던 Dao bean같은 것들은 bean으로 만들지 않고 annotation으로 설정을 함 -->
 		
     <!-- mybatis db연결객체 -->
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
@@ -18,16 +20,13 @@
     
     <!-- mybatis설정 -->
     <!-- configLocation : mybatis-config.xml-->
+    <!-- mapper: mapper/**/*.xml => mapper폴더 안의 모든 디렉토리 안의 모든.xml파일 -->
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="mapperLocations" value="classpath:mapper/**/*.xml"/>
     </bean>
     
-    <!-- 개발에 사용하는 Dummy mail -->
-<!--     <bean id="dummyMailSender" class="com.pcwk.ehr.cmn.DummyMailSender"> -->
-    
-<!--     </bean> -->
     <!-- Naver SMTP 계정 SMTP 간이 우편 전송 프로토콜(Simple Mail Transfer Protocol)의 약자 -->
     <bean id="mailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.naver.com"/>
