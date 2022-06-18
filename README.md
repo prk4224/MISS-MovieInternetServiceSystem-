@@ -39,17 +39,17 @@
 ### 3-1. 개발환경  
 ![개발환경]()  
 ### 3-2. 진행일정  
-![진행일정]()   
+![진행일정](https://user-images.githubusercontent.com/50819376/174428651-1804b2b5-6c35-41c0-8e1e-e090a197cf81.JPG)   
  
 # 4. Project 설계  
 
 ### 4-1. 요구사항정의서  
-![요구사항정의서]()  
+![요구사항정의서](https://user-images.githubusercontent.com/50819376/174428676-cf3f4e8b-2bbb-4b13-a606-6fba016a53d1.JPG)    
 ### 4-2. 프로세스 흐름도   
 ![프로세스 흐름도2]()  
 
 ### 4-3. exERD  
-![exERD]()    
+![exERD](https://user-images.githubusercontent.com/50819376/174428686-2a227391-92b4-4897-97ae-63dcc290bc8d.JPG)     
 
 # 5. 기능시연
 ### 5-1. 로그인  
