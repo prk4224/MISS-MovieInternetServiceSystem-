@@ -1,4 +1,4 @@
-package com.pcwk.miss.test.domain;
+package com.pcwk.miss.domain;
 
 public class TestVO {
 	private int mvNum;
