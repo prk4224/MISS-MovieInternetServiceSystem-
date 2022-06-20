@@ -10,27 +10,27 @@ public class MovieController {
 		
 	}
 	
-	@RequestMapping(value = "main/main.do")
+	@RequestMapping(value = "movie/main.do")
 	public String mainView() {
 		System.out.println("===================");
 		System.out.println("=MissController=mainView()=");
 		System.out.println("===================");
-		return "main/main";
+		return "movie/main";
 	}
 	
-	@RequestMapping(value = "main/movie_detail.do")
+	@RequestMapping(value = "movie/movie_detail.do")
 	public String movieDetailView() {
 		System.out.println("===================");
 		System.out.println("=MissController=movieDetailView()=");
 		System.out.println("===================");
-		return "main/movie_detail";
+		return "movie/movie_detail";
 	}
 	
-	@RequestMapping(value = "main/screen.do")
+	@RequestMapping(value = "movie/screen.do")
 	public String screenView() {
 		System.out.println("==================");
 		System.out.println("=MissController=screenView()=");
 		System.out.println("==================");
-		return "main/screen";
+		return "movie/screen";
 	}
 }

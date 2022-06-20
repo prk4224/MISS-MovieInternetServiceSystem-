@@ -23,6 +23,7 @@ import com.pcwk.miss.cmn.DTO;
  *
  */
 public class ComCodeVO extends DTO {
+	// 마스터 코드 : 결제수단, 연령제한, 국가, 회원등급, 쿠폰적용대상, 게시판 구분
 	private String mstCode; // 마스터코드
 	private int detCode; // 상세코드
 	private int codeSeq; // 코드순번

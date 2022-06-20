@@ -23,6 +23,7 @@ import com.pcwk.miss.cmn.DTO;
  *
  */
 public class CouponVO extends DTO {
+	// 마이페이지에 표시되는 쿠폰순서는 사용종료일 기준으로 표시
 	private int cNum; //쿠폰번호
 	private int mbNum; //회원번호
 	private String cName; //쿠폰이름
