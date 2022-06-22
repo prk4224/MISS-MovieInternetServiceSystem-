@@ -4,13 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("movie")
 public class MovieController {
 	
 	public MovieController() {
 		
 	}
 	
-	@RequestMapping(value = "movie/main.do")
+	@RequestMapping(value = "/main.do")
 	public String mainView() {
 		System.out.println("===================");
 		System.out.println("=MissController=mainView()=");
@@ -18,7 +19,7 @@ public class MovieController {
 		return "movie/main";
 	}
 	
-	@RequestMapping(value = "movie/movie_detail.do")
+	@RequestMapping(value = "/movie_detail.do")
 	public String movieDetailView() {
 		System.out.println("===================");
 		System.out.println("=MissController=movieDetailView()=");
@@ -26,11 +27,14 @@ public class MovieController {
 		return "movie/movie_detail";
 	}
 	
-	@RequestMapping(value = "movie/screen.do")
+	@RequestMapping(value = "/screen.do")
 	public String screenView() {
 		System.out.println("==================");
 		System.out.println("=MissController=screenView()=");
 		System.out.println("==================");
 		return "movie/screen";
 	}
+	
+	
 }
+
