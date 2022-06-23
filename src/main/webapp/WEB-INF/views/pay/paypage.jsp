@@ -42,8 +42,8 @@
         <button id = "naverapibtn"  type="button">네이버 간편 결제</button>
     </div>
     
-    <script src="${path}/resources/js/kakaobtn.js" type = "text/javascript">
     
-    </script>
+    <script src="${path}/resources/js/kakaobtn.js" type = "text/javascript"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </body>
 </html>
