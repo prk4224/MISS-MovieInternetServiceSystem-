@@ -23,122 +23,121 @@ import com.pcwk.miss.cmn.DTO;
  *
  */
 public class MovieVO extends DTO {
-	private int mv_num; //fasd
-	private String mv_title;
-	private String mv_director;
-	private String mv_actor;
-	private String mv_genre;
-	private String mv_released;
-	private int mv_agelimit;
-	private String mv_summary;
-	private String mv_nation;
-	private String mv_time;
+	private int mvNum; //영화번호
+	private String mvTitle; //제목
+	private String mvDirector; //감독
+	private String mvActor; //배우
+	private String mvGenre; //장르
+	private String mvReleased; //개봉일
+	private int mvAgelimit; //연령제한(전체이용가 1, 12, 15, 18, 19, 미정 99)
+	private String mvSummary; //줄거리
+	private int mvNation; //국가(국내영화1, 해외영화2)
+	private int mvTime; //러닝타임
 	
 	public MovieVO() {}
 
-	public MovieVO(int mv_num, String mv_title, String mv_director, String mv_actor, String mv_genre,
-			String mv_released, int mv_agelimit, String mv_summary, String mv_nation, String mv_time) {
+	public MovieVO(int mvNum, String mvTitle, String mvDirector, String mvActor, String mvGenre, String mvReleased,
+			int mvAgelimit, String mvSummary, int mvNation, int mvTime) {
 		super();
-		this.mv_num = mv_num;
-		this.mv_title = mv_title;
-		this.mv_director = mv_director;
-		this.mv_actor = mv_actor;
-		this.mv_genre = mv_genre;
-		this.mv_released = mv_released;
-		this.mv_agelimit = mv_agelimit;
-		this.mv_summary = mv_summary;
-		this.mv_nation = mv_nation;
-		this.mv_time = mv_time;
+		this.mvNum = mvNum;
+		this.mvTitle = mvTitle;
+		this.mvDirector = mvDirector;
+		this.mvActor = mvActor;
+		this.mvGenre = mvGenre;
+		this.mvReleased = mvReleased;
+		this.mvAgelimit = mvAgelimit;
+		this.mvSummary = mvSummary;
+		this.mvNation = mvNation;
+		this.mvTime = mvTime;
 	}
 
-	public int getMv_num() {
-		return mv_num;
+	public int getMvNum() {
+		return mvNum;
 	}
 
-	public void setMv_num(int mv_num) {
-		this.mv_num = mv_num;
+	public void setMvNum(int mvNum) {
+		this.mvNum = mvNum;
 	}
 
-	public String getMv_title() {
-		return mv_title;
+	public String getMvTitle() {
+		return mvTitle;
 	}
 
-	public void setMv_title(String mv_title) {
-		this.mv_title = mv_title;
+	public void setMvTitle(String mvTitle) {
+		this.mvTitle = mvTitle;
 	}
 
-	public String getMv_director() {
-		return mv_director;
+	public String getMvDirector() {
+		return mvDirector;
 	}
 
-	public void setMv_director(String mv_director) {
-		this.mv_director = mv_director;
+	public void setMvDirector(String mvDirector) {
+		this.mvDirector = mvDirector;
 	}
 
-	public String getMv_actor() {
-		return mv_actor;
+	public String getMvActor() {
+		return mvActor;
 	}
 
-	public void setMv_actor(String mv_actor) {
-		this.mv_actor = mv_actor;
+	public void setMvActor(String mvActor) {
+		this.mvActor = mvActor;
 	}
 
-	public String getMv_genre() {
-		return mv_genre;
+	public String getMvGenre() {
+		return mvGenre;
 	}
 
-	public void setMv_genre(String mv_genre) {
-		this.mv_genre = mv_genre;
+	public void setMvGenre(String mvGenre) {
+		this.mvGenre = mvGenre;
 	}
 
-	public String getMv_released() {
-		return mv_released;
+	public String getMvReleased() {
+		return mvReleased;
 	}
 
-	public void setMv_released(String mv_released) {
-		this.mv_released = mv_released;
+	public void setMvReleased(String mvReleased) {
+		this.mvReleased = mvReleased;
 	}
 
-	public int getMv_agelimit() {
-		return mv_agelimit;
+	public int getMvAgelimit() {
+		return mvAgelimit;
 	}
 
-	public void setMv_agelimit(int mv_agelimit) {
-		this.mv_agelimit = mv_agelimit;
+	public void setMvAgelimit(int mvAgelimit) {
+		this.mvAgelimit = mvAgelimit;
 	}
 
-	public String getMv_summary() {
-		return mv_summary;
+	public String getMvSummary() {
+		return mvSummary;
 	}
 
-	public void setMv_summary(String mv_summary) {
-		this.mv_summary = mv_summary;
+	public void setMvSummary(String mvSummary) {
+		this.mvSummary = mvSummary;
 	}
 
-	public String getMv_nation() {
-		return mv_nation;
+	public int getMvNation() {
+		return mvNation;
 	}
 
-	public void setMv_nation(String mv_nation) {
-		this.mv_nation = mv_nation;
+	public void setMvNation(int mvNation) {
+		this.mvNation = mvNation;
 	}
 
-	public String getMv_time() {
-		return mv_time;
+	public int getMvTime() {
+		return mvTime;
 	}
 
-	public void setMv_time(String mv_time) {
-		this.mv_time = mv_time;
+	public void setMvTime(int mvTime) {
+		this.mvTime = mvTime;
 	}
 
 	@Override
 	public String toString() {
-		return "MovieVO [mv_num=" + mv_num + ", mv_title=" + mv_title + ", mv_director=" + mv_director + ", mv_actor="
-				+ mv_actor + ", mv_genre=" + mv_genre + ", mv_released=" + mv_released + ", mv_agelimit=" + mv_agelimit
-				+ ", mv_summary=" + mv_summary + ", mv_nation=" + mv_nation + ", mv_time=" + mv_time + ", toString()="
+		return "MovieVO [mvNum=" + mvNum + ", mvTitle=" + mvTitle + ", mvDirector=" + mvDirector + ", mvActor="
+				+ mvActor + ", mvGenre=" + mvGenre + ", mvReleased=" + mvReleased + ", mvAgelimit=" + mvAgelimit
+				+ ", mvSummary=" + mvSummary + ", mvNation=" + mvNation + ", mvTime=" + mvTime + ", toString()="
 				+ super.toString() + "]";
 	}
-	
-	
+
 	
 }
