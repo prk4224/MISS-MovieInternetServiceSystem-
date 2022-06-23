@@ -11,6 +11,7 @@ public class MovieController {
 		
 	}
 	
+	// http://localhost:8081/miss/movie/main.do
 	@RequestMapping(value = "/main.do")
 	public String mainView() {
 		System.out.println("===================");
