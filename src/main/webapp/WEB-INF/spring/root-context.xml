@@ -65,7 +65,7 @@
     
     <!-- pointcut *Service : com.pcwk.ehr.user.service -->
     <aop:config>
-        <aop:pointcut expression="execution(* com.pcwk.ehr..service.*Impl.*(..))" id="txPointCut"/>
+        <aop:pointcut expression="execution(* com.pcwk.miss..service.*Impl.*(..))" id="txPointCut"/>
         <!-- 트랜잭션 처리를 위한 advice : advice+pointcut -->
         <aop:advisor advice-ref="txAdvice" 
                      pointcut-ref="txPointCut"/>

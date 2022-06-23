@@ -19,118 +19,27 @@
         </div>
         <div id="slideshow1">
             <ul class="slides1">
-                <li>
-                    <img src="${path}/resources/img/mov1.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="${path}/resources/img/mov2.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="${path}/resources/img/mov3.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="${path}/resources/img/mov4.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="${path}/resources/img/mov5.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="${path}/resources/img/mov6.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="${path}/resources/img/mov7.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
+            	<c:choose>
+            		<c:when test="${movieList.size() > 0}">
+            			<c:forEach var="vo" items="${movieList}">
+            				<li>
+			                    <img src="${path}/resources/img/mov1.jpg">
+			                    <div class="movie1">
+			                        <h3>${vo.mvTitle}</h3>
+			                    </div>
+			                    <div class="caption1">
+			                        <h1>${vo.mvTitle}</h1><br><br>
+			                        <h2>감독</h2><br>
+			                        <p>${vo.mvDirector}</p><br>
+			                        <h2>출연</h2><br>
+			                        <p>${vo.mvActor}</p><br>
+			                        <h2>런닝타임</h2>
+			                        <p>${vo.mvTime}분</p>
+			                    </div>
+			                </li>
+            			</c:forEach>
+            		</c:when>
+            	</c:choose>
                 <li>
                     <img src="${path}/resources/img/mov8.jpg">
                     <div class="movie1">

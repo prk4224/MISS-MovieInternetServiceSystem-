@@ -33,11 +33,12 @@ public class MovieVO extends DTO {
 	private String mvSummary; //줄거리
 	private int mvNation; //국가(국내영화1, 해외영화2)
 	private int mvTime; //러닝타임
+	private int mvOn; //상영여부(상영종료 0, 상영중 1, 상영예정 2)
 	
 	public MovieVO() {}
 
 	public MovieVO(int mvNum, String mvTitle, String mvDirector, String mvActor, String mvGenre, String mvReleased,
-			int mvAgelimit, String mvSummary, int mvNation, int mvTime) {
+			int mvAgelimit, String mvSummary, int mvNation, int mvTime, int mvOn) {
 		super();
 		this.mvNum = mvNum;
 		this.mvTitle = mvTitle;
@@ -49,6 +50,7 @@ public class MovieVO extends DTO {
 		this.mvSummary = mvSummary;
 		this.mvNation = mvNation;
 		this.mvTime = mvTime;
+		this.mvOn = mvOn;
 	}
 
 	public int getMvNum() {
@@ -130,14 +132,24 @@ public class MovieVO extends DTO {
 	public void setMvTime(int mvTime) {
 		this.mvTime = mvTime;
 	}
+	
+	public int getMvOn() {
+		return mvOn;
+	}
+
+	public void setMvOn(int mvOn) {
+		this.mvOn = mvOn;
+	}
 
 	@Override
 	public String toString() {
 		return "MovieVO [mvNum=" + mvNum + ", mvTitle=" + mvTitle + ", mvDirector=" + mvDirector + ", mvActor="
 				+ mvActor + ", mvGenre=" + mvGenre + ", mvReleased=" + mvReleased + ", mvAgelimit=" + mvAgelimit
-				+ ", mvSummary=" + mvSummary + ", mvNation=" + mvNation + ", mvTime=" + mvTime + ", toString()="
-				+ super.toString() + "]";
+				+ ", mvSummary=" + mvSummary + ", mvNation=" + mvNation + ", mvTime=" + mvTime + ", mvOn=" + mvOn
+				+ ", toString()=" + super.toString() + "]";
 	}
+
+	
 
 	
 }
