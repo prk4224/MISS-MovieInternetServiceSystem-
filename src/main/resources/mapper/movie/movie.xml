@@ -15,6 +15,7 @@
         <result property="mvTime"     column="mv_time"/>
         <result property="mvOn"     column="mv_on"/>
     </resultMap>
+    
 	<select id="getAll" resultMap="movieResultMap">
 	    SELECT 
 	       mv_num,                                             
@@ -31,5 +32,12 @@
 		FROM movie
 		WHERE mv_on = 1
     </select>
-
+	
+	<select id="getPoster" parameterType="int" resultType="String">
+		SELECT i.im_route
+		FROM movie m, image i
+		WHERE m.mv_num = i.mv_num
+		AND i.mv_seq = 1
+		AND m.mv_num = #{mvNum}
+	</select>
 </mapper>

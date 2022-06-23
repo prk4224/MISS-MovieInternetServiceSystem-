@@ -23,7 +23,7 @@
             		<c:when test="${movieList.size() > 0}">
             			<c:forEach var="vo" items="${movieList}">
             				<li>
-			                    <img src="${path}/resources/img/mov1.jpg">
+			                    <img src="${vo.mvSummary}">
 			                    <div class="movie1">
 			                        <h3>${vo.mvTitle}</h3>
 			                    </div>
@@ -40,22 +40,6 @@
             			</c:forEach>
             		</c:when>
             	</c:choose>
-                <li>
-                    <img src="${path}/resources/img/mov8.jpg">
-                    <div class="movie1">
-                        <h3>마녀</h3>
-                    </div>
-                    <div class="caption1">
-                        <h1>마녀</h1><br><br>
-                        <h2>배우</h2>
-                        <p>~~~~~~</p><br>
-                        <h2>상영시간</h2>
-                        <p>09:00 10:00</p>
-                        <p>11:00 12:00</p><br>
-                        <h2>런닝타임</h2>
-                        <p>120분</p>
-                    </div>
-                </li>
             </ul>
             <p class="controller">
                 <span class="prev" id="prev1">&lang;</span>

@@ -3,6 +3,7 @@ SELECT * FROM IMAGE;
 DESC IMAGE;
 
 -- 일단 포스터만 넣어둠 10개
+-- cgv또는 movie-phinf에서 따온 이미지만 사용! 다른곳은 액박뜸
 INSERT INTO IMAGE
 VALUES(1, 1, 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000084/84949/84949_1000.jpg');
 
@@ -19,7 +20,7 @@ INSERT INTO IMAGE
 VALUES(1, 5, 'https://img.cgv.co.kr/Movie/Thumbnail/StillCut/000084/84949/84949198138_727.jpg');
 
 INSERT INTO IMAGE
-VALUES(2, 1, 'https://movie.naver.com/movie/bi/mi/photoViewPopup.naver?movieCode=196367');
+VALUES(2, 1, 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85871/85871_1000.jpg');
 
 INSERT INTO IMAGE
 VALUES(3, 1, 'https://movie-phinf.pstatic.net/20220511_189/1652251073330PXNoG_JPEG/movie_image.jpg?type=m203_290_2');

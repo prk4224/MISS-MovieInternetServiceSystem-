@@ -38,6 +38,11 @@ public class MovieDaoImpl implements MovieDao {
 		list = this.sqlSessionTemplate.selectList(statement);
 		for(MovieVO vo : list) {
 			LOG.debug("vo : " + vo.toString());
+//			LOG.debug("vo.getMvNum" + vo.getMvNum());
+			statement = "";
+			statement = this.NAMESPACE + ".getPoster";
+			String poster = this.sqlSessionTemplate.selectOne(statement, vo.getMvNum());
+			vo.setMvSummary(poster);
 		}
 		return list;
 	}

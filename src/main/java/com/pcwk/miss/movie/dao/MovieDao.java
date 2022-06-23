@@ -12,4 +12,6 @@ public interface MovieDao {
 	 * @return List<MovieVO>
 	 */
 	List<MovieVO> getAll();
+	
+	
 }
