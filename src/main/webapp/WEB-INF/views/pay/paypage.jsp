@@ -11,6 +11,16 @@
  <script src="${path}/resources/js/jquery-1.12.4.js"></script>
 
 	<title>Miss</title>
+	
+	<script type="text/javascript">
+      $(document).ready(function(){
+        console.log("document.ready");  
+      
+        
+      });
+
+      
+    </script>
 </head>
 <body>
 <<header>

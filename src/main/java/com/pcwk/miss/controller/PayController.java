@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.pcwk.miss.pay.KakaoPay;
+
 
 
 /**
@@ -55,6 +57,32 @@ public class PayController {
 		LOG.debug("==================");
 		return "pay/paycomplate";
 	}
+	
+	@Autowired
+    private KakaoPay kakaopay;
+    
+    
+    @GetMapping("/kakaoPay.do")
+    public void kakaoPayGet() {
+        
+    }
+    
+    @PostMapping("/kakaoPay.do")
+    public String kakaoPay() {
+        LOG.debug("kakaoPay post............................................");
+        
+        return "redirect:" + kakaopay.kakaoPayReady();
+ 
+    }
+    
+    @GetMapping("/kakaoPaySuccess")
+    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
+    	LOG.debug("kakaoPaySuccess get............................................");
+    	LOG.debug("kakaoPaySuccess pg_token : " + pg_token);
+        
+        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
+        
+    }
 	
 	
 
