@@ -42,6 +42,14 @@ public class PayController {
 	
 	final Logger LOG = LogManager.getLogger(getClass());
 	
+	@RequestMapping(value = "/reserve.do")
+	public String reserveView() {
+		LOG.debug("==================");
+		LOG.debug("=PayController=reserveView()=");
+		LOG.debug("==================");
+		return "pay/reserve";
+	}
+	
 	@RequestMapping(value = "/paying.do")
 	public String payView() {
 		LOG.debug("==================");
@@ -83,7 +91,4 @@ public class PayController {
         model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
         
     }
-	
-	
-
 }
