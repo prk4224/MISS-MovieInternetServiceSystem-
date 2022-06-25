@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.pcwk.miss.cmn.DTO;
+import com.pcwk.miss.cmn.SearchVO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
@@ -142,6 +144,21 @@ public class MovieDaoImpl implements MovieDao {
 		LOG.debug("flag : " + flag);
 		
 		return flag;
+	}
+
+	@Override
+	public List<MovieReviewVO> reviewRetrieve(DTO dto) {
+		SearchVO inVO = (SearchVO)dto;
+		String statement = this.NAMESPACE + ".reviewRetrieve";
+		LOG.debug("============================");
+		LOG.debug("param:" + dto.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("============================");
+		List<MovieReviewVO> list = sqlSessionTemplate.selectList(statement, inVO);
+		for(MovieReviewVO vo : list) {
+			LOG.debug("vo : " + vo);
+		}
+		return list;
 	}
 
 }

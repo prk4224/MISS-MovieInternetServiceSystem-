@@ -2,6 +2,7 @@ package com.pcwk.miss.movie.dao;
 
 import java.util.List;
 
+import com.pcwk.miss.cmn.DTO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
@@ -58,5 +59,12 @@ public interface MovieDao {
 	 * @return
 	 */
 	int reviewAdd(MovieReviewVO inVO);
+	
+	/**
+	 * 리뷰 목록조회(페이징)
+	 * @param dto
+	 * @return
+	 */
+	List<MovieReviewVO> reviewRetrieve(DTO dto);
 	
 }

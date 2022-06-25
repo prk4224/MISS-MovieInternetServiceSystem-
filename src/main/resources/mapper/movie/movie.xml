@@ -147,4 +147,36 @@
 		    #{mvNum}
 		)
 	</insert>
+	
+	<!-- 리뷰 PAGING -->
+	<select id="reviewRetrieve" parameterType="SearchVO" resultType="MovieReviewVO">
+		<![CDATA[
+		SELECT A.*, B.*
+		FROM 
+		    (SELECT TT1.mv_num AS mvNum,
+		        TT1.r_num AS rNum,
+		        TT1.mb_nickname AS mbNickname,
+		        TT1.r_review AS rReview,
+		        TT1.r_rating AS rRating
+		    FROM(
+		        SELECT ROWNUM AS rno,
+		            T1.*
+		        FROM(
+		            SELECT
+		                mv_num,
+		                r_num,
+		                mb_nickname,
+		                r_review,
+		                r_rating
+		            FROM review
+		        )T1
+		        WHERE ROWNUM <= #{pageSize} * (#{pageNum} - 1) + #{pageSize}
+		    )TT1
+		    WHERE TT1.rno >= (#{pageSize} * (#{pageNum} - 1) + 1)
+		    )A
+		CROSS JOIN
+		(SELECT COUNT(*) AS totalCnt
+		FROM review)B
+		]]>
+	</select>
 </mapper>

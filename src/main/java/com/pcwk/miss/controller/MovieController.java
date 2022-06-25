@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.pcwk.miss.cmn.MessageVO;
+import com.pcwk.miss.cmn.SearchVO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.MovieReviewVO;
@@ -52,7 +53,7 @@ public class MovieController {
 		return "movie/main";
 	}
 	
-	// http://localhost:8081/miss/movie/movie_detail.do?mvNum=2
+	// http://localhost:8081/miss/movie/movie_detail.do?mvNum=1
 	@RequestMapping(value = "/movie_detail.do", method=RequestMethod.GET)
 	public String movieDetailView(HttpServletRequest request, Model model) {
 		System.out.println("===================");
@@ -94,6 +95,31 @@ public class MovieController {
 		LOG.debug("====================");
 		LOG.debug("=jsonString=" + jsonString);
 		LOG.debug("====================");
+		
+		return jsonString;
+	}
+	
+	@RequestMapping(value = "/reviewRetrieve.do", method = RequestMethod.GET
+			, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String reviewRetrieve(SearchVO inVO) throws SQLException{
+		String jsonString = "";
+		LOG.debug("====================");
+		LOG.debug("=inVO=" + inVO);
+		LOG.debug("====================");
+		
+		LOG.debug("====================");
+		LOG.debug("=inVO=" + inVO);
+		LOG.debug("====================");
+		
+		List<MovieReviewVO> list = movieService.reviewRetrieve(inVO);
+		Gson gson = new Gson();
+		jsonString = gson.toJson(list);
+		
+		LOG.debug("====================");
+		LOG.debug("=jsonString=" + jsonString);
+		LOG.debug("====================");
+		
 		
 		return jsonString;
 	}

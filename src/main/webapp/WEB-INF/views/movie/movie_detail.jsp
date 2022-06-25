@@ -10,6 +10,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="${CP_RES}/css/movie_detail.css">
 <title>MISS 영화 상세 화면</title>
+<!-- 부트스트랩 -->
+<link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="${CP_RES}/js/jquery-1.12.4.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
@@ -17,6 +19,7 @@
 <script src="${CP_RES}/js/eUtil.js"></script>
 <!-- 사용자 정의 function, callAjax -->
 <script src="${CP_RES}/js/eclass.js"></script>
+<script src="${CP_RES}/js/bootstrap.min.js"></script>
 <!-- jquery_bootstrap paging -->
 <script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
 </head>
@@ -120,17 +123,20 @@
                     <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)">
                 </form>
                 	<input type="submit" value="작성완료" id="add">
-                <table>
-                    <tr>
-                        <th>순번</th>
-                        <th>닉네임</th>
-                        <th>한줄평</th>
-                        <th>별점</th>
-                        <th>좋아요</th>
-                    </tr>
+                <table id="movie_table">
+                	<thead>
+	                    <tr>
+	                        <th>순번</th>
+	                        <th>닉네임</th>
+	                        <th>한줄평</th>
+	                        <th>별점</th>
+	                        <th>좋아요</th>
+	                    </tr>
+                    </thead>
+                    <tbody>
                     <c:choose>
                     	<c:when test="${rvList.size() > 0}">
-                    		<c:forEach var="rv" items="${rvList}">
+                    		<c:forEach var="rv" items="${rvList}" end="4">
                     			<tr>
 			                        <td>${rv.rNum}</td>
 			                        <td>${rv.mbNickname}</td>
@@ -141,8 +147,14 @@
                     		</c:forEach>
                     	</c:when>
                     </c:choose>
+                    </tbody>
                 </table><br>
-                <div style="text-align: center; word-spacing: 30px;"><< < 1 2 3 4 5 > >></div>
+<!--                 <div style="text-align: center; word-spacing: 30px;"><< < 1 2 3 4 5 > >></div> -->
+            	<div class="text-center">
+		            <div class="text-center col-sm-12 col-md-12 col-lg-12">
+		                <div id="page-selection" class="text-center page"></div>
+		            </div>
+		        </div>
             </div>
         </div>
     </div>
@@ -154,6 +166,97 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			console.log("ready!!");
+			
+			reviewRetrieve(1);
+			renderingPage('${pageTotal}', 1);
+			
+			//페이징
+        	//pageTotal : 총 페이지 수
+        	//page : 현재페이지
+			function renderingPage(pageTotal, page){
+				console.log("pageTotal : " + pageTotal);
+        		console.log("page : " + page);
+        		
+        		//pageTotal을 int로 변환
+        		pageTotal = parseInt(pageTotal);
+        		
+        		//이전 연결된 EventHandler 제거
+        		$('#page-selection').unbind('page');
+        		$('#page-selection').bootpag({
+        		    total: pageTotal,
+        		    page: page,
+        		    maxVisible: 10,
+        		    leaps: true,
+        		    firstLastUse: true,
+        		    first: '←',
+        		    last: '→',
+        		    wrapClass: 'pagination',
+        		    activeClass: 'active',
+        		    disabledClass: 'disabled',
+        		    nextClass: 'next',
+        		    prevClass: 'prev',
+        		    lastClass: 'last',
+        		    firstClass: 'first'
+        		}).on("page", function(event, num){
+        			console.log("num : " + num);
+        			reviewRetrieve(num);
+        		}); 
+			}
+			
+			//리뷰조회
+			function reviewRetrieve(page){
+				console.log(reviewRetrieve);
+				let url = "${CP}/movie/reviewRetrieve.do";
+				let method = "GET";
+				let async = true;
+				let parameters = {
+					pageSize : 5,
+					pageNum : page	
+				};
+				
+				EClass.callAjax(url, parameters, method, async, function(data) {
+					console.log("EClas.Ajax data : " + data);
+					let parsedData = data;
+					
+					//1.
+					$("#movie_table > tbody").empty();
+					let htmlData = "";
+					
+					let totalCnt = 0; //총 글수
+					let pageTotal = 1; //총 페이지수
+					
+					//데이터가 있는 경우
+					if(parsedData != null && parsedData.length > 0){
+						totalCnt = parsedData[0].totalCnt;
+						console.log("totalCnt : " + totalCnt);
+						
+						pageTotal = Math.ceil(totalCnt / 5);
+						console.log("pageTotal : " + pageTotal);
+						$.each(parsedData, function(i, value) {
+							console.log(i + ": " + value.mbNickname);
+							htmlData += "<tr>                                                           ";
+                            htmlData += "   <td>" + value.rNum +                                 "</td>";
+                            htmlData += "   <td>" + value.mbNickname +                            "</td>";
+                            htmlData += "   <td>" + value.rReview +                               "</td>";
+                            htmlData += "   <td>" + value.rRating +                               "</td>";
+                            htmlData += '   <td class="like1 on"><img src="${CP_RES}/img/like.JPG"></td>';
+                            htmlData += "</tr>                                                          ";
+						});
+					}else{
+						htmlData += "<tr><td>첫 리뷰를 작성해주세요~</td></tr>"
+					}
+					console.log("htmlData : " + htmlData);
+					
+					//2.
+					$("#movie_table > tbody").append(htmlData);
+					
+					//기존 페이징 지우기
+                    $("#page-selection").empty();
+					
+                  	//paging호출
+                    renderingPage(pageTotal, page);
+				})
+			}
 			
 			//등록
 			$("#add").on("click", function(){
@@ -194,6 +297,7 @@
 						alert(data.msgContents);
 					}
 				})
+				reviewRetrieve(1);
 			});
 		});
 	</script>

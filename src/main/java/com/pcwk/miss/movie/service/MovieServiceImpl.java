@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pcwk.miss.cmn.DTO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
@@ -61,6 +62,11 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public int reviewAdd(MovieReviewVO inVO) {
 		return movieDao.reviewAdd(inVO);
+	}
+
+	@Override
+	public List<MovieReviewVO> reviewRetrieve(DTO dto) {
+		return movieDao.reviewRetrieve(dto);
 	}
 
 }

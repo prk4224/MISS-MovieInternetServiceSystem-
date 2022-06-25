@@ -27,5 +27,6 @@ INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, '스파이더맨 3명 나와서 진짜 갬동쓰ㅠ', 'nickname6', 1);
 
 INSERT INTO REVIEW
-VALUES(review_num_seq.NEXTVAL, 5, '재밌었고 또 보고 싶어요', 'nickname1', 1);
+VALUES(review_num_seq.NEXTVAL, 5, '재밌었고 또 보고 싶어요', 'nickname1', 2);
+
 COMMIT;

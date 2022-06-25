@@ -15,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.pcwk.miss.cmn.SearchVO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
@@ -37,6 +38,7 @@ public class JUnitMovieDaoTest {
 	@Autowired
 	MovieDao dao;
 	MovieVO movie1;
+	SearchVO searchVO;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -44,11 +46,15 @@ public class JUnitMovieDaoTest {
 		LOG.debug("=0.setUp()=");
 		LOG.debug("========================");
 		
+		searchVO = new SearchVO(5, 1, "", "");
+				
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
 		
 		assertNotNull(context);
 		assertNotNull(dao);
+		
+		
 	}
 
 	@Test
@@ -113,8 +119,19 @@ public class JUnitMovieDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void addReviewTest() {
 		MovieReviewVO inVO = new MovieReviewVO(1, 0, "ADMIN02", "TEST_REVIE02", 5);
 		dao.reviewAdd(inVO);
+	}
+	
+	@Test
+	public void reviewRetrieveTest() {
+//		searchVO.setPageNum(1);
+//		searchVO.setPageSize(5);
+		List<MovieReviewVO> list = dao.reviewRetrieve(searchVO);
+		for(MovieReviewVO vo : list) {
+			LOG.debug("=== vo ===" + vo);
+		}
 	}
 }
