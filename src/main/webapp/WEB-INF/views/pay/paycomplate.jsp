@@ -20,7 +20,7 @@
         <img src="${path}/resources/img/witch.jpeg">
     </div>
 
-    <div id = "movie_comimp">
+     <div id = "movie_comimp">
 
         <div id = "qua_age">
             <div id = "quality">화질</div>
@@ -28,10 +28,15 @@
         </div>
 
         <div >
-            <div id = "movie_title">영화제목</div>
-            <div id = "w_time">관람 시간</div>
-            <div id = "pay_num">결제번호</div>
-            <div id = "precaution">주의사항</div>
+            <div id = "movie_title">
+                <div style="font-size: 1.5vmax;">영화제목 </div>
+                <div>감독 : 배우 : </div>
+            </div>
+            <div id = "w_time">관람 시간 : </div>
+            <div id = "pay_num">결제번호 : </div>
+            <div id = "precaution">
+                <div>주의사항 ! </div>
+            </div>
 
         </div>
         

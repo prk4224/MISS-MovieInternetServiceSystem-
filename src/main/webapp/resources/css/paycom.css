@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 
 * {
     margin: 0;
@@ -15,10 +13,11 @@ header {
 h2 {
     margin-top: 3%;
     margin-left: 40%;
+    font-size: 2vmax;
 }
 
 #post {
-    background-color: dimgray;
+    
     float: left;
     margin-top: 3%;
     margin-left: 10%;
@@ -27,12 +26,14 @@ h2 {
 }
 
 #movie_comimp {
-    background-color: rgb(23, 0, 156);
+    
     margin-top: 3%;
     margin-left: 50%;
 
     width: 40vw;
     height: 50vmax;
+    border: 4px solid black;
+    border-radius: 1.5vmax;
 }
 
 img {
@@ -42,63 +43,70 @@ img {
 
 
 #quality {
-    background-color: rgb(255, 255, 255);
     float: left;
     margin-top: 3%;
     margin-left: 3%;
     text-align: center;
     height: 3vmax;
     width: 20%;
+    border: 2px solid black;
     
 }
 
 #age_limit {
-    background-color: rgb(255, 255, 255);
+    
     margin-top: 3%;
     margin-right: 3%;
     float: right;
     text-align: center;
     height: 3vmax;
     width: 20%;
+    border: 2px solid black;
 }
 
 
 #movie_title {
     
-    background-color: rgb(99, 99, 99);
+   
     float: left;
     margin-top: 5%;
     margin-left: 10%;
     height: 5vmax;
     width: 80%;
+    border: 2px solid black;
     
 }
 
 #w_time {
-    background-color: rgb(110, 0, 0);
+    
     float: left;
     margin-top: 3%;
     margin-left: 10%;
     height: 5vmax;
     width: 80%;
+    border: 2px solid black;
 }
 
 #pay_num {
-    background-color: rgb(94, 94, 94);
+    
     float: left;
     margin-top: 3%;
     margin-left: 10%;
     height: 5vmax;
     width: 80%;
+    border: 2px solid black;
 }
 
 #precaution {
-    background-color: rgb(110, 0, 0);
+    
     float: left;
     margin-top: 3%;
     margin-left: 10%;
     height: 20vmax;
     width: 80%;
+    border: 2px solid black;
+    overflow: scroll;
+
 }
 
 button {

@@ -59,10 +59,16 @@ public class PayController {
 	}
 	
 	@RequestMapping(value = "/paycom.do")
-	public String paycomView() {
+	public String paycomView(@RequestParam("pg_token") String pg_token, Model model) {
 		LOG.debug("==================");
 		LOG.debug("=PayController=paycomView()=");
 		LOG.debug("==================");
+		
+		LOG.debug("kakaoPaySuccess get............................................");
+    	LOG.debug("kakaoPaySuccess pg_token : " + pg_token);
+        
+        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
+		
 		return "pay/paycomplate";
 	}
 	
@@ -83,12 +89,9 @@ public class PayController {
  
     }
     
-    @GetMapping("/kakaoPaySuccess")
-    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
-    	LOG.debug("kakaoPaySuccess get............................................");
-    	LOG.debug("kakaoPaySuccess pg_token : " + pg_token);
-        
-        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
-        
-    }
+//    @GetMapping("/kakaoPaySuccess")
+//    public void kakaoPaySuccess{
+//    	
+//        
+//    }
 }
