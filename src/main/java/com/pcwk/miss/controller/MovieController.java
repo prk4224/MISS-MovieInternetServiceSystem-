@@ -2,6 +2,8 @@ package com.pcwk.miss.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcwk.miss.domain.MovieVO;
+import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
+import com.pcwk.miss.movie.domain.StillCutVO;
 import com.pcwk.miss.movie.domain.WatchMovieVO;
 import com.pcwk.miss.movie.service.MovieService;
 
@@ -43,12 +48,20 @@ public class MovieController {
 		return "movie/main";
 	}
 	
-	// http://localhost:8081/miss/movie/movie_detail.do
-	@RequestMapping(value = "/movie_detail.do")
-	public String movieDetailView() {
+	// http://localhost:8081/miss/movie/movie_detail.do?mvNum=2
+	@RequestMapping(value = "/movie_detail.do", method=RequestMethod.GET)
+	public String movieDetailView(HttpServletRequest request, Model model) {
 		System.out.println("===================");
 		System.out.println("=MissController=movieDetailView()=");
+		System.out.println("=param=" + request.getParameter("mvNum"));
 		System.out.println("===================");
+		
+		int mvNum = Integer.parseInt(request.getParameter("mvNum"));
+		MovieDetailVO outVO = movieService.getMovieDetail(mvNum);
+		List<StillCutVO> scList = movieService.getStillCut(mvNum);
+		
+		model.addAttribute("detailVO", outVO);
+		model.addAttribute("scList", scList);
 		return "movie/movie_detail";
 	}
 	

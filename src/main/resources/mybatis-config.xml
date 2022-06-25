@@ -11,5 +11,7 @@
     	<typeAlias type="com.pcwk.miss.movie.domain.NowPlayingVO" alias="NowPlayingVO"/>
     	<typeAlias type="com.pcwk.miss.movie.domain.PlayingSoonVO" alias="PlayingSoonVO"/>
     	<typeAlias type="com.pcwk.miss.movie.domain.WatchMovieVO" alias="WatchMovieVO"/>
+    	<typeAlias type="com.pcwk.miss.movie.domain.MovieDetailVO" alias="MovieDetailVO"/>
+    	<typeAlias type="com.pcwk.miss.movie.domain.StillCutVO" alias="StillCutVO"/>
     </typeAliases>
 </configuration>

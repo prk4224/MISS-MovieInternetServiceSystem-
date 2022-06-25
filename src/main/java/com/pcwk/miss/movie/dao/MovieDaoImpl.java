@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pcwk.miss.domain.MovieVO;
+import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
+import com.pcwk.miss.movie.domain.StillCutVO;
 import com.pcwk.miss.movie.domain.WatchMovieVO;
 
 @Repository("movieDao")
@@ -72,6 +74,38 @@ public class MovieDaoImpl implements MovieDao {
 		LOG.debug("============================");
 		
 		outVO = this.sqlSessionTemplate.selectOne(statement, inVO);
+		LOG.debug("============================");
+		LOG.debug("=outVO=" + outVO.toString());
+		LOG.debug("============================");
+		return outVO;
+	}
+
+	@Override
+	public MovieDetailVO getMovieDetail(int mvNum) {
+		MovieDetailVO outVO = null;
+		
+		String statement = this.NAMESPACE + ".getMovieDetail";
+		LOG.debug("============================");
+		LOG.debug("statement:" + statement);
+		LOG.debug("============================");
+		
+		outVO = this.sqlSessionTemplate.selectOne(statement, mvNum);
+		LOG.debug("============================");
+		LOG.debug("=outVO=" + outVO.toString());
+		LOG.debug("============================");
+		return outVO;
+	}
+
+	@Override
+	public List<StillCutVO> getStillCut(int mvNum) {
+		List<StillCutVO> outVO = null;
+		
+		String statement = this.NAMESPACE + ".getStillCut";
+		LOG.debug("============================");
+		LOG.debug("statement:" + statement);
+		LOG.debug("============================");
+		
+		outVO = this.sqlSessionTemplate.selectList(statement, mvNum);
 		LOG.debug("============================");
 		LOG.debug("=outVO=" + outVO.toString());
 		LOG.debug("============================");

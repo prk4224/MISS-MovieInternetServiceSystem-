@@ -63,4 +63,53 @@
 		AND mi_quality = #{miQuality}
 		AND ROWNUM = 1
 	</select>
+	
+	<resultMap type="MovieDetailVO" id="MovieDetailMap">
+		<id property="mvNum" column="mv_num"/>
+		<result property="mvTitle" column="mv_title"/>
+		<result property="mvDirector" column="mv_director"/>
+		<result property="mvActor" column="mv_actor"/>
+		<result property="mvGenre" column="mv_genre"/>
+		<result property="mvReleased" column="mv_released"/>
+		<result property="mvAgelimit" column="mv_agelimit"/>
+		<result property="mvSummary" column="mv_summary"/>
+		<result property="mvNation" column="mv_nation"/>
+		<result property="mvTime" column="mv_time"/>
+		<result property="mvOn" column="mv_on"/>
+		<result property="imRoute" column="im_route"/>
+	</resultMap>
+	
+	<select id="getMovieDetail" parameterType="int" resultMap="MovieDetailMap">
+		SELECT t1.mv_num,
+		    t1.mv_title,
+		    t1.mv_director,
+		    t1.mv_actor,
+		    t1.mv_genre,
+		    TO_CHAR(t1.mv_released, 'YYYY-MM-DD') AS mv_released,
+		    t1.mv_agelimit,
+		    t1.mv_summary,
+		    t1.mv_nation,
+		    t1.mv_time,
+		    t1.mv_on,
+		    t2.im_route
+		FROM movie t1, image t2
+		WHERE t1.mv_num = t2.mv_num
+		AND t2.mv_seq = 1
+		AND t1.mv_num = #{mvNum}
+	</select>
+	
+	<resultMap type="StillCutVO" id="StillCutMap">
+		<id property="mvNum" column="mv_num"/>
+		<result property="mvSeq" column="mv_seq"/>
+		<result property="imRoute" column="im_route"/>
+	</resultMap>
+	
+	<select id="getStillCut" parameterType="int" resultMap="StillCutMap">
+	    SELECT mv_num,
+		    mv_seq,
+		    im_route
+		FROM image
+		WHERE mv_seq NOT IN 1
+		AND mv_num = #{mvNum}
+	</select>
 </mapper>

@@ -16,7 +16,7 @@
     <div id="contents">
         <div id="left">
             <div id="poster">
-                <img src="${path}/resources/img/mov1.jpg">
+                <img src="${detailVO.imRoute}">
             </div>
             <div id="stat">
                 <!-- 통계영역(별점, 예매율, 연령별예매분포) -->
@@ -28,43 +28,64 @@
         <div id="right">
             <input type="button" value="예매하기">
             <div id="detail">
-                <h1>마녀 Part2. The Other One</h1><br>
-                <p>감독 : 박훈정</p><br>
-                <p>배우 : 신시아, 서은수, 진구</p><br>
-                <p>장르 : 액션</p><br>
-                <p>15세 이상 관람가</p><br>
-                <p>러닝타임 : 137분</p><br>
-                <p>국내영화</p><br>
-                <p>2022.06.15 개봉</p><br>
-                <p>통제불능의 존재가 세상 밖으로 나왔다!<br>
-                ‘자윤’이 사라진 뒤, 정체불명의 집단의 무차별 습격으로 마녀 프로젝트가 진행되고 있는 ‘아크’가 초토화된다.
-                그곳에서 홀로 살아남은 ‘소녀’는 생애 처음 세상 밖으로 발을 내딛고
-                우연히 만난 ‘경희’의 도움으로 농장에서 지내며 따뜻한 일상에 적응해간다.
-                한편, ‘소녀’가 망실되자 행방을 쫓는 책임자 ‘장’과
-                마녀 프로젝트의 창시자 ‘백총괄’의 지령을 받고 제거에 나선 본사 요원 ‘조현’,
-                ‘경희’의 농장 소유권을 노리는 조직의 보스 ‘용두’와
-                상해에서 온 의문의 4인방까지
-                각기 다른 목적을 지닌 세력이 하나 둘 모여들기 시작하면서 ‘소녀’ 안에 숨겨진 본성이 깨어나는데…<br>
-                모든 것의 시작,
-                더욱 거대하고 강력해진 마녀가 온다.</p>
+                <h1>${detailVO.mvTitle}</h1><br>
+                <p>감독 : ${detailVO.mvDirector}</p><br>
+                <p>배우 : ${detailVO.mvActor}</p><br>
+                <p>장르 : ${detailVO.mvGenre}</p><br>
+                <p>
+                	<c:set var="agelimit" value="${detailVO.mvAgelimit}"/>
+                	<c:choose>
+	                	<c:when test="${agelimit == 1}">
+	                		전체 이용 관람가
+	                	</c:when>
+	                	<c:otherwise>
+	                		${agelimit}세 이상 관람가
+	                	</c:otherwise>
+                	</c:choose>
+                </p><br>
+                <p>러닝타임 : ${detailVO.mvTime}분</p><br>
+                <p>
+                	<c:set var="nation" value="${detailVO.mvNation}"/>
+                	<c:choose>
+	                	<c:when test="${nation == 1}">
+	                		국내영화
+	                	</c:when>
+	                	<c:otherwise>
+	                		해외영화
+	                	</c:otherwise>
+                	</c:choose>
+                </p><br>
+                <p>${detailVO.mvReleased} 개봉</p><br>
+                <p>
+                	<c:set var="on" value="${detailVO.mvOn}"/>
+                	<c:choose>
+	                	<c:when test="${on == 0}">
+	                		상영종료
+	                	</c:when>
+	                	<c:when test="${on == 1}">
+	                		상영중
+	                	</c:when>
+	                	<c:otherwise>
+	                		상영예정
+	                	</c:otherwise>
+                	</c:choose>
+                </p><br>
+                <p>${detailVO.mvSummary}</p>
             </div>
             
             <div id="moviecut">
                 <div id="movie">
                     <div id="slideshow">
                         <ul class="slides">
-                            <li>
-                                <img src="${path}/resources/img/cut1.jpg">
-                            </li>
-                            <li>
-                                <img src="${path}/resources/img/cut2.jpg">
-                            </li>
-                            <li>
-                                <img src="${path}/resources/img/cut3.jpg">
-                            </li>
-                            <li>
-                                <img src="${path}/resources/img/cut4.jpg">
-                            </li>
+                        	<c:choose>
+                        		<c:when test="${scList.size() > 0}">
+                        			<c:forEach var="sc" items="${scList}">
+                        				<li>
+			                                <img src="${sc.imRoute}">
+			                            </li>
+                        			</c:forEach>
+                        		</c:when>
+                        	</c:choose>
                         </ul>
                         <p class="controller">
                             <span class="prev" id="prev">&lang;</span>

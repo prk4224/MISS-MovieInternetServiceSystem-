@@ -17,8 +17,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
+import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
+import com.pcwk.miss.movie.domain.StillCutVO;
 import com.pcwk.miss.movie.domain.WatchMovieVO;
 
 @RunWith(SpringJUnit4ClassRunner.class) // JUnit기능을 스프링 프레임으로 확장
@@ -64,11 +66,31 @@ public class JUnitMovieDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void screenWatchMovieTest() {
 		WatchMovieVO inVO = new WatchMovieVO(7, "", 720, "");
 		WatchMovieVO outVO = dao.getWatchMovie(inVO);
 		LOG.debug("========================");
 		LOG.debug("=outVO=" + outVO);
 		LOG.debug("========================");
+	}
+	
+	@Test
+	public void movieDetailTest() {
+		MovieDetailVO outVO = null;
+		outVO = dao.getMovieDetail(4);
+		LOG.debug("========================");
+		LOG.debug("=outVO=" + outVO);
+		LOG.debug("========================");
+		LOG.debug("========================");
+		//줄거리 : 300 글자수제한
+		LOG.debug("outVO.Summary.length : " + outVO.getMvSummary().length());
+		LOG.debug("========================");
+		
+		List<StillCutVO> list = dao.getStillCut(1);
+		LOG.debug("========================");
+		LOG.debug("=list=" + list);
+		LOG.debug("========================");
+		assertEquals(4, list.size());
 	}
 }

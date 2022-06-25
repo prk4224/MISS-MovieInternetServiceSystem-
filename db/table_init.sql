@@ -264,7 +264,7 @@ ALTER TABLE Member
 
 /* 결제내역 */
 CREATE TABLE TICKET (
-	T_NUM NUMBER(10) NOT NULL, /* 결제번호 */
+	T_NUM VARCHAR2(100) NOT NULL, /* 결제번호 */
 	MB_NUM NUMBER(7) NOT NULL, /* 회원번호 */
 	T_PRICE NUMBER(6) NOT NULL, /* 결제금액 */
 	T_MEANS NUMBER(1) NOT NULL, /* 결제수단 */

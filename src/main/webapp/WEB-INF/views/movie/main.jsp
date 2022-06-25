@@ -24,6 +24,9 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="${CP_RES}/css/main.css">
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
+
 <title>MISS 메인화면</title>
 </head>
 <body>
@@ -45,6 +48,7 @@
 			                        <h3>${np.mvTitle}</h3>
 			                    </div>
 			                    <div class="caption1">
+			                    	<p style="visibility : hidden">${np.mvNum}</p>
 			                        <h1>${np.mvTitle}</h1><br><br>
 			                        <h2>감독</h2><br>
 			                        <p>${np.mvDirector}</p><br>
@@ -100,5 +104,20 @@
         푸터영역
     </div>
     <script src="${CP_RES}/js/main.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+	    console.log("document.ready");
+// 	    let chil = $(this).children().eq(2);
+//     	console.log(chil.children().eq(0).text());
+	    $(".slides1 li").on("click", function(){
+	    	// mvNum
+	    	let mvNum = $(this).children().eq(2).children().eq(0).text();
+	    	console.log(mvNum);
+	    	
+	    	location.href = "movie_detail.do?mvNum=" + mvNum;
+	    })
+	    
+	  });
+	</script>
 </body>
 </html>
