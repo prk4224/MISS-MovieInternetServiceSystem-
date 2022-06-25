@@ -61,7 +61,7 @@ window.onload = function() {
 }
 
 const like1 = document.querySelector('.like1');
-const like2 = document.querySelector('.like2');
+//const like2 = document.querySelector('.like2');
 
 like1.addEventListener('click', function(){
     
@@ -70,12 +70,12 @@ like1.addEventListener('click', function(){
     }else if(like1.getAttribute('class') == 'like1 off'){
         like1.setAttribute('class', 'like1 on');
     }
-})
-like2.addEventListener('click', function(){
-	
-	if(like2.getAttribute('class') == 'like2 on'){
-		like2.setAttribute('class', 'like2 off');
-	}else if(like2.getAttribute('class') == 'like2 off'){
-		like2.setAttribute('class', 'like2 on');
-	}
-})
+});
+//like2.addEventListener('click', function(){
+//	
+//	if(like2.getAttribute('class') == 'like2 on'){
+//		like2.setAttribute('class', 'like2 off');
+//	}else if(like2.getAttribute('class') == 'like2 off'){
+//		like2.setAttribute('class', 'like2 on');
+//	}
+//})

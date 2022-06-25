@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
 import com.pcwk.miss.movie.domain.StillCutVO;
@@ -42,4 +43,18 @@ public interface MovieService {
 	 * @return
 	 */
 	public List<StillCutVO> getStillCut(int mvNum);
+	
+	/**
+	 * 리뷰 전체조회
+	 * @param mvNum
+	 * @return
+	 */
+	public List<MovieReviewVO> getAllReview(int mvNum);
+	
+	/**
+	 * 리뷰 등록
+	 * @param inVO
+	 * @return
+	 */
+	public int reviewAdd(MovieReviewVO inVO);
 }

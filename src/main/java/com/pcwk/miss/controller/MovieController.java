@@ -1,5 +1,6 @@
 package com.pcwk.miss.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.pcwk.miss.cmn.MessageVO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
 import com.pcwk.miss.movie.domain.StillCutVO;
@@ -59,10 +63,39 @@ public class MovieController {
 		int mvNum = Integer.parseInt(request.getParameter("mvNum"));
 		MovieDetailVO outVO = movieService.getMovieDetail(mvNum);
 		List<StillCutVO> scList = movieService.getStillCut(mvNum);
+		List<MovieReviewVO> rvList = movieService.getAllReview(mvNum);
 		
 		model.addAttribute("detailVO", outVO);
 		model.addAttribute("scList", scList);
+		model.addAttribute("rvList", rvList);
 		return "movie/movie_detail";
+	}
+	
+	@RequestMapping(value = "/reviewAdd.do", method = RequestMethod.POST
+			,produces = "application/json;charset=UTF-8")
+	@ResponseBody //스프링에서 비동기 처리를 하는 경우, HTTP 요청의 본문 body부분이 전달된다.
+	public String reviewAdd(MovieReviewVO inVO) throws SQLException{
+		String jsonString = "";
+		LOG.debug("====================");
+		LOG.debug("=inVO=" + inVO);
+		LOG.debug("====================");
+		
+		int flag = movieService.reviewAdd(inVO);
+		String resultMessage = "";
+		
+		if(flag == 1) {
+			resultMessage += "등록완료";
+		}else {
+			resultMessage += "등록실패";
+		}
+		MessageVO message = new MessageVO(String.valueOf(flag), resultMessage);
+		Gson gson = new Gson();
+		jsonString = gson.toJson(message);
+		LOG.debug("====================");
+		LOG.debug("=jsonString=" + jsonString);
+		LOG.debug("====================");
+		
+		return jsonString;
 	}
 	
 	// http://localhost:8081/miss/movie/screen.do
@@ -82,6 +115,8 @@ public class MovieController {
 		model.addAttribute("movie", outVO);
 		return "movie/screen";
 	}
+	
+	
 	
 	
 }

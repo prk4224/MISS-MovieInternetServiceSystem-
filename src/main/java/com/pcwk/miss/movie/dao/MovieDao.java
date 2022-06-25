@@ -6,6 +6,7 @@ import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
+import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.StillCutVO;
 import com.pcwk.miss.movie.domain.WatchMovieVO;
 
@@ -43,4 +44,19 @@ public interface MovieDao {
 	 * @return
 	 */
 	List<StillCutVO> getStillCut(int mvNum);
+	
+	/**
+	 * 리뷰 전체조회
+	 * @param mvNum
+	 * @return
+	 */
+	List<MovieReviewVO> getAllReview(int mvNum);
+	
+	/**
+	 * 리뷰 등록
+	 * @param inVO
+	 * @return
+	 */
+	int reviewAdd(MovieReviewVO inVO);
+	
 }

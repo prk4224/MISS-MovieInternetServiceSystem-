@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
 import com.pcwk.miss.movie.domain.StillCutVO;
@@ -50,6 +51,16 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public List<StillCutVO> getStillCut(int mvNum) {
 		return movieDao.getStillCut(mvNum);
+	}
+
+	@Override
+	public List<MovieReviewVO> getAllReview(int mvNum) {
+		return movieDao.getAllReview(mvNum);
+	}
+
+	@Override
+	public int reviewAdd(MovieReviewVO inVO) {
+		return movieDao.reviewAdd(inVO);
 	}
 
 }

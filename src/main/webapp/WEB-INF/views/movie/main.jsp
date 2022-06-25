@@ -48,7 +48,7 @@
 			                        <h3>${np.mvTitle}</h3>
 			                    </div>
 			                    <div class="caption1">
-			                    	<p style="visibility : hidden">${np.mvNum}</p>
+			                    	<p style="display: none">${np.mvNum}</p>
 			                        <h1>${np.mvTitle}</h1><br><br>
 			                        <h2>감독</h2><br>
 			                        <p>${np.mvDirector}</p><br>

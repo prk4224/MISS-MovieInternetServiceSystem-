@@ -1,8 +1,8 @@
 /**
 * <pre>
-* com.pcwk.miss.domain
-* Class Name : TicketVO.java
-* Description:
+* com.pcwk.miss.movie.domain
+* Class Name : 
+* Description: 
 * Author: ITSC
 * Since: 2022/06/20
 * Version 0.1
@@ -18,10 +18,6 @@ package com.pcwk.miss.domain;
 
 import com.pcwk.miss.cmn.DTO;
 
-/**
- * @author ITSC
- *
- */
 public class ReviewVO extends DTO {
 	private int rNum; //리뷰순번
 	private int rRating; //별점
@@ -89,3 +85,4 @@ public class ReviewVO extends DTO {
 	}
 	
 }
+

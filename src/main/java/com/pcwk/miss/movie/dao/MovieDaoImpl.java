@@ -12,6 +12,7 @@ import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
+import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.StillCutVO;
 import com.pcwk.miss.movie.domain.WatchMovieVO;
 
@@ -110,6 +111,37 @@ public class MovieDaoImpl implements MovieDao {
 		LOG.debug("=outVO=" + outVO.toString());
 		LOG.debug("============================");
 		return outVO;
+	}
+
+	@Override
+	public List<MovieReviewVO> getAllReview(int mvNum) {
+		List<MovieReviewVO> list = null;
+		String statement = this.NAMESPACE + ".getAllReview";
+		LOG.debug("===========================");
+		LOG.debug("=statement : " + statement);
+		LOG.debug("===========================");
+		
+		list = sqlSessionTemplate.selectList(statement, mvNum);
+		for(MovieReviewVO vo : list) {
+			LOG.debug("vo : " + vo);
+		}
+		return list;
+	}
+
+	@Override
+	public int reviewAdd(MovieReviewVO inVO) {
+		int flag = 0;
+		
+		String statement = this.NAMESPACE + ".reviewAdd";
+		LOG.debug("============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("============================");
+		
+		flag = this.sqlSessionTemplate.insert(statement, inVO);
+		LOG.debug("flag : " + flag);
+		
+		return flag;
 	}
 
 }

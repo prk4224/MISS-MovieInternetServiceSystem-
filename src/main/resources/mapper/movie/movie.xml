@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.miss.movie">
-
+	
+	<!-- 현재상영중영화 조회 -->
 	<resultMap type="NowPlayingVO" id="NowPlayingMap">
 		<id property="mvNum" column="mv_num"/>
 		<result property="mvTitle" column="mv_title"/>
@@ -10,7 +11,6 @@
 		<result property="mvTime" column="mv_time"/>
 		<result property="imRoute" column="im_route"/>		
 	</resultMap>
-	
 	<select id="getAllNowPlaying" resultMap="NowPlayingMap">
 		SELECT t1.mv_num,
 		    t1.mv_title,
@@ -24,6 +24,7 @@
 		AND t1.mv_on = 1
 	</select>
 	
+	<!-- 상영임박영화 조회 -->
 	<resultMap type="PlayingSoonVO" id="PlayingSoonMap">
 		<id property="mvNum" column="mv_num"/>
 		<result property="miTime" column="mi_time"/>
@@ -31,7 +32,6 @@
 		<result property="mvTitle" column="mv_title"/>
 		<result property="imRoute" column="im_route"/>	
 	</resultMap>
-	
 	<select id="getAllPlayingSoon" resultMap = "PlayingSoonMap">
 		<![CDATA[
 		SELECT t1.mv_num,
@@ -49,13 +49,13 @@
 		]]>
 	</select>
 	
+	<!-- 영화상영 movieinfo조회 -->
 	<resultMap type="WatchMovieVO" id="WatchMovieMap">
 		<id property="mvNum" column="mv_num"/>
 		<result property="miTime" column="mi_time"/>
 		<result property="miQuality" column="mi_quality"/>
 		<result property="miVideo" column="mi_video"/>
 	</resultMap>
-	
 	<select id="getWatchMovie" parameterType="WatchMovieVO" resultMap="WatchMovieMap">
 		SELECT *
 		FROM movie_info
@@ -64,6 +64,7 @@
 		AND ROWNUM = 1
 	</select>
 	
+	<!-- 영화상세 영화정보 조회 -->
 	<resultMap type="MovieDetailVO" id="MovieDetailMap">
 		<id property="mvNum" column="mv_num"/>
 		<result property="mvTitle" column="mv_title"/>
@@ -78,7 +79,6 @@
 		<result property="mvOn" column="mv_on"/>
 		<result property="imRoute" column="im_route"/>
 	</resultMap>
-	
 	<select id="getMovieDetail" parameterType="int" resultMap="MovieDetailMap">
 		SELECT t1.mv_num,
 		    t1.mv_title,
@@ -98,12 +98,12 @@
 		AND t1.mv_num = #{mvNum}
 	</select>
 	
+	<!-- 영화상세 스틸컷 조회 -->
 	<resultMap type="StillCutVO" id="StillCutMap">
 		<id property="mvNum" column="mv_num"/>
 		<result property="mvSeq" column="mv_seq"/>
 		<result property="imRoute" column="im_route"/>
 	</resultMap>
-	
 	<select id="getStillCut" parameterType="int" resultMap="StillCutMap">
 	    SELECT mv_num,
 		    mv_seq,
@@ -112,4 +112,39 @@
 		WHERE mv_seq NOT IN 1
 		AND mv_num = #{mvNum}
 	</select>
+	
+	<!-- 리뷰조회 -->
+	<resultMap type="MovieReviewVO" id="GetAllReviewMap">
+		<id property="mvNum" column="mv_num"/>
+		<result property="rNum" column="r_num"/>
+		<result property="mbNickname" column="mb_nickname"/>
+		<result property="rReview" column="r_review"/>
+		<result property="rRating" column="r_rating"/>
+	</resultMap>
+	<select id="getAllReview" parameterType="int" resultMap="GetAllReviewMap">
+		SELECT mv_num,
+		    r_num,
+		    mb_nickname,
+		    r_review,
+		    r_rating
+		FROM review
+		WHERE mv_num = #{mvNum}
+	</select>
+	
+	<!-- 리뷰 등록 -->
+	<insert id="reviewAdd" parameterType="MovieReviewVO">
+		INSERT INTO review(
+		    r_num,
+		    r_rating,
+		    r_review,
+		    mb_nickname,
+		    mv_num
+		) VALUES (
+		    review_num_seq.NEXTVAL,
+		    #{rRating},
+		    #{rReview},
+		    #{mbNickname},
+		    #{mvNum}
+		)
+	</insert>
 </mapper>

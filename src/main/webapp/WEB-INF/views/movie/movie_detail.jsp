@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="CP" value="${pageContext.request.contextPath}"/>
+<c:set var="resources" value="/resources"/>
+<c:set var="CP_RES" value="${CP}${resources}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/movie_detail.css">
+<link rel="stylesheet" type="text/css" href="${CP_RES}/css/movie_detail.css">
 <title>MISS 영화 상세 화면</title>
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<!-- 사용자 정의 function, ISEmpty -->
+<script src="${CP_RES}/js/eUtil.js"></script>
+<!-- 사용자 정의 function, callAjax -->
+<script src="${CP_RES}/js/eclass.js"></script>
+<!-- jquery_bootstrap paging -->
+<script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
 </head>
 <body>
 	<div id="header">
@@ -95,18 +106,20 @@
                 </div>
             </div>
             
-            <div id="review">
-                <form action="#" method="get">
-                    <select>
-                        <option selected>5</option>
-                        <option>4</option>
-                        <option>3</option>
-                        <option>2</option>
-                        <option>1</option>
+            <div id="reviewDiv">
+                <form action="">
+                	<p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p>
+                	<input type="text" placeholder="닉네임 입력" id="mbNickname" name="mbNickname">
+                    <select name="rRating" id="rRating">
+                        <option selected value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
                     </select>
-                    <input type="text" placeholder="리뷰를 입력하세요(50자 이내)">
-                    <input type="submit" value="작성완료">
+                    <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)">
                 </form>
+                	<input type="submit" value="작성완료" id="add">
                 <table>
                     <tr>
                         <th>순번</th>
@@ -115,41 +128,19 @@
                         <th>별점</th>
                         <th>좋아요</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>리뷰왕</td>
-                        <td>너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요</td>
-                        <td>5</td>
-                        <td class="like1 on"><img src="${path}/resources/img/like.JPG"></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>리뷰왕</td>
-                        <td>너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요</td>
-                        <td>5</td>
-                        <td class="like2 on"><img src="${path}/resources/img/like.JPG"></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>리뷰왕</td>
-                        <td>너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요</td>
-                        <td>5</td>
-                        <td id="like12" class="on"><img src="${path}/resources/img/like.JPG"></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>리뷰왕</td>
-                        <td>너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요</td>
-                        <td>5</td>
-                        <td id="like12" class="on"><img src="${path}/resources/img/like.JPG"></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>리뷰왕</td>
-                        <td>너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요너무재밌어요</td>
-                        <td>5</td>
-                        <td id="like21" class="on"><img src="${path}/resources/img/like.JPG"></td>
-                    </tr>
+                    <c:choose>
+                    	<c:when test="${rvList.size() > 0}">
+                    		<c:forEach var="rv" items="${rvList}">
+                    			<tr>
+			                        <td>${rv.rNum}</td>
+			                        <td>${rv.mbNickname}</td>
+			                        <td>${rv.rReview}</td>
+			                        <td>${rv.rRating}</td>
+			                        <td class="like1 on"><img src="${CP_RES}/img/like.JPG"></td>
+			                    </tr>
+                    		</c:forEach>
+                    	</c:when>
+                    </c:choose>
                 </table><br>
                 <div style="text-align: center; word-spacing: 30px;"><< < 1 2 3 4 5 > >></div>
             </div>
@@ -158,7 +149,53 @@
     <div id="footer">
         푸터영역
     </div>
-    <script src="${path}/resources/js/movie_detail.js"></script>
+    <script src="${CP_RES}/js/movie_detail.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log("ready!!");
+			
+			//등록
+			$("#add").on("click", function(){
+				console.log("add!!");
+				if(eUtil.ISEmpty($("#mbNickname").val())){
+					alert("닉네임을 입력하세요!!");
+					$("#mbNickname").focus();
+					return;
+				}
+				if(eUtil.ISEmpty($("#rReview").val())){
+					alert("리뷰를 입력하세요!!");
+					$("#rReview").focus();
+					return;
+				}
+				if(confirm("리뷰를 등록하시겠습니까?") == false){
+					return;
+				}
+// 				console.log("rReview : " + $("#rReview").val());
+// 				console.log("rRating : " + $("#rRating").val());
+// 				console.log("mbNickname : " + $("#mbNickname").val());
+// 				console.log("mvNum : " + $("#mvNum").text());
+				
+				let url = "${CP}/movie/reviewAdd.do";
+				let method = "POST";
+				let parameters = {
+						"rRating" : $("#rRating").val(),
+						"rReview" : $("#rReview").val(),
+						"mbNickname" : $("#mbNickname").val(),
+						"mvNum" : $("#mvNum").text()
+				};
+				let async = true;
+				EClass.callAjax(url, parameters, method, async, function(data) {
+					console.log("data.msgId : " + data.msgId);
+					console.log("data.msgContents : " + data.msgContents);
+					if(data.msgId == "1"){
+						alert(data.msgContents);
+					}else{
+						alert(data.msgContents);
+					}
+				})
+			});
+		});
+	</script>
 </body>
 </html>

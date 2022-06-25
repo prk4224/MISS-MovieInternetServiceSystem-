@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
 import com.pcwk.miss.movie.domain.StillCutVO;
@@ -76,6 +77,7 @@ public class JUnitMovieDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void movieDetailTest() {
 		MovieDetailVO outVO = null;
 		outVO = dao.getMovieDetail(4);
@@ -92,5 +94,27 @@ public class JUnitMovieDaoTest {
 		LOG.debug("=list=" + list);
 		LOG.debug("========================");
 		assertEquals(4, list.size());
+		
+	}
+	
+	@Test
+	@Ignore
+	public void getAllReviewTest() {
+		List<MovieReviewVO> list01 = dao.getAllReview(1);
+		LOG.debug("========================");
+		LOG.debug("=list01=" + list01);
+		LOG.debug("========================");
+		assertEquals(6, list01.size());
+		List<MovieReviewVO> list02 = dao.getAllReview(2);
+		LOG.debug("========================");
+		LOG.debug("=list02=" + list02);
+		LOG.debug("========================");
+		assertEquals(1, list02.size());
+	}
+	
+	@Test
+	public void addReviewTest() {
+		MovieReviewVO inVO = new MovieReviewVO(1, 0, "ADMIN02", "TEST_REVIE02", 5);
+		dao.reviewAdd(inVO);
 	}
 }

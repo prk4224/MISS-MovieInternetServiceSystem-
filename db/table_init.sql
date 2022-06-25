@@ -322,7 +322,7 @@ COMMENT ON COLUMN MOVIE_INFO.MI_VIDEO IS '유튜브 동영상 링크';
 /* 게시판(리뷰) */
 CREATE TABLE REVIEW (
 	R_NUM NUMBER(8) NOT NULL, /* 리뷰순번 */
-	R_RATING NUMBER(2,1) NOT NULL, /* 별점 */
+	R_RATING NUMBER(1) NOT NULL, /* 별점 */
 	R_REVIEW VARCHAR2(500), /* 한줄평 */
 	MB_NUM NUMBER(7) NOT NULL, /* 작성자번호 */
 	MV_NUM NUMBER(9) NOT NULL /* 영화번호 */

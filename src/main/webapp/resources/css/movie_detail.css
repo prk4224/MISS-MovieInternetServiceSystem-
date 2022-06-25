@@ -37,7 +37,7 @@ li{
 #right > #moviecut{
     height: 300px;
 }
-#left > #stat, #right > #review{
+#left > #stat, #right > #reviewDiv{
     height: 500px;
 }
 #poster{
@@ -54,7 +54,7 @@ li{
 #detail{
     color: white;
 }
-#review{
+#reviewDiv{
     /* background-color: purple; */
     color: white;
     padding: 10px;
@@ -138,13 +138,23 @@ select{
     height: 30px;
     text-align: center;
 }
-#review input[type=text]{
-    width: 80%;
+form{
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+#reviewDiv #mbNickname{
+    width: 15%;
     height: 30px;
-    margin: 10px;
+    color: white;
+    margin-top: 10px;
+}
+#reviewDiv #rReview{
+    width: 65%;
+    height: 30px;
     color: white;
 }
-#review input[type=submit]{
+#reviewDiv input[type=submit]{
     float: right;
     width: 80px;
     color: white;
