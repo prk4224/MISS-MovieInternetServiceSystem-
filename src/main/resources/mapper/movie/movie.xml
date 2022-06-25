@@ -2,42 +2,65 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.miss.movie">
 
-    <resultMap type="MovieVO" id="movieResultMap">
-        <id     property="mvNum"       column="mv_num"/>
-        <result property="mvTitle"      column="mv_title"/>
-        <result property="mvDirector"    column="mv_director"/>
-        <result property="mvActor"  column="mv_actor"/>
-        <result property="mvGenre"     column="mv_genre"/>
-        <result property="mvReleased" column="mv_released"/>
-        <result property="mvAgelimit"     column="mv_agelimit"/>
-        <result property="mvSummary"     column="mv_summary"/>
-        <result property="mvNation"     column="mv_nation"/>
-        <result property="mvTime"     column="mv_time"/>
-        <result property="mvOn"     column="mv_on"/>
-    </resultMap>
-    
-	<select id="getAll" resultMap="movieResultMap">
-	    SELECT 
-	       mv_num,                                             
-	       mv_title,                                             
-	       mv_director,                                           
-	       mv_actor,                                          
-	       mv_genre,                                            
-	       mv_released,                                        
-	       mv_agelimit,                                            
-	       mv_summary,
-	       mv_nation,
-	       mv_time,
-	       mv_on
-		FROM movie
-		WHERE mv_on = 1
-    </select>
+	<resultMap type="NowPlayingVO" id="NowPlayingMap">
+		<id property="mvNum" column="mv_num"/>
+		<result property="mvTitle" column="mv_title"/>
+		<result property="mvDirector" column="mv_director"/>
+		<result property="mvActor" column="mv_actor"/>
+		<result property="mvTime" column="mv_time"/>
+		<result property="imRoute" column="im_route"/>		
+	</resultMap>
 	
-	<select id="getPoster" parameterType="int" resultType="String">
-		SELECT i.im_route
-		FROM movie m, image i
-		WHERE m.mv_num = i.mv_num
-		AND i.mv_seq = 1
-		AND m.mv_num = #{mvNum}
+	<select id="getAllNowPlaying" resultMap="NowPlayingMap">
+		SELECT t1.mv_num,
+		    t1.mv_title,
+		    t1.mv_director,
+		    t1.mv_actor,
+		    t1.mv_time,
+		    t2.im_route
+		FROM movie t1, image t2
+		WHERE t1.mv_num = t2.mv_num
+		AND t2.mv_seq = 1
+		AND t1.mv_on = 1
+	</select>
+	
+	<resultMap type="PlayingSoonVO" id="PlayingSoonMap">
+		<id property="mvNum" column="mv_num"/>
+		<result property="miTime" column="mi_time"/>
+		<result property="miQuality" column="mi_quality"/>
+		<result property="mvTitle" column="mv_title"/>
+		<result property="imRoute" column="im_route"/>	
+	</resultMap>
+	
+	<select id="getAllPlayingSoon" resultMap = "PlayingSoonMap">
+		<![CDATA[
+		SELECT t1.mv_num,
+		    TO_CHAR(t1.mi_time, 'HH24:MI') AS mi_time,
+		    t1.mi_quality,
+		    t2.mv_title,
+		    t3.im_route
+		FROM movie_info t1, movie t2, image t3
+		WHERE t1.mv_num = t2.mv_num
+		AND t2.mv_num = t3.mv_num
+		AND t3.mv_seq = 1
+		AND mi_time > SYSDATE
+		AND ROWNUM <= 7
+		ORDER BY t1.mi_time
+		]]>
+	</select>
+	
+	<resultMap type="WatchMovieVO" id="WatchMovieMap">
+		<id property="mvNum" column="mv_num"/>
+		<result property="miTime" column="mi_time"/>
+		<result property="miQuality" column="mi_quality"/>
+		<result property="miVideo" column="mi_video"/>
+	</resultMap>
+	
+	<select id="getWatchMovie" parameterType="WatchMovieVO" resultMap="WatchMovieMap">
+		SELECT *
+		FROM movie_info
+		WHERE mv_num = #{mvNum}
+		AND mi_quality = #{miQuality}
+		AND ROWNUM = 1
 	</select>
 </mapper>

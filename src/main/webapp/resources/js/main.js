@@ -18,6 +18,7 @@ const slideMargin2 = 50;
 slides1.getElementsByClassName.width = (slideWidth1 + slideMargin1) * slideCount1 + 'px';
 slides2.getElementsByClassName.width = (slideWidth2 + slideMargin2) * slideCount2 + 'px';
 
+
 function moveSlide1(num){
     slides1.style.left = -num * 400 + 'px';
     currentIdx1 = num;

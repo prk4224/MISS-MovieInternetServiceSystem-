@@ -1,12 +1,29 @@
+<%--
+/**
+	Class Name: main.jsp
+	Description: 메인화면
+	Modification information
+	
+	수정일     수정자      수정내용
+    -----   -----  -------------------------------------------
+    2022. 6. 24.        최초작성 
+    
+    author eclass 개발팀
+    since 2020.11.23
+    Copyright (C) by KandJang All right reserved.
+*/
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="CP" value="${pageContext.request.contextPath}"/>
+<c:set var="resources" value="/resources"/>
+<c:set var="CP_RES" value="${CP}${resources}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="${CP_RES}/css/main.css">
 <title>MISS 메인화면</title>
 </head>
 <body>
@@ -20,21 +37,21 @@
         <div id="slideshow1">
             <ul class="slides1">
             	<c:choose>
-            		<c:when test="${movieList.size() > 0}">
-            			<c:forEach var="vo" items="${movieList}">
+            		<c:when test="${npList.size() > 0}">
+            			<c:forEach var="np" items="${npList}">
             				<li>
-			                    <img src="${vo.mvSummary}">
+			                    <img src="${np.imRoute}">
 			                    <div class="movie1">
-			                        <h3>${vo.mvTitle}</h3>
+			                        <h3>${np.mvTitle}</h3>
 			                    </div>
 			                    <div class="caption1">
-			                        <h1>${vo.mvTitle}</h1><br><br>
+			                        <h1>${np.mvTitle}</h1><br><br>
 			                        <h2>감독</h2><br>
-			                        <p>${vo.mvDirector}</p><br>
+			                        <p>${np.mvDirector}</p><br>
 			                        <h2>출연</h2><br>
-			                        <p>${vo.mvActor}</p><br>
+			                        <p>${np.mvActor}</p><br>
 			                        <h2>런닝타임</h2>
-			                        <p>${vo.mvTime}분</p>
+			                        <p>${np.mvTime}분</p>
 			                    </div>
 			                </li>
             			</c:forEach>
@@ -53,62 +70,22 @@
             <div id="movie2">
                 <div id="slideshow2">
                     <ul class="slides2">
-                        <li>
-                            <img src="${path}/resources/img/mov1.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="${path}/resources/img/mov4.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="${path}/resources/img/mov1.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="${path}/resources/img/mov5.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="${path}/resources/img/mov2.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="${path}/resources/img/mov4.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="${path}/resources/img/mov1.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="${path}/resources/img/mov3.jpg">
-                            <div class="caption2">
-                                <h1>마녀</h1>
-                                <h3>09:00</h3>
-                            </div>
-                        </li>
+                    	<c:choose>
+                    		<c:when test="${psList.size() > 0}">
+                    			<c:forEach var="ps" items="${psList}">
+                    				<li>
+			                            <img src="${ps.imRoute}">
+			                            <div class="caption2">
+			                                <h1>${ps.mvTitle}</h1><br>
+			                                <h2>상영시간</h2>
+			                                <h3>${ps.miTime}</h3><br>
+			                                <h2>화질</h2>
+			                                <h3>${ps.miQuality}P</h3>
+			                            </div>
+			                        </li>
+                    			</c:forEach>
+                    		</c:when>
+                    	</c:choose>
                     </ul>
                     <p class="controller">
                         <span class="prev" id="prev2">&lang;</span>
@@ -119,8 +96,9 @@
         </div>
     </div>
     <div id="footer">
+<%--     ${movieList[0].mvTitle}  --%>
         푸터영역
     </div>
-    <script src="${path}/resources/js/main.js"></script>
+    <script src="${CP_RES}/js/main.js"></script>
 </body>
 </html>

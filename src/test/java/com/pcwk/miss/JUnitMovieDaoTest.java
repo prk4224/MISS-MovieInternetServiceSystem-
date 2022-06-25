@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
+import com.pcwk.miss.movie.domain.NowPlayingVO;
+import com.pcwk.miss.movie.domain.PlayingSoonVO;
+import com.pcwk.miss.movie.domain.WatchMovieVO;
 
 @RunWith(SpringJUnit4ClassRunner.class) // JUnit기능을 스프링 프레임으로 확장
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -45,13 +49,26 @@ public class JUnitMovieDaoTest {
 	}
 
 	@Test
-	public void test() {
-		movie1 = new MovieVO();
-		List<MovieVO> list = dao.getAll();
+	@Ignore
+	public void mainGetAllTest() {
+		List<NowPlayingVO> list01 = dao.getAllNowPlaying();
 		LOG.debug("========================");
-		LOG.debug("=list=" + list);
+		LOG.debug("=list01=" + list01);
 		LOG.debug("========================");
-		assertEquals(6, list.size());
+		assertEquals(6, list01.size());
+		List<PlayingSoonVO> list02 = dao.getAllPlayingSoon();
+		LOG.debug("========================");
+		LOG.debug("=list02=" + list02);
+		LOG.debug("========================");
+		assertEquals(7, list02.size());
 	}
-
+	
+	@Test
+	public void screenWatchMovieTest() {
+		WatchMovieVO inVO = new WatchMovieVO(7, "", 720, "");
+		WatchMovieVO outVO = dao.getWatchMovie(inVO);
+		LOG.debug("========================");
+		LOG.debug("=outVO=" + outVO);
+		LOG.debug("========================");
+	}
 }

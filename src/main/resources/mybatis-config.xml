@@ -8,5 +8,8 @@
     </settings>
     <typeAliases>
     	<typeAlias type="com.pcwk.miss.domain.MovieVO" alias="MovieVO"/>
+    	<typeAlias type="com.pcwk.miss.movie.domain.NowPlayingVO" alias="NowPlayingVO"/>
+    	<typeAlias type="com.pcwk.miss.movie.domain.PlayingSoonVO" alias="PlayingSoonVO"/>
+    	<typeAlias type="com.pcwk.miss.movie.domain.WatchMovieVO" alias="WatchMovieVO"/>
     </typeAliases>
 </configuration>

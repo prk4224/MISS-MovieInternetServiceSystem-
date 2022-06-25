@@ -14,7 +14,7 @@
         헤더영역
     </div>
     <div id="contents">
-        <iframe width="100%" height="800px" src="https://www.youtube.com/embed/0zjDQe4LnAA?rel=0&modestbranding=1&color=white" allowfullscreen></iframe>
+        <iframe width="100%" height="800px" src="${movie.miVideo}?rel=0&modestbranding=1&color=white" allowfullscreen></iframe>
     </div>
     <div id="footer">
         푸터영역
