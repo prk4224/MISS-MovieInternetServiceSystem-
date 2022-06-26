@@ -19,6 +19,7 @@
 <c:set var="CP" value="${pageContext.request.contextPath}"/>
 <c:set var="resources" value="/resources"/>
 <c:set var="CP_RES" value="${CP}${resources}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +31,9 @@
 <title>MISS 메인화면</title>
 </head>
 <body>
-    <div id="header">
-        헤더영역
-    </div>
+    <!-- 헤더영역 -->
+	<%@include file="../cmn/header.jsp"%>
+	<!-- //헤더영역 -->
     <div id="contents">
         <div id="status">
             <h1>현재 상영중</h1>
@@ -99,10 +100,10 @@
             </div>
         </div>
     </div>
-    <div id="footer">
 <%--     ${movieList[0].mvTitle}  --%>
-        푸터영역
-    </div>
+	<!-- 푸터영역 -->
+	<%@include file="../cmn/footer.jsp"%>
+	<!-- //푸터영역 -->
     <script src="${CP_RES}/js/main.js"></script>
 	<script type="text/javascript">
 	  $(document).ready(function(){

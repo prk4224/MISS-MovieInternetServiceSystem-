@@ -10,14 +10,11 @@
 <title>영화 상영 페이지</title>
 </head>
 <body>
-    <div id="header">
-        헤더영역
-    </div>
-    <div id="contents">
-        <iframe width="100%" height="800px" src="${movie.miVideo}?rel=0&modestbranding=1&color=white" allowfullscreen></iframe>
-    </div>
-    <div id="footer">
-        푸터영역
+    <div id="contents" style="height: 100%">
+        <iframe width="100%" height="1000px" src="${movie.miVideo}?rel=0&modestbranding=1&color=white" allowfullscreen></iframe>
     </div>
 </body>
+	<!-- 푸터영역 -->
+	<%@include file="../cmn/footer.jsp"%>
+	<!-- //푸터영역 -->
 </html>

@@ -15,10 +15,6 @@ li{
     list-style-type: none;
     padding: 0 auto;
 }
-#header{
-    height: 100px;
-    background-color: white;
-}
 #left{
     float:left;
     width:35%;
@@ -46,13 +42,20 @@ li{
 #stat{
     /* background-color: orange; */
     border: 1px solid gray;
-    margin: 5px;
     padding: 20px;
     color: white;
     text-align: right;
 }
 #detail{
     color: white;
+}
+#detailLeft{
+	width: 50%;
+	float: left;
+}
+#detailRight{
+	width: 50%;
+	float: right;
 }
 #reviewDiv{
     /* background-color: purple; */

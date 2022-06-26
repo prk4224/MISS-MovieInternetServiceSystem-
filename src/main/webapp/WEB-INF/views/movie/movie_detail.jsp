@@ -24,9 +24,9 @@
 <script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
 </head>
 <body>
-	<div id="header">
-        헤더영역
-    </div>
+	<!-- 헤더영역 -->
+	<%@include file="../cmn/header.jsp"%>
+	<!-- //헤더영역 -->
     <div id="contents">
         <div id="left">
             <div id="poster">
@@ -42,49 +42,55 @@
         <div id="right">
             <input type="button" value="예매하기">
             <div id="detail">
-                <h1>${detailVO.mvTitle}</h1><br>
-                <p>감독 : ${detailVO.mvDirector}</p><br>
-                <p>배우 : ${detailVO.mvActor}</p><br>
-                <p>장르 : ${detailVO.mvGenre}</p><br>
-                <p>
-                	<c:set var="agelimit" value="${detailVO.mvAgelimit}"/>
-                	<c:choose>
-	                	<c:when test="${agelimit == 1}">
-	                		전체 이용 관람가
-	                	</c:when>
-	                	<c:otherwise>
-	                		${agelimit}세 이상 관람가
-	                	</c:otherwise>
-                	</c:choose>
-                </p><br>
-                <p>러닝타임 : ${detailVO.mvTime}분</p><br>
-                <p>
-                	<c:set var="nation" value="${detailVO.mvNation}"/>
-                	<c:choose>
-	                	<c:when test="${nation == 1}">
-	                		국내영화
-	                	</c:when>
-	                	<c:otherwise>
-	                		해외영화
-	                	</c:otherwise>
-                	</c:choose>
-                </p><br>
-                <p>${detailVO.mvReleased} 개봉</p><br>
-                <p>
-                	<c:set var="on" value="${detailVO.mvOn}"/>
-                	<c:choose>
-	                	<c:when test="${on == 0}">
-	                		상영종료
-	                	</c:when>
-	                	<c:when test="${on == 1}">
-	                		상영중
-	                	</c:when>
-	                	<c:otherwise>
-	                		상영예정
-	                	</c:otherwise>
-                	</c:choose>
-                </p><br>
-                <p>${detailVO.mvSummary}</p>
+            	<div id="detailLeft">
+            		<h1>${detailVO.mvTitle}</h1><br>
+	                <p>감독 : ${detailVO.mvDirector}</p><br>
+	                <p>배우 : ${detailVO.mvActor}</p><br>
+	                <p>장르 : ${detailVO.mvGenre}</p><br>
+	                <p>
+	                	<c:set var="agelimit" value="${detailVO.mvAgelimit}"/>
+	                	<c:choose>
+		                	<c:when test="${agelimit == 1}">
+		                		전체 이용 관람가
+		                	</c:when>
+		                	<c:otherwise>
+		                		${agelimit}세 이상 관람가
+		                	</c:otherwise>
+	                	</c:choose>
+	                </p><br>
+	                <p>러닝타임 : ${detailVO.mvTime}분</p><br>
+	                <p>
+	                	<c:set var="nation" value="${detailVO.mvNation}"/>
+	                	<c:choose>
+		                	<c:when test="${nation == 1}">
+		                		국내영화
+		                	</c:when>
+		                	<c:otherwise>
+		                		해외영화
+		                	</c:otherwise>
+	                	</c:choose>
+	                </p><br>
+	                
+            	</div>
+            	<div id="detailRight">
+            		<p>${detailVO.mvReleased} 개봉</p><br>
+	                <p>
+	                	<c:set var="on" value="${detailVO.mvOn}"/>
+	                	<c:choose>
+		                	<c:when test="${on == 0}">
+		                		상영종료
+		                	</c:when>
+		                	<c:when test="${on == 1}">
+		                		상영중
+		                	</c:when>
+		                	<c:otherwise>
+		                		상영예정
+		                	</c:otherwise>
+	                	</c:choose>
+	                </p><br>
+	                <h3>줄거리</h3>
+            		<p>${detailVO.mvSummary}</p>
+            	</div>
             </div>
             
             <div id="moviecut">
@@ -157,9 +163,9 @@
             </div>
         </div>
     </div>
-    <div id="footer">
-        푸터영역
-    </div>
+    <!-- 푸터영역 -->
+	<%@include file="../cmn/footer.jsp"%>
+	<!-- //푸터영역 -->
     <script src="${CP_RES}/js/movie_detail.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script type="text/javascript">
