@@ -81,6 +81,7 @@
                     				<li>
 			                            <img src="${ps.imRoute}">
 			                            <div class="caption2">
+			                            	<h3 style="display: none">${ps.mvNum}</h3>
 			                                <h1>${ps.mvTitle}</h1><br>
 			                                <h2>상영시간</h2>
 			                                <h3>${ps.miTime}</h3><br>
@@ -108,16 +109,17 @@
 	<script type="text/javascript">
 	  $(document).ready(function(){
 	    console.log("document.ready");
-// 	    let chil = $(this).children().eq(2);
-//     	console.log(chil.children().eq(0).text());
 	    $(".slides1 li").on("click", function(){
 	    	// mvNum
 	    	let mvNum = $(this).children().eq(2).children().eq(0).text();
 	    	console.log(mvNum);
 	    	
 	    	location.href = "movie_detail.do?mvNum=" + mvNum;
-	    })
-	    
+	    });
+	    $(".slides2 li").on("click", function(){
+	    	let mvNum = $(this).children().eq(1).children().eq(0).text();
+	    	location.href = "movie_detail.do?mvNum=" + mvNum;
+	    });
 	  });
 	</script>
 </body>

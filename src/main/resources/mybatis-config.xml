@@ -15,5 +15,6 @@
     	<typeAlias type="com.pcwk.miss.movie.domain.MovieDetailVO" alias="MovieDetailVO"/>
     	<typeAlias type="com.pcwk.miss.movie.domain.StillCutVO" alias="StillCutVO"/>
     	<typeAlias type="com.pcwk.miss.movie.domain.MovieReviewVO" alias="MovieReviewVO"/>
+    	<typeAlias type="com.pcwk.miss.movie.domain.MovieListVO" alias="MovieListVO"/>
     </typeAliases>
 </configuration>

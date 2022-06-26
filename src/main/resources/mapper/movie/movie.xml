@@ -152,4 +152,28 @@
 		WHERE mv_num = #{mvNum})B
 		]]>
 	</select>
+	
+	<!-- 영화목록페이지 영화정보 불러오기 -->
+	<select id="getMovieList" parameterType="int" resultType="MovieListVO">
+		SELECT A.*,
+		    B.totalCnt,
+		    B.num
+		FROM(SELECT t1.mv_num AS mvNum,
+		    t1.mv_title AS mvTitle,
+		    t1.mv_released AS mvReleased,
+		    t1.mv_agelimit AS mvAgelimit,
+		    t1.mv_on AS mvOn,
+		    t2.im_route AS imRoute
+		FROM movie t1, image t2
+		WHERE t1.mv_num = t2.mv_num
+		AND t2.mv_seq = 1)A
+		LEFT OUTER JOIN
+		(SELECT mv_num AS mvNum,
+		    COUNT(*) AS totalCnt,
+		    ROUND((SUM(R_RATING) / COUNT(*)), 2) AS num
+		FROM review
+		GROUP BY mv_num)B
+		ON A.mvNum = B.mvNum
+		WHERE A.mvOn = #{mvOn}
+	</select>
 </mapper>

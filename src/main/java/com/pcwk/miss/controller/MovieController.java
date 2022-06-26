@@ -19,6 +19,7 @@ import com.pcwk.miss.cmn.MessageVO;
 import com.pcwk.miss.cmn.SearchVO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieListVO;
 import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
@@ -140,6 +141,25 @@ public class MovieController {
 		
 		model.addAttribute("movie", outVO);
 		return "movie/screen";
+	}
+	
+	// http://localhost:8081/miss/movie/movieList.do
+	@RequestMapping(value= "/movieList.do", method=RequestMethod.GET)
+	public String movieListView(Model model) {
+		System.out.println("===================");
+		System.out.println("=MissController=movieListView()=");
+		System.out.println("===================");
+		
+		//mvOn 0 -> 상영종료, 1-> 상영중, 2-> 상영예정
+		List<MovieListVO> list0 = movieService.getMovieList(0);
+		List<MovieListVO> list1 = movieService.getMovieList(1);
+		List<MovieListVO> list2 = movieService.getMovieList(2);
+		
+		model.addAttribute("list0", list0);
+		model.addAttribute("list1", list1);
+		model.addAttribute("list2", list2);
+		
+		return "movie/movie_list";
 	}
 }
 

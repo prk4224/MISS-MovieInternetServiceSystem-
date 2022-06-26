@@ -11,6 +11,7 @@ import com.pcwk.miss.cmn.DTO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieListVO;
 import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
@@ -67,6 +68,11 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public List<MovieReviewVO> reviewRetrieve(DTO dto) {
 		return movieDao.reviewRetrieve(dto);
+	}
+
+	@Override
+	public List<MovieListVO> getMovieList(int mvOn) {
+		return movieDao.getMovieList(mvOn);
 	}
 
 }
