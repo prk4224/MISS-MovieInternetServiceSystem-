@@ -101,6 +101,9 @@
             </div>
         </div>
     </div>
+<!--     controller -> jsp -->
+<!-- 값 get형식으로 넘겼을때 -->
+<%-- ${param.mvNum} --%>
 <%--     ${movieList[0].mvTitle}  --%>
 	<!-- 푸터영역 -->
 	<%@include file="../cmn/footer.jsp"%>

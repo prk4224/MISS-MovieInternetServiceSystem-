@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="CP" value="${pageContext.request.contextPath}"/>
 <c:set var="resources" value="/resources"/>
-<c:set var="CP_RES" value="${CP}${resources}"/>    
+<c:set var="CP_RES" value="${CP}${resources}"/>  
+<c:set var="MISS" value="/miss"/>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,9 +77,9 @@
         <a id="logo" href="main.do"><img src="${CP_RES}/img/miss_logo.png" style="height:55px; width:auto;"></a>
         <nav id="menu">
             <ul>
-                <li><a class="menuLink" href="">영화 목록</a></li>
-                <li><a class="menuLink" href="#">영화 예매</a></li>
-                <li><a class="menuLink" href="#">FAQ</a></li>
+                <li><a class="menuLink" href="movieList.do">영화 목록</a></li>
+                <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
+                <li><a class="menuLink" href="${MISS}/qna/qna.do">FAQ</a></li>
                 <li><a class="menuLink" href="#">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
                 <li><a class="login" href="#">로그아웃</a></li> <!-- 아이콘 이미지로 변경 -->
             </ul>
