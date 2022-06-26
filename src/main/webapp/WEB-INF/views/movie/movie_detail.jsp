@@ -33,17 +33,18 @@
                 <img src="${detailVO.imRoute}">
             </div>
             <div id="stat">
-                <!-- 통계영역(별점, 예매율, 연령별예매분포) -->
-                <h3>별점 : 9.3</h3>
-                <h3>예매율 : 26%</h3>
-                <canvas id="chart" width="" height="150"></canvas>
+                <!-- 통계영역(별점, 리뷰개수, 상영기간, ) -->
+                <h2>평균 별점</h2>
+                <h3 id="avgRating"></h3>
+                <h2>총 리뷰수</h2>
+                <h3 id="totalReview"></h3>
+                <input type="button" value="예매하기">
             </div>
         </div>
         <div id="right">
-            <input type="button" value="예매하기">
             <div id="detail">
+            	<h1>${detailVO.mvTitle}</h1><br>
             	<div id="detailLeft">
-            		<h1>${detailVO.mvTitle}</h1><br>
 	                <p>감독 : ${detailVO.mvDirector}</p><br>
 	                <p>배우 : ${detailVO.mvActor}</p><br>
 	                <p>장르 : ${detailVO.mvGenre}</p><br>
@@ -167,7 +168,6 @@
 	<%@include file="../cmn/footer.jsp"%>
 	<!-- //푸터영역 -->
     <script src="${CP_RES}/js/movie_detail.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			console.log("ready!!");
@@ -216,7 +216,7 @@
         		}); 
 			}
 			
-			//리뷰조회
+			//리뷰 페이징조회
 			function reviewRetrieve(page){
 				console.log(reviewRetrieve);
 				let url = "${CP}/movie/reviewRetrieve.do";
@@ -235,6 +235,7 @@
 					//1.
 					$("#movie_table > tbody").empty();
 					let htmlData = "";
+					let avgRating = 3;
 					
 					let totalCnt = 0; //총 글수
 					let pageTotal = 1; //총 페이지수
@@ -242,8 +243,9 @@
 					//데이터가 있는 경우
 					if(parsedData != null && parsedData.length > 0){
 						totalCnt = parsedData[0].totalCnt;
+						avgRating = parsedData[0].num;
+						console.log("avgRating : " + avgRating);
 						console.log("totalCnt : " + totalCnt);
-						
 						pageTotal = Math.ceil(totalCnt / 5);
 						console.log("pageTotal : " + pageTotal);
 						$.each(parsedData, function(i, value) {
@@ -260,6 +262,14 @@
 						htmlData += '<tr><td colspan="5">첫 리뷰를 작성해주세요~</td></tr>';
 					}
 					console.log("htmlData : " + htmlData);
+					
+					//리뷰개수 조회
+					$("#totalReview").empty();
+					$("#totalReview").append(totalCnt);
+					
+					//평균별점조회
+					$("#avgRating").empty();
+					$("#avgRating").append(avgRating);
 					
 					//2.
 					$("#movie_table > tbody").append(htmlData);

@@ -22,16 +22,16 @@ package com.pcwk.miss.cmn;
  */
 public class DTO {
 	//글번호
-	private int num;
+	private double num;
 	//총글수
 	private int totalCnt;
 	public DTO() {
 		
 	}
-	public int getNum() {
+	public double getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(double num) {
 		this.num = num;
 	}
 	public int getTotalCnt() {

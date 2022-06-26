@@ -41,10 +41,13 @@ li{
 }
 #stat{
     /* background-color: orange; */
-    border: 1px solid gray;
+    border: 3px solid gray;
     padding: 20px;
     color: white;
-    text-align: right;
+    text-align: center;
+}
+#stat > h3{
+	margin : 20px auto;
 }
 #detail{
     color: white;
@@ -119,19 +122,16 @@ li{
     float: left;
     margin-right: 30px;
 }
-#right > input[type=button]{
+#stat > input[type=button]{
     color: white;
     border: 1px solid gray;
-    float: right;
     margin: 30px 30px;
-    width: 100px;
-    height: 80px;
-    border-radius: 20%;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
     background-color: #7F5AF0;
     opacity: 0.8;
-}
-#stat > canvas{
-    margin-top: 10px;
+    font-size: 25px;
 }
 select{
     float: left;
@@ -198,14 +198,4 @@ tr:first-child{
 }
 .off{
     opacity: 0.2;
-}
-
-
-
-
-
-#footer{
-    clear: both;
-    height: 150px;
-    background-color: white;
 }
