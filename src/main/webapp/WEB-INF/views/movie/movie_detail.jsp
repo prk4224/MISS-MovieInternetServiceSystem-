@@ -142,7 +142,6 @@
 			                        <td>${rv.mbNickname}</td>
 			                        <td>${rv.rReview}</td>
 			                        <td>${rv.rRating}</td>
-			                        <td class="like1 on"><img src="${CP_RES}/img/like.JPG"></td>
 			                    </tr>
                     		</c:forEach>
                     	</c:when>
@@ -169,6 +168,14 @@
 			
 			reviewRetrieve(1);
 			renderingPage('${pageTotal}', 1);
+			
+			function init(){
+				const initValue = "";
+				const initRating = 5;
+				$("#rRating").val(initRating);
+				$("#mbNickname").val(initValue);
+				$("#rReview").val(initValue);
+			}
 			
 			//페이징
         	//pageTotal : 총 페이지 수
@@ -211,7 +218,8 @@
 				let async = true;
 				let parameters = {
 					pageSize : 5,
-					pageNum : page	
+					pageNum : page,
+					mvNum : $("#mvNum").text()
 				};
 				
 				EClass.callAjax(url, parameters, method, async, function(data) {
@@ -243,7 +251,7 @@
                             htmlData += "</tr>                                                          ";
 						});
 					}else{
-						htmlData += "<tr><td>첫 리뷰를 작성해주세요~</td></tr>"
+						htmlData += '<tr><td colspan="5">첫 리뷰를 작성해주세요~</td></tr>';
 					}
 					console.log("htmlData : " + htmlData);
 					
@@ -255,6 +263,9 @@
 					
                   	//paging호출
                     renderingPage(pageTotal, page);
+                  	
+                  	//초기화
+                  	init();
 				})
 			}
 			
@@ -293,11 +304,13 @@
 					console.log("data.msgContents : " + data.msgContents);
 					if(data.msgId == "1"){
 						alert(data.msgContents);
+						reviewRetrieve(1);
+						init();
 					}else{
 						alert(data.msgContents);
 					}
 				})
-				reviewRetrieve(1);
+				
 			});
 		});
 	</script>

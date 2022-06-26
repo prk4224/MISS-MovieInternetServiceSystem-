@@ -46,7 +46,7 @@ public class JUnitMovieDaoTest {
 		LOG.debug("=0.setUp()=");
 		LOG.debug("========================");
 		
-		searchVO = new SearchVO(5, 1, "", "");
+		searchVO = new SearchVO(5, 1, "", "", 1);
 				
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);

@@ -169,6 +169,8 @@
 		                r_review,
 		                r_rating
 		            FROM review
+		            WHERE mv_num = #{mvNum}
+		            ORDER BY r_num DESC
 		        )T1
 		        WHERE ROWNUM <= #{pageSize} * (#{pageNum} - 1) + #{pageSize}
 		    )TT1
@@ -176,7 +178,8 @@
 		    )A
 		CROSS JOIN
 		(SELECT COUNT(*) AS totalCnt
-		FROM review)B
+		FROM review
+		WHERE mv_num = #{mvNum})B
 		]]>
 	</select>
 </mapper>
