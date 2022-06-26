@@ -19,6 +19,7 @@ import com.pcwk.miss.cmn.SearchVO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.dao.MovieDao;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieListVO;
 import com.pcwk.miss.movie.domain.MovieReviewVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
@@ -53,8 +54,6 @@ public class JUnitMovieDaoTest {
 		
 		assertNotNull(context);
 		assertNotNull(dao);
-		
-		
 	}
 
 	@Test
@@ -126,6 +125,7 @@ public class JUnitMovieDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void reviewRetrieveTest() {
 //		searchVO.setPageNum(1);
 //		searchVO.setPageSize(5);
@@ -133,5 +133,15 @@ public class JUnitMovieDaoTest {
 		for(MovieReviewVO vo : list) {
 			LOG.debug("=== vo ===" + vo);
 		}
+	}
+	
+	@Test
+	public void movieListTest() {
+		List<MovieListVO> list = dao.getMovieList(2);
+		LOG.debug("=================");
+		LOG.debug("=list=" + list);
+		LOG.debug("=================");
+		
+		assertEquals(5, list.size());
 	}
 }

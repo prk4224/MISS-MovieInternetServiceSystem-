@@ -15,6 +15,10 @@
     	<typeAlias type="com.pcwk.miss.movie.domain.MovieDetailVO" alias="MovieDetailVO"/>
     	<typeAlias type="com.pcwk.miss.movie.domain.StillCutVO" alias="StillCutVO"/>
     	<typeAlias type="com.pcwk.miss.movie.domain.MovieReviewVO" alias="MovieReviewVO"/>
+<<<<<<< HEAD
     	<typeAlias type="com.pcwk.miss.domain.CouponVO" alias="CouponVO"/>
+=======
+    	<typeAlias type="com.pcwk.miss.movie.domain.MovieListVO" alias="MovieListVO"/>
+>>>>>>> refs/remotes/origin/main
     </typeAliases>
 </configuration>

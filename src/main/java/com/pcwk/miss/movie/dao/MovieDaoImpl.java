@@ -12,6 +12,7 @@ import com.pcwk.miss.cmn.DTO;
 import com.pcwk.miss.cmn.SearchVO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieListVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
 import com.pcwk.miss.movie.domain.MovieReviewVO;
@@ -156,6 +157,21 @@ public class MovieDaoImpl implements MovieDao {
 		LOG.debug("============================");
 		List<MovieReviewVO> list = sqlSessionTemplate.selectList(statement, inVO);
 		for(MovieReviewVO vo : list) {
+			LOG.debug("vo : " + vo);
+		}
+		return list;
+	}
+
+	@Override
+	public List<MovieListVO> getMovieList(int mvOn) {
+		List<MovieListVO> list = null;
+		String statement = this.NAMESPACE + ".getMovieList";
+		LOG.debug("===========================");
+		LOG.debug("=statement : " + statement);
+		LOG.debug("===========================");
+		
+		list = sqlSessionTemplate.selectList(statement, mvOn);
+		for(MovieListVO vo : list) {
 			LOG.debug("vo : " + vo);
 		}
 		return list;

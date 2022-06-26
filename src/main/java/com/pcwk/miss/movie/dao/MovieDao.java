@@ -5,6 +5,7 @@ import java.util.List;
 import com.pcwk.miss.cmn.DTO;
 import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.movie.domain.MovieDetailVO;
+import com.pcwk.miss.movie.domain.MovieListVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.movie.domain.PlayingSoonVO;
 import com.pcwk.miss.movie.domain.MovieReviewVO;
@@ -67,4 +68,10 @@ public interface MovieDao {
 	 */
 	List<MovieReviewVO> reviewRetrieve(DTO dto);
 	
+	/**
+	 * 영화목록페이지 영화 조회
+	 * @param mvOn
+	 * @return
+	 */
+	List<MovieListVO> getMovieList(int mvOn);
 }

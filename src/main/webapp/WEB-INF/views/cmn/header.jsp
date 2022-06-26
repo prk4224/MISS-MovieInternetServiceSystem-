@@ -24,7 +24,7 @@
     /*menu 스타일*/
     #menu {
             height: 100px; 
-            width : 1980px; 
+            width : 100%; 
     }
     /*menu ul, li 스타일*/
     #menu ul li {
