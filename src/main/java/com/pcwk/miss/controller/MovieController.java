@@ -141,9 +141,5 @@ public class MovieController {
 		model.addAttribute("movie", outVO);
 		return "movie/screen";
 	}
-	
-	
-	
-	
 }
 

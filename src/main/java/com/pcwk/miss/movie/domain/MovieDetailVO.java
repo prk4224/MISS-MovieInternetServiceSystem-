@@ -30,14 +30,16 @@ public class MovieDetailVO extends DTO {
 	private int mvNation; //국가(국내영화1, 해외영화2)
 	private int mvTime; //러닝타임
 	private int mvOn; //상영여부(상영종료 0, 상영중 1, 상영예정 2)
-	private String imRoute; //파일경로
+	private String imRoute; //메인포스터
+	private String imRoute2; // 서브포스터
 	
 	public MovieDetailVO() {
 		
 	}
 
 	public MovieDetailVO(int mvNum, String mvTitle, String mvDirector, String mvActor, String mvGenre,
-			String mvReleased, int mvAgelimit, String mvSummary, int mvNation, int mvTime, int mvOn, String imRoute) {
+			String mvReleased, int mvAgelimit, String mvSummary, int mvNation, int mvTime, int mvOn, String imRoute,
+			String imRoute2) {
 		super();
 		this.mvNum = mvNum;
 		this.mvTitle = mvTitle;
@@ -51,6 +53,7 @@ public class MovieDetailVO extends DTO {
 		this.mvTime = mvTime;
 		this.mvOn = mvOn;
 		this.imRoute = imRoute;
+		this.imRoute2 = imRoute2;
 	}
 
 	public int getMvNum() {
@@ -149,13 +152,20 @@ public class MovieDetailVO extends DTO {
 		this.imRoute = imRoute;
 	}
 
+	public String getImRoute2() {
+		return imRoute2;
+	}
+
+	public void setImRoute2(String imRoute2) {
+		this.imRoute2 = imRoute2;
+	}
+
 	@Override
 	public String toString() {
 		return "MovieDetailVO [mvNum=" + mvNum + ", mvTitle=" + mvTitle + ", mvDirector=" + mvDirector + ", mvActor="
 				+ mvActor + ", mvGenre=" + mvGenre + ", mvReleased=" + mvReleased + ", mvAgelimit=" + mvAgelimit
 				+ ", mvSummary=" + mvSummary + ", mvNation=" + mvNation + ", mvTime=" + mvTime + ", mvOn=" + mvOn
-				+ ", imRoute=" + imRoute + ", toString()=" + super.toString() + "]";
+				+ ", imRoute=" + imRoute + ", imRoute2=" + imRoute2 + ", toString()=" + super.toString() + "]";
 	}
-	
 	
 }

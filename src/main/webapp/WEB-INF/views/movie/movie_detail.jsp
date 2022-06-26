@@ -32,12 +32,12 @@
             <div id="poster">
                 <img src="${detailVO.imRoute}">
             </div>
-            <div id="stat">
+            <div id="stat" style="background-image : url(${detailVO.imRoute2})">
                 <!-- 통계영역(별점, 리뷰개수, 상영기간, ) -->
-                <h2>평균 별점</h2>
-                <h3 id="avgRating"></h3>
-                <h2>총 리뷰수</h2>
-                <h3 id="totalReview"></h3>
+                <h2>평균 별점</h2><br>
+                <h3 id="avgRating"></h3><br>
+                <h2>총 리뷰수</h2><br> 
+                <h3 id="totalReview"></h3><br>
                 <input type="button" value="예매하기">
             </div>
         </div>
@@ -235,7 +235,7 @@
 					//1.
 					$("#movie_table > tbody").empty();
 					let htmlData = "";
-					let avgRating = 3;
+					let avgRating = 0;
 					
 					let totalCnt = 0; //총 글수
 					let pageTotal = 1; //총 페이지수
