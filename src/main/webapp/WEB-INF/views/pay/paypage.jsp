@@ -15,10 +15,9 @@
 <link rel="stylesheet"  type="text/css" href="${path}/resources/css/paypage.css">
 </head>
 <body>
-<header>
-        <h1>MISS</h1>
-    </header>
-    <hr>
+	<!-- 헤더영역 -->
+	<%@include file="../cmn/header.jsp"%>
+	<!-- //헤더영역 -->
 
      <div id = "movie_sale">
         <div id = "movie_detail" >
@@ -37,30 +36,31 @@
                 <div id = "p_price">결제금액 : </div>
                 <div id = "coupon">
                     <div>할인쿠폰</div>
-                    <div>
-                        <input type="checkbox"> 1. 생일 할인 쿠폰 20%
-                    </div>
-                    <div>
-                        <input type="checkbox"> 2. 회원가입 쿠폰 20%
-                    </div>
-                    <div>
-                        <input type="checkbox"> 3. 쿠폰
-                    </div>
-                    <div>
-                        <input type="checkbox"> 4. 생일 할인 쿠폰
-                    </div>
-                    <div>
-                        <input type="checkbox"> 5. 생일 할인 쿠폰
-                    </div>
-                    <div>
-                        <input type="checkbox"> 6. 생일 할인 쿠폰
-                    </div>
-                    <div>
-                        <input type="checkbox"> 7. 생일 할인 쿠폰
-                    </div>
-                    <div>
-                        <input type="checkbox"> 8. 생일 할인 쿠폰
-                    </div>
+                   	<%-- <table>
+                   		<thead>
+                   			<tr>
+                   				<th>쿠혼 번호</th>
+                   				<th>쿠폰 이름</th>
+                   				<th>사용 기간</th>
+                   				<th>할인율</th>
+             
+                   			</tr>
+                   		</thead>
+                   		
+                   		<tbody>
+                   			<c:choose>
+                   				<c:when test="${list.size > 0}"></c:when>
+                   				<c:forEach var = "vo" items = "${list}">
+                   					<tr>
+                   						<td>${vo.cNum}</td>
+                   						<td>${vo.cName}</td>
+                   						<td>${vo.cPeriod}</td>
+                   						<td>${vo.cRatio}</td>
+                   					</tr>
+                   				</c:forEach>
+                   			</c:choose>
+                   		</tbody>
+                   	</table> --%>
 
                 </div>
                 <div id = "point">                    
@@ -81,6 +81,10 @@
     	
         <button id = "naverapibtn"  type="button">네이버 간편 결제</button>
     </div>
+    
+    <!-- 푸터영역 -->
+	<%@include file="../cmn/footer.jsp"%>
+	<!-- //푸터영역 -->
     
     
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>

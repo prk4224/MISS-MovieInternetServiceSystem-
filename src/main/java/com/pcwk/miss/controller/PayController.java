@@ -67,6 +67,14 @@ public class PayController {
 		LOG.debug("kakaoPaySuccess get............................................");
     	LOG.debug("kakaoPaySuccess pg_token : " + pg_token);
         
+    	model.addAttribute("token", pg_token);
+    	model.addAttribute("m_agelim", "15세");
+    	model.addAttribute("m_title", "마녀(魔女) Part2. The Other One");
+    	model.addAttribute("m_director", "박훈정");
+    	model.addAttribute("m_actor", "신시아, 박은빈, 서은수, 김다미");
+    	model.addAttribute("m_time", "2022-06-27 17:00");
+    	model.addAttribute("m_price", "7,000");
+    	
         model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
 		
 		return "pay/paycomplate";
