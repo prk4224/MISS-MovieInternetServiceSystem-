@@ -13,16 +13,13 @@
     Copyright (C) by KandJang All right reserved.
 */
  --%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!-- /ehr -->
 <c:set var="CP" value="${pageContext.request.contextPath}"/>
 <c:set var="resources" value="/resources"/>
 <c:set var="CP_RES" value="${CP}${resources}"/>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,26 +31,9 @@
     <title>부트스트랩 - boot_list</title>
     <!--스타일 시트 -->
 	<style type="text/css">
-	     header{
-	    width:100%;
-	    height:80px;
-	    background: gray;
-	    opacity:0.5;
-	    }
-	    
-	    nav{
-	     width:100%;
-	    height:80px;
-	     background: lightgray;
-	     opacity:0.8;
-	    }
 	    main{
 	     width:100%;
 	      height:815px;
-	    }
-	    footer{
-	    height:80px;
-	    background: gray;
 	    }
 	    
 	    table{
@@ -69,7 +49,7 @@
 	    height:30px;
 	    }
 	   
-	  .cancle{
+	    .cancle{
 	       width: 70px;  
 	       text-align: center;
 	      height: 30px;
@@ -79,11 +59,7 @@
 	      border-radius: 12px;
 	      text-align: center;
 	      float: left;
-	      
-	     
 	  }
-	  
-	  
 	</style>
     <!-- 부트스트랩 -->
     <link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
@@ -108,30 +84,23 @@
 	</script>
 </head>
 <body>
-   <header>   
-    <h2>MISS</h2>
-    
-    </header>
-    
+   	<!-- 헤더영역 -->
+	<%@include file="../cmn/header.jsp"%>
+	<!-- //헤더영역 -->
     <nav>
-    예매  내역
+             예매  내역
     </nav>
-   
    <main>
-   
-   <table >
+   <table>
      <thead>
         <tr>
-            <th width="100px">예매 상태</th>
+            <th width="100px">예매상태</th> 
             <th width="300px">상영일시</th>
             <th width="500px">영화명</th>
             <th width="300px">예매번호</th>
             <th width="80px">예매취소</th>
-            
         </tr>
      </thead>
-   
-​
         <tr>  
             <td>상영중</td>
             <td>2022/06/18 14:30</td>
@@ -250,8 +219,7 @@
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
-​
-    <tr>  
+	    <tr>  
             <td>상영중</td>
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
@@ -271,15 +239,10 @@
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
-  
-   
-   
-   </table>
-​
+     </table>
      </main>
-   <footer>
-   <p> MISSdd<p> 
-​
-</footer>
+	<!-- 푸터영역 -->
+	<%@include file="../cmn/footer.jsp"%>
+	<!-- //푸터영역 -->
 </body>
 </html>

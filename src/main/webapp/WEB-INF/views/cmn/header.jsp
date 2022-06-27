@@ -80,8 +80,8 @@
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
-                <li><a class="menuLink" href="#">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
-                <li><a class="login" href="#">로그아웃</a></li> <!-- 아이콘 이미지로 변경 -->
+                <li><a class="menuLink" href="${MISS}/mypage/history.do">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
+                <li><a class="login" href="${MISS}/login/login.do">로그아웃</a></li> <!-- 아이콘 이미지로 변경 -->
             </ul>
         </nav>
     </header>

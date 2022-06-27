@@ -4,6 +4,7 @@
 <c:set var="CP" value="${pageContext.request.contextPath}"/>
 <c:set var="resources" value="/resources"/>
 <c:set var="CP_RES" value="${CP}${resources}"/>
+<c:set var="MISS_RESERVE" value="/miss/pay/reserve.do"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,19 @@
                 <h3 id="avgRating"></h3><br>
                 <h2>총 리뷰수</h2><br> 
                 <h3 id="totalReview"></h3><br>
-                <input type="button" value="예매하기">
+                <c:set var="mvOn" value="${detailVO.mvOn}"/>
+                <c:choose>
+                	<c:when test="${mvOn == 1}">
+                		<input type="button" value="예매하기" onClick="location.href='${MISS_RESERVE}'">
+                	</c:when>
+                	<c:when test="${mvOn == 0}">
+                		<input type="button" value="상영종료">
+                	</c:when>
+                	<c:otherwise>
+                		<input type="button" value="상영예정">
+                	</c:otherwise>
+                </c:choose>
+                
             </div>
         </div>
         <div id="right">
