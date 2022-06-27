@@ -258,169 +258,52 @@
 <!-- //헤더영역 -->
 <section class="cd-faq">
     <ul class="cd-faq-categories">
-        <li><a class="selected" href="#notice">공지사항</a></li>
-        <li><a href="#questions">자주하는 질문</a></li>
-
+        <li><a class="selected" href="#notice">공지사항 (${list01[0].totalCnt})</a></li>
+        <li><a href="#questions">자주하는 질문 (${list02[0].totalCnt})</a></li>
     </ul>
-
     <div class="cd-faq-items">
         <ul class="cd-faq-group" id="notice">
             <li class="cd-faq-title">
                 <h2>공지사항</h2>
             </li>
-    
-            <li><a class="cd-faq-trigger" href="#0">[시스템점검] 2022년 6월 시스템 점검 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                            안녕하십니까, MISS입니다. <br />
-                            <br /> 원활하고 안정된 서비스 제공을 위하여 2022년 6월 새벽 시스템 점검 작업이예정되어 있습니다.<br />
-                            점검 시간 중 CGV홈페이지 및 모바일의 모든 서비스가 중단될 예정이오니 이용에 불편 없으시기바랍니다.<br />
-                            <br /> 1. 일시 <br /> - 6/28 (월) 02시 ~ 07시 (월요일에서 화요일 넘어가는 새벽) <br />
-                            <br /> 2. 내용 <br /> - 정기 PM작업(시스템 성능 개선 작업) <br /> 
-                            - 작업 대상 : 극장영업시스템, 온라인 서비스(홈페이지/모바일) <br />
-                            <br /> 더욱 안정적이고 편리한 서비스를 제공하는 CGV가 되겠습니다. <br /> 감사합니다.
-                        </p>
-                    </div></li>
-              <li><a class="cd-faq-trigger" href="#0">[기타] 2022 MISS 신규가입  쿠폰 유효 기한 연장 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                           MISS 신규 가입하고 받으신 "영화 관람 무료 쿠폰"사용기한은 쿠폰의 사용기한과 상관없이 가입 후 한달까지 연장  가능합니다. <br />
-                            <br /> 고객여러분들의 양해와 많은 이용 바랍니다. <br /> 감사합니다.
-                        </p>
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">영화 관람요금 변경 안내</a>
-                <div class="cd-faq-content">
-            안녕하세요, MISS입니다.<br /> 아래와 같이 영화 관람 가격이 변경되오니, 극장 이용에 참고 부탁드립니다.<br />
-                            <br /> 1. 적용 일시 : 2022년 07월 04일(월) 상영영화부터 적용<br /> <br /> 2.
-                            주요사항<br /> * 전체 상영 영화 : 1천원 인상<br /> 일부 영화의 경우 관람 요금 정책과 변경 내용은
-                            상이할 수 있습니다.<br /> <br /> 감사합니다.
-
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">[시스템점검] KT 휴대폰본인확인  서비스 시스템 점검(5/16)</a>
-                <div class="cd-faq-content">
-                    <p>
-                            안녕하세요, MISS입니다.</p>
-                        KT 휴대폰본인확인 서비스 시스템 점검으로 서비스 이용이 일시적으로 중단될 예정입니다.<br /> 서비스 이용에
-                        불편이 없도록 아래 내용을 참고 해주시기 바랍니다.<br /> <br /> 가. 작업시간: 2022. 05. 16
-                        (월) 23:00 ~ 05.17 (화) 05:00 (약 6시간) <br /> 나. 작업내용: KT PASS 시스템
-                        작업<br /> 다. 작업영향 <br /> 1) 휴대폰본인확인: 작업시간 동안 KT PASS 앱을 통한 본인확인
-                        서비스 중단 <br /> - 문자(SMS,LMS) 인증은 정상<br /> - 표준창 내 PASS 앱 인증 버튼
-                        미노출 에정<br /> 2) PASS인증서: 작업시간 동안 KT PASS 인증서 서비스 중단<br /> *
-                        본인확인(MNO), 알뜰폰(MVNO) 모두 적용됩니다. <br /> * KT를 제외한 타통신사 인증은 영향 없습니다.<br />
-                        <br /> 더욱 안정되고 원활한 서비스로 찾아 뵙겠습니다.<br /> 감사합니다.
-
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">[쥬라기 월드: 도미니언] 3D 예매 현장 경품증정 이벤트 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                           안녕하세요<br /> MISS입니다.<br /> <br /> 6월 1일(수) 부터 진행되는
-                            [쥬라기 월드: 도미니언] 3D 예매 현장 경품증정 이벤트의 경품이 변경되어 안내 드립니다.<br />
-                            <br />
-                            - 기존 : 아이패드<br />
-                            - 변경 후 : 아이폰<br />
-                            <br />
-                            변경 상품 확인 부탁드리며<br />
-                            이벤트 참여에 혼선드려 죄송합니다.<br />
-                            <br />
-                            감사합니다.
-                        </p>
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">[시스템점검] 2022년 6월 시스템 점검 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                            안녕하십니까, MISS입니다. <br />
-                            <br /> 원활하고 안정된 서비스 제공을 위하여 2022년 6월 새벽 시스템 점검 작업이예정되어 있습니다.<br />
-                            점검 시간 중 CGV홈페이지 및 모바일의 모든 서비스가 중단될 예정이오니 이용에 불편 없으시기바랍니다.<br />
-                            <br /> 1. 일시 <br /> - 6/28 (월) 02시 ~ 07시 (월요일에서 화요일 넘어가는 새벽) <br />
-                            <br /> 2. 내용 <br /> - 정기 PM작업(시스템 성능 개선 작업) <br /> 
-                            - 작업 대상 : 극장영업시스템, 온라인 서비스(홈페이지/모바일) <br />
-                            <br /> 더욱 안정적이고 편리한 서비스를 제공하는 CGV가 되겠습니다. <br /> 감사합니다.
-                        </p>
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">[시스템점검] 2022년 6월 시스템 점검 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                            안녕하십니까, MISS입니다. <br />
-                            <br /> 원활하고 안정된 서비스 제공을 위하여 2022년 6월 새벽 시스템 점검 작업이예정되어 있습니다.<br />
-                            점검 시간 중 CGV홈페이지 및 모바일의 모든 서비스가 중단될 예정이오니 이용에 불편 없으시기바랍니다.<br />
-                            <br /> 1. 일시 <br /> - 6/28 (월) 02시 ~ 07시 (월요일에서 화요일 넘어가는 새벽) <br />
-                            <br /> 2. 내용 <br /> - 정기 PM작업(시스템 성능 개선 작업) <br /> 
-                            - 작업 대상 : 극장영업시스템, 온라인 서비스(홈페이지/모바일) <br />
-                            <br /> 더욱 안정적이고 편리한 서비스를 제공하는 CGV가 되겠습니다. <br /> 감사합니다.
-                        </p>
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">[시스템점검] 2022년 6월 시스템 점검 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                            안녕하십니까, MISS입니다. <br />
-                            <br /> 원활하고 안정된 서비스 제공을 위하여 2022년 6월 새벽 시스템 점검 작업이예정되어 있습니다.<br />
-                            점검 시간 중 CGV홈페이지 및 모바일의 모든 서비스가 중단될 예정이오니 이용에 불편 없으시기바랍니다.<br />
-                            <br /> 1. 일시 <br /> - 6/28 (월) 02시 ~ 07시 (월요일에서 화요일 넘어가는 새벽) <br />
-                            <br /> 2. 내용 <br /> - 정기 PM작업(시스템 성능 개선 작업) <br /> 
-                            - 작업 대상 : 극장영업시스템, 온라인 서비스(홈페이지/모바일) <br />
-                            <br /> 더욱 안정적이고 편리한 서비스를 제공하는 CGV가 되겠습니다. <br /> 감사합니다.
-                        </p>
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">[시스템점검] 2022년 6월 시스템 점검 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                            안녕하십니까, MISS입니다. <br />
-                            <br /> 원활하고 안정된 서비스 제공을 위하여 2022년 6월 새벽 시스템 점검 작업이예정되어 있습니다.<br />
-                            점검 시간 중 CGV홈페이지 및 모바일의 모든 서비스가 중단될 예정이오니 이용에 불편 없으시기바랍니다.<br />
-                            <br /> 1. 일시 <br /> - 6/28 (월) 02시 ~ 07시 (월요일에서 화요일 넘어가는 새벽) <br />
-                            <br /> 2. 내용 <br /> - 정기 PM작업(시스템 성능 개선 작업) <br /> 
-                            - 작업 대상 : 극장영업시스템, 온라인 서비스(홈페이지/모바일) <br />
-                            <br /> 더욱 안정적이고 편리한 서비스를 제공하는 CGV가 되겠습니다. <br /> 감사합니다.
-                        </p>
-                    </div></li>
-                      <li><a class="cd-faq-trigger" href="#0">[시스템점검] 2022년 6월 시스템 점검 안내</a>
-                <div class="cd-faq-content">
-                    <p>
-                            안녕하십니까, MISS입니다. <br />
-                            <br /> 원활하고 안정된 서비스 제공을 위하여 2022년 6월 새벽 시스템 점검 작업이예정되어 있습니다.<br />
-                            점검 시간 중 CGV홈페이지 및 모바일의 모든 서비스가 중단될 예정이오니 이용에 불편 없으시기바랍니다.<br />
-                            <br /> 1. 일시 <br /> - 6/28 (월) 02시 ~ 07시 (월요일에서 화요일 넘어가는 새벽) <br />
-                            <br /> 2. 내용 <br /> - 정기 PM작업(시스템 성능 개선 작업) <br /> 
-                            - 작업 대상 : 극장영업시스템, 온라인 서비스(홈페이지/모바일) <br />
-                            <br /> 더욱 안정적이고 편리한 서비스를 제공하는 CGV가 되겠습니다. <br /> 감사합니다.
-                        </p>
-                    </div></li>
-                    
+            <c:choose>
+            	<c:when test="${list01.size() > 0}">
+            		<c:forEach var="list01" items="${list01}">
+            			<li><a class="cd-faq-trigger" href="#0">${list01.qTitle}</a>
+			                <div class="cd-faq-content">
+			                    <p>
+			                    	작성일 : ${list01.qDate}<br>
+			                    	${list01.qContents}
+		                    	</p>
+		                    </div>
+	                    </li>
+            		</c:forEach>
+            	</c:when>
+            </c:choose>
         </ul>
 
         <ul class="cd-faq-group" id="questions">
             <li class="cd-faq-title">
                 <h2>자주하는 질문</h2>
             </li>
-            <li><a class="cd-faq-trigger" href="#0">[홈페이지] 인터넷 예매 후 예매 내용 확인은 어떻게 하나요?</a>
-                <div class="cd-faq-content">
-                    <p>인터넷 예매 후 예매내역 확인을 원하시는 경우 다음과 같이 확인하세요.<br /> 홈페이지 로그인 → [MY PAGE] → [MY 예매내역]</p>
-                </div>
-
-            </li>
-            <li><a class="cd-faq-trigger" href="#0">[홈페이지] 인터넷 예매 후 예매 내용 확인은 어떻게 하나요?</a>
-                <div class="cd-faq-content">
-                    <p>인터넷 예매 후 예매내역 확인을 원하시는 경우 다음과 같이 확인하세요.<br /> 홈페이지 로그인 → [MY PAGE] → [MY 예매내역]</p>
-                </div>
-
-            </li>
-           <li><a class="cd-faq-trigger" href="#0">[홈페이지] 인터넷 예매 후 예매 내용 확인은 어떻게 하나요?</a>
-                <div class="cd-faq-content">
-                    <p>인터넷 예매 후 예매내역 확인을 원하시는 경우 다음과 같이 확인하세요.<br /> 홈페이지 로그인 → [MY PAGE] → [MY 예매내역]</p>
-                </div>
-
-            </li>
+            <c:choose>
+            	<c:when test="${list02.size() > 0}">
+            		<c:forEach var="list02" items="${list02}">
+            			<li><a class="cd-faq-trigger" href="#0">${list02.qTitle}</a>
+			                <div class="cd-faq-content">
+			                    <p>
+			                    	작성일 : ${list02.qDate}<br>
+			                    	${list02.qDate}
+			                    </p>
+			                </div>
+			            </li>
+            		</c:forEach>
+            	</c:when>
+            </c:choose>
         </ul>
-   
     </div>
     <a class="cd-close-panel" href="#0">Close</a>
-    <div style="background-color: black; height: 1500px;">
-        1234567890-
-    </div>
 </section>
-<!-- 푸터영역 -->
-<%@include file="../cmn/footer.jsp"%>
-<!-- //푸터영역 -->
 <script src='https://cdn.jsdelivr.net/g/modernizr@2.8.3,jquery@2.1.4,jquery.lazyloadxt@1.0.4(jquery.lazyloadxt.min.js+jquery.lazyloadxt.video.js),jquery.owlcarousel@1.31,trianglify@0.3.1'></script>
 <script id="rendered-js">
     jQuery(document).ready(function ($) {
