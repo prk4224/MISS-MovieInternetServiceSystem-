@@ -5,8 +5,8 @@ import com.pcwk.miss.cmn.DTO;
 public class MovieListVO extends DTO {
     private int mvNum; //영화번호
     private String mvTitle; //영화제목
+    private String mvDirector; //감독
     private String mvReleased; //개봉일
-    private int mvAgelimit; //연령제한
     private int mvOn; //상영현황
     private String imRoute; //메인포스터
     
@@ -14,12 +14,12 @@ public class MovieListVO extends DTO {
     	
     }
 
-	public MovieListVO(int mvNum, String mvTitle, String mvReleased, int mvAgelimit, int mvOn, String imRoute) {
+	public MovieListVO(int mvNum, String mvTitle, String mvDirector, String mvReleased, int mvOn, String imRoute) {
 		super();
 		this.mvNum = mvNum;
 		this.mvTitle = mvTitle;
+		this.mvDirector = mvDirector;
 		this.mvReleased = mvReleased;
-		this.mvAgelimit = mvAgelimit;
 		this.mvOn = mvOn;
 		this.imRoute = imRoute;
 	}
@@ -40,20 +40,20 @@ public class MovieListVO extends DTO {
 		this.mvTitle = mvTitle;
 	}
 
+	public String getMvDirector() {
+		return mvDirector;
+	}
+
+	public void setMvDirector(String mvDirector) {
+		this.mvDirector = mvDirector;
+	}
+
 	public String getMvReleased() {
 		return mvReleased;
 	}
 
 	public void setMvReleased(String mvReleased) {
 		this.mvReleased = mvReleased;
-	}
-
-	public int getMvAgelimit() {
-		return mvAgelimit;
-	}
-
-	public void setMvAgelimit(int mvAgelimit) {
-		this.mvAgelimit = mvAgelimit;
 	}
 
 	public int getMvOn() {
@@ -74,8 +74,10 @@ public class MovieListVO extends DTO {
 
 	@Override
 	public String toString() {
-		return "MovieListVO [mvNum=" + mvNum + ", mvTitle=" + mvTitle + ", mvReleased=" + mvReleased + ", mvAgelimit="
-				+ mvAgelimit + ", mvOn=" + mvOn + ", imRoute=" + imRoute + ", toString()=" + super.toString() + "]";
-	};
+		return "MovieListVO [mvNum=" + mvNum + ", mvTitle=" + mvTitle + ", mvDirector=" + mvDirector + ", mvReleased="
+				+ mvReleased + ", mvOn=" + mvOn + ", imRoute=" + imRoute + ", toString()=" + super.toString() + "]";
+	}
+
+	
     
 }

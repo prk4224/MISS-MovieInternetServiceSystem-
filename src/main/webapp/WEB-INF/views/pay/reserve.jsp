@@ -37,14 +37,10 @@
 	header {
 	    width: 100%;
 	    height: 80px;
-	    background: gray;
-	    opacity: 0.5;
 	}
 	nav {
 	    width: 100%;
 	    height: 80px;
-	    background: lightgray;
-	    opacity: 0.8;
 	}
 	main {
 	    width: 100%;
@@ -52,7 +48,6 @@
 	}
 	footer {
 	    height: 80px;
-	    background: gray;
 	}
 	.name {
 	    text-align: center;
@@ -223,9 +218,9 @@
 	</script>
 </head>
 <body>
-    <header>
-        <h2>MISS</h2>
-    </header>
+    <!-- 헤더영역 -->
+    <%@include file="../cmn/header.jsp"%>
+    <!-- //헤더영역 -->
     <nav>예매</nav>
     <main>
         <div>
@@ -320,9 +315,8 @@
        예약하기</button>
 
     </main>
-
-    <footer>
-        <p>MISSdd<p>
-    </footer>
+    <!-- 푸터영역 -->
+    <%@include file="../cmn/footer.jsp"%>
+    <!-- //푸터영역 -->
 </body>
 </html>
