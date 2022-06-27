@@ -15,7 +15,8 @@
 <link
     href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600&display=swap"
     rel="stylesheet">
-<link rel='stylesheet' href='style.css'>
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
 <style class="MOVIE LIST">
 header {
     position: relative;
@@ -254,7 +255,9 @@ a:hover {
                                 <c:when test="${list2.size() > 0}">
                                     <c:forEach var="list2" items = "${list2}">
                                         <div class="card-view">
-			                                <div class="card-header spiderman" style="background-image:url(${list2.imRoute});"></div>
+			                                <div class="card-header spiderman list2" style="background-image:url(${list2.imRoute});">
+			                                	<p style="display:none;">${list2.mvNum}</p>
+			                                </div>
 			                                <div class="card-movie-content">
 			                                    <div class="card-movie-content-head">
 			                                        <a href="#">
@@ -296,7 +299,9 @@ a:hover {
                                 <c:when test="${list0.size() > 0}">
                                     <c:forEach var="list0" items = "${list0}">
                                         <div class="card-view">
-                                            <div class="card-header spiderman" style="background-image:url(${list0.imRoute});"></div>
+                                            <div class="card-header spiderman list0" style="background-image:url(${list0.imRoute});">
+                                            	<p style="display:none;">${list0.mvNum}</p>
+                                            </div>
                                             <div class="card-movie-content">
                                                 <div class="card-movie-content-head">
                                                     <a href="#">
@@ -338,7 +343,9 @@ a:hover {
                                 <c:when test="${list1.size() > 0}">
                                     <c:forEach var="list1" items = "${list1}">
                                         <div class="card-view">
-                                            <div class="card-header spiderman" style="background-image:url(${list1.imRoute});"></div>
+                                            <div class="card-header spiderman list1" style="background-image:url(${list1.imRoute});">
+                                            	<p style="display:none;">${list1.mvNum}</p>
+                                            </div>
                                             <div class="card-movie-content">
                                                 <div class="card-movie-content-head">
                                                     <a href="#">
@@ -371,6 +378,22 @@ a:hover {
     <!-- 푸터영역 -->
     <%@include file="../cmn/footer.jsp"%>
     <!-- //푸터영역 -->
-
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log("ready!");
+			$(".list0").on("click", function(){
+				let mvNum = $(this).children().eq(0).text();
+				location.href = "movie_detail.do?mvNum=" + mvNum;
+			})
+			$(".list1").on("click", function(){
+				let mvNum = $(this).children().eq(0).text();
+				location.href = "movie_detail.do?mvNum=" + mvNum;
+			})
+			$(".list2").on("click", function(){
+				let mvNum = $(this).children().eq(0).text();
+				location.href = "movie_detail.do?mvNum=" + mvNum;
+			})
+		})
+	</script>
 </body>
 </html>
