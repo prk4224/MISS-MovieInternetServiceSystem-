@@ -18,5 +18,6 @@
     	<typeAlias type="com.pcwk.miss.domain.CouponVO" alias="CouponVO"/>
     	<typeAlias type="com.pcwk.miss.movie.domain.MovieListVO" alias="MovieListVO"/>
     	<typeAlias type="com.pcwk.miss.faq.domain.FaqVO" alias="FaqVO"/>
+    	<typeAlias type="com.pcwk.miss.pay.domain.ReserveVO" alias="ReserveVO"/>
     </typeAliases>
 </configuration>

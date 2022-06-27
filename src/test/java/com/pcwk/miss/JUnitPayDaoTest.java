@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.pay.dao.PayDao;
+import com.pcwk.miss.pay.domain.ReserveVO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class) // JUnit기능을 스프링 프레임으로 확장
@@ -34,6 +36,7 @@ public class JUnitPayDaoTest {
 	PayDao dao;
 	
 	CouponVO couponVO;
+	ReserveVO reserveVO;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -43,6 +46,8 @@ public class JUnitPayDaoTest {
 		
 		couponVO = new CouponVO(2,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
 		
+		reserveVO = new ReserveVO();
+		
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
 		
@@ -50,8 +55,30 @@ public class JUnitPayDaoTest {
 		assertNotNull(dao);
 		
 	}
+	
+	@Test
+	public void getMovieTime() throws SQLException{
+		reserveVO.setMvNum(6);
+		reserveVO.setMiQuality(1080);
+		List<ReserveVO> list = dao.getMovieTime(reserveVO);
+		LOG.debug("========================");
+		LOG.debug("=list=" + list);
+		LOG.debug("========================");
+		assertEquals(2, list.size());
+	}
+	
+	@Test
+	@Ignore
+	public void getMovieOn() throws SQLException{
+		List<ReserveVO> list = dao.getMovieOn();
+		LOG.debug("========================");
+		LOG.debug("=list=" + list);
+		LOG.debug("========================");
+		assertEquals(10, list.size());
+	}
 
 	@Test
+	@Ignore
 	public void couponRetrieve()  throws SQLException {
 		LOG.debug("========================");
 		LOG.debug("=couponRetrieve()=");
@@ -62,8 +89,7 @@ public class JUnitPayDaoTest {
 		LOG.debug("========================");
 		LOG.debug("=list=" + list);
 		LOG.debug("========================");
-		
-		
 	}
+	
 
 }

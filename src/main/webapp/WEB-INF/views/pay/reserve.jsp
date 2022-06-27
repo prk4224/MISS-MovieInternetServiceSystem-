@@ -230,79 +230,88 @@
             
              <div class="scrollB">
                 <div class="List">
-                    <div class="movieBt" id="movieBt1" onclick="ShowFunction('1')">다만   악에서 구원하소서</div>
-                    <div class="movieBt" id="movieBt2" onclick="ShowFunction('2')">범죄도시</div>
-                    <div class="movieBt">스폰지밥더무비</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                   <div class="movieBt">더미더미</div>
-                  <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
-                    <div class="movieBt">더미더미</div>
+                	<c:choose>
+                		<c:when test="${list.size() > 0}">
+                			<c:forEach var="list" items="${list}">
+                				<div class="movieBt" id="movieBt1">${list.mvTitle}</div>
+                				<span style="display: none">${list.mvNum}</span>
+                			</c:forEach>
+                		</c:when>
+                	</c:choose>
+                
+<!--                     <div class="movieBt" id="movieBt1" onclick="ShowFunction('1')">다만   악에서 구원하소서</div> -->
                 </div>
             </div>
         </div>
         <div id="showTIme1"
             style="position: absolute; top:500px; left:1050px; display: none; ">
-            <div id="line1">
-                <div class="timeBt">11:00</div>
-                <div class="timeBt">12:00</div>
-                <div class="timeBt">13:00</div>
-                <div class="timeBt">14:00</div>
-                <div class="timeBt">15:00</div>
-                <div class="timeBt">16:00</div>
-            </div>
-              <div id="line2" >
-                <div class="timeBt">17:00</div>
-                <div class="timeBt">19:00</div>
-                <div class="timeBt">19:00</div>
-                <div class="timeBt">20:00</div>
-                <div class="timeBt">21:00</div>
-                <div class="timeBt">22:00</div>
-            </div>
+        <c:choose>
+        	<c:when test="${timeList.size() > 0}">
+        		<c:forEach var="timeList" items="${timeList}">
+        			<div id="line1">
+        				<div class="timeBt">
+        					${timeList.miTime}
+        				</div>
+        			</div>
+        		</c:forEach>
+        	</c:when>
+        </c:choose>
         </div>
+<!--         <div id="showTIme1" -->
+<!--             style="position: absolute; top:500px; left:1050px; display: none; "> -->
+<!--             <div id="line1"> -->
+<!--                 <div class="timeBt">11:00</div> -->
+<!--                 <div class="timeBt">12:00</div> -->
+<!--                 <div class="timeBt">13:00</div> -->
+<!--                 <div class="timeBt">14:00</div> -->
+<!--                 <div class="timeBt">15:00</div> -->
+<!--                 <div class="timeBt">16:00</div> -->
+<!--             </div> -->
+<!--               <div id="line2" > -->
+<!--                 <div class="timeBt">17:00</div> -->
+<!--                 <div class="timeBt">19:00</div> -->
+<!--                 <div class="timeBt">19:00</div> -->
+<!--                 <div class="timeBt">20:00</div> -->
+<!--                 <div class="timeBt">21:00</div> -->
+<!--                 <div class="timeBt">22:00</div> -->
+<!--             </div> -->
+<!--         </div> -->
 
-        <div id="showTIme2"
-            style="position: absolute; top:500px; left:1050px; display: none; ">
-            <div id="line1">
-                <div class="timeBt">01:00</div>
-                <div class="timeBt">02:00</div>
-                <div class="timeBt">03:00</div>
-                <div class="timeBt">04:00</div>
-                <div class="timeBt">05:00</div>
-                <div class="timeBt">06:00</div>
-            </div>
-              <div id="line2" >
-                <div class="timeBt">07:00</div>
-                <div class="timeBt">08:00</div>
-                <div class="timeBt">09:00</div>
-                <div class="timeBt">10:00</div>
-                <div class="timeBt">11:00</div>
-                <div class="timeBt">12:00</div>
-            </div>
-              <div id="line3" >
-                <div class="timeBt">13:00</div>
-                <div class="timeBt">14:00</div>
-                <div class="timeBt">15:00</div>
-                <div class="timeBt">16:00</div>
-                <div class="timeBt">17:00</div>
-                <div class="timeBt">18:00</div>
-            </div>
-              <div id="line2" >
-                <div class="timeBt">19:00</div>
-                <div class="timeBt">20:00</div>
-                <div class="timeBt">21:00</div>
-                <div class="timeBt">22:00</div>
-                <div class="timeBt">23:00</div>
-                <div class="timeBt">24:00</div>
-            </div>
-        </div>
+<!--         <div id="showTIme2" -->
+<!--             style="position: absolute; top:500px; left:1050px; display: none; "> -->
+<!--             <div id="line1"> -->
+<!--                 <div class="timeBt">01:00</div> -->
+<!--                 <div class="timeBt">02:00</div> -->
+<!--                 <div class="timeBt">03:00</div> -->
+<!--                 <div class="timeBt">04:00</div> -->
+<!--                 <div class="timeBt">05:00</div> -->
+<!--                 <div class="timeBt">06:00</div> -->
+<!--             </div> -->
+<!--               <div id="line2" > -->
+<!--                 <div class="timeBt">07:00</div> -->
+<!--                 <div class="timeBt">08:00</div> -->
+<!--                 <div class="timeBt">09:00</div> -->
+<!--                 <div class="timeBt">10:00</div> -->
+<!--                 <div class="timeBt">11:00</div> -->
+<!--                 <div class="timeBt">12:00</div> -->
+<!--             </div> -->
+<!--               <div id="line3" > -->
+<!--                 <div class="timeBt">13:00</div> -->
+<!--                 <div class="timeBt">14:00</div> -->
+<!--                 <div class="timeBt">15:00</div> -->
+<!--                 <div class="timeBt">16:00</div> -->
+<!--                 <div class="timeBt">17:00</div> -->
+<!--                 <div class="timeBt">18:00</div> -->
+<!--             </div> -->
+<!--               <div id="line2" > -->
+<!--                 <div class="timeBt">19:00</div> -->
+<!--                 <div class="timeBt">20:00</div> -->
+<!--                 <div class="timeBt">21:00</div> -->
+<!--                 <div class="timeBt">22:00</div> -->
+<!--                 <div class="timeBt">23:00</div> -->
+<!--                 <div class="timeBt">24:00</div> -->
+<!--             </div> -->
+<!--         </div> -->
     
     <select name="quality">
          <option value="">화질</option>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
+import com.pcwk.miss.pay.domain.ReserveVO;
 
 @Repository("payDao")
 public class PayDaoImpl implements PayDao {
@@ -40,6 +41,43 @@ public class PayDaoImpl implements PayDao {
 		for(CouponVO vo : list) {
 			LOG.debug("vo : " + vo.toString());
 		}
+		return list;
+	}
+
+	@Override
+	public List<ReserveVO> getMovieOn() throws SQLException {
+		
+		List<ReserveVO> list = null;
+		String statement = this.NAMESPACE + ".getMovieOn";
+		LOG.debug("===========================");
+		LOG.debug("=statement : " + statement);
+		LOG.debug("=sqlSessionTemplate : " + sqlSessionTemplate);
+		LOG.debug("===========================");
+		
+		list = this.sqlSessionTemplate.selectList(statement);
+		for(ReserveVO vo : list) {
+			LOG.debug("vo : " + vo);
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<ReserveVO> getMovieTime(ReserveVO inVO) throws SQLException {
+		
+		List<ReserveVO> list = null;
+		String statement = this.NAMESPACE + ".getMovieTime";
+		LOG.debug("===========================");
+		LOG.debug("=statement : " + statement);
+		LOG.debug("=inVO : " + inVO);
+		LOG.debug("===========================");
+		
+		list = this.sqlSessionTemplate.selectList(statement, inVO);
+		
+		for(ReserveVO vo : list) {
+			LOG.debug("vo : " + vo);
+		}
+		
 		return list;
 	}
 	
