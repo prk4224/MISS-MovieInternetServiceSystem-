@@ -41,7 +41,7 @@ public class JUnitPayDaoTest {
 		LOG.debug("=0.setUp()=");
 		LOG.debug("========================");
 		
-		couponVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
+		couponVO = new CouponVO(2,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
 		
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);

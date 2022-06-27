@@ -5,11 +5,11 @@
 	<!-- 할인 쿠폰 리스트 -->
 	<select id="couponRetrieve" parameterType="CouponVO" resultType="CouponVO">
 		SELECT c_num AS "cNum",
-			   c_name AS "cName,
-			   c_period AS "cPeriod,
-			   c_ratio AS "cRatio
-		FROM conpon
-		WHELE mb_num = #{mbNum} AND c_kind IS NOT NULL
+	       c_name AS "cName",
+	       c_period AS "cPeriod",
+	       c_ratio AS "cRatio"
+		FROM coupon
+		WHERE mb_num = 1 AND c_kind IS NOT NULL
 	</select>
 
 
