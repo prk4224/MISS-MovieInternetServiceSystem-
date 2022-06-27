@@ -160,8 +160,8 @@
 		    B.num
 		FROM(SELECT t1.mv_num AS mvNum,
 		    t1.mv_title AS mvTitle,
-		    t1.mv_released AS mvReleased,
-		    t1.mv_agelimit AS mvAgelimit,
+		    t1.mv_director AS mvDirector,
+		    TO_CHAR(t1.mv_released, 'YYYY/MM/DD') AS mvReleased,
 		    t1.mv_on AS mvOn,
 		    t2.im_route AS imRoute
 		FROM movie t1, image t2
