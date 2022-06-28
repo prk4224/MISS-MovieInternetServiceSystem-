@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pcwk.miss.domain.CouponVO;
+import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.pay.domain.ReserveVO;
 
@@ -45,6 +46,11 @@ public class PayDaoImpl implements PayDao {
 	}
 
 	@Override
+	public int ticketInsert(TicketVO inVO) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 	public List<ReserveVO> getMovieOn() throws SQLException {
 		
 		List<ReserveVO> list = null;

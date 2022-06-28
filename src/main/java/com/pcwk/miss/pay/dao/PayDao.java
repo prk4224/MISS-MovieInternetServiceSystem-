@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.pcwk.miss.domain.CouponVO;
+import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.movie.domain.MovieListVO;
 import com.pcwk.miss.pay.domain.ReserveVO;
 
@@ -15,6 +16,8 @@ public interface PayDao {
 	 * @throws SQLException
 	 */
 	List<CouponVO> couponRetrieve(CouponVO inVO) throws SQLException;
+	
+	int ticketInsert(TicketVO inVO) throws SQLException;
 	
 	/**
 	 * 상영중인영화조회

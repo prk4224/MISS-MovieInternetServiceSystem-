@@ -12,6 +12,12 @@
 		WHERE mb_num = 1 AND c_kind IS NOT NULL
 	</select>
 	
+	<!-- 예매 내역 insert -->
+	<insert id="ticketInsert" parameterType="TicketVO">
+	
+	
+	</insert>
+
 	<!-- 예매페이지  상영중인 영화 -->
 	<select id="getMovieOn" resultType="ReserveVO">
 		SELECT MV_NUM AS mvNum,
@@ -30,6 +36,5 @@
 		AND T1.MV_NUM = #{mvNum}
 		AND T2.MI_QUALITY LIKE #{miQuality} || '%'
 	</select>
-
 </mapper>
 
