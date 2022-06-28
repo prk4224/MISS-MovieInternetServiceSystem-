@@ -19,7 +19,6 @@
 <c:set var="CP" value="${pageContext.request.contextPath}"/>
 <c:set var="resources" value="/resources"/>
 <c:set var="CP_RES" value="${CP}${resources}"/>
-
 <!DOCTYPE html>
 <html>
 <head>

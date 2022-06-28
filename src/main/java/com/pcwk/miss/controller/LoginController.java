@@ -43,4 +43,13 @@ public class LoginController {
 		return "login/login";
 	}
 	
+	@RequestMapping(value = "/register.do")
+	public String registerView() {
+		LOG.debug("=========================");
+		LOG.debug("=LoginController=registerView()=");
+		LOG.debug("=========================");
+		
+		return "login/register";
+	}
+	
 }
