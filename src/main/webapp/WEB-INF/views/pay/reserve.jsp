@@ -146,19 +146,7 @@
 	    font-style: normal;
 	    font-size: 20px;
 	  }
-	select{
-	  position:absolute; 
-	  top:370px; 
-	  left:1800px; 
-	  width: 200px; 
-	  padding: .8em .5em; 
-	  font-family: inherit;  
-	  background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; 
-	  border: 1px solid #999; 
-	  border-radius: 0px;
-	  appearance: none;
-	    
-	}
+
 	</style>
     
     <!-- 부트스트랩 -->
@@ -173,16 +161,9 @@
     <!--자바스크립트 코드-->
 	<script type="text/javascript">
 	    function ShowFunction(index) {
-	        $('[id^=showTIme').hide();
+	       
 	        $('#showTIme' + index).show();
-	        //var ST = document.getElementById("showTIme"+index);
-	        /*
-	         if (ST.style.display === "none") {
-	         ST.style.display = "block";
-	         } else {
-	         ST.style.display = "none";
-	         }
-	         */
+	       
 	    }
 	    /* 버튼 클릭*/
 	    $(document).ready(function() {
@@ -257,68 +238,41 @@
         	</c:when>
         </c:choose>
         </div>
-<!--         <div id="showTIme1" -->
-<!--             style="position: absolute; top:500px; left:1050px; display: none; "> -->
-<!--             <div id="line1"> -->
-<!--                 <div class="timeBt">11:00</div> -->
-<!--                 <div class="timeBt">12:00</div> -->
-<!--                 <div class="timeBt">13:00</div> -->
-<!--                 <div class="timeBt">14:00</div> -->
-<!--                 <div class="timeBt">15:00</div> -->
-<!--                 <div class="timeBt">16:00</div> -->
-<!--             </div> -->
-<!--               <div id="line2" > -->
-<!--                 <div class="timeBt">17:00</div> -->
-<!--                 <div class="timeBt">19:00</div> -->
-<!--                 <div class="timeBt">19:00</div> -->
-<!--                 <div class="timeBt">20:00</div> -->
-<!--                 <div class="timeBt">21:00</div> -->
-<!--                 <div class="timeBt">22:00</div> -->
-<!--             </div> -->
-<!--         </div> -->
-
-<!--         <div id="showTIme2" -->
-<!--             style="position: absolute; top:500px; left:1050px; display: none; "> -->
-<!--             <div id="line1"> -->
-<!--                 <div class="timeBt">01:00</div> -->
-<!--                 <div class="timeBt">02:00</div> -->
-<!--                 <div class="timeBt">03:00</div> -->
-<!--                 <div class="timeBt">04:00</div> -->
-<!--                 <div class="timeBt">05:00</div> -->
-<!--                 <div class="timeBt">06:00</div> -->
-<!--             </div> -->
-<!--               <div id="line2" > -->
-<!--                 <div class="timeBt">07:00</div> -->
-<!--                 <div class="timeBt">08:00</div> -->
-<!--                 <div class="timeBt">09:00</div> -->
-<!--                 <div class="timeBt">10:00</div> -->
-<!--                 <div class="timeBt">11:00</div> -->
-<!--                 <div class="timeBt">12:00</div> -->
-<!--             </div> -->
-<!--               <div id="line3" > -->
-<!--                 <div class="timeBt">13:00</div> -->
-<!--                 <div class="timeBt">14:00</div> -->
-<!--                 <div class="timeBt">15:00</div> -->
-<!--                 <div class="timeBt">16:00</div> -->
-<!--                 <div class="timeBt">17:00</div> -->
-<!--                 <div class="timeBt">18:00</div> -->
-<!--             </div> -->
-<!--               <div id="line2" > -->
-<!--                 <div class="timeBt">19:00</div> -->
-<!--                 <div class="timeBt">20:00</div> -->
-<!--                 <div class="timeBt">21:00</div> -->
-<!--                 <div class="timeBt">22:00</div> -->
-<!--                 <div class="timeBt">23:00</div> -->
-<!--                 <div class="timeBt">24:00</div> -->
-<!--             </div> -->
-<!--         </div> -->
+         <div id="showTIme1"
+            style="position: absolute; top:40%; left:33%; display: none; width:55%;">
+         
+           
+                <div class="timeBt">01:00<br>고화질</div>
+                <div class="timeBt">02:00<br>고화질</div>
+                <div class="timeBt">03:00<br>고화질</div>
+                <div class="timeBt">04:00<br>고화질</div>
+                <div class="timeBt">05:00<br>고화질</div>
+                <div class="timeBt">06:00<br>고화질</div>
+           
+          
+                <div class="timeBt">07:00<br>고화질</div>
+                <div class="timeBt">08:00<br>고화질</div>
+                <div class="timeBt">09:00<br>고화질</div>
+                <div class="timeBt">10:00<br>고화질</div>
+                <div class="timeBt">11:00<br>고화질</div>
+                <div class="timeBt">12:00<br>고화질</div>
+          
+                <div class="timeBt">13:00<br>고화질</div>
+                <div class="timeBt">14:00<br>고화질</div>
+                <div class="timeBt">15:00<br>고화질</div>
+                <div class="timeBt">16:00<br>고화질</div>
+                <div class="timeBt">17:00<br>고화질</div>
+                <div class="timeBt">18:00<br>고화질</div>
+          
+            
+                <div class="timeBt">19:00<br>고화질</div>
+                <div class="timeBt">20:00<br>고화질</div>
+                <div class="timeBt">21:00<br>고화질</div>
+                <div class="timeBt">22:00<br>고화질</div>
+                <div class="timeBt">23:00<br>고화질</div>
+                <div class="timeBt">24:00<br>고화질</div>
+          </div>
     
-    <select name="quality">
-         <option value="">화질</option>
-         <option value="HD">HD</option>
-         <option value="FHD" >FHD</option>
-         <option value="QHD">QHD</option>
-    </select>
         
     <button type="button" class="rBt" onclick='goBuy()'>
        예약하기</button>

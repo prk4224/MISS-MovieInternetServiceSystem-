@@ -98,6 +98,7 @@
             <th width="300px">상영일시</th>
             <th width="500px">영화명</th>
             <th width="300px">예매번호</th>
+            <th width="80px">영화보기</th>
             <th width="80px">예매취소</th>
         </tr>
      </thead>
@@ -106,6 +107,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()" style="display:block">취소</button></td>
         </tr>        
          <tr>  
@@ -113,6 +115,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td align="right"><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -120,6 +123,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -127,6 +131,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -134,6 +139,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -141,6 +147,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -148,6 +155,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -155,6 +163,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -162,6 +171,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -169,6 +179,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -176,6 +187,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -183,6 +195,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -190,6 +203,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -197,6 +211,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>      
             <tr>  
@@ -204,6 +219,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -211,6 +227,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -218,12 +235,14 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
 	    <tr>  
             <td>상영중</td>
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -231,6 +250,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
         </tr>        
          <tr>  
@@ -238,6 +258,7 @@
             <td>2022/06/18 14:30</td>
             <td onclick="moviePage()">다만 악에서 구원하소서</td>
             <td>142451-121356</td>
+            <td><button  type="button" style="display:block">영화보기</button></td>
             <td><button class="cancle" type="button" onclick="moCancle()">취소</button></td>
      </table>
      </main>
