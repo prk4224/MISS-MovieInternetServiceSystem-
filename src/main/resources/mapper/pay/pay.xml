@@ -13,10 +13,10 @@
 	</select>
 	
 	<!-- 예매 내역 insert -->
-	<insert id="ticketInsert" parameterType="TicketVO">
+<!-- 	<insert id="ticketInsert" parameterType="TicketVO"> -->
 	
 	
-	</insert>
+<!-- 	</insert> -->
 
 	<!-- 예매페이지  상영중인 영화 -->
 	<select id="getMovieOn" resultType="ReserveVO">
