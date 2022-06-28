@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.pcwk.miss.domain.CouponVO;
+import com.pcwk.miss.domain.TicketVO;
 
 public interface PayDao {
 	
@@ -13,5 +14,7 @@ public interface PayDao {
 	 * @throws SQLException
 	 */
 	List<CouponVO> couponRetrieve(CouponVO inVO) throws SQLException;
+	
+	int ticketInsert(TicketVO inVO) throws SQLException;
 	
 }

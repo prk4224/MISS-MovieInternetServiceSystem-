@@ -11,6 +11,12 @@
 		FROM coupon
 		WHERE mb_num = 1 AND c_kind IS NOT NULL
 	</select>
+	
+	<!-- 예매 내역 insert -->
+	<insert id="ticketInsert" parameterType="TicketVO">
+	
+	
+	</insert>
 
 
 </mapper>
