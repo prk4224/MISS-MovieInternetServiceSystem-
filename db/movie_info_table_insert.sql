@@ -76,6 +76,4 @@ INSERT INTO MOVIE_INFO
 VALUES(18, TO_DATE('2022/07/13 18:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
 
 
-
-
 COMMIT;

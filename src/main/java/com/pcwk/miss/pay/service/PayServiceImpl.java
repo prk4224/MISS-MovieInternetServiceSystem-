@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.pay.dao.PayDao;
+import com.pcwk.miss.pay.domain.ReserveVO;
 
 @Service("payService")
 public class PayServiceImpl implements PayService{
@@ -24,6 +25,18 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 	public List<CouponVO> couponRetrieve(CouponVO inVO) throws SQLException {
 		
 		return payDao.couponRetrieve(inVO);
+	}
+
+
+	@Override
+	public List<ReserveVO> getMovieOn() throws SQLException {
+		return payDao.getMovieOn();
+	}
+
+
+	@Override
+	public List<ReserveVO> getMovieTime(ReserveVO inVO) throws SQLException {
+		return payDao.getMovieTime(inVO);
 	}
 	
 

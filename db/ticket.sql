@@ -1,6 +1,6 @@
 INSERT INTO ticket
 VALUES ( 1,1,5000,1,SYSDATE, 1, 1);
--- 瓴办牅氩堩樃, 須岇洂氩堩樃, 瓴办牅旮堨暋, 瓴办牅靾橂嫧, 瓴办牅鞚检嫓, 瓴办牅 靸來儨, 鞓來檾鞝曤炒
+-- 瓴办牅氩堩樃, ?殞?洂氩堩樃, 瓴办牅旮堨暋, 瓴办牅?垬?嫧, 瓴办牅?澕?嫓, 瓴办牅 ?儊?儨, ?榿?檾?爼氤?
 
 INSERT INTO ticket
 VALUES ( 2,2,5000,0,SYSDATE, 1, 2);

@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.TicketVO;
+import com.pcwk.miss.movie.domain.MovieListVO;
+import com.pcwk.miss.pay.domain.ReserveVO;
 
 public interface PayDao {
 	
@@ -17,4 +19,17 @@ public interface PayDao {
 	
 	int ticketInsert(TicketVO inVO) throws SQLException;
 	
+	/**
+	 * 상영중인영화조회
+	 * @return
+	 * @throws SQLException
+	 */
+	List<ReserveVO> getMovieOn() throws SQLException;
+	
+	/**
+	 * 영화상영시간 조회
+	 * @return
+	 * @throws SQLException
+	 */
+	List<ReserveVO> getMovieTime(ReserveVO inVO) throws SQLException;
 }

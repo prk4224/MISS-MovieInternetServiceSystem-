@@ -16,6 +16,9 @@
 */
 package com.pcwk.miss.controller;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +27,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pcwk.miss.pay.KakaoPay;
+import com.pcwk.miss.pay.domain.ReserveVO;
+import com.pcwk.miss.pay.service.PayService;
 
 
 
@@ -42,11 +48,21 @@ public class PayController {
 	
 	final Logger LOG = LogManager.getLogger(getClass());
 	
-	@RequestMapping(value = "/reserve.do")
-	public String reserveView() {
+	@Autowired
+	PayService payService;
+	
+	@RequestMapping(value = "/reserve.do", method=RequestMethod.GET)
+	public String reserveView(Model model) throws SQLException {
 		LOG.debug("==================");
 		LOG.debug("=PayController=reserveView()=");
 		LOG.debug("==================");
+		List<ReserveVO> list = payService.getMovieOn();
+		ReserveVO inVO = new ReserveVO(list.get(2).getMvNum(), "", "", 1080);
+		List<ReserveVO> timeList = payService.getMovieTime(inVO);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("timeList", timeList);
+		
 		return "pay/reserve";
 	}
 	

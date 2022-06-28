@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.miss.faq">
+
+<!-- qna 조회 -->
+<select id="getFaqList" parameterType="int" resultType="FaqVO">
+	SELECT A.*, B.*
+	FROM
+	(SELECT q_num AS qNum,
+	    q_kind AS qKind,
+	    q_title AS qTitle,
+	    q_contents AS qContents,
+	    TO_CHAR(q_date, 'YYYY/MM/DD') AS qDate
+	FROM FAQ
+	WHERE q_kind = #{qKind})A
+	CROSS JOIN
+	(SELECT COUNT(*) AS totalCnt
+	FROM FAQ
+	WHERE q_kind = #{qKind})B
+</select>
+
+</mapper>
