@@ -38,6 +38,4 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 	public List<ReserveVO> getMovieTime(ReserveVO inVO) throws SQLException {
 		return payDao.getMovieTime(inVO);
 	}
-	
-
 }

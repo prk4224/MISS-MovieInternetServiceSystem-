@@ -109,10 +109,6 @@ public class MovieController {
 		LOG.debug("=inVO=" + inVO);
 		LOG.debug("====================");
 		
-		LOG.debug("====================");
-		LOG.debug("=inVO=" + inVO);
-		LOG.debug("====================");
-		
 		List<MovieReviewVO> list = movieService.reviewRetrieve(inVO);
 		Gson gson = new Gson();
 		jsonString = gson.toJson(list);

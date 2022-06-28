@@ -157,14 +157,12 @@
     <script src="${CP_RES}/js/bootstrap.min.js"></script>
     <!-- jquery_bootstrap paging -->
     <script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
- 
+	 <!-- 사용자 정의 function, ISEmpty -->
+	<script src="${CP_RES}/js/eUtil.js"></script>
+	<!-- 사용자 정의 function, callAjax -->
+	<script src="${CP_RES}/js/eclass.js"></script>
     <!--자바스크립트 코드-->
 	<script type="text/javascript">
-	    function ShowFunction(index) {
-	       
-	        $('#showTIme' + index).show();
-	       
-	    }
 	    /* 버튼 클릭*/
 	    $(document).ready(function() {
 	        $('.timeBt').each(function(index) {//index-객체의 인덱스값 받음
@@ -195,83 +193,106 @@
 	    /* 버튼 클릭 마무리*/
 	    function goBuy()  {
 	  window.location.href = 'https://www.naver.com'
-	}
+				}
+	    
+	    /* */
+	    function changeTime(mvNum) {
+	    	console.log(mvNum);
+	    	let url="/miss/pay/getMovieTime.do";
+	    	let method="GET";
+	    	let async = true;
+	    	let parameters = {
+	    			mvNum : mvNum,
+	    			miQuality : 0
+	    	};
+	    	EClass.callAjax(url, parameters, method, async, function(data) {
+	    		console.log(data);
+	    		let parsedData = data;
+	    		
+	    		//1.
+	    		$('#showTIme1').empty();
+	    		let htmlData = "";
+	    		
+	    		if(parsedData != null && parsedData.length > 0){
+	    			$.each(parsedData, function(index, value){
+	    				let quality = "";
+	    				console.log(index + ":" + value);
+	    				if(value.miQuality == 720){
+	    					quality = "HD";
+	    				}else if(value.miQuality == 1080){
+	    					quality = "FHD";
+	    				}else{
+	    					quality = "QHD";
+	    				}
+	    				htmlData += "<div class='timeBt'>";
+	    				htmlData += value.miTime + "<br>";
+	    				htmlData += "<span style='color: red'>";
+	    				htmlData += quality;
+	    				htmlData += "</span>";
+	    				htmlData += "</div>";
+	    			});
+	    		}else{
+	    			
+	    		}
+	    		console.log("htmlData : " + htmlData);
+	    		$('#showTIme1').append(htmlData);
+	    	});
+	    } 
 	</script>
 </head>
 <body>
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-    <nav>예매</nav>
+    ${timeList}
     <main>
         <div>
             <div class="name" style="width: 298px; height: 30px; position: absolute; top: 420px; left: 700px;">영화 제목</div>
             <div class="name" style="width: 998px; height: 30px; position: absolute; top: 420px; left: 1000px;">시간</div>
-            <div style="width:992px; height: 492px; position:absolute; top:450px; left:1000px; border: solid 4px #dadce0;"></div>
-            
+            <div style="width:992px; height: 492px; position:absolute; top:450px; left:1000px; border: solid 4px #dadce0;">
+            	<div id="showTIme1" style="position: absolute; width:100%;">
+	                 <c:choose>
+			        	<c:when test="${timeList.size() > 0}">
+			        		<c:forEach var="timeList" items="${timeList}">
+			       				<div class="timeBt">
+			       					${timeList.miTime}<br>
+			       					<span style="color: red">
+				       					<c:choose>
+					       					<c:when test="${timeList.miQuality == 720}">
+					       						HD
+					       					</c:when>
+					       					<c:when test="${timeList.miQuality == 1080}">
+					       						FHD
+					       					</c:when>
+					       					<c:otherwise>
+					       						QHD
+					       					</c:otherwise>
+				       					</c:choose>
+			       					</span>
+			       				</div>
+			        		</c:forEach>
+			        	</c:when>
+			        </c:choose>
+          		</div>
+            </div>
              <div class="scrollB">
                 <div class="List">
                 	<c:choose>
                 		<c:when test="${list.size() > 0}">
                 			<c:forEach var="list" items="${list}">
-                				<div class="movieBt" id="movieBt1">${list.mvTitle}</div>
+                				<div class="movieBt" id="movieBt1" onclick="changeTime(${list.mvNum});">${list.mvTitle}</div>
                 				<span style="display: none">${list.mvNum}</span>
                 			</c:forEach>
                 		</c:when>
                 	</c:choose>
-                
-<!--                     <div class="movieBt" id="movieBt1" onclick="ShowFunction('1')">다만   악에서 구원하소서</div> -->
                 </div>
             </div>
         </div>
         <div id="showTIme1"
             style="position: absolute; top:500px; left:1050px; display: none; ">
-        <c:choose>
-        	<c:when test="${timeList.size() > 0}">
-        		<c:forEach var="timeList" items="${timeList}">
-        			<div id="line1">
-        				<div class="timeBt">
-        					${timeList.miTime}
-        				</div>
-        			</div>
-        		</c:forEach>
-        	</c:when>
-        </c:choose>
+       
         </div>
-         <div id="showTIme1"
-            style="position: absolute; top:40%; left:33%; display: none; width:55%;">
          
-           
-                <div class="timeBt">01:00<br>고화질</div>
-                <div class="timeBt">02:00<br>고화질</div>
-                <div class="timeBt">03:00<br>고화질</div>
-                <div class="timeBt">04:00<br>고화질</div>
-                <div class="timeBt">05:00<br>고화질</div>
-                <div class="timeBt">06:00<br>고화질</div>
-           
-          
-                <div class="timeBt">07:00<br>고화질</div>
-                <div class="timeBt">08:00<br>고화질</div>
-                <div class="timeBt">09:00<br>고화질</div>
-                <div class="timeBt">10:00<br>고화질</div>
-                <div class="timeBt">11:00<br>고화질</div>
-                <div class="timeBt">12:00<br>고화질</div>
-          
-                <div class="timeBt">13:00<br>고화질</div>
-                <div class="timeBt">14:00<br>고화질</div>
-                <div class="timeBt">15:00<br>고화질</div>
-                <div class="timeBt">16:00<br>고화질</div>
-                <div class="timeBt">17:00<br>고화질</div>
-                <div class="timeBt">18:00<br>고화질</div>
-          
-            
-                <div class="timeBt">19:00<br>고화질</div>
-                <div class="timeBt">20:00<br>고화질</div>
-                <div class="timeBt">21:00<br>고화질</div>
-                <div class="timeBt">22:00<br>고화질</div>
-                <div class="timeBt">23:00<br>고화질</div>
-                <div class="timeBt">24:00<br>고화질</div>
-          </div>
     
         
     <button type="button" class="rBt" onclick='goBuy()'>
