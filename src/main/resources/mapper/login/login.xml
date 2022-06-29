@@ -9,4 +9,27 @@
 		WHERE mb_email = #{mbEmail}
 	</select>
 	
+	<!-- 회원가입 -->
+	<insert id="doInsert" parameterType="MemberVO">
+		INSERT INTO MEMBER(
+			mb_num,
+			mb_email,
+			mb_name,
+			mb_tel,
+			mb_birth,
+			mb_nickname,
+			mb_grade,
+			mb_point
+		)VALUES(
+			mb_num_seq.NEXTVAL,
+			#{mbEmail},
+			#{mbName},
+			#{mbTel},
+			#{mbBirth},
+			#{mbNickname},
+			1,
+			0
+		)
+	</insert>
+	
 </mapper>

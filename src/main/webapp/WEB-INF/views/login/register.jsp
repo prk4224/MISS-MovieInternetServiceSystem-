@@ -140,7 +140,7 @@ select {
     margin: 30px 0 91px;
 }
 
-#btnJoin {
+#doInsert {
     width: 100%;
     padding: 21px 0 17px;
     border: 0;
@@ -152,6 +152,58 @@ select {
     
 }
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#doInsert').on("click", function(){
+			console.log("join");
+			
+			if(eUtil.ISEmpty($("#mbName").val())){
+				alert("이름을 입력하세요.");
+				$("#mbName").focus();
+				return;
+			};
+			if(eUtil.ISEmpty($("#mbNickname").val())){
+				alert("닉네임을 입력하세요.");
+				$("#mbNickname").focus();
+				return;
+			};
+			if(eUtil.ISEmpty($("#mbBirthYear").val())){
+				alert("생년월일을 입력하세요.");
+				$("#mbBirthYear").focus();
+				return;
+			};
+			if($("#mbBirthYear").val() == "년(4자)"){
+				alert("생년월일을 입력하세요.");
+				$("#mbBirthYear").focus();
+				return;
+			};
+			
+			// 밑에거는 일단 생략함..
+			let url = "${CP}/login/doInsert.do";
+			let method = "POST";
+			let parameters = {
+					"mbEmail" : "${param.email}",
+					"mbName" : $("#mbName").val(),
+					"mbNickname" : $("#mbNickname").val(),
+					"mbBirth" : $("#mbBirthYear").val() + "/" + $("#mbBirthMonth").val() + "/" + $("#mbBirthDay").val(),
+					"mbTel" : $("#mbTel").val()
+			};
+			let async = true;
+			EClass.callAjax(url, parameters, method, async, function(data){
+				console.log(parameters);
+				console.log("data.msgId : " + data.msgId);
+                console.log("data.msgContents : " + data.msgContents);
+                if(data.msgId == "1"){ //회원가입 성공
+                    alert(data.msgContents);
+                    location.href = "/miss/movie/main.do";
+                }else{
+                    alert(data.msgContents);
+                }
+			});
+			
+		});
+	});
+</script>
 </head>
 <body>
     <!-- wrapper -->
@@ -159,49 +211,44 @@ select {
 
         <!-- content-->
         <div id="content">
-
             <!-- EMAIL -->
             <div>
-                <h3 class="join_title"><label for="email">이메일</label></h3>
+                <h3 class="join_title"><label for="mbEmail">이메일</label></h3>
                 <span class="box int_email">
-                    <input type="text" id="email" class="int" maxlength="100" readonly placeholder="${param.email}">
+                    <input type="text" name="mbEmail" id="mbEmail" class="int" maxlength="100" readonly placeholder="${param.email}">
                 </span>    
-            </div>
-            
-            <!-- ID -->
-            <div>
-                <h3 class="join_title">
-                    <label for="id">아이디</label>
-                </h3>
-                <span class="box int_id">
-                    <input type="text" id="id" class="int" maxlength="20">
-                </span>
             </div>
 
             <!-- NAME -->
             <div>
-                <h3 class="join_title"><label for="name">이름</label></h3>
+                <h3 class="join_title"><label for="mbName">이름</label></h3>
                 <span class="box int_name">
-                    <input type="text" id="name" class="int" maxlength="20">
+                    <input type="text" id="mbName" name="mbName" class="int" maxlength="20">
+                </span>
+            </div>
+            
+            <!-- NICKNAME -->
+            <div>
+                <h3 class="join_title"><label for="mbNickname">닉네임</label></h3>
+                <span class="box int_name">
+                    <input type="text" id="mbNickname" name="mbNickname" class="int" maxlength="20">
                 </span>
             </div>
 
             <!-- BIRTH -->
             <div>
-                <h3 class="join_title"><label for="yy">생년월일</label></h3>
-
+                <h3 class="join_title"><label for="mbBirth">생년월일</label></h3>
                 <div id="bir_wrap">
                     <!-- BIRTH_YY -->
                     <div id="bir_yy">
                         <span class="box">
-                            <input type="text" id="yy" class="int" maxlength="4" placeholder="년(4자)">
+                            <input type="text" id="mbBirthYear" name="mbBirthYear" class="int" maxlength="4" placeholder="년(4자)">
                         </span>
                     </div>
-
                     <!-- BIRTH_MM -->
                     <div id="bir_mm">
                         <span class="box">
-                            <select id="mm" class="sel">
+                            <select id="mbBirthMonth" name="mbBirthMonth" class="sel">
                                 <option>월</option>
                                 <option value="01">1</option>
                                 <option value="02">2</option>
@@ -218,11 +265,10 @@ select {
                             </select>
                         </span>
                     </div>
-
                     <!-- BIRTH_DD -->
                     <div id="bir_dd">
                         <span class="box">
-                            <input type="text" id="dd" class="int" maxlength="2" placeholder="일">
+                            <input type="text" id="mbBirthDay" name="mbBirthDay" class="int" maxlength="2" placeholder="일">
                         </span>
                     </div>
                 </div>   
@@ -230,16 +276,14 @@ select {
 
             <!-- MOBILE -->
             <div>
-                <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
+                <h3 class="join_title"><label for="mbTel">휴대전화</label></h3>
                 <span class="box int_mobile">
-                    <input type="tel" id="mobile" class="int" maxlength="16" placeholder="전화번호 입력">
+                    <input type="tel" id="mbTel" name="mbTel" class="int" maxlength="16" placeholder="전화번호 입력">
                 </span>   
             </div>
-
-
             <!-- JOIN BTN-->
             <div class="btn_area">
-                <button type="button" id="btnJoin">
+                <button type="button" id="doInsert">
                     <span>가입하기</span>
                 </button>
             </div>

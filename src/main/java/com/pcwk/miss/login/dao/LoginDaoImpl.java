@@ -38,4 +38,20 @@ public class LoginDaoImpl implements LoginDao {
 		return count;
 	}
 
+	@Override
+	public int doInsert(MemberVO inVO) throws SQLException {
+		int flag = 0;
+		
+		String statement = NAMESPACE + ".doInsert";
+		LOG.debug("============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("============================");
+		
+		flag = this.sqlSessionTemplate.insert(statement, inVO);
+		LOG.debug("flag : " + flag);
+		
+		return flag;
+	}
+
 }

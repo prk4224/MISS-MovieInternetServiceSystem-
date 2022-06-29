@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class JUnitLoginDaoTest {
 	LoginDao dao;
 	
 	MemberVO member;
+	MemberVO member2;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -38,14 +40,21 @@ public class JUnitLoginDaoTest {
 		LOG.debug("========================");
 		
 		member = new MemberVO(1, "", "", "", "", "", 1, 0);
+		member2 = new MemberVO(333, "테스트이메일", "테스트이름", "테스트전번", "2022/06/29", "테스트닉네임", 1, 0);
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
 		
 		assertNotNull(context);
 		assertNotNull(dao);
 	}
+	
+	@Test
+	public void doInsertTest() throws SQLException{
+		dao.doInsert(member2);
+	}
 
 	@Test
+	@Ignore
 	public void existingMemberTest() throws SQLException {
 		member.setMbEmail("chaewon1130@naver.com");
 		int count = dao.existingMember(member);

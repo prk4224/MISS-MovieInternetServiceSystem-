@@ -37,4 +37,9 @@ public class LoginServiceImpl implements LoginService {
 		return message;
 	}
 
+	@Override
+	public int doInsert(MemberVO inVO) throws SQLException {
+		return loginDao.doInsert(inVO);
+	}
+
 }

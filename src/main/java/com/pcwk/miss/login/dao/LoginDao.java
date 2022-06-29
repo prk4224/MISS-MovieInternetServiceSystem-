@@ -34,4 +34,12 @@ public interface LoginDao {
 	 */
 	int existingMember(MemberVO inVO) throws SQLException;
 	
+	/**
+	 * 회원가입
+	 * @param inVO
+	 * @return 1(성공) / 0(실패)
+	 * @throws SQLException
+	 */
+	int doInsert(MemberVO inVO) throws SQLException;
+	
 }

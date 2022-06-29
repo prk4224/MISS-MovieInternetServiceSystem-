@@ -50,6 +50,36 @@ public class LoginController {
 		
 	}
 	
+	@RequestMapping(value="/doInsert.do", method=RequestMethod.POST
+			, produces = "application/json;charset=UTF-8")
+	@ResponseBody //스프링에서 비동기 처리를 하는 경우, HTTP 요청의 본문 body부분이 전달된다.
+	public String doInsert(MemberVO inVO) throws SQLException{
+		String jsonString = "";
+		LOG.debug("====================");
+		LOG.debug("=inVO=" + inVO);
+		LOG.debug("====================");
+		
+		int flag = loginService.doInsert(inVO);
+		String resultMessage = "";
+		LOG.debug("====================");
+		LOG.debug("=flag=" + flag);
+		LOG.debug("====================");
+		if(flag == 1) {
+			resultMessage = "회원가입 성공!";
+		}else {
+			resultMessage = "회원가입 실패!";
+		}
+		MessageVO message = new MessageVO(String.valueOf(flag), resultMessage);
+		Gson gson = new Gson();
+		jsonString = gson.toJson(message);
+		LOG.debug("====================");
+		LOG.debug("=jsonString=" + jsonString);
+		LOG.debug("====================");
+		
+		return jsonString;
+	}
+	
+	
 	@RequestMapping(value = "/existingMember.do", method = RequestMethod.GET
 			,produces = "application/json;charset=UTF-8")
 	@ResponseBody //스프링에서 비동기 처리를 하는 경우, HTTP 요청의 본문 body부분이 전달된다.
