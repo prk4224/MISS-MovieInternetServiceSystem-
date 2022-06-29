@@ -48,7 +48,7 @@
             font-family: "Trebuchet MS", Dotum, Arial; /*추후 폰트 수정*/
     }
     /*로그인 a태그 스타일*/
-    .login {
+    .logout {
         margin-left:100px;
         text-decoration:none;
         font-size:15px;
@@ -62,7 +62,7 @@
         height: 80px;
         line-height: 80px;
     }
-    .login:active {
+    .logout:active {
         transform: translateY(3px);
         border-bottom:2px solid darkred;
     }
@@ -71,6 +71,19 @@
             color: darkgray;                
     }
 </style>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
+		$(".logout").on("click", function(){
+			if(confirm("로그아웃 하시겠습니까?")){
+				sessionStorage.clear();
+				Kakao.Auth.logout();
+				location.href = '/miss/login/login.do';
+			};
+		});
+	})
+</script>
 </head>
 <body>
     <header>
@@ -81,7 +94,7 @@
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
                 <li><a class="menuLink" href="${MISS}/mypage/history.do">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
-                <li><a class="login" href="${MISS}/login/login.do">로그아웃</a></li> <!-- 아이콘 이미지로 변경 -->
+                <li><input type="button" class="logout" value="로그아웃"></li> <!-- 아이콘 이미지로 변경 -->
             </ul>
         </nav>
     </header>

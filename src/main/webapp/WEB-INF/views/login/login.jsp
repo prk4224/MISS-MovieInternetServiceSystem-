@@ -113,7 +113,10 @@
     <script src="${CP_RES}/js/bootstrap.min.js"></script>
     <!-- jquery_bootstrap paging -->
     <script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
- 
+    <!-- 사용자 정의 function, ISEmpty -->
+    <script src="${CP_RES}/js/eUtil.js"></script>
+    <!-- 사용자 정의 function, callAjax -->
+    <script src="${CP_RES}/js/eclass.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
         	console.log("document.ready");
@@ -125,6 +128,7 @@
 	<script>
 	Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
 	console.log(Kakao.isInitialized());
+	console.log(Kakao.Auth.getAccessToken());
 	//카카오로그인
 	function kakaoLogin() {
 	    Kakao.Auth.login({
@@ -141,8 +145,8 @@
 				  let accessToken = Kakao.Auth.getAccessToken();
 				  Kakao.Auth.setAccessToken(accessToken);
 				  console.log("accessToken : " + accessToken);
-// 				  location.href = "/miss/login/register.do?email=" + response.kakao_account.email;
-// 	              location.href = "/miss/movie/main.do";
+				  let mbEmail = response.kakao_account.email;
+				  existingMember(mbEmail, accessToken);
 	          },
 	          fail: function (error) {
 	            console.log(error)
@@ -154,24 +158,32 @@
 	      },
 	    })
 	   }; 
-	function kakaoLogout(){
-// 		Kakao.isInitialized();
-		
-		if(Kakao.Auth.getAccessToken() == null){
-			console.log("로그인 안됨!");
-			return;
-		}
-		Kakao.Auth.logout(function(){
-			console.log(Kakao.Auth.getAccessToken());
+	
+	//0. member테이블 수정
+	//1. AJAX로 가입된 회원여부확인(이메일로) -> SELECT로 비교해서 개수가 1이면 가입, 0이면 미가입
+	//2-1. 미가입 -> register.jsp로 이동해서 추가정보 받음(아이디, 이름, 전화번호, 생년월일) ->
+	// SQL(INSERT) 실행 후 -> 메인
+	//2-2. 가입됨 -> 메인
+	function existingMember(mbEmail, accessToken){
+		let url = "${CP}/login/existingMember.do";
+		let method = "GET";
+		let async = true;
+		let parameters = {
+				"mbEmail" : mbEmail
+		};
+		EClass.callAjax(url, parameters, method, async, function(data) {
+			if(data.msgId == "0"){
+				alert(data.msgContents);
+				location.href = "/miss/login/register.do?email=" + mbEmail;
+			}else{
+				alert(data.msgContents);
+				location.href = "/miss/movie/main.do";
+			}
+			sessionStorage.setItem("mbEmail", mbEmail);
+			sessionStorage.setItem("accessToken", accessToken);
+			console.log(sessionStorage.getItem("mbEmail"));
+			console.log(sessionStorage.getItem("accessToken"));
 		});
-	}
-	   
-	function isUser(){
-		//0. member테이블 수정
-		//1. AJAX로 가입된 회원여부확인(이메일로) -> SELECT로 비교해서 개수가 1이면 가입, 0이면 미가입
-		//2-1. 미가입 -> register.jsp로 이동해서 추가정보 받음(아이디, 이름, 전화번호, 생년월일) ->
-		// SQL(INSERT) 실행 후 -> 메인
-		//2-2. 가입됨 -> 메인
 	}
 
 </script>
@@ -188,7 +200,7 @@
            <input type="password" name="password" class="text-field" placeholder="비밀번호">
            <input type="submit" value="로그인" class="submit-btn">
            <a onclick="kakaoLogin();" href="#"><img src="${CP_RES}/img/kakao_login_medium_narrow.png" style="height:40px; width:125px;"></a>
-           <a onclick="kakaoLogout();" id="naverLogin" href="#"><img src="${CP_RES}/img/btnG_완성형.png" style="height:40px; width:125px;"></a>
+           <a onclick="" id="naverLogin" href="#"><img src="${CP_RES}/img/btnG_완성형.png" style="height:40px; width:125px;"></a>
         </form>
           
         <div class="idPwForget"> 

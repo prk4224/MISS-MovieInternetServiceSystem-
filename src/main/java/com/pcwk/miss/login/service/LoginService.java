@@ -1,0 +1,17 @@
+package com.pcwk.miss.login.service;
+
+import java.sql.SQLException;
+
+import com.pcwk.miss.cmn.MessageVO;
+import com.pcwk.miss.domain.MemberVO;
+
+public interface LoginService {
+	
+	/**
+	 * 기존회원인지 아닌지 check
+	 * @param inVO
+	 * @return 1이면 기존회원 / 0이면 신규회원
+	 * @throws SQLException
+	 */
+	public MessageVO existingMember(MemberVO inVO) throws SQLException;
+}
