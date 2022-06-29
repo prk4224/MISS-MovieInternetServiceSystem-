@@ -160,6 +160,14 @@ select {
         <!-- content-->
         <div id="content">
 
+            <!-- EMAIL -->
+            <div>
+                <h3 class="join_title"><label for="email">이메일</label></h3>
+                <span class="box int_email">
+                    <input type="text" id="email" class="int" maxlength="100" readonly placeholder="${param.email}">
+                </span>    
+            </div>
+            
             <!-- ID -->
             <div>
                 <h3 class="join_title">
@@ -167,22 +175,6 @@ select {
                 </h3>
                 <span class="box int_id">
                     <input type="text" id="id" class="int" maxlength="20">
-                </span>
-            </div>
-
-            <!-- PW1 -->
-            <div>
-                <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
-                <span class="box int_pass">
-                    <input type="text" id="pswd1" class="int" maxlength="20">
-                </span>
-            </div>
-
-            <!-- PW2 -->
-            <div>
-                <h3 class="join_title"><label for="pswd2">비밀번호 확인</label></h3>
-                <span class="box int_pass_check">
-                    <input type="text" id="pswd2" class="int" maxlength="20">
                 </span>
             </div>
 
@@ -234,14 +226,6 @@ select {
                         </span>
                     </div>
                 </div>   
-            </div>
-
-            <!-- EMAIL -->
-            <div>
-                <h3 class="join_title"><label for="email">이메일</label></h3>
-                <span class="box int_email">
-                    <input type="text" id="email" class="int" maxlength="100" placeholder="email">
-                </span>    
             </div>
 
             <!-- MOBILE -->

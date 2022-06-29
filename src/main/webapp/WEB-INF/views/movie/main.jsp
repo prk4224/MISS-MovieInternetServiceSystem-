@@ -26,7 +26,6 @@
 <link rel="stylesheet" type="text/css" href="${CP_RES}/css/main.css">
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="${CP_RES}/js/jquery-1.12.4.js"></script>
-
 <title>MISS 메인화면</title>
 </head>
 <body>

@@ -16,10 +16,16 @@
 */
 package com.pcwk.miss.controller;
 
+import java.sql.SQLException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author ITSC
@@ -32,6 +38,15 @@ public class LoginController {
 	
 	public LoginController() {
 		
+	}
+	
+	@RequestMapping(value = "/reviewAdd.do", method = RequestMethod.GET
+			,produces = "application/json;charset=UTF-8")
+	@ResponseBody //스프링에서 비동기 처리를 하는 경우, HTTP 요청의 본문 body부분이 전달된다.
+	public String checkMember(HttpServletRequest request) throws SQLException{
+		String email = request.getParameter("email");
+		
+		return "";
 	}
 	
 	@RequestMapping(value = "/login.do")
