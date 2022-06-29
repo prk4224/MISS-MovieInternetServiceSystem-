@@ -33,7 +33,7 @@ public class ExceptionController {
 	// http://localhost:8081/miss/except/illegal.do?mbId=
 	@RequestMapping(value="/illegal.do")
 	public String IllegalArgumentException(MemberVO inVO) {
-		if(null == inVO.getEmail() || "".equals(inVO.getEmail())) {
+		if(null == inVO.getMbEmail() || "".equals(inVO.getMbEmail())) {
 			throw new java.lang.IllegalArgumentException("아이디 타입을 확인하세요!!");
 		}
 		return "movie/main";
@@ -42,7 +42,7 @@ public class ExceptionController {
 	// http://localhost:8081/miss/except/nullPointer.do?mbId=
 	@RequestMapping(value = "/nullPointer.do")
 	public String nullPointerException(MemberVO inVO) {
-		if(null == inVO.getEmail() || "".equals(inVO.getEmail())) {
+		if(null == inVO.getMbEmail() || "".equals(inVO.getMbEmail())) {
 			throw new NullPointerException("아이디를 입력해주세요");
 		}
 		return "movie/main";

@@ -141,7 +141,7 @@
 				  let accessToken = Kakao.Auth.getAccessToken();
 				  Kakao.Auth.setAccessToken(accessToken);
 				  console.log("accessToken : " + accessToken);
-				  location.href = "/miss/login/register.do?email=" + response.kakao_account.email;
+// 				  location.href = "/miss/login/register.do?email=" + response.kakao_account.email;
 // 	              location.href = "/miss/movie/main.do";
 	          },
 	          fail: function (error) {
