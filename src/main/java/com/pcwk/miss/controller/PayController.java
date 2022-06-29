@@ -30,7 +30,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.pcwk.miss.domain.CouponVO;
+import com.pcwk.miss.domain.MemberVO;
+import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.pay.KakaoPay;
+import com.pcwk.miss.pay.dao.PayDao;
 import com.pcwk.miss.pay.domain.ReserveVO;
 import com.pcwk.miss.pay.service.PayService;
 
@@ -51,6 +55,8 @@ public class PayController {
 	@Autowired
 	PayService payService;
 	
+	
+	
 	@RequestMapping(value = "/reserve.do", method=RequestMethod.GET)
 	public String reserveView(Model model) throws SQLException {
 		LOG.debug("==================");
@@ -67,15 +73,26 @@ public class PayController {
 	}
 	
 	@RequestMapping(value = "/paying.do")
-	public String payView() {
+	public String payView(MemberVO mInVo, CouponVO cInVO, Model model) throws SQLException {
 		LOG.debug("==================");
 		LOG.debug("=PayController=payView()=");
 		LOG.debug("==================");
+		
+		List<CouponVO> coulist = payService.couponRetrieve(cInVO);
+		mInVo = new MemberVO(2,"이메일","회원이름","전화번호", "생월일","닉네임", 1, 5000);
+		
+		int point = payService.pointValue(mInVo);
+		
+		
+		model.addAttribute("list", coulist);
+		model.addAttribute("point", point);
+		
+		
 		return "pay/paypage";
 	}
 	
 	@RequestMapping(value = "/paycom.do")
-	public String paycomView(@RequestParam("pg_token") String pg_token, Model model) {
+	public String paycomView(@RequestParam("pg_token") String pg_token, Model model) throws SQLException {
 		LOG.debug("==================");
 		LOG.debug("=PayController=paycomView()=");
 		LOG.debug("==================");
@@ -92,6 +109,10 @@ public class PayController {
     	model.addAttribute("m_price", "7,000");
     	
         model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
+        
+        TicketVO outVO = new TicketVO(pg_token, 2, 7000, 2, "SYSDATE", 1, 3);
+        
+        payService.ticketInsert(outVO);
 		
 		return "pay/paycomplate";
 	}

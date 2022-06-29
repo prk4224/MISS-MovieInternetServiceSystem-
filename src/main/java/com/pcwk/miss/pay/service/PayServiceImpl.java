@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pcwk.miss.domain.CouponVO;
+import com.pcwk.miss.domain.MemberVO;
+import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.pay.dao.PayDao;
 import com.pcwk.miss.pay.domain.ReserveVO;
 
@@ -37,6 +39,27 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 	@Override
 	public List<ReserveVO> getMovieTime(ReserveVO inVO) throws SQLException {
 		return payDao.getMovieTime(inVO);
+	}
+
+
+	@Override
+	public int ticketInsert(TicketVO inVO) throws SQLException {
+		
+		return payDao.ticketInsert(inVO);
+	}
+
+
+	@Override
+	public int pointValue(MemberVO inVO) throws SQLException {
+		
+		return payDao.pointValue(inVO);
+	}
+
+
+	@Override
+	public int couponDelete(CouponVO inVO) throws SQLException {
+		
+		return payDao.couponDelete(inVO);
 	}
 	
 

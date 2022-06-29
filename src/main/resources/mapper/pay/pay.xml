@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.miss.pay">
 
+	<!-- 포인트 조회 -->
+	<select id="pointValue" parameterType="MemberVO" resultType="int">
+		SELECT mb_point AS "mbPoint"
+		FROM member
+		WHERE mb_num = #{mbNum}
+
+	</select>
+
 	<!-- 할인 쿠폰 리스트 -->
 	<select id="couponRetrieve" parameterType="CouponVO" resultType="CouponVO">
 		SELECT c_num AS "cNum",
@@ -9,12 +17,33 @@
 	       c_period AS "cPeriod",
 	       c_ratio AS "cRatio"
 		FROM coupon
-		WHERE mb_num = 1 AND c_kind IS NOT NULL
+		WHERE mb_num = #{mbNum} AND c_kind IS NOT NULL
 	</select>
+	
+	<delete id="couponDelete" parameterType="CouponVO">
+		DELETE FROM coupon
+		WHERE c_num = #{cNum}
+	</delete>
 	
 	<!-- 예매 내역 insert -->
 	<insert id="ticketInsert" parameterType="TicketVO">
-	
+		INSERT INTO ticket (
+	    t_num,
+	    mb_num,
+	    t_price,
+	    t_means,
+	    t_time,
+	    t_status,
+	    mv_num
+	) VALUES (
+	    #{tNum},
+	    1,
+	    #{tPrice},
+	    #{tMeans},
+	    SYSDATE,
+	    #{tStatus} ,
+	    #{mvNum} 
+	)
 	
 	</insert>
 

@@ -17,6 +17,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pcwk.miss.domain.CouponVO;
+import com.pcwk.miss.domain.MemberVO;
+import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.pay.dao.PayDao;
 import com.pcwk.miss.pay.domain.ReserveVO;
@@ -36,6 +38,8 @@ public class JUnitPayDaoTest {
 	PayDao dao;
 	
 	CouponVO couponVO;
+	TicketVO ticketVO;
+	MemberVO memberVO;
 	ReserveVO reserveVO;
 	
 	@Before
@@ -44,8 +48,9 @@ public class JUnitPayDaoTest {
 		LOG.debug("=0.setUp()=");
 		LOG.debug("========================");
 		
-		couponVO = new CouponVO(2,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
-		
+		couponVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
+		ticketVO = new TicketVO("1",1,5000, 1, "날짜 X", 0, 1);
+		memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 5000);
 		reserveVO = new ReserveVO();
 		
 		LOG.debug("context : " + context);
@@ -57,6 +62,32 @@ public class JUnitPayDaoTest {
 	}
 	
 	@Test
+	public void pointValue() throws SQLException {
+		 LOG.debug("====================");
+		 LOG.debug("=pointValue()=");
+		 LOG.debug("====================");
+		 
+		int point = dao.pointValue(memberVO);
+		 
+		LOG.debug("========================");
+		LOG.debug("=point=" + point);
+		LOG.debug("========================");
+		
+	}
+	
+	@Test
+	@Ignore
+	public void ticketInsert() throws SQLException {
+		 LOG.debug("====================");
+		 LOG.debug("=ticketInsert()=");
+		 LOG.debug("====================");
+		 
+		 
+		 dao.ticketInsert(ticketVO);
+	}
+	
+	@Test
+	@Ignore
 	public void getMovieTime() throws SQLException{
 		reserveVO.setMvNum(6);
 		reserveVO.setMiQuality(1080);
@@ -89,6 +120,18 @@ public class JUnitPayDaoTest {
 		LOG.debug("========================");
 		LOG.debug("=list=" + list);
 		LOG.debug("========================");
+		
+		
+	}
+	
+	@Test
+	@Ignore
+	public void couponDelete() throws SQLException{
+		LOG.debug("========================");
+		LOG.debug("=couponDelete()=");
+		LOG.debug("========================");
+		
+		dao.couponDelete(couponVO);
 	}
 	
 

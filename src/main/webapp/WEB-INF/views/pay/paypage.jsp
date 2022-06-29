@@ -36,7 +36,7 @@
                 <div id = "p_price">결제금액 : </div>
                 <div id = "coupon">
                     <div>할인쿠폰</div>
-                   	<%-- <table>
+                   	<table>
                    		<thead>
                    			<tr>
                    				<th>쿠혼 번호</th>
@@ -48,27 +48,38 @@
                    		</thead>
                    		
                    		<tbody>
+                   		
                    			<c:choose>
-                   				<c:when test="${list.size > 0}"></c:when>
-                   				<c:forEach var = "vo" items = "${list}">
-                   					<tr>
-                   						<td>${vo.cNum}</td>
-                   						<td>${vo.cName}</td>
-                   						<td>${vo.cPeriod}</td>
-                   						<td>${vo.cRatio}</td>
-                   					</tr>
-                   				</c:forEach>
+	                   			<c:when test="${list.size() > 0}">
+	                   				<c:forEach var = "vo" items = "${list}">
+	                   					<tr>
+	                   						
+	                   						<td>${vo.cNum}</td>
+	                   						<td>${vo.cName}</td>
+	                   						<td>${vo.cPeriod}</td>
+	                   						<td>${vo.cRatio}</td>
+	                   					</tr>
+	                   				</c:forEach>
+                   				</c:when>
+                   				
+                   				<c:otherwise>
+			                     <tr>
+			                        <td >No data found</td>
+			                     </tr>
+			                    </c:otherwise>
+			                    
                    			</c:choose>
+                   			
                    		</tbody>
-                   	</table> --%>
+                   	</table>
 
                 </div>
                 <div id = "point">                    
-                    포인트 : {가지고 있는 포인트} | 사용 포인트 : 
+                    포인트 : ${point} | 사용 포인트 : 
                     <input type = "text" style="width: 4vmax;">
                     <button>적용</button>
                 </div>
-                <div id = "result_pay">최종결제금액 : value 값 받아서 계산</div>
+                <div id = "result_pay">최종결제금액 : ${}</div>
             </div>
             
         </div>

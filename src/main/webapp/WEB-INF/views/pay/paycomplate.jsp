@@ -38,7 +38,7 @@
             </div>
             <div id = "w_time">관람 시간 : ${m_time}</div>
             <div id = "pay_num">
-            	<div>결제번호 : ${info.tid} , ${token}</div>
+            	<div>결제번호 : ${token}</div>
             	<div>금액 : ${m_price} </div> 
             </div>
             <div id = "precaution">
