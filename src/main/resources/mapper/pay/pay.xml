@@ -44,7 +44,6 @@
 	    #{tStatus} ,
 	    #{mvNum} 
 	)
-	
 	</insert>
 
 	<!-- 예매페이지  상영중인 영화 -->
@@ -58,12 +57,12 @@
 	<!-- 예매페이지 상영시간 조회 -->
 	<select id="getMovieTime" parameterType="ReserveVO" resultType="ReserveVO">
 		SELECT T1.MV_NUM AS mvNum,
-		    T2.MI_TIME AS miTime,
+		    TO_CHAR(T2.MI_TIME, 'HH24:MI') AS miTime,
 		    T2.MI_QUALITY AS miQuality
 		FROM MOVIE T1, MOVIE_INFO T2
 		WHERE T1.MV_NUM = T2.MV_NUM
 		AND T1.MV_NUM = #{mvNum}
-		AND T2.MI_QUALITY LIKE #{miQuality} || '%'
+		AND T2.MI_QUALITY LIKE '%' || #{miQuality} || '%'
 	</select>
 </mapper>
 

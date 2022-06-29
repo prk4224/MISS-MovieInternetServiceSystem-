@@ -29,10 +29,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 import com.pcwk.miss.domain.TicketVO;
+import com.google.gson.Gson;
+import com.pcwk.miss.domain.ReviewVO;
 import com.pcwk.miss.pay.KakaoPay;
 import com.pcwk.miss.pay.dao.PayDao;
 import com.pcwk.miss.pay.domain.ReserveVO;
@@ -55,7 +58,25 @@ public class PayController {
 	@Autowired
 	PayService payService;
 	
-	
+	@RequestMapping(value = "/getMovieTime.do", method = RequestMethod.GET
+			, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String getMovieTime(ReserveVO inVO) throws SQLException{
+		String jsonString = "";
+		LOG.debug("====================");
+		LOG.debug("=inVO=" + inVO);
+		LOG.debug("====================");
+		
+		List<ReserveVO> list = payService.getMovieTime(inVO);
+		Gson gson = new Gson();
+		jsonString = gson.toJson(list);
+		
+		LOG.debug("====================");
+		LOG.debug("=jsonString=" + jsonString);
+		LOG.debug("====================");
+		
+		return jsonString;
+	}
 	
 	@RequestMapping(value = "/reserve.do", method=RequestMethod.GET)
 	public String reserveView(Model model) throws SQLException {
@@ -63,7 +84,7 @@ public class PayController {
 		LOG.debug("=PayController=reserveView()=");
 		LOG.debug("==================");
 		List<ReserveVO> list = payService.getMovieOn();
-		ReserveVO inVO = new ReserveVO(list.get(2).getMvNum(), "", "", 1080);
+		ReserveVO inVO = new ReserveVO(list.get(0).getMvNum(), "", "", 0);
 		List<ReserveVO> timeList = payService.getMovieTime(inVO);
 		
 		model.addAttribute("list", list);

@@ -123,7 +123,7 @@
 	<!-- kakaologin -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
-	Kakao.init('c10617a5fe3f894745a7a9b5899937da');
+	Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
 	console.log(Kakao.isInitialized());
 	//카카오로그인
 	function kakaoLogin() {
@@ -133,6 +133,16 @@
 	          url: '/v2/user/me',
 	          success: function (response) {
 	              console.log(response)
+	              console.log(response.kakao_account.email);
+// 	              console.log(response.kakao_account.birthday);
+// 	              console.log(response.kakao_account.gender);
+// 	              console.log(response.properties.nickname);
+// 	              console.log(response.properties.profile_image_url);
+				  let accessToken = Kakao.Auth.getAccessToken();
+				  Kakao.Auth.setAccessToken(accessToken);
+				  console.log("accessToken : " + accessToken);
+				  location.href = "/miss/login/register.do?email=" + response.kakao_account.email;
+// 	              location.href = "/miss/movie/main.do";
 	          },
 	          fail: function (error) {
 	            console.log(error)
@@ -143,8 +153,26 @@
 	        console.log(error)
 	      },
 	    })
-	   };  
-	<!--뒤로가기 막아야함 -->
+	   }; 
+	function kakaoLogout(){
+// 		Kakao.isInitialized();
+		
+		if(Kakao.Auth.getAccessToken() == null){
+			console.log("로그인 안됨!");
+			return;
+		}
+		Kakao.Auth.logout(function(){
+			console.log(Kakao.Auth.getAccessToken());
+		});
+	}
+	   
+	function isUser(){
+		//0. member테이블 수정
+		//1. AJAX로 가입된 회원여부확인(이메일로) -> SELECT로 비교해서 개수가 1이면 가입, 0이면 미가입
+		//2-1. 미가입 -> register.jsp로 이동해서 추가정보 받음(아이디, 이름, 전화번호, 생년월일) ->
+		// SQL(INSERT) 실행 후 -> 메인
+		//2-2. 가입됨 -> 메인
+	}
 
 </script>
 </head>
@@ -160,7 +188,7 @@
            <input type="password" name="password" class="text-field" placeholder="비밀번호">
            <input type="submit" value="로그인" class="submit-btn">
            <a onclick="kakaoLogin();" href="#"><img src="${CP_RES}/img/kakao_login_medium_narrow.png" style="height:40px; width:125px;"></a>
-           <a id="naverLogin" href="#"><img src="${CP_RES}/img/btnG_완성형.png" style="height:40px; width:125px;"></a>
+           <a onclick="kakaoLogout();" id="naverLogin" href="#"><img src="${CP_RES}/img/btnG_완성형.png" style="height:40px; width:125px;"></a>
         </form>
           
         <div class="idPwForget"> 

@@ -79,7 +79,7 @@
                     <input type = "text" style="width: 4vmax;">
                     <button>적용</button>
                 </div>
-                <div id = "result_pay">최종결제금액 : ${}</div>
+                <div id = "result_pay">최종결제금액 :</div>
             </div>
             
         </div>

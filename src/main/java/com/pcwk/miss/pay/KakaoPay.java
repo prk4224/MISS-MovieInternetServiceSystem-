@@ -1,6 +1,5 @@
 package com.pcwk.miss.pay;
 
-import java.awt.PageAttributes.MediaType;
 
 import java.net.URI;
 import java.net.URISyntaxException;

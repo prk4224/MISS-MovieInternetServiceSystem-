@@ -13,6 +13,19 @@
     <!-- * 해당 root-context는 필수적인 transaction 등등의 정보만 들어가게 됨.
         * 우리가 applicationContext에서 썼던 Dao bean같은 것들은 bean으로 만들지 않고 annotation으로 설정을 함 -->
 		
+		
+    <!-- 예외처리 -->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- 특정예외 -->
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.NullPointerException">cmn/nullPointerException</prop>
+                <prop key="java.lang.IllegalArgumentException">cmn/illegalArumentException</prop>
+            </props>
+        </property>
+        <!-- 디폴트예외(특정예외 안걸리는 경우 여기 걸림) -->
+        <property name="defaultErrorView" value="cmn/error"/>
+    </bean>
     <!-- mybatis db연결객체 -->
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactoryBean"/>

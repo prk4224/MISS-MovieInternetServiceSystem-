@@ -62,5 +62,4 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 		return payDao.couponDelete(inVO);
 	}
 	
-
 }
