@@ -32,14 +32,17 @@ public class LoginServiceImpl implements LoginService {
 			message.setMsgId("1");
 			message.setMsgContents("기존회원입니다 ! 메인페이지로 이동합니다.");
 		}
-		
-		
 		return message;
 	}
 
 	@Override
 	public int doInsert(MemberVO inVO) throws SQLException {
 		return loginDao.doInsert(inVO);
+	}
+
+	@Override
+	public MemberVO emailToNum(MemberVO inVO) throws SQLException {
+		return loginDao.emailToNum(inVO);
 	}
 
 }

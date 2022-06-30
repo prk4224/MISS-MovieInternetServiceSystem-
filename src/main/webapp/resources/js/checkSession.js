@@ -4,8 +4,10 @@
 
 $(document).ready(function(){
 	console.log("체크세션~~");
-	if(sessionStorage.getItem("accessToken") == null || sessionStorage.getItem("mbEmail") == null){
-    	alert("잘못된 경로입니다! 로그인 해주세요~")
+	console.log("accessToken세션값 : " + sessionStorage.getItem("accessToken"));
+	console.log("mbNum세션값 : " + sessionStorage.getItem("mbNum"));
+	if(sessionStorage.getItem("accessToken") == null || sessionStorage.getItem("mbNum") == null){
+    	alert("잘못된 경로입니다! 로그인 해주세요~");
     	location.href = "/miss/login/login.do";
     }
 });

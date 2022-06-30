@@ -50,6 +50,25 @@ public class LoginController {
 		
 	}
 	
+	@RequestMapping(value = "/emailToNum.do", method=RequestMethod.GET
+			, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String emailToNum(MemberVO inVO) throws SQLException{
+		String jsonString = "";
+		LOG.debug("====================");
+		LOG.debug("=inVO=" + inVO);
+		LOG.debug("====================");
+		
+		MemberVO outVO = loginService.emailToNum(inVO);
+		Gson gson = new Gson();
+		jsonString = gson.toJson(outVO);
+		
+		LOG.debug("====================");
+		LOG.debug("=jsonString=" + jsonString);
+		LOG.debug("====================");
+		return jsonString;
+	}
+	
 	@RequestMapping(value="/doInsert.do", method=RequestMethod.POST
 			, produces = "application/json;charset=UTF-8")
 	@ResponseBody //스프링에서 비동기 처리를 하는 경우, HTTP 요청의 본문 body부분이 전달된다.

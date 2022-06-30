@@ -32,4 +32,10 @@
 		)
 	</insert>
 	
+	<!-- 세션에 넣기위해 이메일을 num값으로 수정 -->
+	<select id="emailToNum" parameterType="MemberVO" resultType="MemberVO">
+		SELECT mb_num AS mbNum
+		FROM MEMBER
+		WHERE mb_email = #{mbEmail}
+	</select>
 </mapper>

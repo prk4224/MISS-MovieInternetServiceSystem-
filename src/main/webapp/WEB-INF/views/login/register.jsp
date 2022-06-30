@@ -194,7 +194,8 @@ select {
 				console.log("data.msgId : " + data.msgId);
                 console.log("data.msgContents : " + data.msgContents);
                 if(data.msgId == "1"){ //회원가입 성공
-                    alert(data.msgContents);
+                	emailToNum("${param.email}");
+                	alert(data.msgContents);
                     location.href = "/miss/movie/main.do";
                 }else{
                     alert(data.msgContents);
@@ -202,6 +203,19 @@ select {
 			});
 			
 		});
+		
+		function emailToNum(mbEmail){
+			alert("emailToNum");
+			let url = "${CP}/login/emailToNum.do"
+			let method = "GET";
+			let async = true;
+			let parameters = {
+					"mbEmail" : mbEmail
+			};
+			EClass.callAjax(url, parameters, method, async, function(data) {
+				sessionStorage.setItem("mbNum", data.mbNum);
+			});
+		}
 	});
 </script>
 </head>

@@ -42,7 +42,7 @@ public class LoginDaoImpl implements LoginDao {
 	public int doInsert(MemberVO inVO) throws SQLException {
 		int flag = 0;
 		
-		String statement = NAMESPACE + ".doInsert";
+		String statement = this.NAMESPACE + ".doInsert";
 		LOG.debug("============================");
 		LOG.debug("param:" + inVO.toString());
 		LOG.debug("statement:" + statement);
@@ -52,6 +52,21 @@ public class LoginDaoImpl implements LoginDao {
 		LOG.debug("flag : " + flag);
 		
 		return flag;
+	}
+
+	@Override
+	public MemberVO emailToNum(MemberVO inVO) throws SQLException {
+		String statement = this.NAMESPACE + ".emailToNum";
+		LOG.debug("============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("============================");
+		MemberVO outVO = this.sqlSessionTemplate.selectOne(statement, inVO);
+		LOG.debug("============================");
+		LOG.debug("outVO:" + outVO);
+		LOG.debug("============================");
+		
+		return outVO;
 	}
 
 }

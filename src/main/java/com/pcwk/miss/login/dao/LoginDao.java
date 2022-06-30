@@ -42,4 +42,11 @@ public interface LoginDao {
 	 */
 	int doInsert(MemberVO inVO) throws SQLException;
 	
+	/**
+	 * 이메일 -> mbNum
+	 * @param inVO
+	 * @return
+	 * @throws SQLException
+	 */
+	MemberVO emailToNum(MemberVO inVO) throws SQLException;
 }

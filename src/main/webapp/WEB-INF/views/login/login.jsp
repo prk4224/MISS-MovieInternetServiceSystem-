@@ -177,12 +177,23 @@
 				location.href = "/miss/login/register.do?email=" + mbEmail;
 			}else{
 				alert(data.msgContents);
+				emailToNum(mbEmail);
 				location.href = "/miss/movie/main.do";
 			}
-			sessionStorage.setItem("mbEmail", mbEmail);
 			sessionStorage.setItem("accessToken", accessToken);
-			console.log(sessionStorage.getItem("mbEmail"));
 			console.log(sessionStorage.getItem("accessToken"));
+		});
+	}
+	
+	function emailToNum(mbEmail){
+		let url = "${CP}/login/emailToNum.do"
+		let method = "GET";
+		let async = true;
+		let parameters = {
+				"mbEmail" : mbEmail
+		};
+		EClass.callAjax(url, parameters, method, async, function(data) {
+			sessionStorage.setItem("mbNum", data.mbNum);
 		});
 	}
 
@@ -199,7 +210,7 @@
            <input type="text" name="email" class="text-field" placeholder="아이디">
            <input type="password" name="password" class="text-field" placeholder="비밀번호">
            <input type="submit" value="로그인" class="submit-btn">
-           <a onclick="kakaoLogin();" href="#"><img src="${CP_RES}/img/kakao_login_medium_narrow.png" style="height:40px; width:125px;"></a>
+           <a onclick="kakaoLogin();"><img src="${CP_RES}/img/kakao_login_medium_narrow.png" style="height:40px; width:125px;"></a>
            <a onclick="" id="naverLogin" href="#"><img src="${CP_RES}/img/btnG_완성형.png" style="height:40px; width:125px;"></a>
         </form>
           
