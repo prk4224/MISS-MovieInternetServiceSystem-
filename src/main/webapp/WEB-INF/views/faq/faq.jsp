@@ -306,6 +306,9 @@
     </div>
     <a class="cd-close-panel" href="#0">Close</a>
 </section>
+<!-- 푸터영역 -->
+<%@include file="../cmn/footer.jsp"%>
+<!-- //푸터영역 -->
 <script src='https://cdn.jsdelivr.net/g/modernizr@2.8.3,jquery@2.1.4,jquery.lazyloadxt@1.0.4(jquery.lazyloadxt.min.js+jquery.lazyloadxt.video.js),jquery.owlcarousel@1.31,trianglify@0.3.1'></script>
 <script id="rendered-js">
     jQuery(document).ready(function ($) {
@@ -401,5 +404,6 @@
         }
     });
 </script>
+
 </body>
 </html>
