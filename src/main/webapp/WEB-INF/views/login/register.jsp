@@ -214,6 +214,7 @@ select {
 			};
 			EClass.callAjax(url, parameters, method, async, function(data) {
 				sessionStorage.setItem("mbNum", data.mbNum);
+				sessionStorage.setItem("mbNickname", data.mbNickname);
 			});
 		}
 	});

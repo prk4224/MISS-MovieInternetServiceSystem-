@@ -132,7 +132,7 @@
             <div id="reviewDiv">
                 <form action="">
                 	<p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p>
-                	<input type="text" placeholder="닉네임 입력" id="mbNickname" name="mbNickname">
+                	<input type="text" value="" id="mbNickname" name="mbNickname" readonly>
                     <select name="rRating" id="rRating">
                         <option selected value="5">5</option>
                         <option value="4">4</option>
@@ -146,11 +146,9 @@
                 <table id="movie_table">
                 	<thead>
 	                    <tr>
-	                        <th>순번</th>
-	                        <th>닉네임</th>
-	                        <th>한줄평</th>
-	                        <th>별점</th>
-	                        <th>좋아요</th>
+	                        <th style="text-align : center">닉네임</th>
+	                        <th style="text-align : center">한줄평</th>
+	                        <th style="text-align : center">별점</th>
 	                    </tr>
                     </thead>
                     <tbody>
@@ -158,7 +156,6 @@
                     	<c:when test="${rvList.size() > 0}">
                     		<c:forEach var="rv" items="${rvList}" end="4">
                     			<tr>
-			                        <td>${rv.rNum}</td>
 			                        <td>${rv.mbNickname}</td>
 			                        <td>${rv.rReview}</td>
 			                        <td>${rv.rRating}</td>
@@ -184,6 +181,8 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			console.log("ready!!");
+			console.log("닉네임 : " + sessionStorage.getItem("mbNickname"));
+			$('input[name=mbNickname]').attr('value', sessionStorage.getItem("mbNickname"));
 			
 			reviewRetrieve(1);
 			renderingPage('${pageTotal}', 1);
@@ -192,7 +191,6 @@
 				const initValue = "";
 				const initRating = 5;
 				$("#rRating").val(initRating);
-				$("#mbNickname").val(initValue);
 				$("#rReview").val(initValue);
 			}
 			
@@ -264,11 +262,9 @@
 						$.each(parsedData, function(i, value) {
 							console.log(i + ": " + value.mbNickname);
 							htmlData += "<tr>                                                           ";
-                            htmlData += "   <td>" + value.rNum +                                 "</td>";
                             htmlData += "   <td>" + value.mbNickname +                            "</td>";
                             htmlData += "   <td>" + value.rReview +                               "</td>";
                             htmlData += "   <td>" + value.rRating +                               "</td>";
-                            htmlData += '   <td class="like1 on"><img src="${CP_RES}/img/like.JPG"></td>';
                             htmlData += "</tr>                                                          ";
 						});
 					}else{
