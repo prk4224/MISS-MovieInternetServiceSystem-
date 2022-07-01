@@ -190,10 +190,30 @@
                         });
 	            });
 	
-	    /* 버튼 클릭 마무리*/
-	  function goBuy()  {
-	  window.location.href = 'https://www.naver.com'
-				}
+	    /* 결제버튼 클릭*/
+	    function goBuy(){
+	    	console.log("영화 : " + $(".clicked_MBt").next().text());
+	    	console.log("시간 : " + $(".clicked_Bt").children().eq(0).text());
+	    	console.log("화질 : " + $(".clicked_Bt").children().eq(2).text());
+	    	let mvNum = $(".clicked_MBt").next().text();
+	    	let miTime = $(".clicked_Bt").children().eq(0).text();
+	    	let miQuality = 0;
+	    	switch($(".clicked_Bt").children().eq(2).text()){
+	    	case "HD":
+	    		miQuality = 720;
+	    		break;
+	    	case "FHD":
+	    		miQuality = 1080;
+	    		break;
+	    	default:
+	    		miQuality = 2160;
+	    	}
+	    	let mbNum = sessionStorage.getItem("mbNum");
+	    		    	
+	    	
+	    	
+ 	  		window.location.href = '/miss/pay/paying.do?mbNum=' + mbNum + "&mvNum=" + mvNum + "&miTime=" + miTime + "&miQuality=" + miQuality;
+		}
 	    
 	    /* */
 	    function changeTime(mvNum) {
@@ -224,8 +244,8 @@
 	    				}else{
 	    					quality = "QHD";
 	    				}
-	    				htmlData += '<div class="timeBt" onclick="addAndRemoveTime()">';
-	    				htmlData += value.miTime + "<br>";
+	    				htmlData += '<div class="timeBt" onclick="addAndRemoveTime()"><span>';
+	    				htmlData += value.miTime + "</span><br>";
 	    				htmlData += "<span style='color: red'>";
 	    				htmlData += quality;
 	    				htmlData += "</span>";
@@ -256,7 +276,7 @@
 			        	<c:when test="${timeList.size() > 0}">
 			        		<c:forEach var="timeList" items="${timeList}">
 			       				<div class="timeBt">
-			       					${timeList.miTime}<br>
+			       					<span>${timeList.miTime}</span><br>
 			       					<span style="color: red">
 				       					<c:choose>
 					       					<c:when test="${timeList.miQuality == 720}">

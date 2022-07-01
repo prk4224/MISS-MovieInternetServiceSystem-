@@ -98,14 +98,19 @@ public class PayController {
 	}
 	
 	@RequestMapping(value = "/paying.do")
-	public String payView(MemberVO mInVo, CouponVO cInVO, Model model) throws SQLException {
+	public String payView(MemberVO mInVo, CouponVO cInVO, Model model, HttpServletRequest request) throws SQLException {
 		LOG.debug("==================");
 		LOG.debug("=PayController=payView()=");
 		LOG.debug("==================");
 		
-		cInVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
+		int mvNum = Integer.parseInt(request.getParameter("mvNum"));  //영화번호
+		String miTime = request.getParameter("miTime");               //상영시간
+		String miQuality = request.getParameter("miQuality");         //화질
+		int mbNum = Integer.parseInt(request.getParameter("mbNum"));  //로그인되있는 회원번호
 		
-		mInVo = new MemberVO(2,"이메일","회원이름","전화번호", "생월일","닉네임", 1, 5000);
+//		cInVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
+		
+		mInVo = new MemberVO(1,"이메일","회원이름","전화번호", "생월일","닉네임", 1, 5000);
 		
 		//List<CouponVO> coulist = payService.couponRetrieve(cInVO);
 		List<CouponVO> coulist = null;
@@ -114,7 +119,7 @@ public class PayController {
 		LOG.debug("=coulist)=" + coulist);
 		LOG.debug("==================");
 		
-		//int point = payService.pointValue(mInVo);
+//		int point = payService.pointValue(mInVo);
 		int point = 5000;
 		
 		model.addAttribute("list", coulist);
