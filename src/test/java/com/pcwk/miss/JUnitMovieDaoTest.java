@@ -47,7 +47,7 @@ public class JUnitMovieDaoTest {
 		LOG.debug("=0.setUp()=");
 		LOG.debug("========================");
 		
-		searchVO = new SearchVO(5, 1, "", "", 1);
+		searchVO = new SearchVO(5, 1, "", "", 4);
 				
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
@@ -57,22 +57,20 @@ public class JUnitMovieDaoTest {
 	}
 
 	@Test
-	@Ignore
 	public void mainGetAllTest() {
 		List<NowPlayingVO> list01 = dao.getAllNowPlaying();
 		LOG.debug("========================");
 		LOG.debug("=list01=" + list01);
 		LOG.debug("========================");
-		assertEquals(6, list01.size());
+		assertEquals(10, list01.size());
 		List<PlayingSoonVO> list02 = dao.getAllPlayingSoon();
 		LOG.debug("========================");
 		LOG.debug("=list02=" + list02);
 		LOG.debug("========================");
-		assertEquals(7, list02.size());
+		assertEquals(10, list02.size());
 	}
 	
 	@Test
-	@Ignore
 	public void screenWatchMovieTest() {
 		WatchMovieVO inVO = new WatchMovieVO(7, "", 720, "");
 		WatchMovieVO outVO = dao.getWatchMovie(inVO);
@@ -82,7 +80,6 @@ public class JUnitMovieDaoTest {
 	}
 	
 	@Test
-	@Ignore
 	public void movieDetailTest() {
 		MovieDetailVO outVO = null;
 		outVO = dao.getMovieDetail(4);
@@ -103,14 +100,13 @@ public class JUnitMovieDaoTest {
 	}
 	
 	@Test
-	@Ignore
 	public void getAllReviewTest() {
-		List<MovieReviewVO> list01 = dao.getAllReview(1);
+		List<MovieReviewVO> list01 = dao.getAllReview(4);
 		LOG.debug("========================");
 		LOG.debug("=list01=" + list01);
 		LOG.debug("========================");
-		assertEquals(6, list01.size());
-		List<MovieReviewVO> list02 = dao.getAllReview(2);
+//		assertEquals(6, list01.size());
+		List<MovieReviewVO> list02 = dao.getAllReview(5);
 		LOG.debug("========================");
 		LOG.debug("=list02=" + list02);
 		LOG.debug("========================");
@@ -118,14 +114,12 @@ public class JUnitMovieDaoTest {
 	}
 	
 	@Test
-	@Ignore
 	public void addReviewTest() {
-		MovieReviewVO inVO = new MovieReviewVO(1, 0, "ADMIN02", "TEST_REVIE02", 5);
+		MovieReviewVO inVO = new MovieReviewVO(4, 0, "ADMIN02", "TEST_REVIE02", 5);
 		dao.reviewAdd(inVO);
 	}
 	
 	@Test
-	@Ignore
 	public void reviewRetrieveTest() {
 //		searchVO.setPageNum(1);
 //		searchVO.setPageSize(5);
@@ -137,6 +131,7 @@ public class JUnitMovieDaoTest {
 	
 	@Test
 	public void movieListTest() {
+		// 상영종료된 영화 조회
 		List<MovieListVO> list = dao.getMovieList(2);
 		LOG.debug("=================");
 		LOG.debug("=list=" + list);

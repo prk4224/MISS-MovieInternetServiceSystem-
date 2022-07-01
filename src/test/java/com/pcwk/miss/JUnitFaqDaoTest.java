@@ -52,8 +52,8 @@ public class JUnitFaqDaoTest {
 		LOG.debug("========================");
 		LOG.debug("=list02=" + list02);
 		LOG.debug("========================");
-		assertEquals(3, list01.size());
-		assertEquals(2, list02.size());
+		assertEquals(10, list01.size());
+		assertEquals(3, list02.size());
 	}
 
 }

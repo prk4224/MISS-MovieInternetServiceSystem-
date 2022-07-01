@@ -40,7 +40,7 @@ public class JUnitLoginDaoTest {
 		LOG.debug("========================");
 		
 		member = new MemberVO(1, "chaewon1130@naver.com", "", "", "", "", 1, 0);
-		member2 = new MemberVO(333, "테스트이메일", "테스트이름", "테스트전번", "2022/06/29", "테스트닉네임", 1, 0);
+		member2 = new MemberVO(333, "테스트이메일3", "테스트이름", "테스트전번", "2022/06/29", "테스트닉네임", 1, 0);
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
 		
@@ -51,17 +51,15 @@ public class JUnitLoginDaoTest {
 	@Test
 	public void emailToNumTest() throws SQLException{
 		MemberVO outVO = dao.emailToNum(member);
-		assertEquals(45, outVO.getMbNum());
+		assertEquals(41, outVO.getMbNum());
 	}
 	
 	@Test
-	@Ignore
 	public void doInsertTest() throws SQLException{
 		dao.doInsert(member2);
 	}
 
 	@Test
-	@Ignore
 	public void existingMemberTest() throws SQLException {
 		member.setMbEmail("chaewon1130@naver.com");
 		int count = dao.existingMember(member);
