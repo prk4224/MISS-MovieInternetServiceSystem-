@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
+import com.pcwk.miss.domain.MovieInfoVO;
+import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.pay.dao.PayDao;
 import com.pcwk.miss.pay.domain.ReserveVO;
@@ -56,10 +58,25 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 	}
 
 
+
 	@Override
-	public int couponDelete(CouponVO inVO) throws SQLException {
+	public int pointUpdate(MemberVO inVO) throws SQLException {
 		
-		return payDao.couponDelete(inVO);
+		return payDao.pointUpdate(inVO);
+	}
+
+
+	@Override
+	public int couponUpdate(CouponVO inVO) throws SQLException {
+		
+		return payDao.couponUpdate(inVO);
+	}
+
+
+	@Override
+	public MovieVO movieInfo(MovieInfoVO inVO) throws SQLException {
+		
+		return payDao.movieInfo(inVO);
 	}
 	
 }

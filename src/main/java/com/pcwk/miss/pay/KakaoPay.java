@@ -46,7 +46,7 @@ public class KakaoPay {
         params.add("quantity", "1");
         params.add("total_amount", "7700");
         params.add("tax_free_amount", "700");
-        params.add("approval_url", "http://localhost:8081/miss/pay//paycom.do");
+        params.add("approval_url", "http://localhost:8081/miss/pay/paycom.do");
         params.add("cancel_url", "http://localhost:8081/miss/pay/reserve.do");
         params.add("fail_url", "http://localhost:8081/miss/pay/paying.do");
  

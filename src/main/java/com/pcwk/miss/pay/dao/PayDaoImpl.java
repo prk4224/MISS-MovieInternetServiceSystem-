@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
+import com.pcwk.miss.domain.MovieInfoVO;
+import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.pay.domain.ReserveVO;
@@ -116,10 +118,12 @@ public class PayDaoImpl implements PayDao {
 		return point;
 	}
 
+
 	@Override
-	public int couponDelete(CouponVO inVO) throws SQLException {
+	public int pointUpdate(MemberVO inVO) throws SQLException {
+		
 		int flag = 0;
-        String statement = NAMESPACE+".couponDelete";
+        String statement = NAMESPACE+".pointUpdate";
 		LOG.debug("==============================");
 		LOG.debug("param:" + inVO.toString());
 		LOG.debug("statement:" + statement);
@@ -128,6 +132,37 @@ public class PayDaoImpl implements PayDao {
 		flag = sqlSessionTemplate.delete(statement, inVO);
 		LOG.debug("flag:" + flag);
 		return flag;
+	}
+
+	@Override
+	public int couponUpdate(CouponVO inVO) throws SQLException {
+		int flag = 0;
+        String statement = NAMESPACE+".couponUpdate";
+		LOG.debug("==============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("==============================");	
+		
+		flag = sqlSessionTemplate.delete(statement, inVO);
+		LOG.debug("flag:" + flag);
+		
+		return flag;
+	}
+
+	@Override
+	public MovieVO movieInfo(MovieInfoVO inVO) throws SQLException {
+		MovieVO outVO = null;
+		
+		String statement = NAMESPACE+".movieInfo";
+		LOG.debug("==============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("==============================");	
+		
+		outVO = sqlSessionTemplate.selectOne(statement, inVO);
+		LOG.debug("outVO : " + outVO);
+		
+		return outVO;
 	}
 	
 	

@@ -50,7 +50,7 @@ public class JUnitPayDaoTest {
 		
 		couponVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
 		ticketVO = new TicketVO("1",1,5000, 1, "날짜 X", 0, 1);
-		memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 5000);
+		memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 4000);
 		reserveVO = new ReserveVO();
 		
 		LOG.debug("context : " + context);
@@ -60,8 +60,23 @@ public class JUnitPayDaoTest {
 		assertNotNull(dao);
 		
 	}
+	@Test
+	public void pointUpdate() throws SQLException {
+		LOG.debug("====================");
+		LOG.debug("=pointValue()=");
+		LOG.debug("====================");
+		
+		int flag = dao.pointUpdate(memberVO);
+		
+
+		LOG.debug("========================");
+		LOG.debug("=flag=" + flag);
+		LOG.debug("========================");
+		
+	}
 	
 	@Test
+	@Ignore
 	public void pointValue() throws SQLException {
 		 LOG.debug("====================");
 		 LOG.debug("=pointValue()=");
@@ -126,12 +141,12 @@ public class JUnitPayDaoTest {
 	
 	@Test
 	@Ignore
-	public void couponDelete() throws SQLException{
+	public void couponUpdate() throws SQLException{
 		LOG.debug("========================");
 		LOG.debug("=couponDelete()=");
 		LOG.debug("========================");
 		
-		dao.couponDelete(couponVO);
+		dao.couponUpdate(couponVO);
 	}
 	
 

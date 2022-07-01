@@ -18,6 +18,9 @@ package com.pcwk.miss.controller;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,6 +29,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -99,21 +103,31 @@ public class PayController {
 		LOG.debug("=PayController=payView()=");
 		LOG.debug("==================");
 		
-		List<CouponVO> coulist = payService.couponRetrieve(cInVO);
+		cInVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
+		
 		mInVo = new MemberVO(2,"이메일","회원이름","전화번호", "생월일","닉네임", 1, 5000);
 		
-		int point = payService.pointValue(mInVo);
+		//List<CouponVO> coulist = payService.couponRetrieve(cInVO);
+		List<CouponVO> coulist = null;
 		
+		LOG.debug("==================");
+		LOG.debug("=coulist)=" + coulist);
+		LOG.debug("==================");
+		
+		//int point = payService.pointValue(mInVo);
+		int point = 5000;
 		
 		model.addAttribute("list", coulist);
-		model.addAttribute("point", point);
+		model.addAttribute("userpoint", point);
 		
 		
 		return "pay/paypage";
 	}
-	
 	@RequestMapping(value = "/paycom.do")
 	public String paycomView(@RequestParam("pg_token") String pg_token, Model model) throws SQLException {
+		
+		
+		
 		LOG.debug("==================");
 		LOG.debug("=PayController=paycomView()=");
 		LOG.debug("==================");
@@ -127,16 +141,61 @@ public class PayController {
     	model.addAttribute("m_director", "박훈정");
     	model.addAttribute("m_actor", "신시아, 박은빈, 서은수, 김다미");
     	model.addAttribute("m_time", "2022-06-27 17:00");
-    	model.addAttribute("m_price", "7,000");
+    	model.addAttribute("m_price", "7000");
     	
         model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
         
         TicketVO outVO = new TicketVO(pg_token, 2, 7000, 2, "SYSDATE", 1, 3);
+        //outVO.settPrice(resultPrice);
         
-        payService.ticketInsert(outVO);
+        
+        MemberVO memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 4000);
+        
+        // 포인트 사용 업데이트
+        //int currPoint = memberVO.getMbPoint() - point;
+        
+        
+        // 포인트 등급별 업데이트
+//        int savingPoint = 0;
+//        
+//        if(memberVO.getMbGrade() == 1) savingPoint = 100;
+//        else if(memberVO.getMbGrade() == 2) savingPoint = 200;
+//        else if(memberVO.getMbGrade() == 3)  savingPoint = 350;
+//        else  savingPoint = 600;
+       
+        //memberVO.setMbPoint(currPoint + savingPoint);
+        //payService.pointUpdate(memberVO);
+        
+        // 쿠폰을 사용 했으면 업데이트 ( 사용 안했으면 -1)
+//        CouponVO coupon = new CouponVO();
+//        if(useCoupon != -1) {
+//        	coupon.setcNum(useCoupon);
+//        	payService.couponUpdate(coupon);
+//        }
+        
+        
+        // 결제 내역 추가
+        //payService.ticketInsert(outVO);
 		
 		return "pay/paycomplate";
 	}
+	
+	@PostMapping("payInfo.do")
+	@ResponseBody
+	public String payInfo(@RequestParam Map<String, Object> map){
+		int resultPrice = (int) map.get("result_price");
+		int point = (int) map.get("u_point");
+		int useCoupon = (int) map.get("use_couponId");
+		
+		LOG.debug(map.get("result_price"));
+		LOG.debug(map.get("u_point"));
+		LOG.debug(map.get("use_couponId"));
+		
+		
+		
+		return "pay/paycomplate";
+	}
+	
 	
 	@Autowired
     private KakaoPay kakaopay;
@@ -155,9 +214,4 @@ public class PayController {
  
     }
     
-//    @GetMapping("/kakaoPaySuccess")
-//    public void kakaoPaySuccess{
-//    	
-//        
-//    }
 }
