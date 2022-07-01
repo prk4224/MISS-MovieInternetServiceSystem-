@@ -24,7 +24,7 @@ import com.pcwk.miss.cmn.DTO;
  */
 public class MemberVO extends DTO {
 	private int mbNum; //회원번호
-	private String email; //이메일
+	private String mbEmail; //이메일
 	private String mbName; //이름
 	private String mbTel; //전화번호
 	private String mbBirth; //생년월일
@@ -36,11 +36,11 @@ public class MemberVO extends DTO {
 		
 	}
 
-	public MemberVO(int mbNum, String email, String mbName, String mbTel, String mbBirth, String mbNickname, int mbGrade,
+	public MemberVO(int mbNum, String mbEmail, String mbName, String mbTel, String mbBirth, String mbNickname, int mbGrade,
 			int mbPoint) {
 		super();
 		this.mbNum = mbNum;
-		this.email = email;
+		this.mbEmail = mbEmail;
 		this.mbName = mbName;
 		this.mbTel = mbTel;
 		this.mbBirth = mbBirth;
@@ -57,12 +57,12 @@ public class MemberVO extends DTO {
 		this.mbNum = mbNum;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMbEmail() {
+		return mbEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMbEmail(String mbEmail) {
+		this.mbEmail = mbEmail;
 	}
 
 	public String getMbName() {
@@ -115,7 +115,7 @@ public class MemberVO extends DTO {
 
 	@Override
 	public String toString() {
-		return "MemberVO [mbNum=" + mbNum + ", email=" + email + ", mbName=" + mbName + ", mbTel=" + mbTel + ", mbBirth="
+		return "MemberVO [mbNum=" + mbNum + ", mbEmail=" + mbEmail + ", mbName=" + mbName + ", mbTel=" + mbTel + ", mbBirth="
 				+ mbBirth + ", mbNickname=" + mbNickname + ", mbGrade=" + mbGrade + ", mbPoint=" + mbPoint
 				+ ", toString()=" + super.toString() + "]";
 	}

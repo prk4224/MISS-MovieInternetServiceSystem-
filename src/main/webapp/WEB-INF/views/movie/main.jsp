@@ -107,14 +107,16 @@
 	<%@include file="../cmn/footer.jsp"%>
 	<!-- //푸터영역 -->
     <script src="${CP_RES}/js/main.js"></script>
+    
 	<script type="text/javascript">
 	  $(document).ready(function(){
 	    console.log("document.ready");
+	    console.log(sessionStorage.getItem("accessToken"));
+	    
 	    $(".slides1 li").on("click", function(){
 	    	// mvNum
 	    	let mvNum = $(this).children().eq(2).children().eq(0).text();
 	    	console.log(mvNum);
-	    	
 	    	location.href = "movie_detail.do?mvNum=" + mvNum;
 	    });
 	    $(".slides2 li").on("click", function(){
@@ -122,6 +124,7 @@
 	    	location.href = "movie_detail.do?mvNum=" + mvNum;
 	    });
 	  });
+	  	
 	</script>
 </body>
 </html>

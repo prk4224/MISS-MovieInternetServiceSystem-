@@ -16,11 +16,37 @@
 */
 package com.pcwk.miss.login.dao;
 
+import java.sql.SQLException;
+
+import com.pcwk.miss.domain.MemberVO;
+
 /**
  * @author ITSC
  *
  */
 public interface LoginDao {
-
 	
+	/**
+	 * 기존회원인지 아닌지 check
+	 * @param inVO
+	 * @return 1이면 기존회원 / 0이면 신규회원
+	 * @throws SQLException
+	 */
+	int existingMember(MemberVO inVO) throws SQLException;
+	
+	/**
+	 * 회원가입
+	 * @param inVO
+	 * @return 1(성공) / 0(실패)
+	 * @throws SQLException
+	 */
+	int doInsert(MemberVO inVO) throws SQLException;
+	
+	/**
+	 * 이메일 -> mbNum
+	 * @param inVO
+	 * @return
+	 * @throws SQLException
+	 */
+	MemberVO emailToNum(MemberVO inVO) throws SQLException;
 }

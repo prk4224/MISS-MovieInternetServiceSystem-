@@ -69,7 +69,6 @@
     <script src="${CP_RES}/js/bootstrap.min.js"></script>
     <!-- jquery_bootstrap paging -->
     <script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
- 
     <!--자바스크립트 코드 -->
 	<script type="text/javascript">
 	function moCancle()  {

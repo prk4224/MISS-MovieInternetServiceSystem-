@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.miss.login">
+	
+	<!-- 기존회원인지 확인 -->
+	<select id="existingMember" parameterType="MemberVO" resultType="int">
+		SELECT COUNT(*) cnt
+		FROM MEMBER
+		WHERE mb_email = #{mbEmail}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="doInsert" parameterType="MemberVO">
+		INSERT INTO MEMBER(
+			mb_num,
+			mb_email,
+			mb_name,
+			mb_tel,
+			mb_birth,
+			mb_nickname,
+			mb_grade,
+			mb_point
+		)VALUES(
+			mb_num_seq.NEXTVAL,
+			#{mbEmail},
+			#{mbName},
+			#{mbTel},
+			#{mbBirth},
+			#{mbNickname},
+			1,
+			0
+		)
+	</insert>
+	
+	<!-- 세션에 넣기위해 이메일을 num값으로 수정 -->
+	<select id="emailToNum" parameterType="MemberVO" resultType="MemberVO">
+		SELECT mb_num AS mbNum,
+			mb_nickname AS mbNickname
+		FROM MEMBER
+		WHERE mb_email = #{mbEmail}
+	</select>
+</mapper>
