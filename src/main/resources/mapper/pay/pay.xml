@@ -63,6 +63,7 @@
 		WHERE T1.MV_NUM = T2.MV_NUM
 		AND T1.MV_NUM = #{mvNum}
 		AND T2.MI_QUALITY LIKE '%' || #{miQuality} || '%'
+		ORDER BY T2.MI_TIME
 	</select>
 </mapper>
 

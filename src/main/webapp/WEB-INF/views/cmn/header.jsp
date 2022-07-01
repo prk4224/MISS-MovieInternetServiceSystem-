@@ -29,7 +29,7 @@
     }
     /*menu ul, li 스타일*/
     #menu ul li {
-            margin-left:100px;                      
+            margin-left:80px;                      
             list-style: none;           
             color: white;                
             float: left;               
@@ -49,7 +49,7 @@
     }
     /*로그인 a태그 스타일*/
     .logout {
-        margin-left:100px;
+        margin-left:10px;
         text-decoration:none;
         font-size:15px;
         color:white;
@@ -74,6 +74,8 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$("#headNickname").text("환영합니다 ~ " + sessionStorage.getItem("mbNickname") + "님");
+		
 		Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
 		$(".logout").on("click", function(){
 			if(confirm("로그아웃 하시겠습니까?")){
@@ -94,7 +96,10 @@
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
                 <li><a class="menuLink" href="${MISS}/mypage/history.do">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
-                <li><input type="button" class="logout" value="로그아웃"></li> <!-- 아이콘 이미지로 변경 -->
+                <li>
+                	<span id="headNickname" style="color: white; font-size: 16px"></span>
+                	<input type="button" class="logout" value="로그아웃">
+                </li> <!-- 아이콘 이미지로 변경 -->
             </ul>
         </nav>
     </header>
