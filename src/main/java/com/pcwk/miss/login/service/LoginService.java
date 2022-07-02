@@ -3,6 +3,7 @@ package com.pcwk.miss.login.service;
 import java.sql.SQLException;
 
 import com.pcwk.miss.cmn.MessageVO;
+import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 
 public interface LoginService {
@@ -30,4 +31,12 @@ public interface LoginService {
 	 * @throws SQLException
 	 */
 	public MemberVO emailToNum(MemberVO inVO) throws SQLException;
+	
+	/**
+	 * 신규회원가입 쿠폰발급
+	 * @param inVO
+	 * @return
+	 * @throws SQLException
+	 */
+	public int registerCoupon(CouponVO inVO) throws SQLException; 
 }

@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.pcwk.miss.cmn.MessageVO;
+import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 import com.pcwk.miss.login.service.LoginService;
 
@@ -48,6 +49,33 @@ public class LoginController {
 	
 	public LoginController() {
 		
+	}
+	
+	@RequestMapping(value = "/registerCoupon.do", method=RequestMethod.GET
+			, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String registerCoupon(CouponVO inVO) throws SQLException{
+		String jsonString = "";
+		LOG.debug("====================");
+		LOG.debug("=inVO=" + inVO);
+		LOG.debug("====================");
+		
+		int flag = loginService.registerCoupon(inVO);
+		String resultMessage = "";
+		
+		if(flag == 1) {
+			resultMessage += "신규회원가입 축하쿠폰이 지급되었습니다.";
+		}else {
+			resultMessage += "신규회원가입 쿠폰 발급실패";
+		}
+		MessageVO message = new MessageVO(String.valueOf(flag), resultMessage);
+		Gson gson = new Gson();
+		jsonString = gson.toJson(message);
+		LOG.debug("====================");
+		LOG.debug("=jsonString=" + jsonString);
+		LOG.debug("====================");
+		
+		return jsonString;
 	}
 	
 	@RequestMapping(value = "/emailToNum.do", method=RequestMethod.GET

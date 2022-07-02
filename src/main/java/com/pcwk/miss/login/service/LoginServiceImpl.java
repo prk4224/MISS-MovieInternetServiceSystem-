@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pcwk.miss.cmn.MessageVO;
+import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 import com.pcwk.miss.login.dao.LoginDao;
 
@@ -45,4 +46,8 @@ public class LoginServiceImpl implements LoginService {
 		return loginDao.emailToNum(inVO);
 	}
 
+	@Override
+	public int registerCoupon(CouponVO inVO) throws SQLException {
+		return loginDao.registerCoupon(inVO);
+	}
 }

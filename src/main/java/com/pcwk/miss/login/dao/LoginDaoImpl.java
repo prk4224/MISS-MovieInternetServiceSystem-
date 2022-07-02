@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 
 @Repository("loginDao")
@@ -67,6 +68,23 @@ public class LoginDaoImpl implements LoginDao {
 		LOG.debug("============================");
 		
 		return outVO;
+	}
+
+	@Override
+	public int registerCoupon(CouponVO inVO) throws SQLException {
+		int flag = 0;
+		
+		String statement = this.NAMESPACE + ".registerCoupon";
+		
+		LOG.debug("============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("============================");
+		
+		flag = this.sqlSessionTemplate.insert(statement, inVO);
+		LOG.debug("flag : " + flag);
+		
+		return flag;
 	}
 
 }

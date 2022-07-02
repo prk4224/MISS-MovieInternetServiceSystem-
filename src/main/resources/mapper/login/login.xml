@@ -39,4 +39,23 @@
 		FROM MEMBER
 		WHERE mb_email = #{mbEmail}
 	</select>
+	
+	<!-- 신규가입축하쿠폰 -->
+	<insert id="registerCoupon" parameterType="CouponVO">
+		INSERT INTO COUPON(
+		    c_num,
+		    mb_num,
+		    c_name,
+		    c_target,
+		    c_ratio,
+		    c_kind
+		)
+		VALUES(c_num_seq.NEXTVAL,
+			#{mbNum},
+			'신규 회원가입 축하쿠폰',
+			1,
+			50,
+			1)
+	</insert>
+	
 </mapper>

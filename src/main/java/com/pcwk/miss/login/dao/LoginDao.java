@@ -18,6 +18,7 @@ package com.pcwk.miss.login.dao;
 
 import java.sql.SQLException;
 
+import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 
 /**
@@ -49,4 +50,12 @@ public interface LoginDao {
 	 * @throws SQLException
 	 */
 	MemberVO emailToNum(MemberVO inVO) throws SQLException;
+	
+	/**
+	 * 신규회원가입 쿠폰발급
+	 * @param inVO
+	 * @return
+	 * @throws SQLException
+	 */
+	int registerCoupon(CouponVO inVO) throws SQLException; 
 }

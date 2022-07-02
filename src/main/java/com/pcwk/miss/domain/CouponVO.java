@@ -27,21 +27,19 @@ public class CouponVO extends DTO {
 	private int cNum; //쿠폰번호
 	private int mbNum; //회원번호
 	private String cName; //쿠폰이름
-	private String cPeriod; //사용종료일
 	private int cTarge; //쿠폰사용범위(1이면 생일쿠폰, 2이면 가입축하)
-	private int cRatio; //할인율
-	private int cKind; //사용구분(NOT NULL이면 TRUE)
+	private int cRatio; //할인율(%)
+	private int cKind; //사용구분(0이면 사용완료, 1이면 미사용)
 	
 	public CouponVO() {
 		
 	}
 
-	public CouponVO(int cNum, int mbNum, String cName, String cPeriod, int cTarge, int cRatio, int cKind) {
+	public CouponVO(int cNum, int mbNum, String cName, int cTarge, int cRatio, int cKind) {
 		super();
 		this.cNum = cNum;
 		this.mbNum = mbNum;
 		this.cName = cName;
-		this.cPeriod = cPeriod;
 		this.cTarge = cTarge;
 		this.cRatio = cRatio;
 		this.cKind = cKind;
@@ -71,14 +69,6 @@ public class CouponVO extends DTO {
 		this.cName = cName;
 	}
 
-	public String getcPeriod() {
-		return cPeriod;
-	}
-
-	public void setcPeriod(String cPeriod) {
-		this.cPeriod = cPeriod;
-	}
-
 	public int getcTarge() {
 		return cTarge;
 	}
@@ -105,7 +95,7 @@ public class CouponVO extends DTO {
 
 	@Override
 	public String toString() {
-		return "CouponVO [cNum=" + cNum + ", mbNum=" + mbNum + ", cName=" + cName + ", cPeriod=" + cPeriod + ", cTarge="
+		return "CouponVO [cNum=" + cNum + ", mbNum=" + mbNum + ", cName=" + cName + ", cTarge="
 				+ cTarge + ", cRatio=" + cRatio + ", cKind=" + cKind + ", toString()=" + super.toString() + "]";
 	}
 	

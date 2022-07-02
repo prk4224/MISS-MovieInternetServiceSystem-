@@ -15,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 import com.pcwk.miss.login.dao.LoginDao;
 @RunWith(SpringJUnit4ClassRunner.class) // JUnit기능을 스프링 프레임으로 확장
@@ -32,6 +33,7 @@ public class JUnitLoginDaoTest {
 	
 	MemberVO member;
 	MemberVO member2;
+	CouponVO coupon01;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -44,22 +46,32 @@ public class JUnitLoginDaoTest {
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
 		
+		coupon01 = new CouponVO(0, 81, "", 0, 0, 0);
+		
 		assertNotNull(context);
 		assertNotNull(dao);
 	}
 	
 	@Test
+	public void registerCouponTest() throws SQLException{
+		dao.registerCoupon(coupon01);
+	}
+	
+	@Test
+	@Ignore
 	public void emailToNumTest() throws SQLException{
 		MemberVO outVO = dao.emailToNum(member);
 		assertEquals(41, outVO.getMbNum());
 	}
 	
 	@Test
+	@Ignore
 	public void doInsertTest() throws SQLException{
 		dao.doInsert(member2);
 	}
 
 	@Test
+	@Ignore
 	public void existingMemberTest() throws SQLException {
 		member.setMbEmail("chaewon1130@naver.com");
 		int count = dao.existingMember(member);
