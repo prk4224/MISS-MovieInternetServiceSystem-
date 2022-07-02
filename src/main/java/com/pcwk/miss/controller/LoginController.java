@@ -148,6 +148,15 @@ public class LoginController {
 		return jsonString;
 	}
 	
+	@RequestMapping(value = "/callback.do")
+	public String callbackView() {
+		System.out.println("===================");
+		System.out.println("=LoginController=callbackView()=");
+		System.out.println("===================");
+		
+		return "login/callback";
+	}
+	
 	@RequestMapping(value = "/login.do")
 	public String loginView() {
 		System.out.println("===================");

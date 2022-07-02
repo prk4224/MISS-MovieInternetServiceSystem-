@@ -48,7 +48,7 @@ public class JUnitPayDaoTest {
 		LOG.debug("=0.setUp()=");
 		LOG.debug("========================");
 		
-		couponVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
+		couponVO = new CouponVO(1,1,"생일 쿠폰",  1, 30, 0);
 		ticketVO = new TicketVO("1",1,5000, 1, "날짜 X", 0, 1);
 		memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 4000);
 		reserveVO = new ReserveVO();

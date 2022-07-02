@@ -122,15 +122,50 @@
         	console.log("document.ready");
         });
     </script>
+
+
+</head>
+<body>
+
+    <a id="logo" href="#"><img src="${CP_RES}/img/miss_logo.png" style="height:55px; width:auto;"></a>    
+
+    <h1 align="center" style="color:white">최신 영화를 집에서.</h1>
+    <h2 align="center" style="color:white">어디서든 최신영화를 즐겨보세요.</h2>
+    <div class="login-form">
+	    <input type="text" name="email" class="text-field" placeholder="아이디">
+	    <input type="password" name="password" class="text-field" placeholder="비밀번호">
+	    <input type="submit" value="로그인" class="submit-btn">
+	    <a onclick="kakaoLogin();"><img src="${CP_RES}/img/kakao_login_medium_narrow.png" style="height:40px; width:125px;"></a>
+	    <!-- 네이버 로그인 버튼 노출 영역 -->
+		<div id="naver_id_login"></div>
+		<!-- //네이버 로그인 버튼 노출 영역 -->
+	<%--            <a onclick="naverLogin();" id="naverLogin"><img src="${CP_RES}/img/btnG_완성형.png" style="height:40px; width:125px;"></a> --%>
+	          
+	    <div class="idPwForget"> 
+	       <a href="#">비밀번호를 잊어버리셨나요?</a> 
+	    </div>
+    </div>
+    
+<footer>
+    <p align="center" style="font-size:10px; color:darkgray;">
+                고객센터(이용및 결제 문의)miss@miss.co.kr(유료) / 제휴및 대외 협력 00000000<br>
+                주식회사 미스 / 대표 OOO / 서울특별시 마포구 서강로 136 2,3층 / 사업자 등록번호 000-00-00000 / 대표번호 02-000-0000 / 개인정보 처리 방침 / 청소년 보호정책<br>
+                MISS.All Rights Reserved
+    </p>            
+</footer> 
     <!----------------------- java script ------------------------->
 	<!-- kakaologin -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<!-- NAVERLOGIN -->
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+	
 	<script>
-	Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
-	console.log(Kakao.isInitialized());
-	console.log(Kakao.Auth.getAccessToken());
+	
 	//카카오로그인
 	function kakaoLogin() {
+		Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
+		console.log(Kakao.isInitialized());
+		console.log(Kakao.Auth.getAccessToken());
 	    Kakao.Auth.login({
 	      success: function (response) {
 	        Kakao.API.request({
@@ -138,10 +173,6 @@
 	          success: function (response) {
 	              console.log(response)
 	              console.log(response.kakao_account.email);
-// 	              console.log(response.kakao_account.birthday);
-// 	              console.log(response.kakao_account.gender);
-// 	              console.log(response.properties.nickname);
-// 	              console.log(response.properties.profile_image_url);
 				  let accessToken = Kakao.Auth.getAccessToken();
 				  Kakao.Auth.setAccessToken(accessToken);
 				  console.log("accessToken : " + accessToken);
@@ -197,35 +228,17 @@
 			sessionStorage.setItem("mbNickname", data.mbNickname);
 		});
 	}
+	
+	var naver_id_login = new naver_id_login("LUYKmCBhews_CxE5rSdS", "http://localhost:8081/miss/login/callback.do");
+	var state = naver_id_login.getUniqState();
+	naver_id_login.setButton("green", 3, 40);
+	naver_id_login.setDomain(".service.com");
+	
+	naver_id_login.setState(state);
+// 	naver_id_login.setPopup();
 
-</script>
-</head>
-<body>
+	naver_id_login.init_naver_id_login();
 
-    <a id="logo" href="#"><img src="${CP_RES}/img/miss_logo.png" style="height:55px; width:auto;"></a>    
-
-    <h1 align="center" style="color:white">최신 영화를 집에서.</h1>
-    <h2 align="center" style="color:white">어디서든 최신영화를 즐겨보세요.</h2>
-    <div class="login-form">
-        <form>
-           <input type="text" name="email" class="text-field" placeholder="아이디">
-           <input type="password" name="password" class="text-field" placeholder="비밀번호">
-           <input type="submit" value="로그인" class="submit-btn">
-           <a onclick="kakaoLogin();"><img src="${CP_RES}/img/kakao_login_medium_narrow.png" style="height:40px; width:125px;"></a>
-           <a onclick="" id="naverLogin" href="#"><img src="${CP_RES}/img/btnG_완성형.png" style="height:40px; width:125px;"></a>
-        </form>
-          
-        <div class="idPwForget"> 
-           <a href="#">비밀번호를 잊어버리셨나요?</a> 
-        </div>
-    </div>
-    
-<footer>
-    <p align="center" style="font-size:10px; color:darkgray;">
-                고객센터(이용및 결제 문의)miss@miss.co.kr(유료) / 제휴및 대외 협력 00000000<br>
-                주식회사 미스 / 대표 OOO / 서울특별시 마포구 서강로 136 2,3층 / 사업자 등록번호 000-00-00000 / 대표번호 02-000-0000 / 개인정보 처리 방침 / 청소년 보호정책<br>
-                MISS.All Rights Reserved
-    </p>            
-</footer>    
+</script>  
 </body>
 </html>
