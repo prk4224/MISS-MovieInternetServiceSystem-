@@ -32,6 +32,7 @@
 	<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
     <title>부트스트랩 - boot_list</title>
     <!-------------------------- css ---------------------------->
+	<link rel="stylesheet" href="${CP_RES}/css/style.css">
 	<style type="text/css">
 	* {
 	    box-sizing: border-box;
@@ -126,7 +127,16 @@
 
 </head>
 <body>
-
+    <div class = "intro">
+        <h1 class = "logo-header">
+            <span class = "logo">M </span>
+            <span class = "logo">I </span>
+            <span class = "logo">S </span>
+            <span class = "logo">S </span>
+        </h1>
+    </div>
+	
+	
     <a id="logo" href="#"><img src="${CP_RES}/img/miss_logo.png" style="height:55px; width:auto;"></a>    
 
     <h1 align="center" style="color:white">최신 영화를 집에서.</h1>
@@ -154,12 +164,23 @@
     </p>            
 </footer> 
     <!----------------------- java script ------------------------->
+	<script src="${CP_RES}/js/app.js"></script>
 	<!-- kakaologin -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<!-- NAVERLOGIN -->
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 	
 	<script>
+	console.log("accessToken세션값 : " + sessionStorage.getItem("accessToken"));
+	console.log("mbNum세션값 : " + sessionStorage.getItem("mbNum"));
+	console.log("mbNickname세션값 : " + sessionStorage.getItem("mbNickname"));
+	
+	$(document).ready(function(){
+		if(sessionStorage.getItem("accessToken") != null){
+			alert("이미 로그인되어있습니다! 로그아웃해 주세요!");
+			location.href = "/miss/movie/main.do";
+		}
+	})
 	
 	//카카오로그인
 	function kakaoLogin() {
