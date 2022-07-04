@@ -84,6 +84,11 @@
 				location.href = '/miss/login/login.do';
 			};
 		});
+		
+		$("#mbNum").on("click", function(){
+			console.log("mbNum");
+			location.href = "/miss/mypage/historyView.do?mbNum=" + sessionStorage.getItem("mbNum");
+		});
 	})
 </script>
 </head>
@@ -95,7 +100,7 @@
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
-                <li><a class="menuLink" href="${MISS}/mypage/history.do">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
+                <li><a class="menuLink" id="mbNum">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
                 <li>
                 	<span id="headNickname" style="color: white; font-size: 16px"></span>
                 	<input type="button" class="logout" value="로그아웃">
