@@ -1,4 +1,5 @@
-![header](https://capsule-render.vercel.app/api?type=wave&color=green&height=10&section=header&text=3조MISS입니다.잘부탁드립니다.^_^&fontSize=25)
+
+![header](https://capsule-render.vercel.app/api?type=wave&color=green&height=10&section=header&text=3조MISS입니다.잘부탁드립니다.^_^%20&fontSize=25)
 
 ![MISS02](https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg)
 ![MISS01](https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg)
