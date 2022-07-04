@@ -80,6 +80,7 @@
 
 # 6. Collaboration:fallen_leaf:   
 <img src="https://img.shields.io/badge/Java-FFCA28?style=flat-square&logo=java&logoColor=white"/>
+<img src="https://img.shields.io/badge/JAVA-007396?style=flat-square&logo=java&logoColor=white">
 <img src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=Oracle&logoColor=white"/>
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
