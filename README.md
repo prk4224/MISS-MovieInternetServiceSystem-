@@ -6,7 +6,8 @@
 
  
 # 0. 목차:link:   
-<H3> :one: MISS 팀 소개   
+ <H3>   
+:one: MISS 팀 소개   
 :two: Project 목 적   
 :three: Project 기 획   
 :four: Project 설 계   
