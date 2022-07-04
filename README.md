@@ -101,9 +101,11 @@
 <img src="https://img.shields.io/badge/Kakao-FFCD00?style=flat-square&logo=Kakao&logoColor=white"/>
 <img src="https://img.shields.io/badge/Naver-03C75A?style=flat-square&logo=Naver&logoColor=white"/>
  
-</div>
+
 
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=footer)
+
+</div>
 ---
 
 
