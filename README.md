@@ -6,12 +6,12 @@
 
  
 # 0. 목차:link:   
--Project 목적  
--MISS 팀 소개    
--Project 기획  
--Project 설계   
--기능시연   
--Tech Stack
+:one:Project 목적  
+:two:MISS 팀 소개    
+:three:Project 기획  
+:four:Project 설계   
+:five:기능시연   
+:six:Tech Stack
 
 
 # 1. Project 목적:sun_with_face:   
