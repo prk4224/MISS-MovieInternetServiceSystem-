@@ -1,6 +1,6 @@
 <div align=center>
 
-![header](https://capsule-render.vercel.app/api?type=cylinder&color=auto&height=150&section=header&text=3조%20MISS입니다.%20잘부탁드립니다.%20&fontSize=40)
+![header](https://capsule-render.vercel.app/api?type=cylinder&color=#7E4798&height=150&section=header&text=3조%20MISS입니다.%20잘부탁드립니다.%20&fontSize=40)
 
 ![MISS02](https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg)
 ![MISS01](https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg)
