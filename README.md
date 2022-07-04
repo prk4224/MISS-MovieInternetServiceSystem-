@@ -6,8 +6,8 @@
 
  
 # 0. 목차:link:   
-#### :one: MISS 팀 소개   
-#### :two: Project 목 적   
+:one: MISS 팀 소개   
+:two: Project 목 적   
 :three: Project 기 획   
 :four: Project 설 계   
 :five: 기 능 시 연   
