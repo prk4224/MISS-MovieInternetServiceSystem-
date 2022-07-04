@@ -16,8 +16,8 @@
 
 # 1. Project 목적:sun_with_face:   
 
-* 자동완성 검색창을 보유한 영화 정보 검색 시스템 구현 *
-* Spring 프레임워크를 사용하여 웹표준 Full-Stack 융합 프로젝트 구현 
+* 자동완성 검색창을 보유한 영화 정보 검색 시스템 구현
+* Spring 프레임워크를 사용하여 웹표준 Full-Stack 융합 프로젝트 구현
 * Spring MVC아키텍처를 기반으로 Dispatcher-Servlet 원리 이해
 * gitHub 형상관리를 사용하여 조직적 직무수행
 
