@@ -1,3 +1,5 @@
+<divalign=center>
+
 ![header](https://capsule-render.vercel.app/api?type=cylinder&color=auto&height=150&section=header&text=3조%20MISS입니다.%20잘부탁드립니다.%20&fontSize=40)
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=capsule%20render&fontSize=90)
 
@@ -5,7 +7,7 @@
 ![MISS02](https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg)
 ![MISS01](https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg)
 
-<div align=center>
+
  
 # 0. 목차    
 -Project 목적  
@@ -81,8 +83,9 @@
 ![마이 페이지]()  
 
 # 6. Collaboration
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white"/><img src="https://img.shields.io/badge/Java-FFCA28?style=flat-square&logo=Java&logoColor=white"/>
-<img src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=Oracle&logoColor=white"/><img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
+<img src="https://img.shields.io/badge/Java-FFCA28?style=flat-square&logo=Java&logoColor=white"/>
+<img src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=Oracle&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
 <img src="https://img.shields.io/badge/JSS-F7DF1E?style=flat-square&logo=JSS&logoColor=white"/>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/>
