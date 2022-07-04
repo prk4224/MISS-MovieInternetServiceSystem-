@@ -31,10 +31,10 @@
 
 # 2. Project 목적:sun_with_face:   
 
-:round_pushpin: 자동완성 검색창을 보유한 영화 정보 검색 시스템 구현   
-:round_pushpin: Spring 프레임워크를 사용하여 웹표준 Full-Stack 융합 프로젝트 구현   
-:round_pushpin: Spring MVC아키텍처를 기반으로 Dispatcher-Servlet 원리 이해   
-:round_pushpin: GitHub 형상관리를 사용하여 조직적 직무수행
+:round_pushpin: 자동완성 검색창을 보유한 영화 정보 검색 시스템 구현 :round_pushpin:   
+:round_pushpin: Spring 프레임워크를 사용하여 웹표준 Full-Stack 융합 프로젝트 구현 :round_pushpin:   
+:round_pushpin: Spring MVC아키텍처를 기반으로 Dispatcher-Servlet 원리 이해 :round_pushpin:   
+:round_pushpin: GitHub 형상관리를 사용하여 조직적 직무수행 :round_pushpin:
 
 
 # 3. Project 기획:seedling:   
