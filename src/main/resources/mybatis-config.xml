@@ -21,5 +21,7 @@
     	<typeAlias type="com.pcwk.miss.faq.domain.FaqVO" alias="FaqVO"/>
     	<typeAlias type="com.pcwk.miss.pay.domain.ReserveVO" alias="ReserveVO"/>
     	<typeAlias type="com.pcwk.miss.domain.MemberVO" alias="MemberVO"/>
+    	<typeAlias type="com.pcwk.miss.mypage.domain.HistoryVO" alias="HistoryVO"/>
+    	<typeAlias type="com.pcwk.miss.mypage.domain.MemberInfoVO" alias="MemberInfoVO"/>
     </typeAliases>
 </configuration>
