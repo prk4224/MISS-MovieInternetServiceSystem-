@@ -6,17 +6,17 @@
 
  
 # 0. 목차:link:   
-<H2>:one: MISS 팀 소개   
+<H4>:one: MISS 팀 소개   
  <br>
-<H2>:two: Project 목 적   
+<H4>:two: Project 목 적   
  <br>
-<H2>:three: Project 기 획   
+<H4>:three: Project 기 획   
  <br>
-<H2>:four: Project 설 계   
+<H4>:four: Project 설 계   
  <br>
-<H2>:five: 기 능 시 연   
+<H4>:five: 기 능 시 연   
  <br>
-<H2>:six: Collaboration   
+<H4>:six: Collaboration   
  <br>
 
 # 1. MISS 팀 소개:raised_hands:   
