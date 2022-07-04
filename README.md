@@ -10,7 +10,7 @@
 -MISS 팀 소개    
 -Project 기획  
 -Project 설계   
--기능시연
+-기능시연   
 -Tech Stack
 
 
