@@ -11,6 +11,23 @@ import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.pay.domain.ReserveVO;
 
 public interface PayDao {
+
+	
+	/**
+	 * 멤버 아이디 조회
+	 * @param inVO
+	 * @return MemberVO
+	 * @throws SQLException
+	 */
+	MemberVO memberSelete(MemberVO inVO) throws SQLException;
+	
+	/**
+	 * 쿠폰 할인률 조회
+	 * @param inVO
+	 * @return CouponVO
+	 * @throws SQLException
+	 */
+	CouponVO couponSelete(CouponVO inVO) throws SQLException;
 	
 	/**
 	 * 영화 번호로 영화 상세정보 조회
@@ -18,7 +35,7 @@ public interface PayDao {
 	 * @return MovieVO
 	 * @throws SQLException
 	 */
-	MovieVO movieInfo(MovieInfoVO inVO) throws SQLException;
+	MovieVO movieInfo(MovieVO inVO) throws SQLException;
 	
 	/**
 	 * 사용한 쿠폰 업데이트

@@ -26,17 +26,17 @@
         <div id = "movie_detail" >
             <div class="movie_imp">
                 <div id = "c_movie">
-                    <div id = "movie_title">영화제목 : </div> 
-                    <div>감독 : 배우 : </div> 
+                    <div id = "movie_title">영화제목 : ${movie.mvTitle}</div> 
+                    <div>감독 : ${movie.mvDirector} 배우 : ${movie.mvActor}</div> 
 
 
                 </div>
                 <div id = "t_movie">
-                    <div>상영시간 : </div>
+                    <div>상영시간 : ${miTime} , 러닝타임 : ${movie.mvTime} 분, 화질 : ${miQuality}p</div>
                 </div>
             </div>
             <div class="movie_sale">
-                <div id = "p_price" value = "7000">결제금액 : 7000</div>
+                <div id = "p_price" name = "p_price" value = "${price}">결제금액 : ${price} 원</div>
                 <div id = "coupon">
                     <div>할인쿠폰</div>
                    	<table>
@@ -56,7 +56,7 @@
 	                   			<c:when test="${list.size() > 0}">
 	                   				<c:forEach var = "vo" items = "${list}">
 	                   					<tr>
-	       									<td><input type="checkbox" name = "couponList" value = "${vo.cNum}" checked="checked"></td>
+	       									<td><input id = "couponList" type="checkbox" name = "couponList" value = "${vo.cNum}" checked="checked"></td>
 	                   						<td>${vo.cNum}</td>
 	                   						<td>${vo.cName}</td>
 	                   						<td>${vo.cRatio}</td>
@@ -76,8 +76,9 @@
                    	</table>
 
                 </div>
-                <div id = "point">                    
-                    포인트 : ${userpoint} | 사용 포인트 : 
+                <div id = "point">   
+                	POINT : <input type = "text" id = "user_point" value = "${userpoint}" readonly="readonly">                 
+                    사용 POINT : 
                     <input id = "u_point" type = "number" style="width: 4vmax;">
                     <button id = "pointbtn">적용</button>
                 </div>
@@ -91,74 +92,101 @@
     </div>
 
     <div id = "payment_type">
-    	<form method = "post" action="/miss/pay/kakaoPay.do">
-   			 <button id="kakaoapibtn"><img src="${path}/resources/img/kakao.jpeg"></button>
-		</form>
+    	 <form method = "post" action="/miss/pay/kakaoPay.do">
+  			<button id="kakaoapibtn"><img src="${path}/resources/img/kakao.jpeg"></button>
+		 </form>
     	
         <button id = "naverapibtn"  type="button">네이버 간편 결제</button>
     </div>
     
     <!-- 푸터영역 -->
-	<%@include file="../cmn/footer.jsp"%>
-	<!-- //푸터영역 -->
+	<%@include file="../cmn/footer.jsp"%> 
+	<!-- //푸터영역--------------------------->
 	
 	<script type="text/javascript">
 	$(document).ready(function(){
         console.log("document.ready"); 
         
-        let resultprice = 7000;
+        let resultprice = ${price};
+        console.log("resultpricey"); 
         
         document.getElementById("r_price").innerHTML=resultprice;
         
-        /* $("#pointbtn").on("click", function(e){
-        	resultprice = 7000;
+        $("#pointbtn").on("click", function(){
         	
-        	if( ${userpoint} <  $("#u_point").val() ) {
+        	if( $("#user_point").val() <  $("#u_point").val() ) {
         		alert("보유한 포인트 보다 많습니다.");
         		$("#u_point").focus;
         		return;	
         	}
         	
         	
+        	
         	console.log("pointbt"); 
         	
-        	resultprice = resultprice - $("#u_point").val();
+        	resultprice = ${price} - $("#u_point").val();
         	document.getElementById("r_price").innerHTML=resultprice;
         	    	
-        });  */
+        });
+        
+       let point = 0;
+      if( $("#u_point").val() != 0){
+    	   point = $("#u_point").val();
+       }
+       
         
        $("#kakaoapibtn").on("click", function(e){
     	   
     	   let checkbox = document.getElementsByName('couponList');
     	   let useCoupon = -1;
+    	   console.log(resultprice); 
+    	   console.log(point); 
+    	   console.log(useCoupon); 
+           
     	  
         	
     	   for(let i = 0; i < checkbox.length; i++){
     		   
     		   if(checkbox[i].checked){
     			   useCoupon = checkbox[i].value;
+    			   break;
     		   }
     	   }
+    	   
     	   console.log(useCoupon);
     	   console.log(checkbox.length);
+    	   
+    	   $.ajax({
+    		   url : "postView.do",
+    		   type : "post",
+    		   data : {
+    			   resultPrice : resultprice+"",
+    			   uPoint : point+"",
+    			   useCouponId : useCoupon+""
+    			   
+    		   },
+    		   success : function(data) {
+   				
+    		    },
+    			error : function() {
+    				alert("error");
+    			}
+    	   });
+    	   
+    	   $.ajax({
+    		   url : "kakaoPay.do",
+    			type : "post",
+    		   success : function() {
+   				
+    		    },
+    			error : function() {
+    				alert("error");
+    			}
+    	   });
+    	   
+    	   //window.location.href = '/miss/pay/paycom.do?resultPrice=' + resultprice + "&uPoint=" + $("#u_point").val() + "&useCouponId=" + useCoupon;
             
-            $.ajax({
-            	
-                url: "/miss/pay/payInfo.do",
-                data: {
-                	result_price : resultprice,
-                	u_point : $("#u_point").val(),
-                	use_couponId : useCoupon
-                }, 
-                type: "POST",
-                
-                success : function(data){
-                  alert("성공")
-                },
-                error : function(){
-                  alert("에러")		
-                }
-            });
+           
         });
         
 	});

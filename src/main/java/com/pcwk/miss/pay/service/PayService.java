@@ -13,12 +13,28 @@ import com.pcwk.miss.pay.domain.ReserveVO;
 public interface PayService {
 	
 	/**
+	 * 멤버 아이디 조회
+	 * @param inVO
+	 * @return MemberVO
+	 * @throws SQLException
+	 */
+	public MemberVO memberSelete(MemberVO inVO) throws SQLException;
+	
+	/**
+	 * 쿠폰 할인률 조회
+	 * @param inVO
+	 * @return MovieVO
+	 * @throws SQLException
+	 */
+	public CouponVO couponSelete(CouponVO inVO) throws SQLException;
+	
+	/**
 	 * 영화 번호로 영화 상세정보 조회
 	 * @param inVO
 	 * @return MovieVO
 	 * @throws SQLException
 	 */
-	public MovieVO movieInfo(MovieInfoVO inVO) throws SQLException;
+	public MovieVO movieInfo(MovieVO inVO) throws SQLException;
 	
 	/**
 	 * 사용한 쿠폰 업데이트

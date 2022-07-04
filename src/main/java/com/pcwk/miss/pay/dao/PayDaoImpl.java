@@ -150,10 +150,42 @@ public class PayDaoImpl implements PayDao {
 	}
 
 	@Override
-	public MovieVO movieInfo(MovieInfoVO inVO) throws SQLException {
+	public MovieVO movieInfo(MovieVO inVO) throws SQLException {
 		MovieVO outVO = null;
 		
 		String statement = NAMESPACE+".movieInfo";
+		LOG.debug("==============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("==============================");	
+		
+		outVO = sqlSessionTemplate.selectOne(statement, inVO);
+		LOG.debug("outVO : " + outVO);
+		
+		return outVO;
+	}
+
+	@Override
+	public CouponVO couponSelete(CouponVO inVO) throws SQLException {
+		CouponVO outVO = null;
+		
+		String statement = NAMESPACE+".couponSelete";
+		LOG.debug("==============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("==============================");	
+		
+		outVO = sqlSessionTemplate.selectOne(statement, inVO);
+		LOG.debug("outVO : " + outVO);
+		
+		return outVO;
+	}
+
+	@Override
+	public MemberVO memberSelete(MemberVO inVO) throws SQLException {
+		MemberVO outVO = null;
+		
+		String statement = NAMESPACE+".memberSelete";
 		LOG.debug("==============================");
 		LOG.debug("param:" + inVO.toString());
 		LOG.debug("statement:" + statement);

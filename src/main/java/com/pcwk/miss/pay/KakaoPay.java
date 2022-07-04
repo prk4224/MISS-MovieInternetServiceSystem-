@@ -26,9 +26,12 @@ public class KakaoPay {
     
     private ReadyResponseVO readyResponseVO;
     private ApproveResponseVO approveResponseVO;
+    int totalPrice = 0;
     
-    public String kakaoPayReady() {
- 
+    public String kakaoPayReady(int price) {
+
+    	totalPrice = price;
+    	
         RestTemplate restTemplate = new RestTemplate();
  
         // 서버로 요청할 Header
@@ -44,8 +47,8 @@ public class KakaoPay {
         params.add("partner_user_id", "gorany");
         params.add("item_name", "TICKET");
         params.add("quantity", "1");
-        params.add("total_amount", "7700");
-        params.add("tax_free_amount", "700");
+        params.add("total_amount", String.valueOf(totalPrice));
+        params.add("tax_free_amount", "0");
         params.add("approval_url", "http://localhost:8081/miss/pay/paycom.do");
         params.add("cancel_url", "http://localhost:8081/miss/pay/reserve.do");
         params.add("fail_url", "http://localhost:8081/miss/pay/paying.do");
@@ -90,7 +93,7 @@ public class KakaoPay {
         params.add("partner_order_id", "1001");
         params.add("partner_user_id", "gorany");
         params.add("pg_token", pg_token);
-        params.add("total_amount", "7700");
+        params.add("total_amount", String.valueOf(totalPrice));
         
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
         

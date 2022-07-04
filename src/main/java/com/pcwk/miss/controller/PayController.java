@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
+import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.domain.TicketVO;
 import com.google.gson.Gson;
 import com.pcwk.miss.domain.ReviewVO;
@@ -61,6 +62,15 @@ public class PayController {
 	
 	@Autowired
 	PayService payService;
+	
+	int mvNum;
+	String miTime;
+	String miQuality;
+	int mbNum;
+	int resultPrice;
+	int uPoint;
+	int useCouponId;
+	
 	
 	@RequestMapping(value = "/getMovieTime.do", method = RequestMethod.GET
 			, produces = "application/json;charset=UTF-8")
@@ -103,31 +113,46 @@ public class PayController {
 		LOG.debug("=PayController=payView()=");
 		LOG.debug("==================");
 		
-		int mvNum = Integer.parseInt(request.getParameter("mvNum"));  //영화번호
-		String miTime = request.getParameter("miTime");               //상영시간
-		String miQuality = request.getParameter("miQuality");         //화질
-		int mbNum = Integer.parseInt(request.getParameter("mbNum"));  //로그인되있는 회원번호
+		mvNum = Integer.parseInt(request.getParameter("mvNum"));  //영화번호
+		miTime = request.getParameter("miTime");               //상영시간
+		miQuality = request.getParameter("miQuality");         //화질
+		mbNum = Integer.parseInt(request.getParameter("mbNum"));  //로그인되있는 회원번호
 		
 //		cInVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
+		MovieVO movie = new MovieVO();
+		movie.setMvNum(mvNum);
+		movie = payService.movieInfo(movie);
 		
-		mInVo = new MemberVO(1,"이메일","회원이름","전화번호", "생월일","닉네임", 1, 5000);
+		mInVo.setMbNum(mbNum);
 		
-		//List<CouponVO> coulist = payService.couponRetrieve(cInVO);
-		List<CouponVO> coulist = null;
+		List<CouponVO> coulist = payService.couponRetrieve(cInVO);
+		//List<CouponVO> coulist = null;
 		
 		LOG.debug("==================");
 		LOG.debug("=coulist)=" + coulist);
 		LOG.debug("==================");
 		
-//		int point = payService.pointValue(mInVo);
-		int point = 5000;
+		int point = payService.pointValue(mInVo);
+		//int point = 5000;
 		
+		// 결제 금액
+		int price = 0;
+		if(miQuality.equals("720")) price = 6000;
+		else if(miQuality.equals("1080")) price = 7000;
+		else if(miQuality.equals("2160")) price = 8000;
+		
+		model.addAttribute("movie", movie);
+		model.addAttribute("miTime", miTime);
+		model.addAttribute("miQuality", miQuality);		
+		model.addAttribute("price", price);
 		model.addAttribute("list", coulist);
 		model.addAttribute("userpoint", point);
 		
 		
 		return "pay/paypage";
 	}
+	
+	
 	@RequestMapping(value = "/paycom.do")
 	public String paycomView(@RequestParam("pg_token") String pg_token, Model model) throws SQLException {
 		
@@ -140,82 +165,106 @@ public class PayController {
 		LOG.debug("kakaoPaySuccess get............................................");
     	LOG.debug("kakaoPaySuccess pg_token : " + pg_token);
         
-    	model.addAttribute("token", pg_token);
-    	model.addAttribute("m_agelim", "15세");
-    	model.addAttribute("m_title", "마녀(魔女) Part2. The Other One");
-    	model.addAttribute("m_director", "박훈정");
-    	model.addAttribute("m_actor", "신시아, 박은빈, 서은수, 김다미");
-    	model.addAttribute("m_time", "2022-06-27 17:00");
-    	model.addAttribute("m_price", "7000");
+    	MovieVO movie = new MovieVO();
+    	movie.setMvNum(mvNum);
+    	movie = payService.movieInfo(movie);
+    	
+    	
+    	String age = "";
+    	if(movie.getMvAgelimit() == 1) age = "전체";
+    	else age = String.valueOf(movie.getMvAgelimit()) + "세";
+    	
+    	
+        
+    	 // 결제 내역 추가
+        TicketVO outVO = new TicketVO(pg_token, mbNum, resultPrice, 2, "SYSDATE", 1, mvNum);;
+        payService.ticketInsert(outVO);
+        
+        
+        
+        model.addAttribute("token", pg_token);
+    	model.addAttribute("m_agelim", age);
+    	model.addAttribute("m_title", movie.getMvTitle());
+    	model.addAttribute("m_director", movie.getMvDirector());
+    	model.addAttribute("m_actor", movie.getMvActor());
+    	model.addAttribute("m_time", miTime);
+    	model.addAttribute("m_price", resultPrice);
     	
         model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
+		
+		return "pay/paycomplate";
+	}
+	
+	@PostMapping("/postView.do")
+	@ResponseBody
+	public String postTest(@RequestParam("resultPrice") int price,@RequestParam("uPoint") int point,@RequestParam(
+    		"useCouponId") int coupon) throws SQLException {
+		String jsonString = "";
+		resultPrice = (price);  // 최종 결제 금액
+		uPoint = (point); // 사용한 포인트
+		useCouponId = (coupon); // 사용한 쿠폰 ID 사용 하지 않았으면 -1
+		
+		LOG.debug("resultPrice : " +resultPrice);
+		LOG.debug("uPoint : " +uPoint);
+		LOG.debug("useCouponId : " +useCouponId);
+		LOG.debug("mbNum : " +mbNum);
+		
+		
+		MemberVO memberVO = new MemberVO();
+        memberVO.setMbNum(mbNum);
+        memberVO = payService.memberSelete(memberVO);
         
-        TicketVO outVO = new TicketVO(pg_token, 2, 7000, 2, "SYSDATE", 1, 3);
-        //outVO.settPrice(resultPrice);
-        
-        
-        MemberVO memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 4000);
         
         // 포인트 사용 업데이트
-        //int currPoint = memberVO.getMbPoint() - point;
+        int currPoint = memberVO.getMbPoint() - uPoint;
         
         
         // 포인트 등급별 업데이트
-//        int savingPoint = 0;
-//        
-//        if(memberVO.getMbGrade() == 1) savingPoint = 100;
-//        else if(memberVO.getMbGrade() == 2) savingPoint = 200;
-//        else if(memberVO.getMbGrade() == 3)  savingPoint = 350;
-//        else  savingPoint = 600;
+        int savingPoint = 0;
+        
+        if(memberVO.getMbGrade() == 1) savingPoint = 100;
+        else if(memberVO.getMbGrade() == 2) savingPoint = 200;
+        else if(memberVO.getMbGrade() == 3)  savingPoint = 350;
+        else  savingPoint = 600;
+        
+        LOG.debug("savingPoint : " +savingPoint);
+        LOG.debug("memberVO.getMbGrade()" + memberVO.getMbGrade());
+        LOG.debug("memberVO.getMbNum()" + memberVO.getMbNum());
        
-        //memberVO.setMbPoint(currPoint + savingPoint);
-        //payService.pointUpdate(memberVO);
+        memberVO.setMbPoint(currPoint + savingPoint);
+        payService.pointUpdate(memberVO);
         
         // 쿠폰을 사용 했으면 업데이트 ( 사용 안했으면 -1)
-//        CouponVO coupon = new CouponVO();
-//        if(useCoupon != -1) {
-//        	coupon.setcNum(useCoupon);
-//        	payService.couponUpdate(coupon);
-//        }
+        CouponVO couponVO = new CouponVO();
+        couponVO.setcNum(useCouponId);
+        LOG.debug("couponVO11111 : " +couponVO);
+        couponVO = payService.couponSelete(couponVO);
         
+       
+        LOG.debug("couponVO22222 : " +couponVO);
         
-        // 결제 내역 추가
-        //payService.ticketInsert(outVO);
-		
-		return "pay/paycomplate";
+        if(useCouponId != -1) {
+        	payService.couponUpdate(couponVO);
+        	resultPrice = (int) (resultPrice - (resultPrice * ((double)couponVO.getcRatio()/100)));
+        }
+        return "jsonString";
 	}
-	
-	@PostMapping("payInfo.do")
-	@ResponseBody
-	public String payInfo(@RequestParam Map<String, Object> map){
-		int resultPrice = (int) map.get("result_price");
-		int point = (int) map.get("u_point");
-		int useCoupon = (int) map.get("use_couponId");
-		
-		LOG.debug(map.get("result_price"));
-		LOG.debug(map.get("u_point"));
-		LOG.debug(map.get("use_couponId"));
-		
-		
-		
-		return "pay/paycomplate";
-	}
-	
 	
 	@Autowired
     private KakaoPay kakaopay;
     
     
-    @GetMapping("/kakaoPay.do")
+    @GetMapping("/kakaoPay")
     public void kakaoPayGet() {
         
     }
     
     @PostMapping("/kakaoPay.do")
     public String kakaoPay() {
+    	
         LOG.debug("kakaoPay post............................................");
         
-        return "redirect:" + kakaopay.kakaoPayReady();
+        return "redirect:" + kakaopay.kakaoPayReady(resultPrice);
  
     }
     

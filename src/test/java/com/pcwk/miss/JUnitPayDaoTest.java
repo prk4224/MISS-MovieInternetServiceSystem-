@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
+import com.pcwk.miss.domain.MovieVO;
 import com.pcwk.miss.domain.TicketVO;
 import com.pcwk.miss.movie.domain.NowPlayingVO;
 import com.pcwk.miss.pay.dao.PayDao;
@@ -41,6 +42,7 @@ public class JUnitPayDaoTest {
 	TicketVO ticketVO;
 	MemberVO memberVO;
 	ReserveVO reserveVO;
+	MovieVO movieVO;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -52,6 +54,7 @@ public class JUnitPayDaoTest {
 		ticketVO = new TicketVO("1",1,5000, 1, "날짜 X", 0, 1);
 		memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 4000);
 		reserveVO = new ReserveVO();
+		movieVO = new MovieVO();
 		
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
@@ -61,6 +64,25 @@ public class JUnitPayDaoTest {
 		
 	}
 	@Test
+	public void movieInfo() throws SQLException {
+		LOG.debug("====================");
+		LOG.debug("=movieInfo()=");
+		LOG.debug("====================");
+		
+		movieVO.setMvNum(1);
+		
+		movieVO = dao.movieInfo(movieVO);
+		
+		LOG.debug("========================");
+		LOG.debug("=movieVO=" + movieVO);
+		LOG.debug("========================");
+		
+		
+	}
+	
+	
+	@Test
+	@Ignore
 	public void pointUpdate() throws SQLException {
 		LOG.debug("====================");
 		LOG.debug("=pointValue()=");

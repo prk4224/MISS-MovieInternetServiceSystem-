@@ -74,9 +74,22 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 
 
 	@Override
-	public MovieVO movieInfo(MovieInfoVO inVO) throws SQLException {
+	public MovieVO movieInfo(MovieVO inVO) throws SQLException {
 		
 		return payDao.movieInfo(inVO);
+	}
+
+
+	@Override
+	public CouponVO couponSelete(CouponVO inVO) throws SQLException {
+		return payDao.couponSelete(inVO);
+	}
+
+
+	@Override
+	public MemberVO memberSelete(MemberVO inVO) throws SQLException {
+		
+		return payDao.memberSelete(inVO);
 	}
 	
 }

@@ -2,11 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.miss.pay">
 
+	<select id="memberSelete" parameterType="MemberVO" resultType="MemberVO">
+		SELECT
+		    mb_num AS mbNum,
+		    mb_email AS mbEmail,
+		    mb_name AS mbName,
+		    mb_tel AS mbTel,
+		    mb_birth AS mbBirth ,
+		    mb_nickname AS mbNickname,
+		    mb_grade AS mbGrade,
+		    mb_point AS mbPoint
+		FROM member
+		WHERE mb_num =  #{mbNum}
+	</select>
+	
+	<!-- ID에 해당 하는 영화 정보 조회 -->
 	<select id="movieInfo" parameterType = "MovieVO" resultType="MovieVO">
-		SELECT mv_title,
-	       mv_director AS "mvDirector",
-	       mv_actor AS "mvActor",
-	       mv_time AS "mvTime"
+		SELECT mv_title AS mvTitle,
+	       mv_director AS mvDirector,
+	       mv_actor AS mvActor,
+	       mv_time AS mvTime,
+	       mv_agelimit AS mvAgelimit
 		FROM MOVIE
 		WHERE mv_num = #{mvNum}
 	</select>
@@ -46,10 +62,19 @@
 		AND c_kind IS NOT NULL
 	</select>
 	
-	<delete id="couponDelete" parameterType="CouponVO">
-		DELETE FROM coupon
+	<!-- 할인률 조회 -->
+	<select id="couponSelete" parameterType="CouponVO">
+	
+		SELECT
+		    c_num AS cNum,
+		    mb_num AS mbNum,
+		    c_name AS cName,
+		    c_target AS cTarget,
+		    c_ratio AS cRatio,
+		    c_kind AS cKind
+		FROM coupon
 		WHERE c_num = #{cNum}
-	</delete>
+	</select>
 	
 	<!-- 예매 내역 insert -->
 	<insert id="ticketInsert" parameterType="TicketVO">
