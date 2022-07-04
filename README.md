@@ -1,6 +1,6 @@
 <div align=center>
 
-![header](https://capsule-render.vercel.app/api?type=cylinder&color=4B1E78&height=150&section=header&text=3조%20MISS입니다.%20잘부탁드립니다.%20&fontSize=40)
+![header](https://capsule-render.vercel.app/api?type=cylinder&color=5FCF80&height=150&section=header&text=3조%20MISS입니다.%20잘부탁드립니다.%20&fontSize=40)
 
 ![MISS02](https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg)
 ![MISS01](https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg)
@@ -100,7 +100,7 @@
 <img src="https://img.shields.io/badge/Kakao-FFCD00?style=flat-square&logo=Kakao&logoColor=white"/>
 <img src="https://img.shields.io/badge/Naver-03C75A?style=flat-square&logo=Naver&logoColor=white"/>
  
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=4B1E78&height=250&section=footer)
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=5FCF80&height=250&section=footer)
 
 </div>
 
