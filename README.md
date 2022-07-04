@@ -7,7 +7,7 @@
  
 # 0. 목차:link:   
 :one: Project 목적  
-:two: MISS 팀 소개    
+ :two: MISS 팀 소개    
 :three: Project 기획  
 :four: Project 설계   
 :five: 기 능 시 연   
