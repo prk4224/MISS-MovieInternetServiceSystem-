@@ -10,8 +10,8 @@
 :two: MISS 팀 소개    
 :three: Project 기획  
 :four: Project 설계   
-:five: 기능시연   
-:six: Tech Stack
+:five:  기능시연   
+:six: Collaboration
 
 
 # 1. Project 목적:sun_with_face:   
