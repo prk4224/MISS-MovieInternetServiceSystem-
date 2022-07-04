@@ -6,27 +6,19 @@
 
  
 # 0. 목차:link:   
-:one: Project 목적  
-:two: MISS 팀 소개    
+:one: MISS 팀 소개   
+:two: Project 목적   
 :three: Project 기획  
 :four: Project 설계   
 :five: 기 능 시 연   
 :six: Collaboration
 
 
-# 1. Project 목적:sun_with_face:   
-
-* 자동완성 검색창을 보유한 영화 정보 검색 시스템 구현   
-* Spring 프레임워크를 사용하여 웹표준 Full-Stack 융합 프로젝트 구현   
-* Spring MVC아키텍처를 기반으로 Dispatcher-Servlet 원리 이해   
-* GitHub 형상관리를 사용하여 조직적 직무수행
-
-
-# 2. MISS 팀 소개:raised_hands:   
+# 1. MISS 팀 소개:raised_hands:   
 ![MISS 구성원](https://user-images.githubusercontent.com/107021908/174239775-f0246d77-d0c0-4c9e-a522-450a1d7fdb1b.png)
 
 
-### 2-1. 담당업무 
+### 1-1. 담당업무 
 |이름|담당업무|
 |:-------:|:-------|
 |**김동호**| 메인, 영화 상세 페이지, DB 연결, 백엔드 파트 |
@@ -35,6 +27,14 @@
 |문한민| 마이페이지(개인정보), 푸터|
 |김소희| FAQ, 영화 정보페이지|
 |박건후| 예매페이지, 마이페이지(예매내역) |  
+
+
+# 2. Project 목적:sun_with_face:   
+
+* 자동완성 검색창을 보유한 영화 정보 검색 시스템 구현   
+* Spring 프레임워크를 사용하여 웹표준 Full-Stack 융합 프로젝트 구현   
+* Spring MVC아키텍처를 기반으로 Dispatcher-Servlet 원리 이해   
+* GitHub 형상관리를 사용하여 조직적 직무수행
 
 
 # 3. Project 기획:seedling:   
