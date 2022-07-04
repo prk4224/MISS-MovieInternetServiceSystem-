@@ -5,7 +5,7 @@
 
 
  
-# 0. 목차:sunny:    
+# 0. 목차:sun_with_face:   
 -Project 목적  
 -MISS 팀 소개    
 -Project 기획  
