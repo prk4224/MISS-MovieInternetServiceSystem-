@@ -6,7 +6,7 @@
 
  
 # 0. 목차:link:   
- <div fontSize=20>   
+ <div fontSize=50>   
 :one: MISS 팀 소개   
 :two: Project 목 적   
 :three: Project 기 획   
