@@ -126,18 +126,22 @@
     <script src="${CP_RES}/js/eclass.js"></script>
     <!--자바스크립트 코드-->
     <script type="text/javascript">
-    function moCancle()  {
-        if(!confirm('영화를 취소하시겠습니까?')){
-            return false;
-        }
-      }
+    $(document).ready(function(){
+        $(document).on("click","#moCancle", function(){
+        	if(!confirm('영화를 취소하시겠습니까?')){
+                return false;
+            }
+            location.href = "/miss/pay/payCancle.do?mbNum=" + sessionStorage.getItem("mbNum")+"&mvNum="+sessionStorage.getItem("mvNum");
+            })
+        });
     
-    
-    $("#moviePage").click(function(){
-        
-        window.location.href = "/miss/movie/screen.do?mvNum="+${mvNum};   
+    $(document).ready(function(){
+    $(document).on("click","#moviePage", function(){
+        location.href = "/miss/movie/screen.do?mvNum=" + sessionStorage.getItem("mvNum")+"&miQuality=" + sessionStorage.getItem("miQuality");
+        sessionStorage.removeItem('mvNum');
+        sessionStorage.removeItem('miQuality');
+        })
     });
-    
     
         
     </script>
@@ -225,8 +229,8 @@
                               <td>${list.miTime}</td>
                               <td>${list.mvTitle}</td>
                               <td>${list.mvNum}</td>
-                              <td><button id="moviePage">영화보기</button></td>
-                              <td><button class="cancle" type="button" value="결제취소" onclick="moCancle()">결제취소</button></td>
+                              <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}');">영화보기</button></td>
+                              <td><button id="moCancle">결제취소</button></td>
                               <td style="display:none;">${list.miQuality}</td>
                             </tr>
                         </c:forEach>

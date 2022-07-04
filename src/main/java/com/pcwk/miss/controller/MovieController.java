@@ -123,7 +123,7 @@ public class MovieController {
 	
 	// http://localhost:8081/miss/movie/screen.do
 	@RequestMapping(value = "/screen.do", method=RequestMethod.GET)
-	public String screenView(Model model, WatchMovieVO inVO) {
+	public String screenView(Model model, WatchMovieVO inVO, HttpServletRequest request) {
 		System.out.println("==================");
 		System.out.println("=MissController=screenView()=");
 		System.out.println("==================");
@@ -131,8 +131,8 @@ public class MovieController {
 		
 		// inVO 예시로 mvNum=7 / miQuality=720넣어서 전달
 		// 원래는 예매내역에서  상영페이지로 넘어올때 WatchMovieVO에서 mvNum과 miQuality를 받아서 구현하면될듯?
-		inVO.setMvNum(7);
-		inVO.setMiQuality(720);
+		inVO.setMvNum(Integer.parseInt(request.getParameter("mvNum")));
+		inVO.setMiQuality(Integer.parseInt(request.getParameter("miQuality")));
 		WatchMovieVO outVO = movieService.getWatchMovie(inVO);
 		
 		model.addAttribute("movie", outVO);
