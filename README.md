@@ -1,6 +1,6 @@
 <div align=center>
 
-![header](https://capsule-render.vercel.app/api?type=slice&color=auto&height=300&section=header&text=Welcome%20to%20MISS%20World!&fontSize=50)
+![header](https://capsule-render.vercel.app/api?type=slice&color=auto&height=350&section=header&text=Welcome!%20We%20Are%20MISS!%20&fontSize=50)
 
 ![MISS02](https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg)
 ![MISS01](https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg)
