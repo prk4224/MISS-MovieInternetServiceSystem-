@@ -10,7 +10,7 @@
 :two: MISS 팀 소개    
 :three: Project 기획  
 :four: Project 설계   
-:five: 기능 시연   
+:five: 기 능 시 연   
 :six: Collaboration
 
 
