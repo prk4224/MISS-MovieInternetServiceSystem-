@@ -6,7 +6,8 @@
 -MISS 팀 소개    
 -Project 기획  
 -Project 설계   
--기능시연  
+-기능시연
+-Tech Stack
 
 
 # 1. Project 목적 
@@ -73,6 +74,7 @@
 ### 5-7. 마이페이지  
 ![마이 페이지]()  
 
+# 6. Tech Stacks
 
 ---
 
