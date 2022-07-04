@@ -7,13 +7,17 @@
  
 # 0. 목차:link:   
 <H3>:one: MISS 팀 소개   
-<br>
-:two: Project 목 적   
-:three: Project 기 획   
-:four: Project 설 계   
-:five: 기 능 시 연   
-:six: Collaboration   
-
+ <br>
+<H3>:two: Project 목 적   
+ <br>
+<H3>:three: Project 기 획   
+ <br>
+<H3>:four: Project 설 계   
+ <br>
+<H3>:five: 기 능 시 연   
+ <br>
+<H3>:six: Collaboration   
+ <br>
 
 # 1. MISS 팀 소개:raised_hands:   
 ![MISS 구성원](https://user-images.githubusercontent.com/107021908/174239775-f0246d77-d0c0-4c9e-a522-450a1d7fdb1b.png)
