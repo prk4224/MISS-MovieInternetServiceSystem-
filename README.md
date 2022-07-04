@@ -6,14 +6,12 @@
 
  
 # 0. 목차:link:   
- <div fontSize=50>   
 :one: MISS 팀 소개   
 :two: Project 목 적   
 :three: Project 기 획   
 :four: Project 설 계   
 :five: 기 능 시 연   
 :six: Collaboration   
-  </div>
 
 
 # 1. MISS 팀 소개:raised_hands:   
