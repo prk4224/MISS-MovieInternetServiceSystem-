@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pcwk.miss.domain.ApproveResponseVO;
 import com.pcwk.miss.domain.CouponVO;
 import com.pcwk.miss.domain.MemberVO;
 import com.pcwk.miss.domain.MovieVO;
@@ -173,12 +174,18 @@ public class PayController {
     	String age = "";
     	if(movie.getMvAgelimit() == 1) age = "전체";
     	else age = String.valueOf(movie.getMvAgelimit()) + "세";
-    	
+    	LOG.debug("==================");
+		LOG.debug("=age=" + age);
+		LOG.debug("==================");
     	
         
-    	 // 결제 내역 추가
-        TicketVO outVO = new TicketVO(pg_token, mbNum, resultPrice, 2, "SYSDATE", 1, mvNum);;
-        payService.ticketInsert(outVO);
+    	 // 포스터 URL
+    	String postURL = payService.posterSelect(movie);
+    	
+    	LOG.debug("==================");
+		LOG.debug("=postURL=" + postURL);
+		LOG.debug("==================");
+        
         
         
         
@@ -189,8 +196,101 @@ public class PayController {
     	model.addAttribute("m_actor", movie.getMvActor());
     	model.addAttribute("m_time", miTime);
     	model.addAttribute("m_price", resultPrice);
+    	model.addAttribute("postURL", postURL);
+    	ApproveResponseVO approveResponseVO = kakaopay.kakaoPayInfo(pg_token);
+    	LOG.debug("==================");
+		LOG.debug("=approveResponseVO=" + approveResponseVO);
+		LOG.debug("==================");
     	
-        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
+        model.addAttribute("info", approveResponseVO);
+        
+        String tId = approveResponseVO.getTid(); 
+        
+
+    	LOG.debug("==================");
+		LOG.debug("=tId=" + tId);
+		LOG.debug("==================");
+		
+		// 쿠폰을 사용 했으면 업데이트 ( 사용 안했으면 -1)
+    	CouponVO couponVO = new CouponVO();
+        couponVO.setcNum(useCouponId);
+        LOG.debug("couponVO11111 : " +couponVO);
+        couponVO = payService.couponSelete(couponVO);
+        LOG.debug("couponVO22222 : " +couponVO);
+    	
+    	if(useCouponId != -1) {
+    		payService.couponUpdate(couponVO);
+    		resultPrice = (int) (resultPrice - (resultPrice * ((double)couponVO.getcRatio()/100)));
+         }
+        
+        // 결제 내역 추가
+        TicketVO outVO = new TicketVO(tId, mbNum, resultPrice, 2, "SYSDATE", 1, mvNum);;
+        
+        LOG.debug("=outVOttttttt1111=" + outVO);
+        payService.ticketInsert(outVO);
+        LOG.debug("=outVOttttttt2222=" + outVO);
+        
+        MemberVO memberVO = new MemberVO();
+        memberVO.setMbNum(mbNum);
+        memberVO = payService.memberSelete(memberVO);
+        
+        
+        // 포인트 사용 업데이트
+        int currPoint = memberVO.getMbPoint() - uPoint;
+        
+        LOG.debug("=currPoint=" + currPoint);
+        
+        
+        
+        // 포인트 등급별 업데이트
+        int savingPoint = 0;
+        
+        if(memberVO.getMbGrade() == 1) savingPoint = 100;
+        else if(memberVO.getMbGrade() == 2) savingPoint = 200;
+        else if(memberVO.getMbGrade() == 3)  savingPoint = 350;
+        else  savingPoint = 600;
+        
+        LOG.debug("savingPoint : " +savingPoint);
+        LOG.debug("memberVO.getMbGrade()" + memberVO.getMbGrade());
+        LOG.debug("memberVO.getMbNum()" + memberVO.getMbNum());
+        
+        memberVO.setMbPoint(currPoint + savingPoint);
+       
+        payService.pointUpdate(memberVO);
+        
+        
+        
+        
+        // 현재 회원 등급 조회
+        memberVO.setMbNum(mbNum);
+        memberVO = payService.memberSelete(memberVO);
+        int memberGrade = memberVO.getMbGrade();
+        
+        LOG.debug("==================");
+		LOG.debug("=memberGrade=" + memberGrade);
+		LOG.debug("==================");
+		
+        
+        // 회원 결제 횟수
+        int payCnt  = payService.payCount(outVO);
+        int patGrade = 1;
+        if(payCnt <= 5) patGrade = 1;
+        else if(payCnt > 5 && payCnt <= 20) patGrade = 2;
+        else if(payCnt > 20 && payCnt <= 50 ) patGrade = 3;
+        else patGrade = 4;
+        
+        // 등급이 올랐다면 회원 등급을 업데이트 한후 coupon Insert
+        if(patGrade > memberGrade) {
+        	payService.memberUpdate(memberVO);
+        	
+        	couponVO = new CouponVO(1, mbNum, "등업 쿠폰", 1, 30,1);
+        	payService.couponInsert(couponVO);
+        	
+        }
+        
+        
+        
+       
 		
 		return "pay/paycomplate";
 	}
@@ -210,43 +310,7 @@ public class PayController {
 		LOG.debug("mbNum : " +mbNum);
 		
 		
-		MemberVO memberVO = new MemberVO();
-        memberVO.setMbNum(mbNum);
-        memberVO = payService.memberSelete(memberVO);
-        
-        
-        // 포인트 사용 업데이트
-        int currPoint = memberVO.getMbPoint() - uPoint;
-        
-        
-        // 포인트 등급별 업데이트
-        int savingPoint = 0;
-        
-        if(memberVO.getMbGrade() == 1) savingPoint = 100;
-        else if(memberVO.getMbGrade() == 2) savingPoint = 200;
-        else if(memberVO.getMbGrade() == 3)  savingPoint = 350;
-        else  savingPoint = 600;
-        
-        LOG.debug("savingPoint : " +savingPoint);
-        LOG.debug("memberVO.getMbGrade()" + memberVO.getMbGrade());
-        LOG.debug("memberVO.getMbNum()" + memberVO.getMbNum());
-       
-        memberVO.setMbPoint(currPoint + savingPoint);
-        payService.pointUpdate(memberVO);
-        
-        // 쿠폰을 사용 했으면 업데이트 ( 사용 안했으면 -1)
-        CouponVO couponVO = new CouponVO();
-        couponVO.setcNum(useCouponId);
-        LOG.debug("couponVO11111 : " +couponVO);
-        couponVO = payService.couponSelete(couponVO);
-        
-       
-        LOG.debug("couponVO22222 : " +couponVO);
-        
-        if(useCouponId != -1) {
-        	payService.couponUpdate(couponVO);
-        	resultPrice = (int) (resultPrice - (resultPrice * ((double)couponVO.getcRatio()/100)));
-        }
+		
         return "jsonString";
 	}
 	
@@ -260,12 +324,26 @@ public class PayController {
     }
     
     @PostMapping("/kakaoPay.do")
-    public String kakaoPay() {
-    	
+    public String kakaoPay() throws SQLException {
+        
+        
         LOG.debug("kakaoPay post............................................");
         
-        return "redirect:" + kakaopay.kakaoPayReady(resultPrice);
+        return "redirect:" + kakaopay.kakaoPayReady(resultPrice,uPoint,mbNum,useCouponId);
  
     }
+    
+    @PostMapping("/kakaoPayCancle.do")
+    public String kakaoPayCancle() {
+    	
+        LOG.debug("kakaoPayCancle post............................................");
+        
+        
+        
+        return "redirect:" + kakaopay.kakaoPayCancle("", "");
+ 
+    }
+    
+    
     
 }

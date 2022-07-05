@@ -129,7 +129,7 @@ public class PayDaoImpl implements PayDao {
 		LOG.debug("statement:" + statement);
 		LOG.debug("==============================");	
 		
-		flag = sqlSessionTemplate.delete(statement, inVO);
+		flag = sqlSessionTemplate.update(statement, inVO);
 		LOG.debug("flag:" + flag);
 		return flag;
 	}
@@ -143,7 +143,7 @@ public class PayDaoImpl implements PayDao {
 		LOG.debug("statement:" + statement);
 		LOG.debug("==============================");	
 		
-		flag = sqlSessionTemplate.delete(statement, inVO);
+		flag = sqlSessionTemplate.update(statement, inVO);
 		LOG.debug("flag:" + flag);
 		
 		return flag;
@@ -195,6 +195,72 @@ public class PayDaoImpl implements PayDao {
 		LOG.debug("outVO : " + outVO);
 		
 		return outVO;
+	}
+
+	@Override
+	public int payCount(TicketVO inVO) throws SQLException {
+		int count = 0;
+		String statement = this.NAMESPACE + ".payCount";
+		
+		
+		LOG.debug("===========================");
+		LOG.debug("=statement : " + statement);
+		LOG.debug("=inVO : " + inVO);
+		LOG.debug("===========================");
+		
+		count = sqlSessionTemplate.selectOne(statement, inVO);
+		LOG.debug("===========================");
+		LOG.debug("point : " + count);
+		LOG.debug("===========================");
+		
+		return count;
+	}
+
+	@Override
+	public String posterSelect(MovieVO inVO) throws SQLException {
+		String imageUrl = "";
+		String statement = this.NAMESPACE + ".posterSelect";
+		
+		
+		LOG.debug("===========================");
+		LOG.debug("=statement : " + statement);
+		LOG.debug("=inVO : " + inVO);
+		LOG.debug("===========================");
+		
+		imageUrl = sqlSessionTemplate.selectOne(statement, inVO);
+		LOG.debug("===========================");
+		LOG.debug("imageUrl : " + imageUrl);
+		LOG.debug("===========================");
+		
+		return imageUrl;
+	}
+
+	@Override
+	public int memberUpdate(MemberVO inVO) throws SQLException {
+		int flag = 0;
+        String statement = NAMESPACE+".memberUpdate";
+		LOG.debug("==============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("==============================");	
+		
+		flag = sqlSessionTemplate.update(statement, inVO);
+		LOG.debug("flag:" + flag);
+		return flag;
+	}
+
+	@Override
+	public int couponInsert(CouponVO inVO) throws SQLException {
+		int flag = 0;
+        String statement = NAMESPACE+".couponInsert";
+		LOG.debug("==============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement:" + statement);
+		LOG.debug("==============================");	
+		
+		flag = sqlSessionTemplate.insert(statement, inVO);
+		LOG.debug("flag:" + flag);
+		return flag;
 	}
 	
 	

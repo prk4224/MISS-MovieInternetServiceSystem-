@@ -13,6 +13,38 @@ import com.pcwk.miss.pay.domain.ReserveVO;
 public interface PayService {
 	
 	/**
+	 * 등급 쿠폰 발급
+	 * @param inVO
+	 * @return 0(실패) / 1(성공)
+	 * @throws SQLException
+	 */
+	public int couponInsert(CouponVO inVO) throws SQLException;
+	
+	/**
+	 * 회원 등급 업데이트
+	 * @param inVO
+	 * @return 0(실패) / 1(성공)
+	 * @throws SQLException
+	 */
+	public int memberUpdate(MemberVO inVO) throws SQLException;
+	
+	/**
+	 * 해당 영화 포스터 조회
+	 * @param inVO
+	 * @return int
+	 * @throws SQLException
+	 */
+	public String posterSelect(MovieVO inVO) throws SQLException;
+	
+	/**
+	 * 회원 결제 횟수
+	 * @param inVO
+	 * @return int
+	 * @throws SQLException
+	 */
+	public int payCount(TicketVO inVO) throws SQLException;
+	
+	/**
 	 * 멤버 아이디 조회
 	 * @param inVO
 	 * @return MemberVO

@@ -2,6 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.miss.pay">
 
+	<!-- 해당 영화 포스터 조회 -->
+	<select id="posterSelect" parameterType = "MovieVO" resultType="String">
+		SELECT im_route AS imRoute
+		FROM image
+		WHERE mv_num = #{mvNum} AND mv_seq = 1
+	</select>
+
+	<!-- 쿠폰 발급 -->
+	<insert id="couponInsert" parameterType = "CouponVO">
+		INSERT INTO coupon (
+		    c_num,
+		    mb_num,
+		    c_name,
+		    c_target,
+		    c_ratio,
+		    c_kind
+		) VALUES (
+		    #{cNum},
+		    #{mbNum},
+		    #{cName},
+		    #{cTarge},
+		    #{cRatio},
+		    #{cKind}
+		)
+	</insert>
+
+	<!-- 회원 업데이트 -->
+	<update id="memberUpdate" parameterType = "MemberVO">
+		UPDATE member
+		SET mb_grade = mb_grade + 1
+		WHERE mb_num = #{mbNum}
+	</update>
+
+	<select id="payCount" parameterType = "TicketVO" resultType="int">
+		SELECT COUNT(*) AS cnt
+		FROM ticket
+		WHERE mb_num = #{mbNum} AND t_status = 1
+	</select>
+
+	<!-- 회원 정보 조회 -->
 	<select id="memberSelete" parameterType="MemberVO" resultType="MemberVO">
 		SELECT
 		    mb_num AS mbNum,
@@ -18,7 +58,8 @@
 	
 	<!-- ID에 해당 하는 영화 정보 조회 -->
 	<select id="movieInfo" parameterType = "MovieVO" resultType="MovieVO">
-		SELECT mv_title AS mvTitle,
+		SELECT mv_num AS mvNum, 
+			mv_title AS mvTitle,
 	       mv_director AS mvDirector,
 	       mv_actor AS mvActor,
 	       mv_time AS mvTime,
@@ -63,7 +104,7 @@
 	</select>
 	
 	<!-- 할인률 조회 -->
-	<select id="couponSelete" parameterType="CouponVO">
+	<select id="couponSelete" parameterType="CouponVO" resultType="CouponVO">
 	
 		SELECT
 		    c_num AS cNum,
@@ -88,7 +129,7 @@
 	    mv_num
 	) VALUES (
 	    #{tNum},
-	    1,
+	    #{mbNum},
 	    #{tPrice},
 	    #{tMeans},
 	    SYSDATE,

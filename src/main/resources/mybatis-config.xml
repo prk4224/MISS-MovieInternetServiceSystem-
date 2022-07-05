@@ -23,5 +23,6 @@
     	<typeAlias type="com.pcwk.miss.domain.MemberVO" alias="MemberVO"/>
     	<typeAlias type="com.pcwk.miss.mypage.domain.HistoryVO" alias="HistoryVO"/>
     	<typeAlias type="com.pcwk.miss.mypage.domain.MemberInfoVO" alias="MemberInfoVO"/>
+    	<typeAlias type="com.pcwk.miss.domain.ImageVO" alias="ImageVO"/>
     </typeAliases>
 </configuration>
