@@ -128,13 +128,25 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $(document).on("click","#moCancle", function(){
-        	if(!confirm('영화를 취소하시겠습니까?')){
+            if(!confirm('영화를 취소하시겠습니까?')){
                 return false;
             }
-            location.href = "/miss/pay/kakaoPayCancle.do?tNum=" + sessionStorage.getItem("tNum")+"&tPrice="+sessionStorage.getItem("tPrice");
-            
+         
+                 let url = "${CP}/pay/kakaoPayCancle.do";
+                 let method = "POST";
+                 let async = true;
+                 let parameters ={
+                         tNum : $(this).parent().parent().children(2).eq(9).text(),
+                         tPrice : $(this).parent().parent().children(2).eq(8).text()
+                 }
+                 console.log("tNum : " + tNum);
+                 console.log("tPrice : " + tPrice);
+                 EClass.callAjax(url, parameters, method, async, function(data) {
+                     console.log("data : " + data);
+                 })
         })
         });
+    
     
     
     //현재시간
@@ -212,9 +224,6 @@
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-    ${list}
-    ${couList}
-    ${memberIn}
      <div style="width:320px;">
         <div class="achieve" style="float:left;">내 등급:  ${memberIn.mbGrade}</div>
         <div class="achieve" style="float:right;">내 포인트: ${memberIn.mbPoint}</div>
@@ -286,16 +295,17 @@
         <c:choose>
                     <c:when test="${list.size() > 0}">
                         <c:forEach var="list" items="${list}">
-                             <tr>
+                           <tr>
                               <td>${list.tStatus}</td>
                               <td>${list.miTime}</td>
                               <td>${list.mvTitle}</td>
                               <td>${list.mvNum}</td>
                               <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
-                              <td><button id="moCancle" onclick="sessionStorage.setItem('tNum','${list.tNum}') & sessionStorage.setItem('tPrice','${list.tPrice}')">결제취소</button></td>
-                              <td style="display:none;">${list.miQuality}</td>
-                               <td style="display:none;">${list.tStatus}</td>
-                               <td style="display:none;">${list.tPrice}</td>
+                              <td><button id="moCancle">결제취소</button></td>
+                              <td style=";">${list.miQuality}</td>
+                               <td style=";">${list.tStatus}</td>
+                               <td style=";" id="tPrice">${list.tPrice}</td>
+                               <td style=";" id="tNum">${list.tNum}</td>
                             </tr>
                         </c:forEach>
                     </c:when>

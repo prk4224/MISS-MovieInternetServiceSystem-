@@ -16,6 +16,7 @@
 */
 package com.pcwk.miss.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,6 +38,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pcwk.miss.domain.ApproveResponseVO;
 import com.pcwk.miss.domain.CouponVO;
@@ -349,15 +351,18 @@ public class PayController {
  
     }
     
-    @RequestMapping("/kakaoPayCancle.do")
-    public String kakaoPayCancle(HttpServletRequest request) {
+
+    @PostMapping("/kakaoPayCancle.do")
+    public String kakaoPayCancle(HttpServletRequest request){
     	
         LOG.debug("kakaoPayCancle post............................................");
-        
+        LOG.debug("===================");
         String tNum = request.getParameter("tNum");
         String tPrice = request.getParameter("tPrice");
-        LOG.debug("tNum" + tNum);
-        LOG.debug("tPrice" + tPrice);
+        LOG.debug("======tNum============" + tNum);
+        LOG.debug("=======tPrice==========" + tPrice);
+        LOG.debug("===================");
+
         
         
         return "redirect:" + kakaopay.kakaoPayCancle(tNum, tPrice);
