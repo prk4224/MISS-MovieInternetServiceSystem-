@@ -26,7 +26,6 @@
 <link rel="stylesheet" type="text/css" href="${CP_RES}/css/main.css">
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="${CP_RES}/js/jquery-1.12.4.js"></script>
-
 <title>MISS 메인화면</title>
 </head>
 <body>
@@ -108,14 +107,16 @@
 	<%@include file="../cmn/footer.jsp"%>
 	<!-- //푸터영역 -->
     <script src="${CP_RES}/js/main.js"></script>
+    
 	<script type="text/javascript">
 	  $(document).ready(function(){
 	    console.log("document.ready");
+	    console.log(sessionStorage.getItem("accessToken"));
+	    
 	    $(".slides1 li").on("click", function(){
 	    	// mvNum
 	    	let mvNum = $(this).children().eq(2).children().eq(0).text();
 	    	console.log(mvNum);
-	    	
 	    	location.href = "movie_detail.do?mvNum=" + mvNum;
 	    });
 	    $(".slides2 li").on("click", function(){
@@ -123,6 +124,7 @@
 	    	location.href = "movie_detail.do?mvNum=" + mvNum;
 	    });
 	  });
+	  	
 	</script>
 </body>
 </html>

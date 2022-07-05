@@ -15,7 +15,7 @@
 		
 		
     <!-- 예외처리 -->
-    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+     <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <!-- 특정예외 -->
         <property name="exceptionMappings">
             <props>

@@ -25,5 +25,7 @@ INSERT INTO MEMBER
 VALUES(mb_num_seq.NEXTVAL, 'test05', 'test5', '010-1234-5678', '1994/11/30', 'nickname5', 1, 5000);
 INSERT INTO MEMBER
 VALUES(mb_num_seq.NEXTVAL, 'test06', 'test6', '010-1234-5678', '1994/11/30', 'nickname6', 2, 6000);
+INSERT INTO MEMBER
+VALUES(mb_num_seq.NEXTVAL, 'chaewon1130@naver.com', '±èµ¿È£', '010-1234-5678', '1994/11/30', '¹Ì½º', 1, 0);
 
 COMMIT;

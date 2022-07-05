@@ -23,7 +23,7 @@ import com.pcwk.miss.cmn.DTO;
  *
  */
 public class TicketVO extends DTO {
-	private int tNum; //결제번호
+	private String tNum; //결제번호
 	private int mbNum; //회원번호
 	private int tPrice; //결제금액
 	private int tMeans; //결제수단(1 카드, 2카카오페이)
@@ -35,7 +35,7 @@ public class TicketVO extends DTO {
 		
 	}
 
-	public TicketVO(int tNum, int mbNum, int tPrice, int tMeans, String tTime, int tStatus, int mvNum) {
+	public TicketVO(String tNum, int mbNum, int tPrice, int tMeans, String tTime, int tStatus, int mvNum) {
 		super();
 		this.tNum = tNum;
 		this.mbNum = mbNum;
@@ -46,11 +46,11 @@ public class TicketVO extends DTO {
 		this.mvNum = mvNum;
 	}
 
-	public int gettNum() {
+	public String gettNum() {
 		return tNum;
 	}
 
-	public void settNum(int tNum) {
+	public void settNum(String tNum) {
 		this.tNum = tNum;
 	}
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.miss.mypage">
+ <!-- 수정 -->
+    <update id="updateTicket" parameterType="HistoryVO">
+        UPDATE Ticket
+        SET  = t_status = 0        
+        WHERE mb_num = #{mbNum} 
+    </update>
+<!-- 내 쿠폰 가져오기 -->
+	<select resultType="CouponVO" parameterType="CouponVO" id="getCoupon">
+		SELECT MB_NUM as "mbNum",
+				C_NUM as "cNum",
+				C_NAME as "cName",
+				C_TARGET as "cTarge",
+				C_RATIO as "cRatio",
+				C_KIND as "cKind"
+		FROM COUPON
+		WHERE mb_num = #{mbNum} 
+	</select>
+
+<!--회원 정보 가져오기 -->
+	<select resultType="MemberInfoVO" parameterType="MemberInfoVO" id="getMember">
+	SELECT MB_NUM as "mbNum",
+        MB_EMAIL as "mbEmail",
+        MB_NAME as "mbName",
+        MB_TEL as "mbTel",
+        MB_BIRTH as "mbBirth",
+        MB_NICKNAME as "mbNickname",
+        MB_GRADE as "mbGrade",
+        MB_POINT as "mbPoint"
+	FROM Member
+	WHERE mb_num = #{mbNum} 
+	</select>
+
+<!-- 예매내역 가져오기 -->
+	<select resultType="HistoryVO" parameterType="HistoryVO" id="ticketRetrieve">
+	SELECT M.mv_num as "mvNum",
+			M.mv_title as "mvTitle",
+			M.mv_on as "mvOn",
+			O.mi_time as "miTime",
+			O.mi_quality as "miQuality",
+			O.mi_video as "miVideo",
+			V.t_num as "tNum",
+			v.t_status as "tStatus",
+			v.t_price as "tPrice",
+			v.mb_num as "mbNum"
+	FROM MOVIE M, MOVIE_INFO O, TICKET V
+	WHERE M.mv_num = O.mv_num
+		AND O.mv_num = V.mv_num
+		And v.t_time = O.mi_time
+		AND v.mb_num = #{mbNum} 
+	</select>
+
+<!-- 예매취소 -->
+
+
+</mapper>

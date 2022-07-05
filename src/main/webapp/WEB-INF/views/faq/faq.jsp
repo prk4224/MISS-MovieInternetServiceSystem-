@@ -12,6 +12,8 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,700,900italic,300italic,300,100italic,100,700italic,400italic,900'>
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
 <style class="FAQ">
 	 header {
 	  position: relative;
@@ -304,10 +306,19 @@
     </div>
     <a class="cd-close-panel" href="#0">Close</a>
 </section>
+<!-- 푸터영역 -->
+<%@include file="../cmn/footer.jsp"%>
+<!-- //푸터영역 -->
 <script src='https://cdn.jsdelivr.net/g/modernizr@2.8.3,jquery@2.1.4,jquery.lazyloadxt@1.0.4(jquery.lazyloadxt.min.js+jquery.lazyloadxt.video.js),jquery.owlcarousel@1.31,trianglify@0.3.1'></script>
 <script id="rendered-js">
     jQuery(document).ready(function ($) {
         //update these values if you change these breakpoints in the style.css file (or _layout.scss if you use SASS)
+        $(".cd-faq-title h2").on("click", function(){
+        	console.log(sessionStorage.getItem("mbEmail"));
+        	console.log(sessionStorage.getItem("accessToken"));
+        });
+        
+        
         var MqM = 768,
             MqL = 1024;
 
@@ -393,5 +404,6 @@
         }
     });
 </script>
+
 </body>
 </html>

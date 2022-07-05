@@ -22,7 +22,7 @@
 <c:set var="CP" value="${pageContext.request.contextPath}"/>
 <c:set var="resources" value="/resources"/>
 <c:set var="CP_RES" value="${CP}${resources}"/>
-<c:url var="main" value="movie/main.do"/>
+<c:url var="login" value="login/login.do"/>
 
 <!DOCTYPE html>
 <html>
@@ -47,6 +47,6 @@
     </script>
 </head>
 <body>
-    <c:redirect url="${main}"/>
+    <c:redirect url="${login}"/>
 </body>
 </html>

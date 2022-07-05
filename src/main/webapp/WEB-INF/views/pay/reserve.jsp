@@ -165,14 +165,17 @@
 	<script type="text/javascript">
 	    /* 버튼 클릭*/
 	    $(document).ready(function() {
-	        $('.timeBt').each(function(index) {//index-객체의 인덱스값 받음
+	    	addAndRemoveTime();
+	    });
+	    function addAndRemoveTime(){
+	    	$('.timeBt').each(function(index) {//index-객체의 인덱스값 받음
 	            $(this).attr('timeInsert', index);//index삽입
 	        }).click(function() {//
 	            var index = $(this).attr('timeInsert');
 	            $('.timeBt[timeInsert=' + index + ']').addClass('clicked_Bt');
 	            $('.timeBt[timeInsert!=' + index + ']').removeClass('clicked_Bt');
 	        });
-	    });
+	    }
 	
 	    /* 버튼 클릭 마무리*/
 	    /* 버튼 클릭*/
@@ -180,20 +183,43 @@
 	            function() {
 	                $('.movieBt').each(function(index) {//index-객체의 인덱스값 받음
 	                    $(this).attr('movieInsert', index);//index삽입
-	                }).click(
-	                        function() {//
-	                            var index = $(this).attr('movieInsert');
-	                            $('.movieBt[movieInsert=' + index + ']').addClass(
-	                                    'clicked_MBt');
-	                            $('.movieBt[movieInsert!=' + index + ']')
-	                                    .removeClass('clicked_MBt');
-	                        });
+	                }).click(function() {//
+                            var index = $(this).attr('movieInsert');
+                            $('.movieBt[movieInsert=' + index + ']').addClass('clicked_MBt');
+                            $('.movieBt[movieInsert!=' + index + ']').removeClass('clicked_MBt');
+                        });
 	            });
 	
-	    /* 버튼 클릭 마무리*/
-	    function goBuy()  {
-	  window.location.href = 'https://www.naver.com'
-				}
+	    /* 결제버튼 클릭*/
+	    function goBuy(){
+	    	console.log("영화 : " + $(".clicked_MBt").next().text());
+	    	console.log("시간 : " + $(".clicked_Bt").children().eq(0).text());
+	    	console.log("화질 : " + $(".clicked_Bt").children().eq(2).text());
+	    	let mvNum = $(".clicked_MBt").next().text();
+	    	let miTime = $(".clicked_Bt").children().eq(0).text();
+	    	let miQuality = 0;
+	    	switch($(".clicked_Bt").children().eq(2).text()){
+	    	case "HD":
+	    		miQuality = 720;
+	    		break;
+	    	case "FHD":
+	    		miQuality = 1080;
+	    		break;
+	    	default:
+	    		miQuality = 2160;
+	    	}
+	    	let mbNum = sessionStorage.getItem("mbNum");
+	    	
+	    	mvLength = mvNum.length;
+	    	timeLength = miTime.length;
+	    	if(mvLength==0){
+	    		confirm('영화를 선택하여 주십시오.');
+	    	}else if(timeLength==0){
+	    		confirm('시간을 선택하여 주십시오.');
+	    	}else if(!mvLength==0 && !timeLength==0){
+ 	  		window.location.href = '/miss/pay/paying.do?mbNum=' + mbNum + "&mvNum=" + mvNum + "&miTime=" + miTime + "&miQuality=" + miQuality;
+	    	}
+		}
 	    
 	    /* */
 	    function changeTime(mvNum) {
@@ -212,7 +238,7 @@
 	    		//1.
 	    		$('#showTIme1').empty();
 	    		let htmlData = "";
-	    		
+	    		htmlData += "<div>";
 	    		if(parsedData != null && parsedData.length > 0){
 	    			$.each(parsedData, function(index, value){
 	    				let quality = "";
@@ -224,8 +250,8 @@
 	    				}else{
 	    					quality = "QHD";
 	    				}
-	    				htmlData += "<div class='timeBt'>";
-	    				htmlData += value.miTime + "<br>";
+	    				htmlData += '<div class="timeBt" onclick="addAndRemoveTime()"><span>';
+	    				htmlData += value.miTime + "</span><br>";
 	    				htmlData += "<span style='color: red'>";
 	    				htmlData += quality;
 	    				htmlData += "</span>";
@@ -234,6 +260,7 @@
 	    		}else{
 	    			
 	    		}
+	    		htmlData += "</div>";
 	    		console.log("htmlData : " + htmlData);
 	    		$('#showTIme1').append(htmlData);
 	    	});
@@ -244,7 +271,6 @@
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-    ${timeList}
     <main>
         <div>
             <div class="name" style="width: 298px; height: 30px; position: absolute; top: 420px; left: 700px;">영화 제목</div>
@@ -255,7 +281,7 @@
 			        	<c:when test="${timeList.size() > 0}">
 			        		<c:forEach var="timeList" items="${timeList}">
 			       				<div class="timeBt">
-			       					${timeList.miTime}<br>
+			       					<span>${timeList.miTime}</span><br>
 			       					<span style="color: red">
 				       					<c:choose>
 					       					<c:when test="${timeList.miQuality == 720}">
@@ -280,7 +306,7 @@
                 	<c:choose>
                 		<c:when test="${list.size() > 0}">
                 			<c:forEach var="list" items="${list}">
-                				<div class="movieBt" id="movieBt1" onclick="changeTime(${list.mvNum});">${list.mvTitle}</div>
+                				<div class="movieBt" onclick="changeTime(${list.mvNum});">${list.mvTitle}</div>
                 				<span style="display: none">${list.mvNum}</span>
                 			</c:forEach>
                 		</c:when>

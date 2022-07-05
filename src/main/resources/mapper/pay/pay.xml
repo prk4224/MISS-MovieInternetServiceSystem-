@@ -2,21 +2,141 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.miss.pay">
 
+	<!-- 해당 영화 포스터 조회 -->
+	<select id="posterSelect" parameterType = "MovieVO" resultType="String">
+		SELECT im_route AS imRoute
+		FROM image
+		WHERE mv_num = #{mvNum} AND mv_seq = 1
+	</select>
+
+	<!-- 쿠폰 발급 -->
+	<insert id="couponInsert" parameterType = "CouponVO">
+		INSERT INTO coupon (
+		    c_num,
+		    mb_num,
+		    c_name,
+		    c_target,
+		    c_ratio,
+		    c_kind
+		) VALUES (
+		    #{cNum},
+		    #{mbNum},
+		    #{cName},
+		    #{cTarge},
+		    #{cRatio},
+		    #{cKind}
+		)
+	</insert>
+
+	<!-- 회원 업데이트 -->
+	<update id="memberUpdate" parameterType = "MemberVO">
+		UPDATE member
+		SET mb_grade = mb_grade + 1
+		WHERE mb_num = #{mbNum}
+	</update>
+
+	<select id="payCount" parameterType = "TicketVO" resultType="int">
+		SELECT COUNT(*) AS cnt
+		FROM ticket
+		WHERE mb_num = #{mbNum} AND t_status = 1
+	</select>
+
+	<!-- 회원 정보 조회 -->
+	<select id="memberSelete" parameterType="MemberVO" resultType="MemberVO">
+		SELECT
+		    mb_num AS mbNum,
+		    mb_email AS mbEmail,
+		    mb_name AS mbName,
+		    mb_tel AS mbTel,
+		    mb_birth AS mbBirth ,
+		    mb_nickname AS mbNickname,
+		    mb_grade AS mbGrade,
+		    mb_point AS mbPoint
+		FROM member
+		WHERE mb_num =  #{mbNum}
+	</select>
+	
+	<!-- ID에 해당 하는 영화 정보 조회 -->
+	<select id="movieInfo" parameterType = "MovieVO" resultType="MovieVO">
+		SELECT mv_num AS mvNum, 
+			mv_title AS mvTitle,
+	       mv_director AS mvDirector,
+	       mv_actor AS mvActor,
+	       mv_time AS mvTime,
+	       mv_agelimit AS mvAgelimit
+		FROM MOVIE
+		WHERE mv_num = #{mvNum}
+	</select>
+
+	<!-- 쿠폰 사용 상태 업데이트 -->
+	<update id="couponUpdate" parameterType="CouponVO">
+		UPDATE coupon
+		SET
+		    c_kind = 0
+		WHERE
+		    c_num = #{cNum}
+	
+	</update>
+
+	<!-- 포인트 업데이트 -->
+	<update id="pointUpdate" parameterType="MemberVO">
+		UPDATE member
+		SET mb_point = #{mbPoint}
+		WHERE mb_num = #{mbNum}
+	</update>
+
+	<!-- 포인트 조회 -->
+	<select id="pointValue" parameterType="MemberVO" resultType="int">
+		SELECT mb_point AS "mbPoint"
+		FROM member
+		WHERE mb_num = #{mbNum}
+
+	</select>
+
 	<!-- 할인 쿠폰 리스트 -->
 	<select id="couponRetrieve" parameterType="CouponVO" resultType="CouponVO">
 		SELECT c_num AS "cNum",
-	       c_name AS "cName",
-	       c_period AS "cPeriod",
-	       c_ratio AS "cRatio"
+		    c_name AS "cName",
+		    c_ratio AS "cRatio"
 		FROM coupon
-		WHERE mb_num = 1 AND c_kind IS NOT NULL
+		WHERE mb_num = #{mbNum}
+		AND c_kind IS NOT NULL
+	</select>
+	
+	<!-- 할인률 조회 -->
+	<select id="couponSelete" parameterType="CouponVO" resultType="CouponVO">
+	
+		SELECT
+		    c_num AS cNum,
+		    mb_num AS mbNum,
+		    c_name AS cName,
+		    c_target AS cTarget,
+		    c_ratio AS cRatio,
+		    c_kind AS cKind
+		FROM coupon
+		WHERE c_num = #{cNum}
 	</select>
 	
 	<!-- 예매 내역 insert -->
-<!-- 	<insert id="ticketInsert" parameterType="TicketVO"> -->
-	
-	
-<!-- 	</insert> -->
+	<insert id="ticketInsert" parameterType="TicketVO">
+		INSERT INTO ticket (
+	    t_num,
+	    mb_num,
+	    t_price,
+	    t_means,
+	    t_time,
+	    t_status,
+	    mv_num
+	) VALUES (
+	    #{tNum},
+	    #{mbNum},
+	    #{tPrice},
+	    #{tMeans},
+	    SYSDATE,
+	    #{tStatus} ,
+	    #{mvNum} 
+	)
+	</insert>
 
 	<!-- 예매페이지  상영중인 영화 -->
 	<select id="getMovieOn" resultType="ReserveVO">
@@ -29,12 +149,13 @@
 	<!-- 예매페이지 상영시간 조회 -->
 	<select id="getMovieTime" parameterType="ReserveVO" resultType="ReserveVO">
 		SELECT T1.MV_NUM AS mvNum,
-		    TO_CHAR(T2.MI_TIME, 'HH24:MI') AS miTime,
+		    TO_CHAR(T2.MI_TIME, 'YYYY-MM-DD HH24:MI') AS miTime,
 		    T2.MI_QUALITY AS miQuality
 		FROM MOVIE T1, MOVIE_INFO T2
 		WHERE T1.MV_NUM = T2.MV_NUM
 		AND T1.MV_NUM = #{mvNum}
 		AND T2.MI_QUALITY LIKE '%' || #{miQuality} || '%'
+		ORDER BY T2.MI_TIME
 	</select>
 </mapper>
 
