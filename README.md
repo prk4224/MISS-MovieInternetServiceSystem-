@@ -1,9 +1,9 @@
 <div align=center>
 
-![header](https://capsule-render.vercel.app/api?type=slice&color=E34F26&height=350&section=header&text=Welcome!%20We%20Are%20MISS!%20&fontSize=50&fontColor=FFFFFF&fontAlignY=42&rotate=22)
+<img src="https://capsule-render.vercel.app/api?type=slice&color=E34F26&height=350&section=header&text=Welcome!%20We%20Are%20MISS!%20&fontSize=50&fontColor=FFFFFF&fontAlignY=42&rotate=22" width="75%" height="75%"/>
+<img src="https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg" width="75%" height="75%"/>
+<img src="https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg" width="75%" height="75%"/>
 
-![MISS02](https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg)
-![MISS01](https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg)
 
 
  
@@ -22,7 +22,7 @@
  <br>
 
 # 1. MISS 팀 소개:raised_hands:   
-![MISS 구성원](https://user-images.githubusercontent.com/107021908/174239775-f0246d77-d0c0-4c9e-a522-450a1d7fdb1b.png)
+<img src="https://user-images.githubusercontent.com/107021908/174239775-f0246d77-d0c0-4c9e-a522-450a1d7fdb1b.png" width="50%" height="50%"/>
 
 
 ### 1-1. 담당업무 
@@ -50,7 +50,7 @@
 해당 웹 페이지를 이용하여 최신 영화를 볼 수 있습니다.  
 ### 3-1. 개발환경  
 ![개발환경]()  
-### 3-2. 진행일정  
+### 3-2. 진행일정 
 ![진행일정](https://user-images.githubusercontent.com/50819376/174428651-1804b2b5-6c35-41c0-8e1e-e090a197cf81.JPG)   
  
 # 4. Project 설계:sunflower:   
@@ -60,8 +60,8 @@
 ### 4-2. 프로세스 흐름도   
 ![프로세스 흐름도2]()  
 
-### 4-3. exERD  
-![exERD](https://user-images.githubusercontent.com/50819376/174428686-2a227391-92b4-4897-97ae-63dcc290bc8d.JPG)     
+### 4-3. exERD    
+<img src="https://user-images.githubusercontent.com/50819376/174428686-2a227391-92b4-4897-97ae-63dcc290bc8d.JPG" width="85%" height="85%"/>
 
 # 5. 기능시연:deciduous_tree:   
 ### 5-1. 로그인  
