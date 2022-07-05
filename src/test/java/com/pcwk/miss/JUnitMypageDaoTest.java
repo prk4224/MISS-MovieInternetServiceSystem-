@@ -54,7 +54,7 @@ public class JUnitMypageDaoTest {
 		LOG.debug("========================");
 	
 				
-		history01 = new HistoryVO("14234",1,6,"22/02/22","https://naver.com","네이버",1,1080,1);
+//		history01 = new HistoryVO("14234",1,6,"22/02/22","https://naver.com","네이버",1,1080,1);
 		//history02 = new HistoryVO(142342,1,7,140,"https://daum.com","다음",1,760,3);
 		//history03 = new HistoryVO(14234,1,8,160,"https://nate.com","네이트",1,540,4);
 //		coupon01 = new CouponVO(4124,4,"생일","22/02/22",1,1,1);
