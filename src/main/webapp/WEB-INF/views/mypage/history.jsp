@@ -212,9 +212,6 @@
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-    ${list}
-    ${couList}
-    ${memberIn}
      <div style="width:320px;">
         <div class="achieve" style="float:left;">내 등급:  ${memberIn.mbGrade}</div>
         <div class="achieve" style="float:right;">내 포인트: ${memberIn.mbPoint}</div>

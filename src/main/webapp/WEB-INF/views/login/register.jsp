@@ -257,7 +257,7 @@ select {
             <div>
                 <h3 class="join_title"><label for="mbName">이름</label></h3>
                 <span class="box int_name">
-                    <input type="text" id="mbName" name="mbName" class="int" maxlength="20">
+                    <input type="text" id="mbName" name="mbName" class="int" maxlength="3">
                 </span>
             </div>
             
@@ -265,7 +265,7 @@ select {
             <div>
                 <h3 class="join_title"><label for="mbNickname">닉네임</label></h3>
                 <span class="box int_name">
-                    <input type="text" id="mbNickname" name="mbNickname" class="int" maxlength="20">
+                    <input type="text" id="mbNickname" name="mbNickname" class="int" maxlength="10" placeholder="10자 이내">
                 </span>
             </div>
 
@@ -307,12 +307,13 @@ select {
                     </div>
                 </div>   
             </div>
-
+            
+         
             <!-- MOBILE -->
             <div>
                 <h3 class="join_title"><label for="mbTel">휴대전화</label></h3>
                 <span class="box int_mobile">
-                    <input type="tel" id="mbTel" name="mbTel" class="int" maxlength="16" placeholder="전화번호 입력">
+                    <input type="tel" id="mbTel" name="mbTel" class="int" maxlength="11" placeholder="전화번호 입력(Ex.01012345678)">
                 </span>   
             </div>
             <!-- JOIN BTN-->
