@@ -12,6 +12,8 @@
 <title>Insert title here</title>
 <!-- 스타일 시트 -->
 <style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
     header {
         width: 100%;
         background-color: black;
@@ -43,9 +45,9 @@
             color: white;                           
             display: block;                         
             width: 150px;                             
-            font-size: 20px;                          
+            font-size: 30px;                          
             font-weight: bold;                        
-            font-family: "Trebuchet MS", Dotum, Arial; /*추후 폰트 수정*/
+            font-family: "Noto Sans KR", sans-serif !important;
     }
     /*로그인 a태그 스타일*/
     .login {
@@ -74,7 +76,7 @@
 </head>
 <body>
     <header>
-        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/miss_logo.png" style="height:55px; width:auto;"></a>
+        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/miss_logo_3.png" style="height:70px; width:auto;"></a>
         <nav id="menu">
             <ul>
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
