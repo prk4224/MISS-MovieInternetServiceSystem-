@@ -4,194 +4,373 @@ FROM MOVIE_INFO;
 
 DESC MOVIE_INFO;
 -- 현재상영중인 10개(4, 5, 6, 7, 8, 9, 10, 16, 17, 18)
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 09:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 10:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 10:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 11:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 12:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 13:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 15:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 18:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/0zjDQe4LnAA');
-INSERT INTO MOVIE_INFO
-VALUES(4, TO_DATE('2022/07/13 22:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
+
+--상영중(4,5,6,7,8,9,10,16,17,18)
+
+--4
 
 INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 09:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
+VALUES(4, TO_DATE('2022/07/12 09:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 14:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
+VALUES(4, TO_DATE('2022/07/12 10:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 23:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
-INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 10:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
-INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 15:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
-INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 20:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
-INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 11:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
-INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 13:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
-INSERT INTO MOVIE_INFO
-VALUES(5, TO_DATE('2022/07/13 17:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
+VALUES(4, TO_DATE('2022/07/12 11:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 
 INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 09:15', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
+VALUES(4, TO_DATE('2022/07/12 12:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 11:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
+VALUES(4, TO_DATE('2022/07/12 13:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 18:20', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
-INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 10:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
-INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 13:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
-INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 14:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
-INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 15:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
-INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 16:35', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
-INSERT INTO MOVIE_INFO
-VALUES(6, TO_DATE('2022/07/13 20:20', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
+VALUES(4, TO_DATE('2022/07/12 14:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 
 INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 10:50', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+VALUES(4, TO_DATE('2022/07/12 15:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 19:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+VALUES(4, TO_DATE('2022/07/12 16:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 23:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
-INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 11:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
-INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 12:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
-INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 14:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
-INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 08:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
-INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 15:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
-INSERT INTO MOVIE_INFO
-VALUES(7, TO_DATE('2022/07/13 16:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+VALUES(4, TO_DATE('2022/07/12 17:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 
 INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 08:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
+VALUES(4, TO_DATE('2022/07/12 18:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 13:40', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/7vCX_WblP3o');
+VALUES(4, TO_DATE('2022/07/12 19:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 17:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
-INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 10:10', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/7vCX_WblP3o');
-INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 11:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
-INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 19:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
-INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 10:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
-INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 14:50', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
-INSERT INTO MOVIE_INFO
-VALUES(8, TO_DATE('2022/07/13 16:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
+VALUES(4, TO_DATE('2022/07/12 20:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 
 INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 10:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+VALUES(4, TO_DATE('2022/07/12 21:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 13:20', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+VALUES(4, TO_DATE('2022/07/12 22:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/0zjDQe4LnAA');
 INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 18:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
-INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 11:50', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
-INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 14:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
-INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 20:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
-INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 12:00', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
-INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 15:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
-INSERT INTO MOVIE_INFO
-VALUES(9, TO_DATE('2022/07/13 22:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+VALUES(4, TO_DATE('2022/07/12 23:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/0zjDQe4LnAA');
+
+
+--5
 
 INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 11:50', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+VALUES(5, TO_DATE('2022/07/12 09:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 14:20', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+VALUES(5, TO_DATE('2022/07/12 10:10', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 18:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
-INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 09:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/HEMU5jmOuXU');
-INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 10:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
-INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 15:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
-INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 10:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/HEMU5jmOuXU');
-INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 13:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
-INSERT INTO MOVIE_INFO
-VALUES(10, TO_DATE('2022/07/13 20:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+VALUES(5, TO_DATE('2022/07/12 11:10', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 
 INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 10:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+VALUES(5, TO_DATE('2022/07/12 12:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 14:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+VALUES(5, TO_DATE('2022/07/12 13:10', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 19:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
-INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 08:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
-INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 12:40', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
-INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 15:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
-INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 11:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/xTrGcHuD_C4');
-INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 17:20', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
-INSERT INTO MOVIE_INFO
-VALUES(16, TO_DATE('2022/07/13 21:20', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+VALUES(5, TO_DATE('2022/07/12 14:10', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 
 INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 08:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+VALUES(5, TO_DATE('2022/07/12 15:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 11:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+VALUES(5, TO_DATE('2022/07/12 16:10', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 22:20', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
-INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 10:20', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
-INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 13:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
-INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 14:50', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
-INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 16:00', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
-INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 17:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
-INSERT INTO MOVIE_INFO
-VALUES(17, TO_DATE('2022/07/13 19:00', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+VALUES(5, TO_DATE('2022/07/12 17:10', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 
 INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 07:45', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+VALUES(5, TO_DATE('2022/07/12 18:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 14:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+VALUES(5, TO_DATE('2022/07/12 19:10', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 18:50', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
-INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 09:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
-INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 11:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
-INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 17:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
-INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 10:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
-INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 13:20', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
-INSERT INTO MOVIE_INFO
-VALUES(18, TO_DATE('2022/07/13 21:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+VALUES(5, TO_DATE('2022/07/12 20:10', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
 
+INSERT INTO MOVIE_INFO
+VALUES(5, TO_DATE('2022/07/12 21:10', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
+INSERT INTO MOVIE_INFO
+VALUES(5, TO_DATE('2022/07/12 22:10', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
+INSERT INTO MOVIE_INFO
+VALUES(5, TO_DATE('2022/07/12 23:10', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DpVAb7Bi5UQ');
+
+--6
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 09:15', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 10:15', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 11:15', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
+
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 12:15', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 13:15', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 14:15', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
+
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 15:15', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 16:15', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 17:15', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
+
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 18:15', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 19:15', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 20:15', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
+
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 21:15', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 22:15', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/aw9j_23nORs');
+INSERT INTO MOVIE_INFO
+VALUES(6, TO_DATE('2022/07/12 23:15', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/aw9j_23nORs');
+
+--7
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 09:23', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 10:23', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 11:23', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 12:23', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 13:23', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 14:23', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 15:23', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 16:23', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 17:23', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 18:23', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 19:23', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 20:23', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 21:23', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 22:23', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+INSERT INTO MOVIE_INFO
+VALUES(7, TO_DATE('2022/07/12 23:23', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/Mrj9XACVJ8U');
+
+--8
+
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 09:27', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 10:27', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 11:27', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/7vCX_WblP3o');
+
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 12:27', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 13:27', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 14:27', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/7vCX_WblP3o');
+
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 15:27', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 16:27', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 17:27', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/7vCX_WblP3o');
+
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 18:27', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 19:27', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 20:27', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/7vCX_WblP3o');
+
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 21:27', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 22:27', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/7vCX_WblP3o');
+INSERT INTO MOVIE_INFO
+VALUES(8, TO_DATE('2022/07/12 23:27', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/7vCX_WblP3o');
+
+--9
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 09:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 10:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 11:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 12:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 13:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 14:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 15:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 16:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 17:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 18:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 19:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 20:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 21:30', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 22:30', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+INSERT INTO MOVIE_INFO
+VALUES(9, TO_DATE('2022/07/12 23:30', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/A33AdB4u8GQ');
+
+--10
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 09:35', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 10:35', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 11:35', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 12:35', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 13:35', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 14:35', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 15:35', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 16:35', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 17:35', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 18:35', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 19:35', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 20:35', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 21:35', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 22:35', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+INSERT INTO MOVIE_INFO
+VALUES(10, TO_DATE('2022/07/12 23:35', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/HEMU5jmOuXU');
+
+--16
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 09:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 10:40', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 11:40', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 12:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 13:40', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 14:40', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 15:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 16:40', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 17:40', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 18:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 19:40', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 20:40', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 21:40', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 22:40', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+INSERT INTO MOVIE_INFO
+VALUES(16, TO_DATE('2022/07/12 23:40', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/xTrGcHuD_C4');
+
+--17
+
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 09:45', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 10:45', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 11:45', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 12:45', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 13:45', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 14:45', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 15:45', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 16:45', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 17:45', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 18:45', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 19:45', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 20:45', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 21:45', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 22:45', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+INSERT INTO MOVIE_INFO
+VALUES(17, TO_DATE('2022/07/12 23:45', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/DSEfRVqjbFA');
+
+--18
+
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 09:53', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 10:53', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 11:53', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 12:53', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 13:53', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 14:53', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 15:53', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 16:53', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 17:53', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 18:53', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 19:53', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 20:53', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 21:53', 'YYYY/MM/DD HH24:MI'), 720, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 22:53', 'YYYY/MM/DD HH24:MI'), 1080, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+INSERT INTO MOVIE_INFO
+VALUES(18, TO_DATE('2022/07/12 23:53', 'YYYY/MM/DD HH24:MI'), 2160, 'https://www.youtube.com/embed/mI9oyFMUlfg');
+ 
 COMMIT;
