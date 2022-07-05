@@ -176,16 +176,7 @@
     			}
     	   });
     	   
-    	   $.ajax({
-    		   url : "kakaoPay.do",
-    			type : "post",
-    		   success : function() {
-   				
-    		    },
-    			error : function() {
-    				alert("error");
-    			}
-    	   });
+    	   
     	   
     	   //window.location.href = '/miss/pay/paycom.do?resultPrice=' + resultprice + "&uPoint=" + $("#u_point").val() + "&useCouponId=" + useCoupon;
             

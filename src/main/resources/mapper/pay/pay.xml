@@ -11,21 +11,28 @@
 
 	<!-- 쿠폰 발급 -->
 	<insert id="couponInsert" parameterType = "CouponVO">
-		INSERT INTO coupon (
-		    c_num,
-		    mb_num,
-		    c_name,
-		    c_target,
-		    c_ratio,
-		    c_kind
-		) VALUES (
-		    #{cNum},
-		    #{mbNum},
-		    #{cName},
-		    #{cTarge},
-		    #{cRatio},
-		    #{cKind}
+		
+		
+		INSERT INTO COUPON(
+		  c_num,
+		  mb_num,
+		  c_name,
+		  c_target,
+		  c_ratio,
+		  c_kind
 		)
+		VALUES(
+        COLUMN_SEQ.NEXTVAL,
+			#{mbNum},
+			'등업 쿠폰',
+			#{cTarge},
+			#{cRatio},
+			#{cKind}
+		)
+		
+        
+    	
+		
 	</insert>
 
 	<!-- 회원 업데이트 -->
@@ -132,8 +139,8 @@
 	    #{mbNum},
 	    #{tPrice},
 	    #{tMeans},
-	    SYSDATE,
-	    #{tStatus} ,
+	    #{tTime},
+	    #{tStatus},
 	    #{mvNum} 
 	)
 	</insert>

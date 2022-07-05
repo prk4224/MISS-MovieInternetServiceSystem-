@@ -16,7 +16,10 @@
 */
 package com.pcwk.miss.domain;
 
+import java.util.Date;
+
 import com.pcwk.miss.cmn.DTO;
+
 
 /**
  * @author ITSC
@@ -27,7 +30,7 @@ public class TicketVO extends DTO {
 	private int mbNum; //회원번호
 	private int tPrice; //결제금액
 	private int tMeans; //결제수단(1 카드, 2카카오페이)
-	private String tTime; //결제일시
+	private Date tTime; //결제일시
 	private int tStatus; //결제상태(0 취소, 1 결제완료)
 	private int mvNum; //영화번호
 	
@@ -35,7 +38,7 @@ public class TicketVO extends DTO {
 		
 	}
 
-	public TicketVO(String tNum, int mbNum, int tPrice, int tMeans, String tTime, int tStatus, int mvNum) {
+	public TicketVO(String tNum, int mbNum, int tPrice, int tMeans, Date tTime, int tStatus, int mvNum) {
 		super();
 		this.tNum = tNum;
 		this.mbNum = mbNum;
@@ -78,11 +81,11 @@ public class TicketVO extends DTO {
 		this.tMeans = tMeans;
 	}
 
-	public String gettTime() {
+	public Date gettTime() {
 		return tTime;
 	}
 
-	public void settTime(String tTime) {
+	public void settTime(Date tTime) {
 		this.tTime = tTime;
 	}
 

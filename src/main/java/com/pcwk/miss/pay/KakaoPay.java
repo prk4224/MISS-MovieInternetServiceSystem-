@@ -159,10 +159,7 @@ public class KakaoPay {
         try {
             approveResponseVO = restTemplate.postForObject(new URI(HOST + "/v1/payment/cancel"), body, ApproveResponseVO.class);
             LOG.debug("" + approveResponseVO);
-            
-            
-          
-           
+
           
             return approveResponseVO;
         

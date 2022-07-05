@@ -17,6 +17,9 @@
 package com.pcwk.miss.controller;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -155,7 +158,7 @@ public class PayController {
 	
 	
 	@RequestMapping(value = "/paycom.do")
-	public String paycomView(@RequestParam("pg_token") String pg_token, Model model) throws SQLException {
+	public String paycomView(@RequestParam("pg_token") String pg_token, Model model) throws SQLException, ParseException {
 		
 		
 		
@@ -222,11 +225,22 @@ public class PayController {
     		payService.couponUpdate(couponVO);
     		resultPrice = (int) (resultPrice - (resultPrice * ((double)couponVO.getcRatio()/100)));
          }
-        
+    	LOG.debug("miTime : " +miTime);
+    	
+    	SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    	
+    	Date date = transFormat.parse(miTime);
+    	
+    	LOG.debug("date : " +date);
+    	
+    	
         // 결제 내역 추가
-        TicketVO outVO = new TicketVO(tId, mbNum, resultPrice, 2, "SYSDATE", 1, mvNum);;
+        TicketVO outVO = new TicketVO(tId, mbNum, resultPrice, 2, date, 1, mvNum);;
         
         LOG.debug("=outVOttttttt1111=" + outVO);
+        
+       
+        
         payService.ticketInsert(outVO);
         LOG.debug("=outVOttttttt2222=" + outVO);
         
@@ -282,8 +296,10 @@ public class PayController {
         // 등급이 올랐다면 회원 등급을 업데이트 한후 coupon Insert
         if(patGrade > memberGrade) {
         	payService.memberUpdate(memberVO);
+        	 
+        	 
         	
-        	couponVO = new CouponVO(1, mbNum, "등업 쿠폰", 1, 30,1);
+        	couponVO = new CouponVO(9999, mbNum, "등업 쿠폰", 1, 30,1);
         	payService.couponInsert(couponVO);
         	
         }
@@ -333,14 +349,18 @@ public class PayController {
  
     }
     
-    @PostMapping("/kakaoPayCancle.do")
-    public String kakaoPayCancle() {
+    @RequestMapping("/kakaoPayCancle.do")
+    public String kakaoPayCancle(HttpServletRequest request) {
     	
         LOG.debug("kakaoPayCancle post............................................");
         
+        String tNum = request.getParameter("tNum");
+        String tPrice = request.getParameter("tPrice");
+        LOG.debug("tNum" + tNum);
+        LOG.debug("tPrice" + tPrice);
         
         
-        return "redirect:" + kakaopay.kakaoPayCancle("", "");
+        return "redirect:" + kakaopay.kakaoPayCancle(tNum, tPrice);
  
     }
     
