@@ -79,7 +79,7 @@
                 <div id = "point">   
                 	POINT : <input type = "text" id = "user_point" value = "${userpoint}" readonly="readonly">                 
                     사용 POINT : 
-                    <input id = "u_point" type = "number" style="width: 4vmax;">
+                    <input id = "u_point" type = "number" style="width: 4vmax;" value = "0">
                     <button id = "pointbtn">적용</button>
                 </div>
                 <div id = "result_pay">최종결제금액 :
@@ -109,12 +109,13 @@
         
         let resultprice = ${price};
         console.log("resultpricey"); 
+        let point = 0;
         
         document.getElementById("r_price").innerHTML=resultprice;
         
         $("#pointbtn").on("click", function(){
         	
-        	if( $("#user_point").val() <  $("#u_point").val() ) {
+        	if(  ${userpoint} <  $("#u_point").val() ) {
         		alert("보유한 포인트 보다 많습니다.");
         		$("#u_point").focus;
         		return;	
@@ -123,16 +124,18 @@
         	
         	
         	console.log("pointbt"); 
+        	console.log($("#u_point").val()); 
         	
         	resultprice = ${price} - $("#u_point").val();
+        	point = $("#u_point").val();
         	document.getElementById("r_price").innerHTML=resultprice;
         	    	
         });
         
-       let point = 0;
-      if( $("#u_point").val() != 0){
-    	   point = $("#u_point").val();
-       }
+       
+      
+    	
+       
        
         
        $("#kakaoapibtn").on("click", function(e){

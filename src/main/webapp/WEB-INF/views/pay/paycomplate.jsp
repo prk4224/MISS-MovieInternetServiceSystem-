@@ -21,7 +21,7 @@
     <h2>결제가 완료되었습니다.</h2>
 
     <div id = "post">
-        <img src="${CP}/resources/img/witch.jpeg">
+        <img src="${postURL}">
     </div>
 
      <div id = "movie_comimp">
@@ -38,7 +38,7 @@
             </div>
             <div id = "w_time">관람 시간 : ${m_time} 분</div>
             <div id = "pay_num">
-            	<div>결제번호 : ${token} </div>
+            	<div>결제번호 : ${token}  </div>
             	<div>금액 : ${m_price} 원</div> 
             </div>
             <div id = "precaution">
@@ -66,7 +66,7 @@
 	    console.log("document.ready");
 	   
 	    $("#mypagebutton").on("click", function(){
-	    	window.location.href = "http://localhost:8081/miss/mypage/history.do" 
+	    	window.location.href = "http://localhost:8081/miss/mypage/historyView.do"
 		  });
 	    
 	  });

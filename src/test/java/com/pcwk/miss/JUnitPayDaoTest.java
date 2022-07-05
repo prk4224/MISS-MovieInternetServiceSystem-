@@ -55,6 +55,7 @@ public class JUnitPayDaoTest {
 		memberVO = new MemberVO(1,"회원아이디","회원이름","전화번호", "생월일","닉네임", 1, 4000);
 		reserveVO = new ReserveVO();
 		movieVO = new MovieVO();
+		movieVO.setMvNum(1);
 		
 		LOG.debug("context : " + context);
 		LOG.debug("dao : " + dao);
@@ -63,7 +64,24 @@ public class JUnitPayDaoTest {
 		assertNotNull(dao);
 		
 	}
+	
+	
 	@Test
+	public void posterSelect() throws SQLException{
+		
+		LOG.debug("====================");
+		LOG.debug("=posterSelect()=");
+		LOG.debug("====================");
+		
+		String URL = dao.posterSelect(movieVO);
+		
+		LOG.debug("========================");
+		LOG.debug("=URL=" + URL);
+		LOG.debug("========================");
+	}
+	
+	@Test
+	@Ignore
 	public void movieInfo() throws SQLException {
 		LOG.debug("====================");
 		LOG.debug("=movieInfo()=");

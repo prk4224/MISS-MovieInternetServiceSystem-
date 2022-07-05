@@ -91,5 +91,32 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 		
 		return payDao.memberSelete(inVO);
 	}
+
+
+	@Override
+	public int payCount(TicketVO inVO) throws SQLException {
+		
+		return payDao.payCount(inVO);
+	}
+
+
+	@Override
+	public String posterSelect(MovieVO inVO) throws SQLException {
+		return payDao.posterSelect(inVO);
+	}
+
+
+	@Override
+	public int memberUpdate(MemberVO inVO) throws SQLException {
+		
+		return payDao.memberUpdate(inVO);
+	}
+
+
+	@Override
+	public int couponInsert(CouponVO inVO) throws SQLException {
+		
+		return payDao.couponInsert(inVO);
+	}
 	
 }
