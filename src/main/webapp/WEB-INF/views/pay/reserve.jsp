@@ -209,10 +209,16 @@
 	    		miQuality = 2160;
 	    	}
 	    	let mbNum = sessionStorage.getItem("mbNum");
-	    		    	
 	    	
-	    	
+	    	mvLength = mvNum.length;
+	    	timeLength = miTime.length;
+	    	if(mvLength==0){
+	    		confirm('영화를 선택하여 주십시오.');
+	    	}else if(timeLength==0){
+	    		confirm('시간을 선택하여 주십시오.');
+	    	}else if(!mvLength==0 && !timeLength==0){
  	  		window.location.href = '/miss/pay/paying.do?mbNum=' + mbNum + "&mvNum=" + mvNum + "&miTime=" + miTime + "&miQuality=" + miQuality;
+	    	}
 		}
 	    
 	    /* */

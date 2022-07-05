@@ -5,6 +5,7 @@ import com.pcwk.miss.cmn.DTO;
 public class HistoryVO extends DTO {
 	private String tNum;//결제번호
 	private int tStatus;//결제상태R
+	private int tPrice; //결제금액
 	private int mvNum;//영화번호
 	private String miTime;//상영시간
 	private String miVideo;//동영상주소
@@ -15,11 +16,12 @@ public class HistoryVO extends DTO {
 	
 	public HistoryVO() {}
 
-	public HistoryVO(String tNum, int tStatus, int mvNum, String miTime, String miVideo, String mvTitle, int mvOn,
-			int miQuality, int mbNum) {
+	public HistoryVO(String tNum, int tStatus, int tPrice, int mvNum, String miTime, String miVideo, String mvTitle,
+			int mvOn, int miQuality, int mbNum) {
 		super();
 		this.tNum = tNum;
 		this.tStatus = tStatus;
+		this.tPrice = tPrice;
 		this.mvNum = mvNum;
 		this.miTime = miTime;
 		this.miVideo = miVideo;
@@ -43,6 +45,14 @@ public class HistoryVO extends DTO {
 
 	public void settStatus(int tStatus) {
 		this.tStatus = tStatus;
+	}
+
+	public int gettPrice() {
+		return tPrice;
+	}
+
+	public void settPrice(int tPrice) {
+		this.tPrice = tPrice;
 	}
 
 	public int getMvNum() {
@@ -103,10 +113,10 @@ public class HistoryVO extends DTO {
 
 	@Override
 	public String toString() {
-		return "HistoryVO [tNum=" + tNum + ", tStatus=" + tStatus + ", mvNum=" + mvNum + ", miTime=" + miTime
-				+ ", miVideo=" + miVideo + ", mvTitle=" + mvTitle + ", mvOn=" + mvOn + ", miQuality=" + miQuality
-				+ ", mbNum=" + mbNum + ", toString()=" + super.toString() + "]";
+		return "HistoryVO [tNum=" + tNum + ", tStatus=" + tStatus + ", tPrice=" + tPrice + ", mvNum=" + mvNum
+				+ ", miTime=" + miTime + ", miVideo=" + miVideo + ", mvTitle=" + mvTitle + ", mvOn=" + mvOn
+				+ ", miQuality=" + miQuality + ", mbNum=" + mbNum + ", toString()=" + super.toString() + "]";
 	}
-	
+
 	
 }

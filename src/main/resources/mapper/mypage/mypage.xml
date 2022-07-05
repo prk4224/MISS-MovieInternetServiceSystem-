@@ -43,6 +43,7 @@
 			O.mi_video as "miVideo",
 			V.t_num as "tNum",
 			v.t_status as "tStatus",
+			v.t_price as "tPrice",
 			v.mb_num as "mbNum"
 	FROM MOVIE M, MOVIE_INFO O, TICKET V
 	WHERE M.mv_num = O.mv_num

@@ -131,8 +131,9 @@
         	if(!confirm('영화를 취소하시겠습니까?')){
                 return false;
             }
-            location.href = "/miss/pay/payCancle.do?mbNum=" + sessionStorage.getItem("mbNum")+"&mvNum="+sessionStorage.getItem("mvNum");
-            })
+            location.href = "/miss/pay/kakaoPayCancle.do?tNum=" + sessionStorage.getItem("tNum")+"&tPrice="+sessionStorage.getItem("tPrice");
+            
+        })
         });
     
     
@@ -291,9 +292,10 @@
                               <td>${list.mvTitle}</td>
                               <td>${list.mvNum}</td>
                               <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
-                              <td><button id="moCancle">결제취소</button></td>
+                              <td><button id="moCancle" onclick="sessionStorage.setItem('tNum','${list.tNum}') & sessionStorage.setItem('tPrice','${list.tPrice}')">결제취소</button></td>
                               <td style="display:none;">${list.miQuality}</td>
                                <td style="display:none;">${list.tStatus}</td>
+                               <td style="display:none;">${list.tPrice}</td>
                             </tr>
                         </c:forEach>
                     </c:when>
