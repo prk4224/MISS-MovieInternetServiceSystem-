@@ -80,5 +80,19 @@ public class MypageDaoImpl implements MypageDao {
 		return list;
 	}
 
+	@Override
+	public int updateTicket(MemberVO inVO) throws SQLException {
+		int flag = 0;
+		String statement = this.NAMESPACE + ".updateTicket";
+		LOG.debug("============================");
+		LOG.debug("param:" + inVO.toString());
+		LOG.debug("statement: " + statement);
+		LOG.debug("============================");
+		
+		flag = sqlSessionTemplate.update(statement, inVO);
+		LOG.debug("flag : " + flag);
+		return flag;
+	}
+
 	
 }

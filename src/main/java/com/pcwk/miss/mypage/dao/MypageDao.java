@@ -9,7 +9,14 @@ import com.pcwk.miss.mypage.domain.HistoryVO;
 import com.pcwk.miss.mypage.domain.MemberInfoVO;
 
 public interface MypageDao {
-	
+	/**
+	 * 게시글 수정 가능
+	 * @param inVO
+	 * @return 1(성공) / 0(실패)
+	 * @throws SQLException
+	 */
+	int updateTicket(MemberVO inVO) throws SQLException;
+
 	/**
 	 * 쿠폰 조회
 	 * @param inVO

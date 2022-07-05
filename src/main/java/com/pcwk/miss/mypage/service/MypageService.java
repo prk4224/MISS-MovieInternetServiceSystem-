@@ -10,7 +10,20 @@ import com.pcwk.miss.mypage.domain.MemberInfoVO;
 
 public interface MypageService {
 	
-
+	
+	/**
+	 * 티켓 수정
+	 * @param inVO
+	 * @return
+	 * @throws SQLException
+	 */
+	int updateTicket(MemberVO inVO) throws SQLException;
+	/**
+	 * 쿠폰조회
+	 * @param inVO
+	 * @return
+	 * @throws SQLException
+	 */
 	List<CouponVO> getCoupon(MemberVO inVO) throws SQLException;
 	/**
 	 * 회원정보조회
@@ -19,7 +32,7 @@ public interface MypageService {
 	 */
 	MemberInfoVO getMember(MemberVO inVO) throws SQLException;
 	/**
-	 * 게시글 목록조회
+	 * 티켓 목록조회
 	 * @param inVO
 	 * @return
 	 * @throws SQLException

@@ -41,6 +41,11 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 		return mypageDao.getCoupon(inVO);
 	}
 
+	@Override
+	public int updateTicket(MemberVO inVO) throws SQLException {
+		return mypageDao.updateTicket(inVO);
+	}
+
 	
 
 }

@@ -54,7 +54,7 @@ public class JUnitMypageDaoTest {
 		LOG.debug("========================");
 	
 				
-//		history01 = new HistoryVO("14234",1,6,"22/02/22","https://naver.com","네이버",1,1080,1);
+		history01 = new HistoryVO("14234",1,6,"22/02/22","https://naver.com","네이버",1,1080,1);
 		//history02 = new HistoryVO(142342,1,7,140,"https://daum.com","다음",1,760,3);
 		//history03 = new HistoryVO(14234,1,8,160,"https://nate.com","네이트",1,540,4);
 //		coupon01 = new CouponVO(4124,4,"생일","22/02/22",1,1,1);
@@ -70,17 +70,30 @@ public class JUnitMypageDaoTest {
 	
 	
 	@Test
-	@Ignore
+	//@Ignore
 	public void ticketRetrieveTest() throws SQLException {
 		LOG.debug("========================");
 		List<HistoryVO> list = dao.ticketRetrieve(member);
 		for(HistoryVO vo : list) {
 			LOG.debug("=vo=" + vo);
 		}
-		assertEquals(1, list.size());
+		
+		
+		assertEquals(2, list.size());
 		
 	}
 	
+	@Test
+	@Ignore
+	public void updateTest() throws SQLException{
+		LOG.debug("========================");
+		LOG.debug("=update()=");
+		LOG.debug("========================");
+		
+		HistoryVO hisVO = history01;
+		
+		hisVO.settStatus(0);
+	}
 	
 	@Test
 	@Ignore

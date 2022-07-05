@@ -135,13 +135,74 @@
             })
         });
     
+    
+    //현재시간
+    var Now = new Date(); 
+    var nowYear = Now.getFullYear(); 
+    var nowMonth = Now.getMonth() +1; 
+    var nowDay = Now.getDate(); 
+    var nowHour = Now.getHours();
+    var nowMins = Now.getMinutes();
+    
+    nowMonth = pluszero(nowMonth);
+    nowDay = pluszero(nowDay);
+    nowHour = pluszero(nowHour);
+    nowMins = pluszero(nowMins);
+    
+    var nowDate= nowYear + nowMonth + nowDay;
+    console.log(nowDate);
+    var whatTime = nowHour+nowMins+'00';
+    console.log(nowHour);
+    console.log(nowMins);
+    console.log(whatTime);
+    var bfNowTime = nowDate + whatTime;
+    var nowTime = parseInt(bfNowTime);
+    console.log("==================");
+    console.log("nowTime====="+ nowTime);
+  
+    
+    console.log(typeof nowTime);
+  
+    function pluszero(time){
+    var time = time.toString(); // 시간을 숫자에서 문자로 바꿈
+    if(time.length < 2){ //2자리 보다 작다면
+        time = '0' + time; //숫자앞 0을 붙여줌
+        return time; //값을 내보냄
+}else{
+        return time; //2자리라면 값을 내보냄
+ }
+}
+    //-현재 시간
+    
+    
+    //영화보기 버튼
+    
     $(document).ready(function(){
     $(document).on("click","#moviePage", function(){
+        //시간
+    	miTimeF=sessionStorage.getItem('miTime');
+        console.log(miTimeF);
+        miTimeS=miTimeF.replace("-","").replace("-","").replace(" ","").replace(":","").replace(":","");
+        console.log(miTimeS);
+        var movieTime = parseInt(miTimeS);
+
+        console.log(typeof movieTime);
+      
+        if(nowTime < (movieTime-10000) || nowTime>(movieTime+10000)){
+            confirm('관람 시간이 아닙니다.');
+            sessionStorage.removeItem('miTime');    
+          } else{
         location.href = "/miss/movie/screen.do?mvNum=" + sessionStorage.getItem("mvNum")+"&miQuality=" + sessionStorage.getItem("miQuality");
         sessionStorage.removeItem('mvNum');
         sessionStorage.removeItem('miQuality');
+        sessionStorage.removeItem('miTime');
+          }
+          
+        //이동
         })
     });
+    
+    
     
         
     </script>
@@ -229,9 +290,10 @@
                               <td>${list.miTime}</td>
                               <td>${list.mvTitle}</td>
                               <td>${list.mvNum}</td>
-                              <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}');">영화보기</button></td>
+                              <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
                               <td><button id="moCancle">결제취소</button></td>
                               <td style="display:none;">${list.miQuality}</td>
+                               <td style="display:none;">${list.tStatus}</td>
                             </tr>
                         </c:forEach>
                     </c:when>
