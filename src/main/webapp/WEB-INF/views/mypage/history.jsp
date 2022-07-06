@@ -136,7 +136,7 @@
                  let method = "POST";
                  let async = true;
                  let parameters ={
-                         tNum : $(this).parent().parent().children(2).eq(9).text(),
+                         tNum : $(this).parent().parent().children(2).eq(3).text(),
                          tPrice : $(this).parent().parent().children(2).eq(8).text()
                  }
                  console.log("tNum : " + tNum);
@@ -296,16 +296,15 @@
                     <c:when test="${list.size() > 0}">
                         <c:forEach var="list" items="${list}">
                            <tr>
-                              <td>${list.tStatus}</td>
-                              <td>${list.miTime}</td>
-                              <td>${list.mvTitle}</td>
-                              <td>${list.mvNum}</td>
-                              <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
-                              <td><button id="moCancle">결제취소</button></td>
-                              <td style=";">${list.miQuality}</td>
-                               <td style=";">${list.tStatus}</td>
-                               <td style=";" id="tPrice">${list.tPrice}</td>
-                               <td style=";" id="tNum">${list.tNum}</td>
+                               <td>${list.tStatus}</td>
+                               <td>${list.miTime}</td>
+                               <td>${list.mvTitle}</td>
+                               <td id="tNum">${list.tNum}</td>
+                               <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
+                               <td><button id="moCancle">결제취소</button></td>
+                               <td style="display:none;">${list.miQuality}</td>
+                               <td style="display:none;">${list.tStatus}</td>
+                               <td style="display:none;" id="tPrice">${list.tPrice}</td>
                             </tr>
                         </c:forEach>
                     </c:when>
