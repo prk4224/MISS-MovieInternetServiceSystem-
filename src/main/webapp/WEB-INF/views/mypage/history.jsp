@@ -128,10 +128,10 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $(document).on("click","#moCancle", function(){
+        	
             if(!confirm('영화를 취소하시겠습니까?')){
                 return false;
             }
-         
                  let url = "${CP}/pay/kakaoPayCancle.do";
                  let method = "POST";
                  let async = true;

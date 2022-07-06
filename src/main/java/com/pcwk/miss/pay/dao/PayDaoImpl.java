@@ -210,7 +210,7 @@ public class PayDaoImpl implements PayDao {
 		
 		count = sqlSessionTemplate.selectOne(statement, inVO);
 		LOG.debug("===========================");
-		LOG.debug("point : " + count);
+		LOG.debug("count : " + count);
 		LOG.debug("===========================");
 		
 		return count;

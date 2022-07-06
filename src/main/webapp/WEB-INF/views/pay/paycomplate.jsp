@@ -27,7 +27,7 @@
      <div id = "movie_comimp">
 
         <div id = "qua_age">
-            <div id = "quality">화질</div>
+            <div id = "quality">화질 : ${miQuality}p</div>
             <div id = "age_limit">${m_agelim} 관람가</div>
         </div>
 
@@ -38,7 +38,7 @@
             </div>
             <div id = "w_time">관람 시간 : ${m_time} 분</div>
             <div id = "pay_num">
-            	<div>결제번호 : ${token}  </div>
+            	<div>결제번호 : ${info.tid}  </div>
             	<div>금액 : ${m_price} 원</div> 
             </div>
             <div id = "precaution">
@@ -64,9 +64,10 @@
     <script type="text/javascript">
 	  $(document).ready(function(){
 	    console.log("document.ready");
+	    let mbNum = sessionStorage.getItem("mbNum");
 	   
 	    $("#mypagebutton").on("click", function(){
-	    	window.location.href = "http://localhost:8081/miss/mypage/historyView.do"
+	    	window.location.href = "http://localhost:8081/miss/mypage/historyView.do?mbNum=" + mbNum;
 		  });
 	    
 	  });

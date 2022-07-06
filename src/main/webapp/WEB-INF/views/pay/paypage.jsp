@@ -56,7 +56,7 @@
 	                   			<c:when test="${list.size() > 0}">
 	                   				<c:forEach var = "vo" items = "${list}">
 	                   					<tr>
-	       									<td><input id = "couponList" type="checkbox" name = "couponList" value = "${vo.cNum}" checked="checked"></td>
+	       									<td><input class = "couponCheck"  type="radio" name = "couponList" value = "${vo.cNum}" /></td>
 	                   						<td>${vo.cNum}</td>
 	                   						<td>${vo.cName}</td>
 	                   						<td>${vo.cRatio}</td>
@@ -92,7 +92,7 @@
     </div>
 
     <div id = "payment_type">
-    	 <form method = "post" action="/miss/pay/kakaoPay.do">
+    	<form name = "frmSubmit">
   			<button id="kakaoapibtn"><img src="${path}/resources/img/kakao.jpeg"></button>
 		 </form>
     	
@@ -104,9 +104,16 @@
 	<!-- //푸터영역--------------------------->
 	
 	<script type="text/javascript">
+	
+	
+ 
+	
+	
 	$(document).ready(function(){
-        console.log("document.ready"); 
-        
+		 console.log("document.ready");
+
+		
+		        
         let resultprice = ${price};
         console.log("resultpricey"); 
         let point = 0;
@@ -117,6 +124,12 @@
         	
         	if(  ${userpoint} <  $("#u_point").val() ) {
         		alert("보유한 포인트 보다 많습니다.");
+        		$("#u_point").focus;
+        		return;	
+        	}
+        	
+        	if(  resultprice <=  $("#u_point").val() ) {
+        		alert("결제 금액보다 큰 포인트는 사용하실수 없습니.");
         		$("#u_point").focus;
         		return;	
         	}
@@ -133,9 +146,7 @@
         });
         
        
-      
-    	
-       
+        
        
         
        $("#kakaoapibtn").on("click", function(e){
@@ -147,7 +158,7 @@
     	   console.log(useCoupon); 
            
     	  
-        	
+    	   
     	   for(let i = 0; i < checkbox.length; i++){
     		   
     		   if(checkbox[i].checked){
@@ -176,19 +187,19 @@
     			}
     	   });
     	   
-    	   $.ajax({
-    		   url : "kakaoPay.do",
-    			type : "post",
-    		   success : function() {
-   				
-    		    },
-    			error : function() {
-    				alert("error");
-    			}
-    	   });
+    	   for(let i = 0; i < 100000000; i++){
+    		   
+    	   }
     	   
-    	   //window.location.href = '/miss/pay/paycom.do?resultPrice=' + resultprice + "&uPoint=" + $("#u_point").val() + "&useCouponId=" + useCoupon;
-            
+    	   let theForm = document.frmSubmit;
+    	   theForm.method = "post";
+           theForm.action = "/miss/pay/kakaoPay.do";
+           
+           theForm.submit();
+    	   
+    	   
+    	   
+    	   
            
         });
         

@@ -48,7 +48,7 @@
 	FROM MOVIE M, MOVIE_INFO O, TICKET V
 	WHERE M.mv_num = O.mv_num
 		AND O.mv_num = V.mv_num
-		And v.t_time = O.mi_time
+		AND v.t_time = O.mi_time
 		AND v.mb_num = #{mbNum} 
 	</select>
 
