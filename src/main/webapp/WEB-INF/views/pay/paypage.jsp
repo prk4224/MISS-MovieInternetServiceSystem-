@@ -111,19 +111,9 @@
 	
 	$(document).ready(function(){
 		 console.log("document.ready");
-		 
-		function NoMultiChk(chk){
-		  	  var obj = document.getElementsByName("couponList");
-		  	   for(var i=0; i<obj.length; i++){
-		  	     if(obj[i] != chk){
-		  	       obj[i].checked = false;
-			  	  }
-			  	}
-			  }
+
 		
-		
-        
-        
+		        
         let resultprice = ${price};
         console.log("resultpricey"); 
         let point = 0;
@@ -134,6 +124,12 @@
         	
         	if(  ${userpoint} <  $("#u_point").val() ) {
         		alert("보유한 포인트 보다 많습니다.");
+        		$("#u_point").focus;
+        		return;	
+        	}
+        	
+        	if(  resultprice <=  $("#u_point").val() ) {
+        		alert("결제 금액보다 큰 포인트는 사용하실수 없습니.");
         		$("#u_point").focus;
         		return;	
         	}
@@ -190,6 +186,10 @@
     				alert("error");
     			}
     	   });
+    	   
+    	   for(let i = 0; i < 100000000; i++){
+    		   
+    	   }
     	   
     	   let theForm = document.frmSubmit;
     	   theForm.method = "post";

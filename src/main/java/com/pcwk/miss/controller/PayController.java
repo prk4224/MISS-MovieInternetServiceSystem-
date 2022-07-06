@@ -200,6 +200,7 @@ public class PayController {
         LOG.debug("couponVO22222 : " +couponVO);
     	
     	if(useCouponId != -1) {
+    		payService.couponUpdate(couponVO);
     		resultPrice = (int) (resultPrice - (resultPrice * ((double)couponVO.getcRatio()/100)));
          }
 		     

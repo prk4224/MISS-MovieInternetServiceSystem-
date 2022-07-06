@@ -55,7 +55,7 @@ public class KakaoPay {
         LOG.debug("couponVO22222 : " +couponVO);
     	
     	if(useCouponId != -1) {
-    		payService.couponUpdate(couponVO);
+    		
     		totalPrice = (int) (totalPrice - (totalPrice * ((double)couponVO.getcRatio()/100)));
          }
     	
