@@ -27,7 +27,7 @@
      <div id = "movie_comimp">
 
         <div id = "qua_age">
-            <div id = "quality">화질</div>
+            <div id = "quality">화질 : ${miQuality}p</div>
             <div id = "age_limit">${m_agelim} 관람가</div>
         </div>
 

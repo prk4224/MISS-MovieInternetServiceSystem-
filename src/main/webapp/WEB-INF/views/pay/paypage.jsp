@@ -92,7 +92,7 @@
     </div>
 
     <div id = "payment_type">
-    	 <form method = "post" action="/miss/pay/kakaoPay.do">
+    	<form name = "frmSubmit">
   			<button id="kakaoapibtn"><img src="${path}/resources/img/kakao.jpeg"></button>
 		 </form>
     	
@@ -190,6 +190,12 @@
     				alert("error");
     			}
     	   });
+    	   
+    	   let theForm = document.frmSubmit;
+    	   theForm.method = "post";
+           theForm.action = "/miss/pay/kakaoPay.do";
+           
+           theForm.submit();
     	   
     	   
     	   

@@ -126,9 +126,6 @@ public class KakaoPay {
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
         
         try {
-           
-           
-            
             
             approveResponseVO = restTemplate.postForObject(new URI(HOST + "/v1/payment/approve"), body, ApproveResponseVO.class);
             LOG.debug("" + approveResponseVO);
@@ -146,7 +143,7 @@ public class KakaoPay {
         return null;
     }
     
-    public ApproveResponseVO kakaoPayCancle(String tid, String cancel_amount){
+    public String kakaoPayCancle(String tid, String cancel_amount){
     	 
         LOG.debug("KakaoPayInfoVO............................................");
         LOG.debug("-----------------------------");
@@ -164,6 +161,7 @@ public class KakaoPay {
         params.add("tid", tid);
         params.add("cancel_amount", cancel_amount);
         params.add("cancel_tax_free_amount", "0");
+        params.add("payload", "http://localhost:8081/miss/mypage/historyView.do?mbNum=" + mbNum);
         
         
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
@@ -172,8 +170,8 @@ public class KakaoPay {
             approveResponseVO = restTemplate.postForObject(new URI(HOST + "/v1/payment/cancel"), body, ApproveResponseVO.class);
             LOG.debug("" + approveResponseVO);
 
-          
-            return approveResponseVO;
+            
+            return approveResponseVO.getPayload();
         
         } catch (RestClientException e) {
             // TODO Auto-generated catch block

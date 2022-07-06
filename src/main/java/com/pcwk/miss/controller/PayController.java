@@ -211,6 +211,8 @@ public class PayController {
     	model.addAttribute("m_time", miTime);
     	model.addAttribute("m_price", resultPrice);
     	model.addAttribute("postURL", postURL);
+    	model.addAttribute("miQuality", miQuality);
+    	
     	ApproveResponseVO approveResponseVO = kakaopay.kakaoPayInfo(pg_token);
     	LOG.debug("==================");
 		LOG.debug("=approveResponseVO=" + approveResponseVO);
