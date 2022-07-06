@@ -43,7 +43,7 @@
 
 /*배경화면*/
 body {
- background: url('${CP_RES}/img/comet-halley-web-wallpapers-88845.jpg')
+ background: url('${CP_RES}/img/login_background.jpg')
   no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
@@ -60,19 +60,6 @@ body {
  left: 30px;
  top: 30px;
 }
-
-.h2 {
- position: absolute;
- top: 200px;
- left: center;
- transform: translate(-0%, -50%);
-}
-
-.h3 {
-    position: absolute;
-    top: 250px;
-    left: center;
-    }
 
 .login-form {
  position: absolute;
@@ -148,10 +135,8 @@ footer {
     </div>
     
     
-    <a class="miss-logo" id="miss-logo" href="#"><img src="${CP_RES}/img/miss_logo_3.png" style="height:55px; width:auto;"></a>    
+    <a class="miss-logo" id="miss-logo" href="#"><img src="${CP_RES}/img/miss_logo_2.png" style="height:55px; width:auto;"></a>    
 
-    <h2 class="h2" align="center" style="color:white">최신 영화를 집에서.</h2>
-    <h3 class="h3" align="center" style="color:white">어디서든 최신영화를 즐겨보세요.</h3>
     <div class="login-form">
         <h4 align="center" style="color:white"><strong>SNS 계정 간편 로그인</strong></h4>
         <a onclick="kakaoLogin();"><img src="${CP_RES}/img/kakao_login_medium_narrow.png" style="height:auto; width:185px;"></a>

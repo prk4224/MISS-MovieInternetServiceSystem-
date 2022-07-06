@@ -53,7 +53,7 @@
            height: 50px;
            line-height: 50px;
            padding: 0 28px 0 16px;
-           background-color: #260a33;
+           background-color: #13338B;
            color: #ffffff;
            white-space: nowrap;
            border-bottom: 1px solid #555b61;
@@ -99,7 +99,7 @@
            }
  
            .cd-faq-categories .selected {
-               background: #260a33 !important;
+               background: #13338B !important;
            }
            
            .cd-faq-categories.is-fixed {
@@ -171,7 +171,7 @@
            text-transform: uppercase;
            font-size: 2.5rem;
            font-weight: 700;
-           color: #260a33;
+           color: #13338B;
        }
        .no-js .cd-faq-group {
            display: block;
