@@ -81,18 +81,23 @@
 </style>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#headNickname").text("환영합니다 ~ " + sessionStorage.getItem("mbNickname") + "님");
-        
-        Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
-        $(".logout").on("click", function(){
-            if(confirm("로그아웃 하시겠습니까?")){
-                sessionStorage.clear();
-                Kakao.Auth.logout();
-                location.href = '/miss/login/login.do';
-            };
-        });
-    })
+	$(document).ready(function(){
+	    $("#headNickname").text("환영합니다 ~ " + sessionStorage.getItem("mbNickname") + "님");
+	    
+	    Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
+	    $(".logout").on("click", function(){
+	        if(confirm("로그아웃 하시겠습니까?")){
+	            sessionStorage.clear();
+	            Kakao.Auth.logout();
+	            location.href = '/miss/login/login.do';
+	        };
+	    });
+	    
+	    $("#mbNum").on("click", function(){
+	        console.log("mbNum");
+	        location.href = "/miss/mypage/historyView.do?mbNum=" + sessionStorage.getItem("mbNum");
+	    });
+	})
 </script>
 </head>
 <body>
@@ -103,7 +108,7 @@
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
-                <li><a class="menuLink" href="${MISS}/mypage/history.do">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
+                <li><a class="menuLink" id="mbNum">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
                 <li>
                     <span id="headNickname" style="color: white; font-size: 16px"></span>
                     <input type="button" class="logout" value="로그아웃">
