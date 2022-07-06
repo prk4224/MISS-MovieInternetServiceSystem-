@@ -14,11 +14,17 @@
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
     header {
         width: 100%;
         background-color: black;
     }
-    /*로고 위치*/
+    /*로고 위치sdsss*/
     #logo {
         float:left;
         margin-top:20px;
@@ -45,9 +51,9 @@
             color: white;                           
             display: block;                         
             width: 150px;                             
-            font-size: 30px;                          
+            font-size: 20px;                          
             font-weight: bold;                        
-            font-family: "Noto Sans KR", sans-serif !important;
+             font-family: 'NEXON Lv1 Gothic OTF Bold'; /*추후 폰트 수정*/
     }
     /*로그인 a태그 스타일*/
     .logout {
@@ -75,37 +81,32 @@
 </style>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#headNickname").text("환영합니다 ~ " + sessionStorage.getItem("mbNickname") + "님");
-		
-		Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
-		$(".logout").on("click", function(){
-			if(confirm("로그아웃 하시겠습니까?")){
-				sessionStorage.clear();
-				Kakao.Auth.logout();
-				location.href = '/miss/login/login.do';
-			};
-		});
-		
-		$("#mbNum").on("click", function(){
-			console.log("mbNum");
-			location.href = "/miss/mypage/historyView.do?mbNum=" + sessionStorage.getItem("mbNum");
-		});
-	})
+    $(document).ready(function(){
+        $("#headNickname").text("환영합니다 ~ " + sessionStorage.getItem("mbNickname") + "님");
+        
+        Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
+        $(".logout").on("click", function(){
+            if(confirm("로그아웃 하시겠습니까?")){
+                sessionStorage.clear();
+                Kakao.Auth.logout();
+                location.href = '/miss/login/login.do';
+            };
+        });
+    })
 </script>
 </head>
 <body>
     <header>
-        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/miss_logo_3.png" style="height:70px; width:auto;"></a>
+        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/miss_logo_3.png" style="height:55px; width:auto;"></a>
         <nav id="menu">
             <ul>
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
-                <li><a class="menuLink" id="mbNum">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
+                <li><a class="menuLink" href="${MISS}/mypage/history.do">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
                 <li>
-                	<span id="headNickname" style="color: white; font-size: 16px"></span>
-                	<input type="button" class="logout" value="로그아웃">
+                    <span id="headNickname" style="color: white; font-size: 16px"></span>
+                    <input type="button" class="logout" value="로그아웃">
                 </li> <!-- 아이콘 이미지로 변경 -->
             </ul>
         </nav>
