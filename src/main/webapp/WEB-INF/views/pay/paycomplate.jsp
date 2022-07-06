@@ -64,9 +64,10 @@
     <script type="text/javascript">
 	  $(document).ready(function(){
 	    console.log("document.ready");
+	    let mbNum = sessionStorage.getItem("mbNum");
 	   
 	    $("#mypagebutton").on("click", function(){
-	    	window.location.href = "http://localhost:8081/miss/mypage/historyView.do"
+	    	window.location.href = "http://localhost:8081/miss/mypage/historyView.do?mbNum=" + mbNum;
 		  });
 	    
 	  });

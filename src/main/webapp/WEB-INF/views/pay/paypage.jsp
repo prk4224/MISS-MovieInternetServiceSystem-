@@ -56,7 +56,7 @@
 	                   			<c:when test="${list.size() > 0}">
 	                   				<c:forEach var = "vo" items = "${list}">
 	                   					<tr>
-	       									<td><input id = "couponList" type="checkbox" name = "couponList" value = "${vo.cNum}" checked="checked"></td>
+	       									<td><input class = "couponCheck"  type="radio" name = "couponList" value = "${vo.cNum}" /></td>
 	                   						<td>${vo.cNum}</td>
 	                   						<td>${vo.cName}</td>
 	                   						<td>${vo.cRatio}</td>
@@ -104,8 +104,25 @@
 	<!-- //푸터영역--------------------------->
 	
 	<script type="text/javascript">
+	
+	
+ 
+	
+	
 	$(document).ready(function(){
-        console.log("document.ready"); 
+		 console.log("document.ready");
+		 
+		function NoMultiChk(chk){
+		  	  var obj = document.getElementsByName("couponList");
+		  	   for(var i=0; i<obj.length; i++){
+		  	     if(obj[i] != chk){
+		  	       obj[i].checked = false;
+			  	  }
+			  	}
+			  }
+		
+		
+        
         
         let resultprice = ${price};
         console.log("resultpricey"); 
@@ -133,9 +150,7 @@
         });
         
        
-      
-    	
-       
+        
        
         
        $("#kakaoapibtn").on("click", function(e){
@@ -147,7 +162,7 @@
     	   console.log(useCoupon); 
            
     	  
-        	
+    	   
     	   for(let i = 0; i < checkbox.length; i++){
     		   
     		   if(checkbox[i].checked){
@@ -178,8 +193,7 @@
     	   
     	   
     	   
-    	   //window.location.href = '/miss/pay/paycom.do?resultPrice=' + resultprice + "&uPoint=" + $("#u_point").val() + "&useCouponId=" + useCoupon;
-            
+    	   
            
         });
         

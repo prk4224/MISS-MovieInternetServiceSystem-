@@ -10,8 +10,7 @@
 	</select>
 
 	<!-- 쿠폰 발급 -->
-	<insert id="couponInsert" parameterType = "CouponVO">
-		
+	<insert id="couponInsert" parameterType = "CouponVO">	
 		
 		INSERT INTO COUPON(
 		  c_num,
@@ -22,17 +21,14 @@
 		  c_kind
 		)
 		VALUES(
-        COLUMN_SEQ.NEXTVAL,
+        	COLUMN_SEQ.NEXTVAL,
 			#{mbNum},
-			'등업 쿠폰',
+			#{cName},
 			#{cTarge},
 			#{cRatio},
 			#{cKind}
 		)
-		
-        
-    	
-		
+	
 	</insert>
 
 	<!-- 회원 업데이트 -->
@@ -107,7 +103,7 @@
 		    c_ratio AS "cRatio"
 		FROM coupon
 		WHERE mb_num = #{mbNum}
-		AND c_kind IS NOT NULL
+		AND c_kind = 1
 	</select>
 	
 	<!-- 할인률 조회 -->
@@ -162,7 +158,7 @@
 		WHERE T1.MV_NUM = T2.MV_NUM
 		AND T1.MV_NUM = #{mvNum}
 		AND T2.MI_QUALITY LIKE '%' || #{miQuality} || '%'
-		AND MI_TIME BETWEEN SYSDATE AND SYSDATE + 1
+<!-- 		AND MI_TIME BETWEEN SYSDATE AND SYSDATE + 1 -->
 		ORDER BY T2.MI_TIME
 	</select>
 </mapper>

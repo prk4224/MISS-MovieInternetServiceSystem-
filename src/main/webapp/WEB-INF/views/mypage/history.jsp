@@ -128,23 +128,24 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $(document).on("click","#moCancle", function(){
+        	
             if(!confirm('영화를 취소하시겠습니까?')){
                 return false;
             }
-         
-                 let url = "${CP}/pay/kakaoPayCancle.do";
-                 let method = "POST";
-                 let async = true;
-                 let parameters ={
-                         tNum : $(this).parent().parent().children(2).eq(9).text(),
-                         tPrice : $(this).parent().parent().children(2).eq(8).text()
-                 }
-                 console.log("tNum : " + tNum);
-                 console.log("tPrice : " + tPrice);
-                 EClass.callAjax(url, parameters, method, async, function(data) {
-                     console.log("data : " + data);
-                 })
-        })
+            
+            let url = "${CP}/pay/kakaoPayCancle.do";
+            let method = "POST";
+            let async = true;
+            let parameters ={
+                    tNum : $(this).parent().parent().children(2).eq(9).text(),
+                    tPrice : $(this).parent().parent().children(2).eq(8).text()
+            }
+            console.log("tNum : " + tNum);
+            console.log("tPrice : " + tPrice);
+            EClass.callAjax(url, parameters, method, async, function(data) {
+                console.log("data : " + data);
+               })
+       		 })
         });
     
     

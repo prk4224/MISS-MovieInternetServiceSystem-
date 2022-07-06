@@ -47,6 +47,18 @@ public class KakaoPay {
     	mbNum = mbnumm;
     	useCouponId = couponId;
     	
+    	// 쿠폰을 사용 했으면 업데이트 ( 사용 안했으면 -1)
+    	CouponVO couponVO = new CouponVO();
+        couponVO.setcNum(useCouponId);
+        LOG.debug("couponVO11111 : " +couponVO);
+        couponVO = payService.couponSelete(couponVO);
+        LOG.debug("couponVO22222 : " +couponVO);
+    	
+    	if(useCouponId != -1) {
+    		payService.couponUpdate(couponVO);
+    		totalPrice = (int) (totalPrice - (totalPrice * ((double)couponVO.getcRatio()/100)));
+         }
+    	
     	
         RestTemplate restTemplate = new RestTemplate();
  

@@ -192,8 +192,17 @@ public class PayController {
 		LOG.debug("==================");
         
         
-        
-        
+		// 쿠폰을 사용 했으면 업데이트 ( 사용 안했으면 -1)
+    	CouponVO couponVO = new CouponVO();
+        couponVO.setcNum(useCouponId);
+        LOG.debug("couponVO11111 : " +couponVO);
+        couponVO = payService.couponSelete(couponVO);
+        LOG.debug("couponVO22222 : " +couponVO);
+    	
+    	if(useCouponId != -1) {
+    		resultPrice = (int) (resultPrice - (resultPrice * ((double)couponVO.getcRatio()/100)));
+         }
+		     
         model.addAttribute("token", pg_token);
     	model.addAttribute("m_agelim", age);
     	model.addAttribute("m_title", movie.getMvTitle());
@@ -216,17 +225,7 @@ public class PayController {
 		LOG.debug("=tId=" + tId);
 		LOG.debug("==================");
 		
-		// 쿠폰을 사용 했으면 업데이트 ( 사용 안했으면 -1)
-    	CouponVO couponVO = new CouponVO();
-        couponVO.setcNum(useCouponId);
-        LOG.debug("couponVO11111 : " +couponVO);
-        couponVO = payService.couponSelete(couponVO);
-        LOG.debug("couponVO22222 : " +couponVO);
-    	
-    	if(useCouponId != -1) {
-    		payService.couponUpdate(couponVO);
-    		resultPrice = (int) (resultPrice - (resultPrice * ((double)couponVO.getcRatio()/100)));
-         }
+		
     	LOG.debug("miTime : " +miTime);
     	
     	SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -297,9 +296,8 @@ public class PayController {
         
         // 등급이 올랐다면 회원 등급을 업데이트 한후 coupon Insert
         if(patGrade > memberGrade) {
-        	payService.memberUpdate(memberVO);
-        	 
-        	 
+        	
+        	payService.memberUpdate(memberVO);	 
         	
         	couponVO = new CouponVO(9999, mbNum, "등업 쿠폰", 1, 30,1);
         	payService.couponInsert(couponVO);
