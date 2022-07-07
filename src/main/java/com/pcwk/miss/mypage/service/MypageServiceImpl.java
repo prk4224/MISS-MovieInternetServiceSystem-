@@ -42,7 +42,7 @@ final Logger LOG = LogManager.getLogger(this.getClass());
 	}
 
 	@Override
-	public int updateTicket(MemberVO inVO) throws SQLException {
+	public int updateTicket(HistoryVO inVO) throws SQLException {
 		return mypageDao.updateTicket(inVO);
 	}
 

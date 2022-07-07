@@ -124,6 +124,7 @@ public class PayController {
 		miQuality = request.getParameter("miQuality");         //화질
 		mbNum = Integer.parseInt(request.getParameter("mbNum"));  //로그인되있는 회원번호
 		
+		
 //		cInVO = new CouponVO(1,1,"생일 쿠폰", "날짜_미정", 1, 30, 0);
 		MovieVO movie = new MovieVO();
 		movie.setMvNum(mvNum);
