@@ -148,6 +148,7 @@
                  })
                  console.log("================2=============");
                  tcUpdate(tNum);
+                 location.href = "/miss/mypage/historyView.do?mbNum=" + sessionStorage.getItem("mbNum")
                  })
         
         });
@@ -259,7 +260,7 @@
 			      </c:otherwise>
                   </c:choose>
         </div>
-        <div class="achieve" style="float:right;">내 포인트: ${memberIn.mbPoint}</div>
+        <div class="achieve" style="float:right;">내 포인트: ${memberIn.mbPoint}P</div>
     </div>
     <table id="myInfo">
     <caption>내정보</caption>
@@ -290,7 +291,7 @@
             <th width="200px">쿠폰명</th>
             <th width="100px">할인율</th>
             <th width="300px">쿠폰번호</th>
-            <th width="100px">사용구분</th>
+            <th width="100px">사용여부</th>
         </tr>
      </thead>
       <c:choose>
@@ -298,20 +299,17 @@
            <c:forEach var="couList" items="${couList}">
         <tr>  
             <td>${couList.cName}</td>
-            <td>${couList.cRatio}</td>
+            <td>${couList.cRatio}%</td>
             <td>${couList.cNum}</td>
-            <td>${couList.cKind} </td>
-            <td>${couList.cTarge} </td>
+<%--             <td>${couList.cKind} </td> --%>
+<%--             <td>${couList.cTarge} </td> --%>
             <td>
                 <c:choose>
-                 <c:when test="${cTarge.equals('1')}">
-                                                               생일 쿠폰   
-               </c:when>
-               <c:when test="${cTarge == 2}">
-                                                        등업 쿠폰
+                 <c:when test="${couList.cKind == 1}">
+                                                               사용가능   
                </c:when>
                 <c:otherwise>
-                                           이상한디
+                                           사용완료
              </c:otherwise>
          </c:choose></td>
         </tr>    
@@ -319,7 +317,7 @@
         </c:when>
          <c:otherwise>
           <tr>
-              <td colspan="99">결제내역이 없습니다.</td>
+              <td colspan="99">쿠폰내역이 없습니다.</td>
           </tr>
          </c:otherwise>
      </c:choose>

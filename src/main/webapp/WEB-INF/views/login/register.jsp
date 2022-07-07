@@ -202,8 +202,8 @@ select {
 				console.log("data.msgId : " + data.msgId);
                 console.log("data.msgContents : " + data.msgContents);
                 if(data.msgId == "1"){ //회원가입 성공
+                	alert("테스트 - 회원가입성공");
                 	emailToNum("${param.email}");
-                	
                 	alert(data.msgContents);
                     location.href = "/miss/movie/main.do";
                 }else{
@@ -224,6 +224,8 @@ select {
 			EClass.callAjax(url, parameters, method, async, function(data) {
 				sessionStorage.setItem("mbNum", data.mbNum);
 				sessionStorage.setItem("mbNickname", data.mbNickname);
+				alert("테스트 - emailToNum");
+				alert(data.mbNum);
 				registerCoupon(data.mbNum);
 			});
 		}
@@ -239,6 +241,7 @@ select {
 			EClass.callAjax(url, parameters, method, async, function(data) {
 				if(data.msgId == "1"){
 					alert(data.msgContents);
+					alert("테스트 - registerCoupon");
 				}else{
 					alert(data.msgContents);
 				}

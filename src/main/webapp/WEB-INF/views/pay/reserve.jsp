@@ -34,21 +34,7 @@
     <title>부트스트랩 - boot_list</title>
     <!--스타일 시트-->
 	<style type="text/css">
-	header {
-	    width: 100%;
-	    height: 80px;
-	}
-	nav {
-	    width: 100%;
-	    height: 80px;
-	}
-	main {
-	    width: 100%;
-	    height: 1000px;
-	}
-	footer {
-	    height: 80px;
-	}
+	
 	.name {
 	    text-align: center;
 	    background: #ffffff;
@@ -266,12 +252,12 @@
 	    	});
 	    } 
 	</script>
-</head>
+
 <body>
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-    <main>
+   
         <div>
             <div class="name" style="width: 298px; height: 30px; position: absolute; top: 420px; left: 700px;">영화 제목</div>
             <div class="name" style="width: 998px; height: 30px; position: absolute; top: 420px; left: 1000px;">시간</div>
@@ -324,7 +310,7 @@
     <button type="button" class="rBt" onclick='goBuy()'>
        예약하기</button>
 
-    </main>
+   
     <!-- 푸터영역 -->
     <%@include file="../cmn/footer.jsp"%>
     <!-- //푸터영역 -->

@@ -16,7 +16,8 @@
 				C_RATIO as "cRatio",
 				C_KIND as "cKind"
 		FROM COUPON
-		WHERE mb_num = #{mbNum} 
+		WHERE mb_num = #{mbNum}
+		ORDER BY c_kind DESC, c_Num ASC
 	</select>
 
 <!--회원 정보 가져오기 -->
