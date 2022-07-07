@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="CP" value="${pageContext.request.contextPath}"/>
+<c:set var="resources" value="/resources"/>
+<c:set var="CP_RES" value="${CP}${resources}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +14,8 @@
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 	 <script src="${path}/resources/js/jquery-1.12.4.js"></script>
 	
-	<title>Miss</title>
+	<title>MISS, 최신 영화를 집에서</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 	<link rel="stylesheet"  type="text/css" href="${path}/resources/css/paypage.css">
 
 	

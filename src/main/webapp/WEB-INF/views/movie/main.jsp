@@ -1,16 +1,12 @@
 <%--
 /**
 	Class Name: main.jsp
-	Description: 메인화면
+	Description: 메인 페이지
 	Modification information
-	
-	수정일     수정자      수정내용
-    -----   -----  -------------------------------------------
-    2022. 6. 24.        최초작성 
     
-    author eclass 개발팀
-    since 2020.11.23
-    Copyright (C) by KandJang All right reserved.
+    author MISS 개발팀
+    since 2022.06.15
+    Copyright (C) by MISS All right reserved.
 */
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -22,11 +18,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="${CP_RES}/css/main.css">
-<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
-<title>MISS 메인화면</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="${CP_RES}/css/main.css">
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+	<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
+	<title>MISS, 최신 영화를 집에서</title>
+	<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 </head>
 <body>
     <!-- 헤더영역 -->
@@ -99,20 +96,15 @@
             </div>
         </div>
     </div>
-<!--     controller -> jsp -->
-<!-- 값 get형식으로 넘겼을때 -->
-<%-- ${param.mvNum} --%>
-<%--     ${movieList[0].mvTitle}  --%>
 	<!-- 푸터영역 -->
 	<%@include file="../cmn/footer.jsp"%>
 	<!-- //푸터영역 -->
     <script src="${CP_RES}/js/main.js"></script>
-    
 	<script type="text/javascript">
 	  $(document).ready(function(){
 	    console.log("document.ready");
 	    console.log(sessionStorage.getItem("accessToken"));
-	    
+	    <!-- 영화포스터 클릭 시 movie_detail.jsp로 이동 -->
 	    $(".slides1 li").on("click", function(){
 	    	// mvNum
 	    	let mvNum = $(this).children().eq(2).children().eq(0).text();
@@ -123,6 +115,7 @@
 	    	let mvNum = $(this).children().eq(1).children().eq(0).text();
 	    	location.href = "movie_detail.do?mvNum=" + mvNum;
 	    });
+	    <!--//영화포스터 클릭 시 movie_detail.jsp로 이동 -->
 	  });
 	  	
 	</script>

@@ -1,3 +1,14 @@
+<%--
+/**
+	Class Name: movie_detail.jsp
+	Description: 영화상세 페이지
+	Modification information
+    
+    author MISS 개발팀
+    since 2022.06.15
+    Copyright (C) by MISS All right reserved.
+*/
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -8,21 +19,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="${CP_RES}/css/movie_detail.css">
-<title>MISS 영화 상세 화면</title>
-<!-- 부트스트랩 -->
-<link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
-<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
-<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-<!-- 사용자 정의 function, ISEmpty -->
-<script src="${CP_RES}/js/eUtil.js"></script>
-<!-- 사용자 정의 function, callAjax -->
-<script src="${CP_RES}/js/eclass.js"></script>
-<script src="${CP_RES}/js/bootstrap.min.js"></script>
-<!-- jquery_bootstrap paging -->
-<script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="${CP_RES}/css/movie_detail.css">
+	<title>MISS, 최신 영화를 집에서</title>
+	<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
+	<!-- 부트스트랩 -->
+	<link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+	<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
+	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+	<!-- 사용자 정의 function, ISEmpty -->
+	<script src="${CP_RES}/js/eUtil.js"></script>
+	<!-- 사용자 정의 function, callAjax -->
+	<script src="${CP_RES}/js/eclass.js"></script>
+	<script src="${CP_RES}/js/bootstrap.min.js"></script>
+	<!-- jquery_bootstrap paging -->
+	<script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
 </head>
 <body>
 	<!-- 헤더영역 -->
@@ -51,7 +63,6 @@
                 		<input type="button" value="상영예정">
                 	</c:otherwise>
                 </c:choose>
-                
             </div>
         </div>
         <div id="right">
@@ -84,7 +95,6 @@
 		                	</c:otherwise>
 	                	</c:choose>
 	                </p><br>
-	                
             	</div>
             	<div id="detailRight">
             		<p>${detailVO.mvReleased} 개봉</p><br>
@@ -106,7 +116,6 @@
             		<p>${detailVO.mvSummary}</p>
             	</div>
             </div>
-            
             <div id="moviecut">
                 <div id="movie">
                     <div id="slideshow">
@@ -128,7 +137,6 @@
                     </div>
                 </div>
             </div>
-            
             <div id="reviewDiv">
                 <form action="">
                 	<p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p>
@@ -165,7 +173,6 @@
                     </c:choose>
                     </tbody>
                 </table><br>
-<!--                 <div style="text-align: center; word-spacing: 30px;"><< < 1 2 3 4 5 > >></div> -->
             	<div class="text-center">
 		            <div class="text-center col-sm-12 col-md-12 col-lg-12">
 		                <div id="page-selection" class="text-center page"></div>
@@ -310,10 +317,6 @@
 				if(confirm("리뷰를 등록하시겠습니까?") == false){
 					return;
 				}
-// 				console.log("rReview : " + $("#rReview").val());
-// 				console.log("rRating : " + $("#rRating").val());
-// 				console.log("mbNickname : " + $("#mbNickname").val());
-// 				console.log("mvNum : " + $("#mvNum").text());
 				
 				let url = "${CP}/movie/reviewAdd.do";
 				let method = "POST";
