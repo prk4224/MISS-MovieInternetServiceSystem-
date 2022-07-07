@@ -36,80 +36,81 @@
     <link rel="shortcut icon" href="${CP_RES}/img/favicon.ico">
     <style type="text/css">
 @font-face {
-    font-family: 'NEXON Lv1 Gothic OTF';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'NEXON Lv1 Gothic OTF';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 * {
- box-sizing: border-box;
- font-family: 'Noto Sans KR', sans-serif;
- border-radius: 3px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	border-radius: 3px;
 }
 
 /*배경화면*/
 body {
- background: url('${CP_RES}/img/login_background.jpg')
-  no-repeat center center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
+	background: url('${CP_RES}/img/login_background.jpg') no-repeat center
+		center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .logo {
- float: left;
- font-family: 'NEXON Lv1 Gothic OTF';
+	float: left;
+	font-family: 'NEXON Lv1 Gothic OTF';
 }
 
 .miss-logo {
- position: absolute;
- left: 30px;
- top: 30px;
+	position: absolute;
+	left: 30px;
+	top: 30px;
 }
 
 .login-form {
- position: absolute;
- position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
- width: 300px;
- background-color: rgba(0, 0, 128, 0.1);
- padding: 20px;
- text-align: center;
- border: none;
- background-color: rgba(255, 255, 255, 0.1); /*반투명 효과*/
- box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 1); /*그림자 효과*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	background-color: rgba(0, 0, 128, 0.1);
+	padding: 20px;
+	text-align: center;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.1); /*반투명 효과*/
+	box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 1); /*그림자 효과*/
 }
 
 .text-field {
- background-color: white;
- font-size: 14px;
- padding: 10px;
- border: none;
- width: 260px;
- margin-bottom: 10px;
+	background-color: white;
+	font-size: 14px;
+	padding: 10px;
+	border: none;
+	width: 260px;
+	margin-bottom: 10px;
 }
 
 .submit-btn {
- font-size: 14px;
- border: none;
- padding: 10px;
- width: 260px;
- background-color: black;
- margin-bottom: 30px;
- color: white;
+	font-size: 14px;
+	border: none;
+	padding: 10px;
+	width: 260px;
+	background-color: black;
+	margin-bottom: 30px;
+	color: white;
 }
 
 footer {
- position: fixed;
- bottom: 0;
- left: 0;
- height: 60px;
- width: 100%;
- background-color: rgba(255, 255, 255, 0.1);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 </style>
     <!-- 부트스트랩 -->
