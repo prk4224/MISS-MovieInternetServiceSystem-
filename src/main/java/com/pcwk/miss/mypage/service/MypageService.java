@@ -17,7 +17,7 @@ public interface MypageService {
 	 * @return
 	 * @throws SQLException
 	 */
-	int updateTicket(MemberVO inVO) throws SQLException;
+	int updateTicket(HistoryVO inVO) throws SQLException;
 	/**
 	 * 쿠폰조회
 	 * @param inVO

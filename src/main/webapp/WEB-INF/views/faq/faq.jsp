@@ -12,24 +12,22 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,700,900italic,300italic,300,100italic,100,700italic,400italic,900'>
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+<link rel="shortcut icon" href="${CP_RES}/img/favicon.ico">
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="${CP_RES}/js/jquery-1.12.4.js"></script>
 <style class="FAQ">
-	 header {
-	  position: relative;
-	  height: 180px;
-	  line-height: 180px;
-	  text-align: center;
-	  background-color: gray;
-	}
-	header h1 {
-	  color: #ffffff;
-	  font-size: 40px;
-	  font-size: 2rem;
-	}
+
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
     
        body {
-           background-color: black; /*배경색 검정*/
+           background-color: #e9e9e9;
+           font-family: 'NEXON Lv1 Gothic OTF';
            }
 
        a {
@@ -55,7 +53,7 @@
            height: 50px;
            line-height: 50px;
            padding: 0 28px 0 16px;
-           background-color: #260a33;
+           background-color: #13338B;
            color: #ffffff;
            white-space: nowrap;
            border-bottom: 1px solid #555b61;
@@ -71,9 +69,8 @@
                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
            }
            .cd-faq-categories a {
-               font-size: 13px;
-               font-size: 0.8125rem;
-               font-weight: 600;
+               font-size: 20px;
+               font-weight: 1000;
                padding-left: 24px;
                padding: 0 24px;
                -moz-transition: background 0.2s, padding 0.2s;
@@ -102,7 +99,7 @@
            }
  
            .cd-faq-categories .selected {
-               background: #260a33 !important;
+               background: #13338B !important;
            }
            
            .cd-faq-categories.is-fixed {
@@ -174,7 +171,7 @@
            text-transform: uppercase;
            font-size: 2.5rem;
            font-weight: 700;
-           color: #bbbbc7;
+           color: #13338B;
        }
        .no-js .cd-faq-group {
            display: block;
@@ -269,18 +266,18 @@
                 <h2>공지사항</h2>
             </li>
             <c:choose>
-            	<c:when test="${list01.size() > 0}">
-            		<c:forEach var="list01" items="${list01}">
-            			<li><a class="cd-faq-trigger" href="#0">${list01.qTitle}</a>
-			                <div class="cd-faq-content">
-			                    <p>
-			                    	작성일 : ${list01.qDate}<br>
-			                    	${list01.qContents}
-		                    	</p>
-		                    </div>
-	                    </li>
-            		</c:forEach>
-            	</c:when>
+             <c:when test="${list01.size() > 0}">
+              <c:forEach var="list01" items="${list01}">
+               <li><a class="cd-faq-trigger" href="#0">${list01.qTitle}</a>
+                   <div class="cd-faq-content">
+                       <p>
+                        작성일 : ${list01.qDate}<br>
+                        ${list01.qContents}
+                       </p>
+                      </div>
+                     </li>
+              </c:forEach>
+             </c:when>
             </c:choose>
         </ul>
 
@@ -289,18 +286,18 @@
                 <h2>자주하는 질문</h2>
             </li>
             <c:choose>
-            	<c:when test="${list02.size() > 0}">
-            		<c:forEach var="list02" items="${list02}">
-            			<li><a class="cd-faq-trigger" href="#0">${list02.qTitle}</a>
-			                <div class="cd-faq-content">
-			                    <p>
-			                    	작성일 : ${list02.qDate}<br>
-			                    	${list02.qDate}
-			                    </p>
-			                </div>
-			            </li>
-            		</c:forEach>
-            	</c:when>
+             <c:when test="${list02.size() > 0}">
+              <c:forEach var="list02" items="${list02}">
+               <li><a class="cd-faq-trigger" href="#0">${list02.qTitle}</a>
+                   <div class="cd-faq-content">
+                       <p>
+                        작성일 : ${list02.qDate}<br>
+                        ${list02.qDate}
+                       </p>
+                   </div>
+               </li>
+              </c:forEach>
+             </c:when>
             </c:choose>
         </ul>
     </div>
@@ -314,8 +311,8 @@
     jQuery(document).ready(function ($) {
         //update these values if you change these breakpoints in the style.css file (or _layout.scss if you use SASS)
         $(".cd-faq-title h2").on("click", function(){
-        	console.log(sessionStorage.getItem("mbEmail"));
-        	console.log(sessionStorage.getItem("accessToken"));
+         console.log(sessionStorage.getItem("mbEmail"));
+         console.log(sessionStorage.getItem("accessToken"));
         });
         
         

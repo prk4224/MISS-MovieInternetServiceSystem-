@@ -18,18 +18,7 @@
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="${CP_RES}/js/jquery-1.12.4.js"></script>
 <style class="MOVIE LIST">
-header {
-    position: relative;
-    height: 180px;
-    line-height: 180px;
-    text-align: center;
-    background-color: gray;
-}
-header h1 {
-    color: #ffffff;
-    font-size: 40px;
-    font-size: 2rem;
-}
+
 body {
     height: 100%;
     width: 100%;

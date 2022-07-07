@@ -128,26 +128,42 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $(document).on("click","#moCancle", function(){
-        	
+//         	let tNum = $(this).parent().parent().children(2).eq(3).text()
+//         	console.log("tNum : " + tNum);
             if(!confirm('영화를 취소하시겠습니까?')){
                 return false;
             }
-            
-            let url = "${CP}/pay/kakaoPayCancle.do";
-            let method = "POST";
-            let async = true;
-            let parameters ={
-                    tNum : $(this).parent().parent().children(2).eq(9).text(),
-                    tPrice : $(this).parent().parent().children(2).eq(8).text()
-            }
-            console.log("tNum : " + tNum);
-            console.log("tPrice : " + tPrice);
-            EClass.callAjax(url, parameters, method, async, function(data) {
-                console.log("data : " + data);
-               })
-       		 })
+                let tNum = $(this).parent().parent().children(2).eq(3).text();
+                 let url = "${CP}/pay/kakaoPayCancle.do";
+                 let method = "POST";
+                 let async = true;
+                 let parameters ={
+                         tNum : tNum,
+                         tPrice : $(this).parent().parent().children(2).eq(8).text()
+                 }
+                 console.log("tNum : " + $(this).parent().parent().children(2).eq(3).text());
+                 console.log("tPrice : " + $(this).parent().parent().children(2).eq(8).text());
+                 EClass.callAjax(url, parameters, method, async, function(data) {
+                	 console.log("================1=============");
+                 })
+                 console.log("================2=============");
+                 tcUpdate(tNum);
+                 })
+        
         });
-    
+    function tcUpdate(tNum){
+        let url = "${CP}/mypage/updateTicket.do";
+        let method = "POST";
+        let async = true;
+        let parameters = {
+            tNum : tNum                   
+        }
+        console.log("tNum : " + tNum);      
+        
+        EClass.callAjax(url, parameters, method, async, function(data) {
+             console.log("data : " + data);                              
+        });    
+   }
     
     
     //현재시간
@@ -226,7 +242,23 @@
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
      <div style="width:320px;">
-        <div class="achieve" style="float:left;">내 등급:  ${memberIn.mbGrade}</div>
+        <div class="achieve" style="float:left;">
+          <c:set var="mbGrade" value="${memberIn.mbGrade}"/>
+			      <c:choose>
+			        <c:when test="${mbGrade == 1}">
+			                 내 등급:   일반 회원       
+			        </c:when>
+			        <c:when test="${mbGrade == 2}">
+			                   내 등급: 우수회원    
+			        </c:when>
+			        <c:when test="${mbGrade == 3}">
+			                      내 등급: VIP
+			        </c:when>
+			      <c:otherwise>
+			                       내 등급: VVIP
+			      </c:otherwise>
+                  </c:choose>
+        </div>
         <div class="achieve" style="float:right;">내 포인트: ${memberIn.mbPoint}</div>
     </div>
     <table id="myInfo">
@@ -268,7 +300,20 @@
             <td>${couList.cName}</td>
             <td>${couList.cRatio}</td>
             <td>${couList.cNum}</td>
-            <td>${couList.cKind}</td>
+            <td>${couList.cKind} </td>
+            <td>${couList.cTarge} </td>
+            <td>
+                <c:choose>
+                 <c:when test="${cTarge.equals('1')}">
+                                                               생일 쿠폰   
+               </c:when>
+               <c:when test="${cTarge == 2}">
+                                                        등업 쿠폰
+               </c:when>
+                <c:otherwise>
+                                           이상한디
+             </c:otherwise>
+         </c:choose></td>
         </tr>    
           </c:forEach>
         </c:when>
@@ -293,20 +338,29 @@
             <th width="80px">예매취소</th>
         </tr>
      </thead>
-        <c:choose>
-                    <c:when test="${list.size() > 0}">
-                        <c:forEach var="list" items="${list}">
-                           <tr>
-                              <td>${list.tStatus}</td>
-                              <td>${list.miTime}</td>
-                              <td>${list.mvTitle}</td>
-                              <td>${list.mvNum}</td>
-                              <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
-                              <td><button id="moCancle">결제취소</button></td>
-                              <td style=";">${list.miQuality}</td>
-                               <td style=";">${list.tStatus}</td>
-                               <td style=";" id="tPrice">${list.tPrice}</td>
-                               <td style=";" id="tNum">${list.tNum}</td>
+                    <c:choose>
+                        <c:when test="${list.size() > 0}">
+                            <c:forEach var="list" items="${list}">
+                            <tr>
+                                    <td>
+                               <c:set var="tStatus" value="${list.tStatus}"/>
+                              <c:choose>
+                                        <c:when test="${tStatus == 1}">
+                                                                                             예매 완료       
+                                        </c:when>
+                                        <c:otherwise>
+                                                                                                  예매 취소
+                                      </c:otherwise>
+                                     </c:choose>
+                                  </td>
+                               <td>${list.miTime}</td>
+                               <td>${list.mvTitle}</td>
+                               <td id="tNum">${list.tNum}</td>
+                               <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
+                               <td><button id="moCancle">결제취소</button></td>
+                               <td style="display:none;">${list.miQuality}</td>
+                               <td style="display:none;">${list.tStatus}</td>
+                               <td style="display:none;" id="tPrice">${list.tPrice}</td>
                             </tr>
                         </c:forEach>
                     </c:when>

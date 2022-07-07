@@ -15,7 +15,7 @@ public interface MypageDao {
 	 * @return 1(성공) / 0(실패)
 	 * @throws SQLException
 	 */
-	int updateTicket(MemberVO inVO) throws SQLException;
+	int updateTicket(HistoryVO inVO) throws SQLException;
 
 	/**
 	 * 쿠폰 조회

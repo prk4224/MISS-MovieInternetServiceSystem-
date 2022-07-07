@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 <title>회원가입 - 추가정보입력</title>
 <!-- 부트스트랩 -->
 <link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
@@ -23,14 +24,21 @@
 <script type="text/javascript" src="${CP_RES}/js/jquery.bootpag.js"></script>
 <!--스타일 시트 -->
 <style type="text/css">
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 html {
     height: 100%;
 }
 
 body {
+    font-family: 'NEXON Lv1 Gothic OTF';
     margin: 0;
     height: 100%;
-    background: #f5f6f7;
+    background: #E9E9E9;
 }
 
 #wrapper {
@@ -146,7 +154,7 @@ select {
     border: 0;
     cursor: pointer;
     color: #fff;
-    background-color: #FF0000;
+    background-color: #13338B;
     font-size: 20px;
     font-weight: 400;
     
