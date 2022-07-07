@@ -130,6 +130,9 @@ public class PayController {
 		movie = payService.movieInfo(movie);
 		
 		mInVo.setMbNum(mbNum);
+		 // 포스터 URL
+    	String postURL = payService.posterSelect(movie);
+    	
 		
 		List<CouponVO> coulist = payService.couponRetrieve(cInVO);
 		//List<CouponVO> coulist = null;
@@ -153,6 +156,7 @@ public class PayController {
 		model.addAttribute("price", price);
 		model.addAttribute("list", coulist);
 		model.addAttribute("userpoint", point);
+		model.addAttribute("postURL", postURL);
 		
 		
 		return "pay/paypage";

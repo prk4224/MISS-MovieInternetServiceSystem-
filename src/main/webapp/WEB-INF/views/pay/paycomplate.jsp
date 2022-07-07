@@ -25,6 +25,7 @@
     </div>
 
      <div id = "movie_comimp">
+     	<div id = "movie_ticket">MOVIE TICKET</div>
 
         <div id = "qua_age">
             <div id = "quality">화질 : ${miQuality}p</div>
@@ -32,14 +33,15 @@
         </div>
 
         <div >
-            <div id = "movie_title">
-                <div style="font-size: 1.5vmax;">${m_title}</div>
-                <div>감독 : ${m_director} 배우 : ${m_actor}</div>
+            <div>
+                 <div id = "movie_title" style="font-size: 2vmax;">${m_title} </div>
+                <div id = "movie_dir">감독 : ${m_director}</div>
+                <div id = "movie_act">배우 :${m_actor} </div>
             </div>
-            <div id = "w_time">관람 시간 : ${m_time} 분</div>
-            <div id = "pay_num">
+            <div id = "w_time" style="font-size: 1.2vmax;">관람 시간 : ${m_time} 분</div>
+            <div id = "pay_num" style="font-size: 1.2vmax;" >
             	<div>결제번호 : ${info.tid}  </div>
-            	<div>금액 : ${m_price} 원</div> 
+            	<div>결제금액 : ${m_price} 원</div> 
             </div>
             <div id = "precaution">
                 <div>주의사항 ! </div>
