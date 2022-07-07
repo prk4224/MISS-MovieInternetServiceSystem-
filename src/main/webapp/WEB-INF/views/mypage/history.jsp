@@ -131,7 +131,7 @@
 //         	let tNum = $(this).parent().parent().children(2).eq(3).text()
 //         	console.log("tNum : " + tNum);
             if(!confirm('영화를 취소하시겠습니까?')){
-                return false;
+                return;
             }
                 let tNum = $(this).parent().parent().children(2).eq(3).text();
                  let url = "${CP}/pay/kakaoPayCancle.do";

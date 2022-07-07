@@ -19,7 +19,7 @@
 </head>
 <body>
 	<!-- 헤더영역 -->
-	<%-- <%@include file="../cmn/header.jsp"%> --%>
+	 <%@include file="../cmn/header.jsp"%>
 	<!-- //헤더영역 -->
 	<!-- <div id = "movie_img">
 		
@@ -122,7 +122,7 @@
     
     
     <!-- 푸터영역 -->
-	<%-- <%@include file="../cmn/footer.jsp"%>  --%>
+	<%@include file="../cmn/footer.jsp"%>
 	<!-- //푸터영역--------------------------->
 	
 	<script type="text/javascript">
