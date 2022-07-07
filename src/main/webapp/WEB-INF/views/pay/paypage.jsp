@@ -19,16 +19,20 @@
 </head>
 <body>
 	<!-- 헤더영역 -->
-	<%@include file="../cmn/header.jsp"%>
+	<%-- <%@include file="../cmn/header.jsp"%> --%>
 	<!-- //헤더영역 -->
+	<!-- <div id = "movie_img">
+		
+	</div> -->
 	
-	
+	<!-- <div id = "triangle">
+	</div> -->
 
      <div id = "movie_sale">
         <div id = "movie_detail" >
             <div class="movie_imp">
                 <div id = "c_movie">
-                    <div id = "movie_title">영화제목 : ${movie.mvTitle}</div>
+                    <div id = "movie_title">${movie.mvTitle}</div>
                     
                     <div id = "movie_dir">감독 : ${movie.mvDirector}</div>
                     <div id = "movie_act">배우 : ${movie.mvActor}</div> 
@@ -118,7 +122,7 @@
     
     
     <!-- 푸터영역 -->
-	<%@include file="../cmn/footer.jsp"%> 
+	<%-- <%@include file="../cmn/footer.jsp"%>  --%>
 	<!-- //푸터영역--------------------------->
 	
 	<script type="text/javascript">
@@ -133,39 +137,25 @@
 		 $("#movie_title").mouseenter(function(e){
 			 console.log("mouseover");
 			 $("#movie_detailInfo").fadeIn(500);
-			 $("#movie_detail").css({"margin-left" : "8vmax"});
-			 $("#movie_title").css({"width" : "200%"});
-			 
-
+			 $("#movie_detail").css({
+				 "margin-left" : "8vmax",
+				 "box-shadow" : "0px 0px 0px rgb(54, 54, 54)"
+				 });
+			 $("#movie_title").css({"width" : "107%"});
 			
 		 });
+		 
+		 
 		 $("#movie_title").mouseleave(function(e){
 			 console.log("mouseover");
 			 $("#movie_detailInfo").hide();
-			 $("#movie_detail").css({"margin-left" : "30vmax"});
+			 $("#movie_detail").css({
+				 "margin-left" : "30vmax",
+				 "box-shadow" : "0px 0px 7px rgb(54, 54, 54)"
+				 });
 			 $("#movie_title").css({"width" : "80%"});
-			 
-			
 		 });
 		 
-		 
-		/*  $("#movie_detail").mouseover(function(e){
-			 console.log("mouseover");
-			 $("#movie_detailInfo").css({
-				 "display" : "block"
-			 });
-			
-		 });
-		 
-		$("#movie_detail").mouseout(function(e){
-			 console.log("mouseout");
-			 $("#movie_detailInfo").css({
-				 "display" : "none"
-			 });
-			
-		 }); */
-		 
-		
 		        
         let resultprice = ${price};
         console.log("resultpricey"); 

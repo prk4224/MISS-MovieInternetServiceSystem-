@@ -17,13 +17,35 @@
 body {
     background-color: #E9E9E9;
 }
+#movie_img{
+	float: left;
+	 background-image: url("../img/movieimg.png");
+	 background-size : cover;
+	 margin-top: 6vmax;
+	 margin-left: 7vmax;
+	 height: 15vmax;
+	 width: 20vmax;
+}
+
+#triangle {
+	float: left;
+  width: 0px;
+  height: 0px;
+  margin-top: 4vmax;
+  margin-left: -4vmax;
+  margin-right: -2vmax;
+  border-right: 16vmax solid #fff;
+  border-top: 8vmax solid transparent;
+  border-bottom: 8vmax solid transparent;
+}
+
 #post{
 	float: left;
 	 height: 15vmax;
 	 margin-left: 3%;
 	 margin-right: 3%;
 	 margin-top: 3%;
-	 margin-bottom: 2%;
+	 margin-bottom: 1%;
 }
 
 #movie_detailInfo{
@@ -31,9 +53,10 @@ body {
 	float: left;
 	width: 35vw;
     height: 40vmax;
-    margin-left: 7vmax;
+    margin-left: 4vmax;
     margin-top: 4vmax;
     box-shadow: 0px 0px 7px rgb(54, 54, 54);
+    background-image: url("../img/paper2.jpeg");
      
 }
 
@@ -43,6 +66,7 @@ body {
 	font-size: 1.4vmax;
 	margin-left: 3%;
 	margin-right: 3%;
+	line-height: 1.5em;
 }
 #plot{
 	color: rgb(167, 0, 0);
@@ -55,11 +79,12 @@ body {
 #movie_detail {
 	float: left;
     width: 40vw;
-    height: 40vmax;
-    margin-left: 30vmax;
+    height: 50vmax;
     margin-top: 2vmax;
+    margin-left: 30vmax;
     margin-bottom : 4vmax;
     border-radius: 1.5vmax;
+    box-shadow: 0px 0px 7px rgb(54, 54, 54);
 
 }
 
@@ -71,11 +96,9 @@ table {
 
 #movie_title{
     font-size: 2.3vmax;
-    width: 50%;
     margin-top: 7%;
     margin-left: 10%;
     margin-right: 10%;
-    height: 4vmax;
     font-weight: 900;
     color: rgb(167, 0, 0);
 }
@@ -84,7 +107,7 @@ table {
     
    
     float: left;
-    margin-top: 5%;
+    margin-top: 1%;
     margin-left: 10%;
     height: 1vmax;
     width: 80%;
@@ -106,9 +129,12 @@ table {
     margin-left: 10%;
     margin-right: 10%;
     
+    
 }
 #miTime{
 	height: 1.5vmax;
+	color: rgb(167, 0, 0);
+	font-weight: 900;
 }
 
 #r_time {
@@ -126,7 +152,6 @@ table {
     margin-right: 10%;
     height: 3vmax;
     font-size: 1.5vmax;
-    color: rgb(167, 0, 0);
     font-weight: 900;
 }
 #coupon_text{
@@ -186,7 +211,7 @@ table {
 #result_pay {
     float :  left;
     margin-top: 7%;
-    margin-left: 53%;
+    margin-left: 60%;
     margin-right: 2%;
     height: 5vmax;
 }

@@ -38,7 +38,7 @@
                 <div id = "movie_dir">감독 : ${m_director}</div>
                 <div id = "movie_act">배우 :${m_actor} </div>
             </div>
-            <div id = "w_time" style="font-size: 1.2vmax;">관람 시간 : ${m_time} 분</div>
+            <div id = "w_time" style="font-size: 1.5vmax; color:rgb(167, 0, 0)">관람 시간 : ${m_time} 분</div>
             <div id = "pay_num" style="font-size: 1.2vmax;" >
             	<div>결제번호 : ${info.tid}  </div>
             	<div>결제금액 : ${m_price} 원</div> 
