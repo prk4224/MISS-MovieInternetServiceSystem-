@@ -74,7 +74,7 @@
 		    SELECT im_route AS imRoute2
 		    FROM IMAGE
 		    WHERE mv_num = #{mvNum}
-		    AND mv_seq = 2
+		    AND mv_seq = 3
 		)B
 	</select>
 	

@@ -33,14 +33,23 @@
     font-weight: normal;
     font-style: normal;
     }
+    @font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
     html,
     body {
     margin: 0;
-    background: black;
+    background: #E9E9E9;
     font-family: "Montserrat", helvetica, arial, sans-serif;
     font-size: 16px;
     font-weight: 400;
+    }
+    #contents{
+    	background: #E9E9E9;
     }
 
     .movie_card {
@@ -48,7 +57,7 @@
     display: block;
     width: 1500px;
     height: 800px;
-    margin: 100px auto;
+    margin: 10px auto;
     overflow: hidden;
     border-radius: 10px;
     transition: all 0.4s;
@@ -256,7 +265,10 @@
 	}
 	    
 	    
-	    
+	#stillCutH1{
+		font-family: 'NEXON Lv1 Gothic OTF Bold';
+		text-align: center;
+	}
 	
 	.slides{
     position: absolute;
@@ -295,14 +307,10 @@
 	    right: 0px;
 	}
 	.slides img{
-/* 	    width: 440px; */
-/* 	    height: 250px; */
 	    width: 660px;
 	    height: 370px;
 	}
 	#slideshow{
-/* 	    width: 910px; */
-/* 	    height: 275px; */
 	    width: 1350px;
 	    height: 370px;
 	    position: relative;
@@ -316,6 +324,89 @@
 	    float: left;
 	    margin-right: 30px;
 	}
+	
+    select {
+	    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+	    background-color:#3498DB;
+	    background-repeat:no-repeat;
+	    background-position: right 10px top 15px;
+	    background-size: 16px 16px;
+	    color:white;
+	    padding:12px;
+	    width:auto;
+	    font-family:arial,tahoma;
+	    font-size:20px;
+	    font-weight:bold;
+	    color:#fff;
+	    text-align:center;
+	    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+	    border-radius:3px;
+	    -webkit-border-radius:3px;
+	    -webkit-appearance: none;
+	    border:0;
+	    outline:0;
+	    -webkit-transition:0.3s ease all;
+	        -moz-transition:0.3s ease all;
+	            -ms-transition:0.3s ease all;
+	            -o-transition:0.3s ease all;
+	                transition:0.3s ease all;
+	    }
+	#reviewH1{
+		font-family: 'NEXON Lv1 Gothic OTF Bold';
+		text-align: center;
+	}
+	#rRating {
+	  background-color:#13338B;
+	  color: #E9E9E9;
+	  border: 1px solid black;
+	}
+	
+	#rRating:hover {
+	  background-color:#E9E9E9;
+	  color: #13338B;
+	}
+	#stat{
+		text-align: center;
+		font-size: 24px;
+		margin-top: 10px;
+		font-family: 'NEXON Lv1 Gothic OTF Bold';
+		color: #13338B;
+	}
+	#stat > span:nth-child(even){
+		background-color: #13338B;
+		border: 3px solid #13338B;
+		border-radius: 10px;
+		color: white;
+	}
+	form{
+		width: 80%;
+		text-align: right;
+		display: inline-block;
+		padding-right: 20px;
+	}
+	#mbNickname{
+		width: 150px;
+		height: 46px;
+		border: none;
+		background-color:#E9E9E9;
+		border-bottom: 1px solid black;
+	}
+	#rReview{
+		width: 800px;
+		height: 46px;
+		border: none;
+		background-color:#E9E9E9;
+		border-bottom: 1px solid black;
+	}
+	#add{
+		width: 100px;
+		height: 46px;
+		background-color: #13338B;
+		color: white;
+		border: none;
+		border-radius: 10px;
+	}
+	
 </style>
 	<title>MISS, 최신 영화를 집에서</title>
 	<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
@@ -417,7 +508,7 @@
 <!--             </div> -->
 <!--         </div> -->
             <div id="moviecut">
-            <h1 style="text-align: center">영화 스틸컷</h1>
+            <h1 id="stillCutH1">영화 스틸컷</h1>
                 <div id="movie">
                     <div id="slideshow">
                         <ul class="slides">
@@ -438,22 +529,46 @@
                     </div>
                 </div>
             </div>
-                
-            <div id="reviewDiv">
-                <form action="">
-                	<p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p>
-                	<input type="text" value="" id="mbNickname" name="mbNickname" readonly>
-                    <select name="rRating" id="rRating">
-                        <option selected value="5">5</option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                    </select>
-                    <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)">
+            	<h1 id="reviewH1">리뷰</h1>
+            	<div id="stat">
+            		<span>평균 별점</span>
+	                <span id="avgRating"></span>
+	                <span>총 리뷰수</span>
+	                <span id="totalReview"></span>
+            	</div>
+                <form>
+	                <p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p><br>
+	                <select id="rRating" name="rRating">
+				      <optgroup label="별점">
+				        <option selected="selected" value="5">5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				        <option value="4">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				        <option value="3">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				        <option value="2">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				        <option value="1">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				      </optgroup>
+				    </select>
+				    <input type="text" value="" id="mbNickname" name="mbNickname" readonly>
+				    <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)">
                 </form>
-                	<input type="submit" value="작성완료" id="add">
+                <input type="submit" value="리뷰등록" id="add">
+<!--             <div id="reviewDiv"> -->
+<!--                 <form action=""> -->
+<%--                 	<p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p> --%>
                 	
+<!--                     <select name="rRating" id="rRating"> -->
+<!--                         <option selected value="5">5</option> -->
+<!--                         <option value="4">4</option> -->
+<!--                         <option value="3">3</option> -->
+<!--                         <option value="2">2</option> -->
+<!--                         <option value="1">1</option> -->
+<!--                     </select> -->
+<!--                     <input type="text" value="" id="mbNickname" name="mbNickname" readonly> -->
+<!--                     <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)"> -->
+<!--                 </form> -->
+<!--                 	<input type="submit" value="작성완료" id="add"> -->
+					
+
+
                 	<table id="movie_table">
                 	   <thead>
                 	       <tr>
@@ -481,7 +596,7 @@
 		                <div id="page-selection" class="text-center page"></div>
 		            </div>
 		        </div>
-            </div>
+<!--             </div> -->
     </div>
     <!-- 푸터영역 -->
 	<%@include file="../cmn/footer.jsp"%>
@@ -521,8 +636,8 @@
         		    maxVisible: 10,
         		    leaps: true,
         		    firstLastUse: true,
-        		    first: '←',
-        		    last: '→',
+        		    first: 'FIRST',
+        		    last: 'LAST',
         		    wrapClass: 'pagination',
         		    activeClass: 'active',
         		    disabledClass: 'disabled',
