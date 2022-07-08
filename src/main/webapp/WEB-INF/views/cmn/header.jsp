@@ -22,68 +22,100 @@
 }
     header {
         width: 100%;
-        background-color: black;
+       height: 10%;
+       /* background: linear-gradient(
+       		to top,
+       		rgba(0,0,0,0) 10%,
+       		rgba(0,0,0,0.5) 30%,
+       		rgba(0,0,0,0.7) 70%,
+       		rgba(0,0,0,1) 100%
+       ); */
+       
+       background-color: #E9E9E9;
+       
     }
     /*로고 위치sdsss*/
     #logo {
         float:left;
-        margin-top:20px;
-        margin-left:20px;
+        margin-top:3vh;
+        margin-left:2vw;
     }
     /*menu 스타일*/
     #menu {
-            height: 100px; 
-            width : 100%; 
+        height: 13vh; 
+        width : 100%; 
+        box-shadow: 0px 0px 7px rgb(54, 54, 54);
     }
     /*menu ul, li 스타일*/
     #menu ul li {
-            margin-left:80px;                      
+            margin-left:6vw; 
+            margin-top: 4vh;                     
             list-style: none;           
-            color: white;                
-            float: left;               
-            line-height: 90px;         
+            color: black;                
+            float: left;                       
             vertical-align: middle;    
-            text-align: center;         
+            text-align: center;        
     }
     /*menuLink 스타일*/
     #menu .menuLink {                               
             text-decoration:none;                   
-            color: white;                           
+            color: black;                           
             display: block;                         
-            width: 150px;                             
-            font-size: 20px;                          
+            width: 10vw;                             
+            font-size: 1.5vw;                          
             font-weight: bold;                        
-             font-family: 'NEXON Lv1 Gothic OTF Bold'; /*추후 폰트 수정*/
+            font-family: 'NEXON Lv1 Gothic OTF Bold'; /*추후 폰트 수정*/
     }
+    #logoutText{
+    	
+    	margin-top:0.5%;
+    	margin-left: 93.25%;
+    }
+    
+    #nickName{
+    	float: right;
+    	margin-right: 1.5%;
+    	margin-top: 1%;
+    }
+    
     /*로그인 a태그 스타일*/
-    .logout {
-        margin-left:10px;
-        text-decoration:none;
-        font-size:15px;
-        color:white;
-        background-color: red;
-        display:inline-block;
-        border-radius: 4px;
-        border-bottom:5px solid darkred;
-        text-shadow:0px -2px rgba(0,0,0,0.44);
-        width: 80px;
-        height: 80px;
-        line-height: 80px;
+    #logout {
+    	margin-left:17vw;
+    	margin-top: 2%;
+        width: 3.5vw;
+        height: 5vh;
+        border: none;
+        border-radius: 1vmax; 
     }
-    .logout:active {
+    #logout:active {
         transform: translateY(3px);
         border-bottom:2px solid darkred;
     }
+    
     /*menuLink 마우스 오버시 표시(다크그레이)*/
     #menu .menuLink:hover {          
-            color: darkgray;                
+            color: darkgray;
+            font-size: 1.7vmax;             
     }
+    
+    #logout:hover {          
+            color: darkgray;
+            width: 4vw;
+       		height: 6vh;  
+       		box-shadow: 0px 0px 10px rgb(54, 54, 54);         
+    }
+    
+    img {
+    max-width: 100%;
+    max-height: 100%;
+    
+	}
 </style>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	    $("#headNickname").text("환영합니다 ~ " + sessionStorage.getItem("mbNickname") + "님");
-	    
+	    $("#headNickname").text(sessionStorage.getItem("mbNickname") + "님");
+	     
 	    Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
 	    $(".logout").on("click", function(){
 	        if(confirm("로그아웃 하시겠습니까?")){
@@ -102,18 +134,21 @@
 </head>
 <body>
     <header>
-        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/miss_logo_2.png" style="height:55px; width:auto;"></a>
+        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/MISSlogowi.png" style="height:7vh; width:auto;"></a>
         <nav id="menu">
             <ul>
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
                 <li><a class="menuLink" id="mbNum">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
-                <li>
-                    <span id="headNickname" style="color: white; font-size: 16px"></span>
-                    <input type="button" class="logout" value="로그아웃">
-                </li> <!-- 아이콘 이미지로 변경 -->
+                    	
             </ul>
+            
+             
+             <div><button id="logout" value="Logout"><img src="${path}/resources/img/logout.png"></button></div>
+             <div id = "logoutText">Logout</div>
+             <div id = "nickName"><span id="headNickname" style="color: black; font-size: 1.2vmax"></span></div>
+             
         </nav>
     </header>
 </body>
