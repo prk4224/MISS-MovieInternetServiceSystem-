@@ -28,7 +28,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
     <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-    <title>부트스트랩 - boot_list</title>
+    <title>MISS, 최신 영화를 집에서</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
     <!--스타일 시트 -->
     <style type="text/css">
 
@@ -133,25 +134,43 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $(document).on("click","#moCancle", function(){
-        	
+//         	let tNum = $(this).parent().parent().children(2).eq(3).text()
+//         	console.log("tNum : " + tNum);
             if(!confirm('영화를 취소하시겠습니까?')){
-                return false;
+                return;
             }
+                let tNum = $(this).parent().parent().children(2).eq(3).text();
                  let url = "${CP}/pay/kakaoPayCancle.do";
                  let method = "POST";
                  let async = true;
                  let parameters ={
-                         tNum : $(this).parent().parent().children(2).eq(3).text(),
+                         tNum : tNum,
                          tPrice : $(this).parent().parent().children(2).eq(8).text()
                  }
-                 console.log("tNum : " + tNum);
-                 console.log("tPrice : " + tPrice);
+                 console.log("tNum : " + $(this).parent().parent().children(2).eq(3).text());
+                 console.log("tPrice : " + $(this).parent().parent().children(2).eq(8).text());
                  EClass.callAjax(url, parameters, method, async, function(data) {
-                     console.log("data : " + data);
+                	 console.log("================1=============");
                  })
-        })
+                 console.log("================2=============");
+                 tcUpdate(tNum);
+                 location.href = "/miss/mypage/historyView.do?mbNum=" + sessionStorage.getItem("mbNum")
+                 })
+        
         });
-    
+    function tcUpdate(tNum){
+        let url = "${CP}/mypage/updateTicket.do";
+        let method = "POST";
+        let async = true;
+        let parameters = {
+            tNum : tNum                   
+        }
+        console.log("tNum : " + tNum);      
+        
+        EClass.callAjax(url, parameters, method, async, function(data) {
+             console.log("data : " + data);                              
+        });    
+   }
     
     
     //현재시간
@@ -257,6 +276,10 @@
             <th>할인율</th>
             <th>쿠폰번호</th>
             <th>사용구분</th>
+            <th width="200px">쿠폰명</th>
+            <th width="100px">할인율</th>
+            <th width="300px">쿠폰번호</th>
+            <th width="100px">사용여부</th>
         </tr>
      </thead>
       <c:choose>
@@ -264,15 +287,25 @@
            <c:forEach var="couList" items="${couList}">
         <tr>  
             <td>${couList.cName}</td>
-            <td>${couList.cRatio}</td>
+            <td>${couList.cRatio}%</td>
             <td>${couList.cNum}</td>
-            <td>${couList.cKind}</td>
+<%--             <td>${couList.cKind} </td> --%>
+<%--             <td>${couList.cTarge} </td> --%>
+            <td>
+                <c:choose>
+                 <c:when test="${couList.cKind == 1}">
+                                                               사용가능   
+               </c:when>
+                <c:otherwise>
+                                           사용완료
+             </c:otherwise>
+         </c:choose></td>
         </tr>    
           </c:forEach>
         </c:when>
          <c:otherwise>
           <tr>
-              <td colspan="99">결제내역이 없습니다.</td>
+              <td colspan="99">쿠폰내역이 없습니다.</td>
           </tr>
          </c:otherwise>
      </c:choose>
@@ -291,11 +324,21 @@
             <th>예매취소</th>
         </tr>
      </thead>
-        <c:choose>
-                    <c:when test="${list.size() > 0}">
-                        <c:forEach var="list" items="${list}">
-                           <tr>
-                               <td>${list.tStatus}</td>
+                    <c:choose>
+                        <c:when test="${list.size() > 0}">
+                            <c:forEach var="list" items="${list}">
+                            <tr>
+                                    <td>
+                               <c:set var="tStatus" value="${list.tStatus}"/>
+                              <c:choose>
+                                        <c:when test="${tStatus == 1}">
+                                                                                             예매 완료       
+                                        </c:when>
+                                        <c:otherwise>
+                                                                                                  예매 취소
+                                      </c:otherwise>
+                                     </c:choose>
+                                  </td>
                                <td>${list.miTime}</td>
                                <td>${list.mvTitle}</td>
                                <td id="tNum">${list.tNum}</td>

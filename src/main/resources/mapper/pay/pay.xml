@@ -66,7 +66,8 @@
 	       mv_director AS mvDirector,
 	       mv_actor AS mvActor,
 	       mv_time AS mvTime,
-	       mv_agelimit AS mvAgelimit
+	       mv_agelimit AS mvAgelimit,
+	       mv_summary AS mvSummary
 		FROM MOVIE
 		WHERE mv_num = #{mvNum}
 	</select>

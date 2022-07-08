@@ -12,7 +12,8 @@
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
  <script src="${CP}/resources/js/jquery-1.12.4.js"></script>
 
-<title>Insert title here</title>
+<title>MISS, 최신 영화를 집에서</title>
+<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 </head>
 <body>
 	<header>MISS</header>
@@ -25,6 +26,7 @@
     </div>
 
      <div id = "movie_comimp">
+     	<div id = "movie_ticket">MOVIE TICKET</div>
 
         <div id = "qua_age">
             <div id = "quality">화질 : ${miQuality}p</div>
@@ -32,14 +34,15 @@
         </div>
 
         <div >
-            <div id = "movie_title">
-                <div style="font-size: 1.5vmax;">${m_title}</div>
-                <div>감독 : ${m_director} 배우 : ${m_actor}</div>
+            <div>
+                 <div id = "movie_title" style="font-size: 2vmax;">${m_title} </div>
+                <div id = "movie_dir">감독 : ${m_director}</div>
+                <div id = "movie_act">배우 :${m_actor} </div>
             </div>
-            <div id = "w_time">관람 시간 : ${m_time} 분</div>
-            <div id = "pay_num">
+            <div id = "w_time" style="font-size: 1.5vmax; color:rgb(167, 0, 0)">관람 시간 : ${m_time} 분</div>
+            <div id = "pay_num" style="font-size: 1.2vmax;" >
             	<div>결제번호 : ${info.tid}  </div>
-            	<div>금액 : ${m_price} 원</div> 
+            	<div>결제금액 : ${m_price} 원</div> 
             </div>
             <div id = "precaution">
                 <div>주의사항 ! </div>

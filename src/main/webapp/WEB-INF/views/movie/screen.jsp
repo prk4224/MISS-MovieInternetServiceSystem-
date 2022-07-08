@@ -1,3 +1,14 @@
+<%--
+/**
+	Class Name: screen.jsp
+	Description: 상영 페이지
+	Modification information
+    
+    author MISS 개발팀
+    since 2022.06.15
+    Copyright (C) by MISS All right reserved.
+*/
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -7,10 +18,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
-<title>영화 상영 페이지</title>
+	<meta charset="UTF-8">
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+	<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
+	<title>영화 상영 페이지</title>
 </head>
 <body>
     <div id="contents" style="height: 100%">

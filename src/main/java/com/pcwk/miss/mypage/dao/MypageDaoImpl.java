@@ -81,7 +81,7 @@ public class MypageDaoImpl implements MypageDao {
 	}
 
 	@Override
-	public int updateTicket(MemberVO inVO) throws SQLException {
+	public int updateTicket(HistoryVO inVO) throws SQLException {
 		int flag = 0;
 		String statement = this.NAMESPACE + ".updateTicket";
 		LOG.debug("============================");

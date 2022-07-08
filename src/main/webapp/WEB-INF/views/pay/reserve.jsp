@@ -29,44 +29,38 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 	<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-    <title>부트스트랩 - boot_list</title>
+    <title>MISS, 최신 영화를 집에서</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
     <!--스타일 시트-->
 	<style type="text/css">
-	header {
-	    width: 100%;
-	    height: 80px;
-	}
-	nav {
-	    width: 100%;
-	    height: 80px;
-	}
-	main {
-	    width: 100%;
-	    height: 1000px;
-	}
-	footer {
-	    height: 80px;
-	}
+	@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    body {
+    height: 100%;
+    width: 100%;
+    background: #e9e9e9;
+    }
+           
 	.name {
 	    text-align: center;
 	    background: #ffffff;
 	    border: solid 1px #dadce0;
-	    font-family: 'MICEGothic Bold';
-	    src:
-	        url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2')
-	        format('woff2');
+	    font-family: 'NEXON Lv1 Gothic OTF';
 	    font-weight: 700;
-	    font-style: normal;
 	    font-size: 20px;
 	    color:white;
-	    background-color : grey;
+	    padding : 5px 0;
+	    background-color : #13338B;
 	}
 	.List {
 	    text-align: center;
 	    height: 50px;
-	    font-family: 'MICEGothic Bold';
+	    font-family: 'NEXON Lv1 Gothic OTF';
 	    src:
 	        url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2')
 	        format('woff2');
@@ -75,19 +69,23 @@
 	    font-size: 20px;
 	}
 	.timeBt {
-	    width: 110px;
+	    width: 195px;
+	    height:100px;
 	    text-align: center;
-	    position: relative;
 	    color: #616265;
 	    border: solid 1px #dadce0;
 	    display: inline-block;
-	    padding: 6px 10px 6px 10px;
+	    align-items : center;
+	    margin-right: 0px;
+	    
 	    cursor: pointer; /*  커서 모양 변경 */
+	    font-family: 'NEXON Lv1 Gothic OTF';
 	}
 	.clicked_Bt {
 	    border-color: #763f04;
 	    color: #ffffff;
-	    background: #c56b0b;
+	    background: #0c2363;
+	    font-family: 'NEXON Lv1 Gothic OTF';
 	}
 	.movieBt {
 	    width: 300px;
@@ -97,12 +95,15 @@
 	    display: inline-block;
 	    padding: 6px 8px 6px 8px;
 	    cursor: pointer; /*  커서 모양 변경 */
+	    font-family: 'NEXON Lv1 Gothic OTF';
+	     font-size: 15px;
 	}
 	
 	.clicked_MBt {
 	    border-color: #763f04;
 	    color: #ffffff;
-	    background: #c56b0b;
+	    background: #0c2363;
+	    font-family: 'NEXON Lv1 Gothic OTF';
 	}
 	/*스크롤바 */
 	   .scrollB {
@@ -110,9 +111,11 @@
 	        width: 300px;
 	        height: 500px; 
 	        position: absolute; 
-	        top: 450px; 
-	        left: 700px;
-	        overflow-x: hidden
+	        top: 250px; 
+	        left: 350px;
+	        overflow-x: hidden;
+	        background-color : #fafafa;
+	        
 	  }
 	  .scrollB::-webkit-scrollbar {
 	    width: 10px;
@@ -129,19 +132,16 @@
 	  border: 1px solid grey;  
 	  cursor:pointer; 
 	  cursor:hand; 
-	  background-color: light grey;  
+	  background-color: #13338B;  
 	  color: white; 
 	  padding: 5px; 
 	  border-radius: 12px;
 	  position: absolute; 
-	  top:960px; 
-	  left:1820px;
+	  top:760px; 
+	  left:1460px;
 	  text-align: center;
 	    height: 50px;
-	    font-family: 'MICEGothic Bold';
-	    src:
-	        url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2')
-	        format('woff2');
+	    font-family: 'NEXON Lv1 Gothic OTF';
 	    font-weight: 700;
 	    font-style: normal;
 	    font-size: 20px;
@@ -266,17 +266,17 @@
 	    	});
 	    } 
 	</script>
-</head>
-<body>
+
+<body style="background: #e9e9e9;">
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-    <main>
+   
         <div>
-            <div class="name" style="width: 298px; height: 30px; position: absolute; top: 420px; left: 700px;">영화 제목</div>
-            <div class="name" style="width: 998px; height: 30px; position: absolute; top: 420px; left: 1000px;">시간</div>
-            <div style="width:992px; height: 492px; position:absolute; top:450px; left:1000px; border: solid 4px #dadce0;">
-            	<div id="showTIme1" style="position: absolute; width:100%;">
+            <div class="name" style="width: 300px; height: 40px; position: absolute; top: 210px; left: 350px;">영화 제목</div>
+            <div class="name" style="width: 994px; height: 40px; position: absolute; top: 210px; left: 655px;">시간</div>
+            <div style="width:992px; height: 492px; position:absolute; top:250px; left:655px; background-color:#fafafa;">
+            	<div id="showTIme1" style="position: absolute;width:100%;">
 	                 <c:choose>
 			        	<c:when test="${timeList.size() > 0}">
 			        		<c:forEach var="timeList" items="${timeList}">
@@ -324,7 +324,7 @@
     <button type="button" class="rBt" onclick='goBuy()'>
        예약하기</button>
 
-    </main>
+   
     <!-- 푸터영역 -->
     <%@include file="../cmn/footer.jsp"%>
     <!-- //푸터영역 -->

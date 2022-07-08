@@ -4,8 +4,8 @@
  <!-- 수정 -->
     <update id="updateTicket" parameterType="HistoryVO">
         UPDATE Ticket
-        SET  = t_status = 0        
-        WHERE mb_num = #{mbNum} 
+        SET  t_status = 0        
+        WHERE t_Num = #{tNum} 
     </update>
 <!-- 내 쿠폰 가져오기 -->
 	<select resultType="CouponVO" parameterType="CouponVO" id="getCoupon">
@@ -16,7 +16,8 @@
 				C_RATIO as "cRatio",
 				C_KIND as "cKind"
 		FROM COUPON
-		WHERE mb_num = #{mbNum} 
+		WHERE mb_num = #{mbNum}
+		ORDER BY c_kind DESC, c_Num ASC
 	</select>
 
 <!--회원 정보 가져오기 -->
@@ -24,8 +25,8 @@
 	SELECT MB_NUM as "mbNum",
         MB_EMAIL as "mbEmail",
         MB_NAME as "mbName",
-        MB_TEL as "mbTel",
-        MB_BIRTH as "mbBirth",
+        SUBSTR(mb_tel,1,3)||'-'||SUBSTR(mb_tel,4,4)||'-'||SUBSTR(mb_tel,8) as "mbTel",
+        TO_CHAR(mb_BIRTH, 'YYYY/MM/DD') as "mbBirth",
         MB_NICKNAME as "mbNickname",
         MB_GRADE as "mbGrade",
         MB_POINT as "mbPoint"
@@ -50,6 +51,8 @@
 		AND O.mv_num = V.mv_num
 		AND v.t_time = O.mi_time
 		AND v.mb_num = #{mbNum} 
+     ORDER BY t_Status DESC,
+             mi_time DESC
 	</select>
 
 <!-- 예매취소 -->

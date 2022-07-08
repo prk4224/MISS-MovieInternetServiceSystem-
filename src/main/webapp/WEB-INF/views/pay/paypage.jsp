@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="CP" value="${pageContext.request.contextPath}"/>
+<c:set var="resources" value="/resources"/>
+<c:set var="CP_RES" value="${CP}${resources}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +14,8 @@
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 	 <script src="${path}/resources/js/jquery-1.12.4.js"></script>
 	
-	<title>Miss</title>
+	<title>MISS, 최신 영화를 집에서</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 	<link rel="stylesheet"  type="text/css" href="${path}/resources/css/paypage.css">
 
 	
@@ -19,38 +23,49 @@
 </head>
 <body>
 	<!-- 헤더영역 -->
-	<%@include file="../cmn/header.jsp"%>
+	 <%@include file="../cmn/header.jsp"%>
 	<!-- //헤더영역 -->
+	<!-- <div id = "movie_img">
+		
+	</div> -->
+	
+	<!-- <div id = "triangle">
+	</div> -->
 
      <div id = "movie_sale">
         <div id = "movie_detail" >
             <div class="movie_imp">
                 <div id = "c_movie">
-                    <div id = "movie_title">영화제목 : ${movie.mvTitle}</div> 
-                    <div>감독 : ${movie.mvDirector} 배우 : ${movie.mvActor}</div> 
+                    <div id = "movie_title">${movie.mvTitle}</div>
+                    
+                    <div id = "movie_dir">감독 : ${movie.mvDirector}</div>
+                    <div id = "movie_act">배우 : ${movie.mvActor}</div> 
 
 
                 </div>
                 <div id = "t_movie">
-                    <div>상영시간 : ${miTime} , 러닝타임 : ${movie.mvTime} 분, 화질 : ${miQuality}p</div>
+                    <div id ="miTime">상영시간 : ${miTime}</div>
+                    <div id = "r_time">러닝타임 : ${movie.mvTime} 분</div>
+                    <div id = "miQ">화질 : ${miQuality}p</div>
                 </div>
             </div>
             <div class="movie_sale">
                 <div id = "p_price" name = "p_price" value = "${price}">결제금액 : ${price} 원</div>
+                <div id = "coupon_text">COUPON</div>
                 <div id = "coupon">
-                    <div>할인쿠폰</div>
+                    
                    	<table>
                    		<thead>
                    			<tr>
-                   				<th>구분</th>
-                   				<th>쿠폰 번호</th>
-                   				<th>쿠폰 이름</th>
-                   				<th>할인율</th>
+                   				<th></th>
+                   				<th>Coupon Number</th>
+                   				<th>Coupon Name</th>
+                   				<th>Discount Rate</th>
              
                    			</tr>
                    		</thead>
                    		
-                   		<tbody>
+                   		<tbody id = "couponbody">
                    		
                    			<c:choose>
 	                   			<c:when test="${list.size() > 0}">
@@ -59,7 +74,7 @@
 	       									<td><input class = "couponCheck"  type="radio" name = "couponList" value = "${vo.cNum}" /></td>
 	                   						<td>${vo.cNum}</td>
 	                   						<td>${vo.cName}</td>
-	                   						<td>${vo.cRatio}</td>
+	                   						<td>${vo.cRatio} %</td>
 	                   					</tr>
 	                   				</c:forEach>
                    				</c:when>
@@ -78,29 +93,40 @@
                 </div>
                 <div id = "point">   
                 	POINT : <input type = "text" id = "user_point" value = "${userpoint}" readonly="readonly">                 
-                    사용 POINT : 
-                    <input id = "u_point" type = "number" style="width: 4vmax;" value = "0">
+                    사용 : 
+                    <input id = "u_point" type = "number" style="width: 4vmax; height: 1.7vmax; text-align: right;  border: none;" value = "0">
                     <button id = "pointbtn">적용</button>
                 </div>
-                <div id = "result_pay">최종결제금액 :
-                	<div id = "r_price"></div>
+                <div id = "result_pay">최종결제금액
+                	<div id = "r_price"></div> 
                 	
                 </div>
+                
+                 
             </div>
+            <div id = "payment_type">
+		   		<form name = "frmSubmit">
+		 			<button id="kakaoapibtn"><img src="${path}/resources/img/kakao.jpeg"></button>
+			 	</form>
+			</div>
+            
             
         </div>
+        
     </div>
+    <div id = "movie_detailInfo">
+		<div id = "post">
+	        <img src="${postURL}">
+	    </div>
+		<div id = "plot">Plot</div> 
+		<div id = "movie_contents">${movie.mvSummary}</div> 
+		
+	</div>
 
-    <div id = "payment_type">
-    	<form name = "frmSubmit">
-  			<button id="kakaoapibtn"><img src="${path}/resources/img/kakao.jpeg"></button>
-		 </form>
-    	
-        <button id = "naverapibtn"  type="button">네이버 간편 결제</button>
-    </div>
+    
     
     <!-- 푸터영역 -->
-	<%@include file="../cmn/footer.jsp"%> 
+	<%@include file="../cmn/footer.jsp"%>
 	<!-- //푸터영역--------------------------->
 	
 	<script type="text/javascript">
@@ -111,8 +137,29 @@
 	
 	$(document).ready(function(){
 		 console.log("document.ready");
-
-		
+		 
+		 $("#movie_title").mouseenter(function(e){
+			 console.log("mouseover");
+			 $("#movie_detailInfo").fadeIn(500);
+			 $("#movie_detail").css({
+				 "margin-left" : "8vmax",
+				 "box-shadow" : "0px 0px 0px rgb(54, 54, 54)"
+				 });
+			 $("#movie_title").css({"width" : "107%"});
+			
+		 });
+		 
+		 
+		 $("#movie_title").mouseleave(function(e){
+			 console.log("mouseover");
+			 $("#movie_detailInfo").hide();
+			 $("#movie_detail").css({
+				 "margin-left" : "30vmax",
+				 "box-shadow" : "0px 0px 7px rgb(54, 54, 54)"
+				 });
+			 $("#movie_title").css({"width" : "80%"});
+		 });
+		 
 		        
         let resultprice = ${price};
         console.log("resultpricey"); 
@@ -146,11 +193,13 @@
         });
         
        
+       
         
        
         
        $("#kakaoapibtn").on("click", function(e){
     	   
+    	 
     	   let checkbox = document.getElementsByName('couponList');
     	   let useCoupon = -1;
     	   console.log(resultprice); 
