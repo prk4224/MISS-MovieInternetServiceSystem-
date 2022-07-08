@@ -81,8 +81,12 @@
 	    cursor: pointer; /*  커서 모양 변경 */
 	    font-family: 'NEXON Lv1 Gothic OTF';
 	}
+	.timeBt:hover {
+       
+         background : #133287;
+    }
 	.clicked_Bt {
-	    border-color: #763f04;
+	    border-color: #2f3542;
 	    color: #ffffff;
 	    background: #0c2363;
 	    font-family: 'NEXON Lv1 Gothic OTF';
@@ -99,9 +103,12 @@
 	     font-size: 17px;
 	     background : #f5f5f5;
 	}
-	
+	.movieBt:hover {
+       
+         background : #133287;
+    }
 	.clicked_MBt {
-	    border-color: #763f04;
+	    border-color: #2f3542;
 	    color: #ffffff;
 	    background: #0c2363;
 	    font-family: 'NEXON Lv1 Gothic OTF';

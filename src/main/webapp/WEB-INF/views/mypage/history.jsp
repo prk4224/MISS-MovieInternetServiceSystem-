@@ -91,17 +91,18 @@
             font-weight: bold;
             color:#13338B;
     }
-    
-    th  {
-            height:40px;
-            background: lightgray;
+    thead{
+    height:40px;
+            background:  lightgray;
+              font-weight: 900; 
+    font-size: 17px;
+    }
+    td  {
+         text-align : center;
             
     }
      
-    .tableTh {
-             background: #lightgray;
-
-    }
+    
     
     .cancle{
               width: 70px;  
@@ -111,7 +112,6 @@
               cursor:pointer; 
               background-color: light grey;  
               border-radius: 12px;
-              text-align: center;
               float: left;
     }
     
@@ -321,10 +321,10 @@
     <caption class="subtitle">나의 쿠폰 정보</caption>
      <thead>
         <tr class="tableTh">
-            <th width="200px">쿠폰명</th>
-            <th width="100px">할인율</th>
-            <th width="300px">쿠폰번호</th>
-            <th width="100px">사용여부</th>
+            <td width="200px">쿠폰명</td>
+            <td width="100px">할인율</td>
+            <td width="300px">쿠폰번호</td>
+            <td width="100px">사용여부</td>
         </tr>
      </thead>
       <c:choose>
@@ -361,12 +361,12 @@
    <caption class="subtitle">나의 무비티켓</caption>
      <thead>
         <tr class="tableTh">
-            <th>예매상태</th> 
-            <th>상영일시</th>
-            <th>영화명</th>
-            <th>예매번호</th>
-            <th>영화보기</th>
-            <th>예매취소</th>
+            <td>예매상태</td> 
+            <td>상영일시</td>
+            <td>영화명</td>
+            <td>예매번호</td>
+            <td>영화보기</td>
+            <td>예매취소</td>
         </tr>
      </thead>
                     <c:choose>
