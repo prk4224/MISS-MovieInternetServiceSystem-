@@ -5,6 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+footer {
+        position: relative;
+        transform: translateY(-100%);
+}
+</style>
 <title>Insert title here</title>
 <style type="text/css">
 

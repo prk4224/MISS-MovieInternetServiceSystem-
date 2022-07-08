@@ -28,73 +28,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
     <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-    <title>부트스트랩 - boot_list</title>
+    <title>MISS, 최신 영화를 집에서</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
     <!--스타일 시트 -->
     <style type="text/css">
-          main {
-            width:100%;
-            height:615px;
-    }
-    
-    header {
-            width:100%;
-            height:80px;
-            background: gray;
-            opacity:0.5;
-    }
-    
-    .achieve {
-            position: relative;
-            left:200px;
-            top:130px;
-            width:150px; 
-            height:40px; 
-            background: linear-gradient( white ,lightblue);
-            border:1px solid ;
-            text-align:center;
-            border-radius:10px;
-    }
-    
-    #myInfo {
-             position: relative;
-             left: 200px;
-             top: 140px;
-             width:1000px;
-             border: 1px solid black;
-             text-align:center;
-    }
-    
+
+    .main_box {
+	        width: 900px;
+	        height: 300px;
+	        margin-right: auto;
+	        margin-left: auto;
+	        margin-top: 100px;
+	        padding: 20px;
+	        border:none;
+	        border-radius:8px;
+	}
+	
+	.main_top {
+	        width:100%;
+	        height:50%;
+	                
+	}
+	
+	.main_bottom_rigth {
+	        width:50%;
+	        height:60%;
+	        padding-top:2%;
+	        float:left;
+	}
+	
+	
+	.main_bottom_left {
+	        width:50%;
+	        height:60%;
+	        padding-left:1%;
+	        padding-top:3%;
+	        float:left;
+	}
+      
     #couponInfo { 
-             position: relative;
-             left: 200px;
-             top: 170px;
-             width:1000px;
-             border: 1px solid black;
+             margin-right: auto;
+             margin-left: auto;
+             margin-top: 60px;
+             width:900px;
              text-align:center;
+             border-collapse:collapse;
     }
     
     #movieTicket {
-             position: relative;
-             left: 200px;
-             top: 200px;
-             width: 1000px;
-             border: 0.5px solid black;
+             margin-right: auto;
+             margin-left: auto;
+             margin-top: 50px;
+             margin-bottom: 100px;
+             width: 900px;
              border-collapse: collapse;
              text-align:center;
     }
     
-    caption {
+    .subtitle {
             text-align: left;
             font-size: 20px;
             font-weight: bold;
+            color:#13338B;
     }
     
     th  {
             height:40px;
+            background: lightgray;
+            
     }
      
     .tableTh {
-             background: linear-gradient( white ,lightblue);
+             background: #lightgray;
+
     }
     
     .cancle{
@@ -238,56 +244,38 @@
         
     </script>
 </head>
-<body>
+<body style="background:#E9E9E9;">
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-     <div style="width:320px;">
-        <div class="achieve" style="float:left;">
-          <c:set var="mbGrade" value="${memberIn.mbGrade}"/>
-			      <c:choose>
-			        <c:when test="${mbGrade == 1}">
-			                 내 등급:   일반 회원       
-			        </c:when>
-			        <c:when test="${mbGrade == 2}">
-			                   내 등급: 우수회원    
-			        </c:when>
-			        <c:when test="${mbGrade == 3}">
-			                      내 등급: VIP
-			        </c:when>
-			      <c:otherwise>
-			                       내 등급: VVIP
-			      </c:otherwise>
-                  </c:choose>
-        </div>
-        <div class="achieve" style="float:right;">내 포인트: ${memberIn.mbPoint}P</div>
-    </div>
-    <table id="myInfo">
-    <caption>내정보</caption>
-    <thead>
-        <tr class="tableTh">
-            <th width="200px">이름</th>
-            <th width="100px">닉네임</th>
-            <th width="300px">이메일</th>
-            <th width="100px">생년월일</th>
-            <th width="100px">전화번호</th>
-        </tr>
-     </thead>
 
-        <tr>  
-            <td>${memberIn.mbName}</td>
-            <td>${memberIn.mbNickname}</td>
-            <td>${memberIn.mbEmail}</td>
-            <td>${memberIn.mbBirth}</td>
-            <td>${memberIn.mbTel}</td>
-        </tr>    
-          
-    </table>  
+	<div class="main_box" style="background:linear-gradient(#E1E1E1 50%, lightgray 50%);">
+	    <div class="main_top">
+	        <p style="font-size:30px;"><span style="color:#13338B;">${memberIn.mbName}</span>&nbsp;님은<br><span style="color:#13338B;">${member.mbGrade}</span>&nbsp;등급입니다.</p>
+	    </div>
+	    <div class="main_bottom">
+	        <div class="main_bottom_rigth">
+	            <P style="font-size:20px;">닉네임&emsp;: ${memberIn.mbName}<br>
+	                                  이메일&emsp;: ${memberIn.mbEmail}<br>
+	                                  생년월일: ${memberIn.mbBirth}<br>
+	                                  전화번호: ${memberIn.mbTel}
+	            </P>
+	        </div>
+	        <div class="main_bottom_left">
+	            <p style="font-size:27px;"><br>총 보유 포인트&emsp;  <span style="color:#13338B;">${memberIn.mbPoint}  P</span></p>
+	            
+	        </div>
+	    </div>
+	</div>
     
     <table id="couponInfo">
-    <caption>쿠폰</caption>
+    <caption class="subtitle">나의 쿠폰 정보</caption>
      <thead>
         <tr class="tableTh">
+            <th>쿠폰명</th>
+            <th>할인율</th>
+            <th>쿠폰번호</th>
+            <th>사용구분</th>
             <th width="200px">쿠폰명</th>
             <th width="100px">할인율</th>
             <th width="300px">쿠폰번호</th>
@@ -325,15 +313,15 @@
     
  
    <table id="movieTicket">  
-   <caption>구매 목록</caption>
+   <caption class="subtitle">나의 무비티켓</caption>
      <thead>
         <tr class="tableTh">
-            <th width="100px">예매상태</th> 
-            <th width="300px">상영일시</th>
-            <th width="500px">영화명</th>
-            <th width="300px">예매번호</th>
-            <th width="80px">영화보기</th>
-            <th width="80px">예매취소</th>
+            <th>예매상태</th> 
+            <th>상영일시</th>
+            <th>영화명</th>
+            <th>예매번호</th>
+            <th>영화보기</th>
+            <th>예매취소</th>
         </tr>
      </thead>
                     <c:choose>
@@ -372,7 +360,7 @@
 </table>
     
     <!-- 푸터영역 -->
-    
+    <%@include file="../cmn/footer.jsp"%>
     <!-- //푸터영역 -->
 </body>
 </html>

@@ -12,7 +12,8 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,700,900italic,300italic,300,100italic,100,700italic,400italic,900'>
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
-<link rel="shortcut icon" href="${CP_RES}/img/favicon.ico">
+<title>MISS, 최신 영화를 집에서</title>
+<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="${CP_RES}/js/jquery-1.12.4.js"></script>
 <style class="FAQ">

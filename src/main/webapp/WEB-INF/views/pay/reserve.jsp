@@ -29,9 +29,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 	<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-    <title>부트스트랩 - boot_list</title>
+    <title>MISS, 최신 영화를 집에서</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
     <!--스타일 시트-->
 	<style type="text/css">
 	@font-face {
@@ -52,7 +52,7 @@
 	    border: solid 1px #dadce0;
 	    font-family: 'NEXON Lv1 Gothic OTF';
 	    font-weight: 700;
-	    font-size: 20px;
+	    font-size: 21px;
 	    color:white;
 	    padding : 5px 0;
 	    background-color : #13338B;
@@ -69,15 +69,15 @@
 	    font-size: 20px;
 	}
 	.timeBt {
-	    width: 195px;
-	    height:100px;
+	    width: 198px;
+	    height:130px;
 	    text-align: center;
 	    color: #616265;
 	    border: solid 1px #dadce0;
 	    display: inline-block;
 	    align-items : center;
 	    margin-right: 0px;
-	    
+	    background : #f5f5f5;
 	    cursor: pointer; /*  커서 모양 변경 */
 	    font-family: 'NEXON Lv1 Gothic OTF';
 	}
@@ -96,7 +96,8 @@
 	    padding: 6px 8px 6px 8px;
 	    cursor: pointer; /*  커서 모양 변경 */
 	    font-family: 'NEXON Lv1 Gothic OTF';
-	     font-size: 15px;
+	     font-size: 17px;
+	     background : #f5f5f5;
 	}
 	
 	.clicked_MBt {
@@ -109,12 +110,12 @@
 	   .scrollB {
 	     overflow:auto; 
 	        width: 300px;
-	        height: 500px; 
+	        height: 390px; 
 	        position: absolute; 
 	        top: 250px; 
-	        left: 350px;
+	        left: 250px;
 	        overflow-x: hidden;
-	        background-color : #fafafa;
+	        background-color : #e9e9e9;
 	        
 	  }
 	  .scrollB::-webkit-scrollbar {
@@ -134,11 +135,10 @@
 	  cursor:hand; 
 	  background-color: #13338B;  
 	  color: white; 
-	  padding: 5px; 
-	  border-radius: 12px;
+	  padding: 5px;    
 	  position: absolute; 
-	  top:760px; 
-	  left:1460px;
+	  top:660px; 
+	  left:1365px;
 	  text-align: center;
 	    height: 50px;
 	    font-family: 'NEXON Lv1 Gothic OTF';
@@ -250,7 +250,7 @@
 	    				}else{
 	    					quality = "QHD";
 	    				}
-	    				htmlData += '<div class="timeBt" onclick="addAndRemoveTime()"><span>';
+	    				htmlData += '<div class="timeBt" onclick="addAndRemoveTime()"><span><br><br>';
 	    				htmlData += value.miTime + "</span><br>";
 	    				htmlData += "<span style='color: red'>";
 	    				htmlData += quality;
@@ -273,11 +273,11 @@
     <!-- //헤더영역 -->
    
         <div>
-            <div class="name" style="width: 300px; height: 40px; position: absolute; top: 210px; left: 350px;">영화 제목</div>
-            <div class="name" style="width: 994px; height: 40px; position: absolute; top: 210px; left: 655px;">시간</div>
-            <div style="width:992px; height: 492px; position:absolute; top:250px; left:655px; background-color:#fafafa;">
+            <div class="name" style="width: 300px; height: 40px; position: absolute; top: 210px; left: 250px;">영화 제목</div>
+            <div class="name" style="width: 993px; height: 40px; position: absolute; top: 210px; left: 555px;">시간</div>
+            <div style="width:992px; height: 390px; position:absolute; top:250px; left:555px; background-color:#e9e9e9;border: solid 1px #ffffff;">
             	<div id="showTIme1" style="position: absolute;width:100%;">
-	                 <c:choose>
+	                <%--  <c:choose>
 			        	<c:when test="${timeList.size() > 0}">
 			        		<c:forEach var="timeList" items="${timeList}">
 			       				<div class="timeBt">
@@ -298,7 +298,8 @@
 			       				</div>
 			        		</c:forEach>
 			        	</c:when>
-			        </c:choose>
+			        </c:choose> --%>
+			        <div style="text-align:center; padding : 150px 0;font-size: 35px; color: #13338B;">영화를 선택하여주세요.</div>
           		</div>
             </div>
              <div class="scrollB">
