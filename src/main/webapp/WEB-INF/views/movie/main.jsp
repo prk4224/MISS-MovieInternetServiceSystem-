@@ -27,7 +27,7 @@
 </head>
 <body>
     <!-- 헤더영역 -->
-	<%@include file="../cmn/header.jsp"%>
+	<%@include file="../cmn/header_black.jsp"%>
 	<!-- //헤더영역 -->
     <div id="contents">
         <div id="status">

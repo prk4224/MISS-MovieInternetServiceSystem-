@@ -5,21 +5,6 @@ padding: 0;
 box-sizing: border-box; 
 }
 
-header {
-    position: relative;
-    top : 0;
-    left : 0;
-    margin-left: 40px;
-    width : 100px;
-    height: 80px; 
-}
-
-header h4 {
-    position: absolute;
-    left : 10%;
-    bottom: 1rem ;
-    font-size: 1.6rem; 
-}
 
 /* Splash Screens  */
 
@@ -34,20 +19,33 @@ header h4 {
     transition: 1s;
 }
 
+#movie_img{
+	width: 6vmax;
+	height: 6vmax;
+	margin-left: 5%;
+	max-height: 100%;
+	max-width: 100%;
+	
+}
+
+
 .logo-header{
     position: absolute;
+    width: 30vmax;
     top: 43%;
-    left: 47%;
+    left: 55%;
     transform: translate(-50%,-50%);
-    color: #ffffff;
+    color: #E9E9E9;
 }
  
 .logo{
     position: relative;
     display: inline;
-    bottom: -20px;
+    bottom: -10px;
     opacity: 0;
-    font-size: 8vmax;
+    font-size: 6vmax;
+    font-weight: 900;
+    margin-left: 1vmax;
 }
 
 .logo.active{
@@ -57,7 +55,7 @@ header h4 {
 }
 
 .logo.fade{
-    bottom: 150px;
+    bottom: 4vmax;
     opacity: 0;
     transition: ease-in-out 0.5s;
 }

@@ -91,17 +91,18 @@
             font-weight: bold;
             color:#13338B;
     }
-    
-    th  {
-            height:40px;
-            background: lightgray;
+    thead{
+    height:40px;
+            background:  lightgray;
+              font-weight: 900; 
+    font-size: 17px;
+    }
+    td  {
+         text-align : center;
             
     }
      
-    .tableTh {
-             background: #lightgray;
-
-    }
+    
     
     .cancle{
               width: 70px;  
@@ -111,12 +112,41 @@
               cursor:pointer; 
               background-color: light grey;  
               border-radius: 12px;
-              text-align: center;
               float: left;
     }
     
     
-      }
+    #moviePage{
+    
+        text-align: center;
+        border: solid 1px lightgray;
+        font-family: 'NEXON Lv1 Gothic OTF';
+        color:white;
+        background-color : #13338B;
+        font-weight: 700; 
+    }  
+     #moviePage:hover{
+        background-color : #1e50d9;
+         
+    }  
+       #moCancle{
+    
+        text-align: center;
+        border: solid 1px lightgray;
+        font-family: 'NEXON Lv1 Gothic OTF';
+        color:white;
+        background-color : #13338B;
+        font-weight: 700; 
+    }  
+     #moCancle:hover{
+        background-color : #1e50d9;
+         
+    } 
+    #CancleComp{
+        font-weight: 700;   
+        font-family: 'NEXON Lv1 Gothic OTF';
+        color:#13338B;
+    }
     </style>
     <!-- 부트스트랩 -->
     <link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
@@ -249,37 +279,52 @@
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
 
-	<div class="main_box" style="background:linear-gradient(#E1E1E1 50%, lightgray 50%);">
-	    <div class="main_top">
-	        <p style="font-size:30px;"><span style="color:#13338B;">${memberIn.mbName}</span>&nbsp;님은<br><span style="color:#13338B;">${member.mbGrade}</span>&nbsp;등급입니다.</p>
-	    </div>
-	    <div class="main_bottom">
-	        <div class="main_bottom_rigth">
-	            <P style="font-size:20px;">닉네임&emsp;: ${memberIn.mbName}<br>
-	                                  이메일&emsp;: ${memberIn.mbEmail}<br>
-	                                  생년월일: ${memberIn.mbBirth}<br>
-	                                  전화번호: ${memberIn.mbTel}
-	            </P>
-	        </div>
-	        <div class="main_bottom_left">
-	            <p style="font-size:27px;"><br>총 보유 포인트&emsp;  <span style="color:#13338B;">${memberIn.mbPoint}  P</span></p>
-	            
-	        </div>
-	    </div>
-	</div>
+    <div class="main_box" style="background:linear-gradient(#fafafa 50%, lightgray 50%);">
+        <div class="main_top">
+            <p style="font-size:30px;">
+                <span style="color:#13338B;">${memberIn.mbName}</span>&nbsp;님은<br>
+                <span style="color:#13338B;">
+                  <c:choose>
+                     <c:when test="${memberIn.mbGrade == 1}">
+                                                    실버
+                     </c:when>
+                     <c:when test="${memberIn.mbGrade == 2}">
+                                                    골드
+                     </c:when>
+                     <c:when test="${memberIn.mbGrade == 3}">
+                                                    플래티넘
+                     </c:when>
+                     <c:otherwise>
+                                                    다이아몬드
+                   </c:otherwise>
+                  </c:choose>
+                </span>
+                등급입니다.
+            </p>
+        </div>
+        <div class="main_bottom">
+            <div class="main_bottom_rigth">
+                <P style="font-size:20px;">닉네임&emsp; : ${memberIn.mbNickname}<br>
+                                      이메일&emsp; : ${memberIn.mbEmail}<br>
+                                      생년월일 : ${memberIn.mbBirth}<br>
+                                      전화번호 : ${memberIn.mbTel}
+                </P>
+            </div>
+            <div class="main_bottom_left">
+                <p style="font-size:27px;"><br>총 보유 포인트&emsp;  <span style="color:#13338B;">${memberIn.mbPoint}  P</span></p>
+                
+            </div>
+        </div>
+    </div>
     
     <table id="couponInfo">
     <caption class="subtitle">나의 쿠폰 정보</caption>
      <thead>
         <tr class="tableTh">
-            <th>쿠폰명</th>
-            <th>할인율</th>
-            <th>쿠폰번호</th>
-            <th>사용구분</th>
-            <th width="200px">쿠폰명</th>
-            <th width="100px">할인율</th>
-            <th width="300px">쿠폰번호</th>
-            <th width="100px">사용여부</th>
+            <td width="200px">쿠폰명</td>
+            <td width="100px">할인율</td>
+            <td width="300px">쿠폰번호</td>
+            <td width="100px">사용여부</td>
         </tr>
      </thead>
       <c:choose>
@@ -316,12 +361,12 @@
    <caption class="subtitle">나의 무비티켓</caption>
      <thead>
         <tr class="tableTh">
-            <th>예매상태</th> 
-            <th>상영일시</th>
-            <th>영화명</th>
-            <th>예매번호</th>
-            <th>영화보기</th>
-            <th>예매취소</th>
+            <td>예매상태</td> 
+            <td>상영일시</td>
+            <td>영화명</td>
+            <td>예매번호</td>
+            <td>영화보기</td>
+            <td>예매취소</td>
         </tr>
      </thead>
                     <c:choose>
@@ -342,8 +387,28 @@
                                <td>${list.miTime}</td>
                                <td>${list.mvTitle}</td>
                                <td id="tNum">${list.tNum}</td>
-                               <td><button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">영화보기</button></td>
-                               <td><button id="moCancle">결제취소</button></td>
+                               <td>
+                                <c:choose>
+                                        <c:when test="${tStatus == 1}">
+                               <button id="moviePage" onclick="sessionStorage.setItem('mvNum','${list.mvNum}') & sessionStorage.setItem('miQuality','${list.miQuality}')& sessionStorage.setItem('miTime','${list.miTime}');">
+                                                                       영화보기</button>                                               
+                                        </c:when>
+                                       <c:otherwise>
+                                          <div id="CancleComp">취소 완료</div>
+                                      </c:otherwise>
+                                   </c:choose>
+                                               
+                               </td>
+                               <td>
+                                  <c:choose>
+                                        <c:when test="${tStatus == 1}">
+                                           <button id="moCancle">결제 취소</button>       
+                                        </c:when>
+                                       <c:otherwise>
+                                          <div id="CancleComp">취소 완료</div>
+                                      </c:otherwise>
+                                   </c:choose>
+                               </td>
                                <td style="display:none;">${list.miQuality}</td>
                                <td style="display:none;">${list.tStatus}</td>
                                <td style="display:none;" id="tPrice">${list.tPrice}</td>
@@ -356,11 +421,6 @@
                         </tr>
                     </c:otherwise>
                 </c:choose>
-
-</table>
-    
-    <!-- 푸터영역 -->
-    <%@include file="../cmn/footer.jsp"%>
-    <!-- //푸터영역 -->
+        </table>
 </body>
 </html>

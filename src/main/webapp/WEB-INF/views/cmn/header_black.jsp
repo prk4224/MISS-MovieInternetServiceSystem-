@@ -24,13 +24,15 @@
         width: 100%;
        height: 10%;
        /* background: linear-gradient(
-       		to bottom,
+       		to top,
        		rgba(0,0,0,0) 10%,
        		rgba(0,0,0,0.5) 30%,
        		rgba(0,0,0,0.7) 70%,
        		rgba(0,0,0,1) 100%
-       );  */
-       background-color: #E9E9E9;
+       ); */
+       
+       background-color: white;
+       
     }
     /*로고 위치sdsss*/
     #logo {
@@ -49,7 +51,7 @@
             margin-left:6vw; 
             margin-top: 5vh;                     
             list-style: none;           
-            color: black;                
+            color: white;                
             float: left;                       
             vertical-align: middle;    
             text-align: center;        
@@ -57,7 +59,7 @@
     /*menuLink 스타일*/
     #menu .menuLink {                               
             text-decoration:none;                   
-            color: black;                           
+            color: white;                           
             display: block;                         
             width: 10vw;                             
             font-size: 1.5vw;                          
@@ -65,12 +67,13 @@
             font-family: 'NEXON Lv1 Gothic OTF Bold'; /*추후 폰트 수정*/
     }
     #logoutText{
-    	
+    	color:white;
     	margin-top:0.5%;
     	margin-left: 93%;
     }
     
     #nickName{
+    	color:white;
     	float: right;
     	margin-right: 3%;
     	margin-top: 1%;
@@ -132,7 +135,7 @@
 </head>
 <body>
     <header>
-        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/MissLogo.png" style="height:8vh; width:auto;"></a>
+        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/MissLogoWi.png" style="height:8vh; width:auto;"></a>
         <nav id="menu">
             <ul>
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
@@ -145,7 +148,7 @@
              
              <div><button id="logout" value="Logout"><img src="${CP_RES}/img/logout.png"></button></div>
              <div id = "logoutText">Logout</div>
-             <div id = "nickName"><span id="headNickname" style="color: black; font-size: 1.2vmax"></span></div>
+             <div id = "nickName"><span id="headNickname" style="font-size: 1.2vmax"></span></div>
              
         </nav>
     </header>

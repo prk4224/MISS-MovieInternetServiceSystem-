@@ -4,13 +4,13 @@ let currentIdx = 0;
 const slideCount = slideImg.length;
 const prev = document.querySelector('#prev');
 const next = document.querySelector('#next');
-const slideWidth = 200;
+const slideWidth = 330;
 const slideMargin = 50;
 
 slides.getElementsByClassName.width = (slideWidth + slideMargin) * slideCount + 'px';
 
 function moveSlide(num){
-    slides.style.left = -num * 470 + 'px';
+    slides.style.left = -num * 690 + 'px';
     currentIdx = num;
     if(currentIdx == 0){
         prev.style.display = 'none';
@@ -35,24 +35,3 @@ next.addEventListener('click', function(){
         moveSlide(currentIdx + 1);
     }
 })
-
-// 좋아요 기능 구현중/..
-//const like1 = document.querySelector('.like1');
-//const like2 = document.querySelector('.like2');
-
-//like1.addEventListener('click', function(){
-//    
-//    if(like1.getAttribute('class') == 'like1 on'){
-//        like1.setAttribute('class', 'like1 off');
-//    }else if(like1.getAttribute('class') == 'like1 off'){
-//        like1.setAttribute('class', 'like1 on');
-//    }
-//});
-//like2.addEventListener('click', function(){
-//	
-//	if(like2.getAttribute('class') == 'like2 on'){
-//		like2.setAttribute('class', 'like2 off');
-//	}else if(like2.getAttribute('class') == 'like2 off'){
-//		like2.setAttribute('class', 'like2 on');
-//	}
-//})

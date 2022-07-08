@@ -140,7 +140,7 @@
 		 
 		 $("#movie_title").mouseenter(function(e){
 			 console.log("mouseover");
-			 $("#movie_detailInfo").fadeIn(500);
+			 $("#movie_detailInfo").fadeIn(600);
 			 $("#movie_detail").css({
 				 "margin-left" : "8vmax",
 				 "box-shadow" : "0px 0px 0px rgb(54, 54, 54)"

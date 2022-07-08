@@ -63,8 +63,11 @@
 	
 	.miss-logo {
 		position: absolute;
-		left: 30px;
-		top: 30px;
+		left: 2vmax;
+		top: 1vmax;
+		width: 20vw;
+		height: 40vh;
+		
 	}
 	
 	.login-form {
@@ -108,6 +111,14 @@
 		width: 100%;
 		background-color: rgba(255, 255, 255, 0.1);
 	}
+	
+	#logoimg {
+		max-width: 100%;
+		max-height: 100%;
+		height: 10vmin; 
+		width:auto; 
+		
+	}
 	</style>
     <!-- 부트스트랩 -->
     <link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
@@ -130,11 +141,12 @@
             <span class = "logo">I </span>
             <span class = "logo">S </span>
             <span class = "logo">S </span>
+            <span ><img id = "movie_img" src="${CP_RES}/img/movie_img.png"></span>
         </h1>
     </div>
     <!-- //초기에 MISS 내려오는 화면 -->
     
-    <a class="miss-logo" id="miss-logo" href="#"><img src="${CP_RES}/img/miss_logo_2.png" style="height:55px; width:auto;"></a>    
+    <a class="miss-logo" id="miss-logo" href="#"><img id = "logoimg" src="${CP_RES}/img/MissLogoWi.png" ></a>    
     
     <!-- 네이버, 카카오 로그인 노출 영역 -->
     <div class="login-form">
@@ -166,9 +178,9 @@
             alert("이미 로그인되어있습니다! 로그아웃해 주세요!");
             location.href = "/miss/movie/main.do";
         }
-    })
+    });
     
-    <!-- 카카오 로그인 -->
+    //카카오 로그인
     function kakaoLogin() {
         Kakao.init('0457445dc54f89414a4818b3cca9b5c4');
         console.log(Kakao.isInitialized());
@@ -196,9 +208,9 @@
           },
         })
        }; 
-    <!-- //카카오 로그인 -->
+    //----------------카카오 로그인
     
-    <!-- 기존회원인지 여부 확인(신규 -> REGISTER, 기존 -> MAIN)-->
+    //기존회원인지 여부 확인(신규 -> REGISTER, 기존 -> MAIN)
     function existingMember(mbEmail, accessToken){
         let url = "${CP}/login/existingMember.do";
         let method = "GET";
@@ -219,9 +231,9 @@
             console.log(sessionStorage.getItem("accessToken"));
         });
     }
-    <!-- //기존회원인지 여부 확인(신규 -> REGISTER, 기존 -> MAIN)-->
+    //기존회원인지 여부 확인(신규 -> REGISTER, 기존 -> MAIN)
     
-    <!-- 각 로그인 API별로 받아온 EMAIL값을 mbNum으로 바꿈 -->
+    //각 로그인 API별로 받아온 EMAIL값을 mbNum으로 바꿈
     function emailToNum(mbEmail){
         let url = "${CP}/login/emailToNum.do"
         let method = "GET";
@@ -234,16 +246,16 @@
             sessionStorage.setItem("mbNickname", data.mbNickname);
         });
     }
-    <!-- //각 로그인 API별로 받아온 EMAIL값을 mbNum으로 바꿈 -->
+    //각 로그인 API별로 받아온 EMAIL값을 mbNum으로 바꿈
     
-    <!-- 네이버 로그인 -->
+    //네이버 로그인
     var naver_id_login = new naver_id_login("LUYKmCBhews_CxE5rSdS", "http://localhost:8081/miss/login/callback.do");
     var state = naver_id_login.getUniqState();
     naver_id_login.setButton("green", 3, 40);
     naver_id_login.setDomain(".service.com");
     naver_id_login.setState(state);
     naver_id_login.init_naver_id_login();
-    <!-- //네이버 로그인 -->
+    //네이버 로그인
 	</script>  
 </body>
 </html>
