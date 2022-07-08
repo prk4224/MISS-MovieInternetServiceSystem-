@@ -309,7 +309,7 @@
 			        		</c:forEach>
 			        	</c:when>
 			        </c:choose> --%>
-			        <div style="text-align:center; padding : 150px 0;font-size: 35px; color: #13338B;">영화를 선택하여주세요.</div>
+			        <div style="text-align:center; padding : 150px 0;font-size: 35px; color: #13338B;">영화를 선택하여 주세요.</div>
           		</div>
             </div>
              <div class="scrollB">

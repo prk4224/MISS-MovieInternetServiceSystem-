@@ -34,37 +34,50 @@
     <style type="text/css">
 
     .main_box {
-	        width: 900px;
-	        height: 300px;
-	        margin-right: auto;
-	        margin-left: auto;
-	        margin-top: 100px;
-	        padding: 20px;
-	        border:none;
-	        border-radius:8px;
-	}
-	
-	.main_top {
-	        width:100%;
-	        height:50%;
-	                
-	}
-	
-	.main_bottom_rigth {
-	        width:50%;
-	        height:60%;
-	        padding-top:2%;
-	        float:left;
-	}
-	
-	
-	.main_bottom_left {
-	        width:50%;
-	        height:60%;
-	        padding-left:1%;
-	        padding-top:3%;
-	        float:left;
-	}
+            width: 900px;
+            height: 300px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 100px;
+            padding: 20px;
+            border:none;
+            border-radius:8px;
+    }
+    
+
+    .main_top {
+           display:flex;
+     }
+    
+    .main_top_left {
+            width:50%;
+            height:50%;        
+            padding-left:1%;
+            padding-top:2%;
+            float:left;
+    }
+    
+    .main_top_right {
+           width:50%;
+           height:50%;
+           margin-left:20%;
+    }
+    
+    .main_bottom_left {
+            width:50%;
+            height:60%;
+            padding-top:2%;
+            float:left;
+    }
+    
+    
+    .main_bottom_right {
+            width:50%;
+            height:60%;
+            padding-left:1%;
+            padding-top:2%;
+            float:right;
+    }
       
     #couponInfo { 
              margin-right: auto;
@@ -164,8 +177,8 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $(document).on("click","#moCancle", function(){
-//         	let tNum = $(this).parent().parent().children(2).eq(3).text()
-//         	console.log("tNum : " + tNum);
+//          let tNum = $(this).parent().parent().children(2).eq(3).text()
+//          console.log("tNum : " + tNum);
             if(!confirm('영화를 취소하시겠습니까?')){
                 return;
             }
@@ -180,7 +193,7 @@
                  console.log("tNum : " + $(this).parent().parent().children(2).eq(3).text());
                  console.log("tPrice : " + $(this).parent().parent().children(2).eq(8).text());
                  EClass.callAjax(url, parameters, method, async, function(data) {
-                	 console.log("================1=============");
+                     console.log("================1=============");
                  })
                  console.log("================2=============");
                  tcUpdate(tNum);
@@ -247,7 +260,7 @@
     $(document).ready(function(){
     $(document).on("click","#moviePage", function(){
         //시간
-    	miTimeF=sessionStorage.getItem('miTime');
+        miTimeF=sessionStorage.getItem('miTime');
         console.log(miTimeF);
         miTimeS=miTimeF.replace("-","").replace("-","").replace(" ","").replace(":","").replace(":","");
         console.log(miTimeS);
@@ -281,12 +294,13 @@
 
     <div class="main_box" style="background:linear-gradient(#fafafa 50%, lightgray 50%);">
         <div class="main_top">
+        <div class="main_top_Left">
             <p style="font-size:30px;">
                 <span style="color:#13338B;">${memberIn.mbName}</span>&nbsp;님은<br>
                 <span style="color:#13338B;">
                   <c:choose>
                      <c:when test="${memberIn.mbGrade == 1}">
-                                                    실버
+                                                    실버                     
                      </c:when>
                      <c:when test="${memberIn.mbGrade == 2}">
                                                     골드
@@ -295,22 +309,45 @@
                                                     플래티넘
                      </c:when>
                      <c:otherwise>
-                                                    다이아몬드
+                                                    다이아
                    </c:otherwise>
                   </c:choose>
                 </span>
                 등급입니다.
             </p>
+            </div>
+            <div class="main_top_right">
+           <c:choose>
+                     <c:when test="${memberIn.mbGrade == 1}">
+                                                    
+                       <p><img src="${CP_RES}/img/실버.png" style="width:27%"></p>                             
+                     </c:when>
+                     <c:when test="${memberIn.mbGrade == 2}">
+                                                   
+                      <p><img src="${CP_RES}/img/골드.png" style="width:27%"></p>
+                     </c:when>
+                     <c:when test="${memberIn.mbGrade == 3}">
+                                                 
+                       <p><img src="${CP_RES}/img/다이아.png" style="width:27%"></p>   
+                     </c:when>
+                     <c:otherwise>
+                                                 
+                      <p><img src="${CP_RES}/img/다이아.png" style="width:27%"></p>
+                   </c:otherwise>
+                  </c:choose>
+                  </div>
         </div>
-        <div class="main_bottom">
-            <div class="main_bottom_rigth">
-                <P style="font-size:20px;">닉네임&emsp; : ${memberIn.mbNickname}<br>
-                                      이메일&emsp; : ${memberIn.mbEmail}<br>
-                                      생년월일 : ${memberIn.mbBirth}<br>
-                                      전화번호 : ${memberIn.mbTel}
+       <div class="main_bottom">
+            <div class="main_bottom_left">
+                <br>
+                <P style="font-size:20px;">닉네임&emsp;: ${memberIn.mbName}<br>
+                                      이메일&emsp;: ${memberIn.mbEmail}<br>
+                                      생년월일: ${memberIn.mbBirth}<br>
+                                      전화번호: ${memberIn.mbTel}
                 </P>
             </div>
-            <div class="main_bottom_left">
+            <div class="main_bottom_right">
+            <br>
                 <p style="font-size:27px;"><br>총 보유 포인트&emsp;  <span style="color:#13338B;">${memberIn.mbPoint}  P</span></p>
                 
             </div>
