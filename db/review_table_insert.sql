@@ -198,7 +198,7 @@ VALUES(review_num_seq.NEXTVAL, 5, '간만에 웃으면서 한국영화 봤습니다.', 'natoon6
 
 
 INSERT INTO REVIEW
-VALUES(review_num_seq.NEXTVAL, 5, '아닠ㅋㅋ 1편보다 재밌는데??', 'MJ세라피나', 6);
+VALUES(review_num_seq.NEXTVAL, 5, '아?ㅋㅋ 1편보다 재밌는데??', 'MJ세라피나', 6);
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, '느낌오지? 꼭 봐야하는거.', '룡룡', 6);
@@ -226,7 +226,7 @@ INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, '마하 10을 돌파하는 재미', '그렘린즈', 7);
 
 INSERT INTO REVIEW
-VALUES(review_num_seq.NEXTVAL, 5, '이게 영화지!! 올 해 최고의 영화!!! 작품성, 오락성을 동시에 다 잡은 영화는 얼마나 오랜만인지ㅠㅠ', '뀽꺙뀨꺙', 7);
+VALUES(review_num_seq.NEXTVAL, 5, '이게 영화지!! 올 해 최고의 영화!!! 작품성, 오락성을 동시에 다 잡은 영화는 얼마나 오랜만인지ㅠㅠ', '??엾?', 7);
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, '눈감고 귀막고 입닫고 조용히 천만', '럭키가이', 7);
@@ -417,7 +417,7 @@ VALUES(review_num_seq.NEXTVAL, 3,
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 2, 
-'사라진 개연성. 허술한 줄거리. 실종된 동물들', '뀽꺙뀨꺙', 28);
+'사라진 개연성. 허술한 줄거리. 실종된 동물들', '??엾?', 28);
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 3, 
@@ -454,7 +454,7 @@ VALUES(review_num_seq.NEXTVAL, 5,
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, 
-'솔직히 더빙이어서 걱정 많이 했는데 꽤 괜찮았어요! 근데 ㅋㅎㅋㅎㅋㅎㅋ 아카자 목소리갘ㅎ콬 스폰지밥 목소리가 섞여있었음ㅋㅎㅎㅋ 그래도 감정 이입이 잘 되서 만족스러웠습니당', '다인다인 아쫌!!', 27);
+'솔직히 더빙이어서 걱정 많이 했는데 꽤 괜찮았어요! 근데 ㅋㅎㅋㅎㅋㅎㅋ 아카자 목소리?Jㅎ? 스폰지밥 목소리가 섞여있었음ㅋㅎㅎㅋ 그래도 감정 이입이 잘 되서 만족스러웠습니당', '다인다인 아쫌!!', 27);
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, 
@@ -765,7 +765,7 @@ VALUES(review_num_seq.NEXTVAL, 4,
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 3, 
-'다소 아쉬웠던 마지막.. 원년멤버 다시 봐서 너무 반가웠지만 그래도 노잼ㅠㅠ', '뀽꺙뀨꺙', 17);
+'다소 아쉬웠던 마지막.. 원년멤버 다시 봐서 너무 반가웠지만 그래도 노잼ㅠㅠ', '??엾?', 17);
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 1, 
@@ -786,7 +786,7 @@ VALUES(review_num_seq.NEXTVAL, 5,
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 4, 
-'<토이 스토리> 4.5편, 또는 <캡틴 아메리카> 3.5편.', '그롐린즈', 16);
+'<토이 스토리> 4.5편, 또는 <캡틴 아메리카> 3.5편.', '그寧걍', 16);
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, 
@@ -839,7 +839,7 @@ VALUES(review_num_seq.NEXTVAL, 5,
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, 
-'디즈니 라이브액션 가운데 최상위급에 넣어야 할 완성도와 재미.', '그롐린즈', 15);
+'디즈니 라이브액션 가운데 최상위급에 넣어야 할 완성도와 재미.', '그寧걍', 15);
 
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 5, 

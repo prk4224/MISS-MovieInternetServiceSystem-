@@ -195,6 +195,7 @@
 					$("#mbBirthYear").focus();
 					return;
 				};
+				
 				<!-- Member테이블에 데이터 INSERT -->
 				let url = "${CP}/login/doInsert.do";
 				let method = "POST";
@@ -211,7 +212,6 @@
 					console.log("data.msgId : " + data.msgId);
 	                console.log("data.msgContents : " + data.msgContents);
 	                if(data.msgId == "1"){ //회원가입 성공
-	                	alert("테스트 - 회원가입성공");
 	                	emailToNum("${param.email}");
 	                	alert(data.msgContents);
 	                    location.href = "/miss/movie/main.do";
@@ -223,7 +223,6 @@
 			});
 			<!-- API에서 받아온 EMAIL값으로 NUM값 가져오기 -->
 			function emailToNum(mbEmail){
-				alert("emailToNum");
 				let url = "${CP}/login/emailToNum.do";
 				let method = "GET";
 				let async = true;
@@ -233,8 +232,6 @@
 				EClass.callAjax(url, parameters, method, async, function(data) {
 					sessionStorage.setItem("mbNum", data.mbNum);
 					sessionStorage.setItem("mbNickname", data.mbNickname);
-					alert("테스트 - emailToNum");
-					alert(data.mbNum);
 					registerCoupon(data.mbNum);
 				});
 			}
@@ -242,7 +239,6 @@
 			
 			<!-- 신규회원의 경우 신규회원가입쿠폰 지급 -->
 			function registerCoupon(mbNum){
-				alert("registerCoupon");
 				let url = "${CP}/login/registerCoupon.do";
 				let method = "GET";
 				let async = true;
@@ -252,7 +248,6 @@
 				EClass.callAjax(url, parameters, method, async, function(data) {
 					if(data.msgId == "1"){
 						alert(data.msgContents);
-						alert("테스트 - registerCoupon");
 					}else{
 						alert(data.msgContents);
 					}
