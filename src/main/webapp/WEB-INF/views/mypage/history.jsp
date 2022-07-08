@@ -125,6 +125,10 @@
         background-color : #13338B;
         font-weight: 700; 
     }  
+     #moviePage:hover{
+        background-color : #1e50d9;
+         
+    }  
        #moCancle{
     
         text-align: center;
@@ -134,7 +138,10 @@
         background-color : #13338B;
         font-weight: 700; 
     }  
-    
+     #moCancle:hover{
+        background-color : #1e50d9;
+         
+    } 
     #CancleComp{
         font-weight: 700;   
         font-family: 'NEXON Lv1 Gothic OTF';

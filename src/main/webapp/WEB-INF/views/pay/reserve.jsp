@@ -73,7 +73,7 @@
 	    height:130px;
 	    text-align: center;
 	    color: #616265;
-	    border: solid 1px #dadce0;
+	    border: solid 1px #afbfde;
 	    display: inline-block;
 	    align-items : center;
 	    margin-right: 0px;
@@ -146,7 +146,10 @@
 	    font-style: normal;
 	    font-size: 20px;
 	  }
-
+    .rBt:hover {
+  background: #1e50d9;
+;
+    }
 	</style>
     
     <!-- 부트스트랩 -->
