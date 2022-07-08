@@ -20,7 +20,303 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="${CP_RES}/css/movie_detail.css">
+<%-- 	<link rel="stylesheet" type="text/css" href="${CP_RES}/css/movie_detail.css"> --%>
+<style type="text/css">
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800");
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    }
+    @font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    html,
+    body {
+    margin: 0;
+    background: black;
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    }
+
+    .movie_card {
+    position: relative;
+    display: block;
+    width: 1500px;
+    height: 800px;
+    margin: 100px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.4s;
+    
+    }
+    .movie_card:hover {
+    transform: scale(1.02);
+    transition: all 0.4s;
+    }
+    .movie_card .info_section {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background-blend-mode: multiply;
+    z-index: 2;
+    border-radius: 10px;
+    }
+    .movie_card .info_section .movie_header {
+    position: relative;
+    padding: 25px;
+    height: 40%;
+    }
+    .movie_card .info_section .movie_header h1 {
+    color: #fff;
+    font-weight: 400;
+    }
+    .movie_card .info_section .movie_header h4 {
+    color: #9ac7fa;
+    font-weight: 400;
+    }
+    .movie_card .info_section .movie_header .minutes {
+    display: inline-block;
+    margin-top: 10px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    }
+    .movie_card .info_section .movie_header .type {
+    display: inline-block;
+    color: #cee4fd;
+    margin-left: 10px;
+    }
+    .movie_card .info_section .movie_header .locandina {
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    height: 120px;
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+    }
+    .movie_card .info_section .movie_desc {
+    padding: 25px;
+    height: 50%;
+    }
+    .movie_card .info_section .movie_desc .text {
+    font-size: 20px;
+    color: #cfd6e1;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    }
+    .movie_card .info_section .movie_social {
+    height: 10%;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    }
+    .movie_card .info_section .movie_social ul {
+    list-style: none;
+    padding: 0;
+    }
+    .movie_card .info_section .movie_social ul li {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s;
+    transition-delay: 0.15s;
+    margin: 0 10px;
+    }
+    .movie_card .info_section .movie_social ul li:hover {
+    transition: color 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+    }
+    .movie_card .info_section .movie_social ul li i {
+    font-size: 19px;
+    cursor: pointer;
+    }
+    .movie_card .blur_back {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    right: 0;
+    background-size: cover;
+    border-radius: 11px;
+    }
+    .movie_header {
+        width: 60%;
+    }
+
+    .movie_desc {
+        width: 50%;
+    }
+
+    .info_section {
+        background: linear-gradient(to right, #0d0d0c 30%, transparent 100%);
+    }
+
+    .blur_back {
+        width: 100%;
+        background-position: -100% 25% !important;
+    }
+    #bright {
+    box-shadow: 0px 0px 150px -45px rgba(19, 51, 139, 0.5);
+    }
+    #bright:hover {
+    box-shadow: 0px 0px 120px -55px rgba(19, 51, 139, 0.5);
+    }
+    
+    @import url(https://fonts.googleapis.com/css?family=Patua+One|Open+Sans);
+    table {
+    -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-collapse: separate;
+  background: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin: 50px auto;
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+	}
+	
+	thead {
+	  -moz-border-radius: 5px;
+	  -webkit-border-radius: 5px;
+	  border-radius: 5px;
+	}
+	
+	thead th {
+	  font-family: 'NEXON Lv1 Gothic OTF';
+	  font-size: 20px;
+	  font-weight: 400;
+	  color: #fff;
+	  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+	  text-align: left;
+	  padding: 20px;
+	  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY0NmY3ZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRhNTU2NCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+	  background-size: 100%;
+	  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #646f7f), color-stop(100%, #4a5564));
+	  background-image: -moz-linear-gradient(#646f7f, #4a5564);
+	  background-image: -webkit-linear-gradient(#646f7f, #4a5564);
+	  background-image: linear-gradient(#13338B, #13338B);
+	  border-top: 1px solid #858d99;
+	}
+	thead th:first-child {
+	  -moz-border-radius-topleft: 5px;
+	  -webkit-border-top-left-radius: 5px;
+	  border-top-left-radius: 5px;
+	}
+	thead th:last-child {
+	  -moz-border-radius-topright: 5px;
+	  -webkit-border-top-right-radius: 5px;
+	  border-top-right-radius: 5px;
+	}
+	
+	tbody tr td {
+	  font-family: 'NEXON Lv1 Gothic OTF';
+	  font-weight: 400;
+	  color: #5f6062;
+	  font-size: 13px;
+	  padding: 20px 20px 20px 20px;
+	  border-bottom: 1px solid #e0e0e0;
+	}
+	
+	tbody tr:nth-child(2n) {
+	  background: #f0f3f5;
+	}
+	
+	tbody tr:last-child td {
+	  border-bottom: none;
+	}
+	tbody tr:last-child td:first-child {
+	  -moz-border-radius-bottomleft: 5px;
+	  -webkit-border-bottom-left-radius: 5px;
+	  border-bottom-left-radius: 5px;
+	}
+	tbody tr:last-child td:last-child {
+	  -moz-border-radius-bottomright: 5px;
+	  -webkit-border-bottom-right-radius: 5px;
+	  border-bottom-right-radius: 5px;
+	}
+	
+	tbody:hover > tr td {
+	  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+	  opacity: 0.5;
+	  /* uncomment for blur effect */
+	  /* color:transparent;
+	  @include text-shadow(0px 0px 2px rgba(0,0,0,0.8));*/
+	}
+	
+	tbody:hover > tr:hover td {
+	  text-shadow: none;
+	  color: #2d2d2d;
+	  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+	  opacity: 1;
+	}
+	    
+	    
+	    
+	
+	.slides{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4000px;
+    transition: left 0.7s ease-out;
+    padding: 0;
+	}
+	.slides li{
+	    position: relative;
+	    float: left;
+	}
+	.controller span{
+	    position: absolute;
+	    background-color: #13338B;
+	    color: #E9E9E9;
+	    text-align: center;
+	    border-radius: 50%;
+	    padding: 10px 20px;
+	    top: 45%;
+	    font-size: 1.3em;
+	    cursor: pointer;
+	    border: 1px solid;
+	    opacity: 0.5;
+	}
+	.controller span:hover{
+	    background-color: #E9E9E9;
+	    color: #13338B;
+	}
+	.prev{
+	    left: 0px;
+	    display: none;
+	}
+	.next{
+	    right: 0px;
+	}
+	.slides img{
+/* 	    width: 440px; */
+/* 	    height: 250px; */
+	    width: 660px;
+	    height: 370px;
+	}
+	#slideshow{
+/* 	    width: 910px; */
+/* 	    height: 275px; */
+	    width: 1350px;
+	    height: 370px;
+	    position: relative;
+	    margin: 0 auto;
+	    overflow: hidden;
+	}
+	.slides li:first-child{
+	    margin-left: 0px;
+	}
+	.slides li:not(:last-child){
+	    float: left;
+	    margin-right: 30px;
+	}
+</style>
 	<title>MISS, 최신 영화를 집에서</title>
 	<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 	<!-- 부트스트랩 -->
@@ -41,94 +337,99 @@
 	<%@include file="../cmn/header.jsp"%>
 	<!-- //헤더영역 -->
     <div id="contents">
-        <div id="left">
-            <div id="poster">
-                <img src="${detailVO.imRoute}">
-            </div>
-            <div id="stat" style="background-image : url(${detailVO.imRoute2})">
-                <!-- 통계영역(별점, 리뷰개수, 상영기간, ) -->
-                <h2>평균 별점</h2><br>
-                <h3 id="avgRating"></h3><br>
-                <h2>총 리뷰수</h2><br> 
-                <h3 id="totalReview"></h3><br>
-                <c:set var="mvOn" value="${detailVO.mvOn}"/>
+      <div class="movie_card" id="bright">
+        <div class="info_section">
+          <div class="movie_header">
+            <img class="locandina" src="${detailVO.imRoute}"/>
+            <h1>${detailVO.mvTitle}</h1>
+            <h4>${detailVO.mvReleased }, ${detailVO.mvDirector}</h4>
+            <span class="minutes">${detailVO.mvTime}분</span>
+            <span class="minutes">
+               <c:set var="agelimit" value="${detailVO.mvAgelimit}"/>
+               <c:choose>
+                   <c:when test="${agelimit == 1}">
+                                                전체 이용 관람가
+                   </c:when>
+                   <c:otherwise>
+                       ${agelimit}세 이상 관람가
+                   </c:otherwise>
+               </c:choose>
+            </span>          
+            <span class="minutes">
+            <c:set var="nation" value="${detailVO.mvNation}"/>
+            <c:choose>
+                  <c:when test="${nation == 1}">
+                                          국내영화
+                  </c:when>
+                  <c:otherwise>
+                                          해외영화
+                  </c:otherwise>
+              </c:choose>
+            </span>
+            <span class="minutes">${detailVO.mvGenre}</span>
+            <c:set var="nation" value="${detailVO.mvNation}"/>
+            <span class="minutes">
+                <c:set var="on" value="${detailVO.mvOn}"/>
                 <c:choose>
-                	<c:when test="${mvOn == 1}">
-                		<input type="button" value="예매하기" onClick="location.href='${MISS_RESERVE}'">
-                	</c:when>
-                	<c:when test="${mvOn == 0}">
-                		<input type="button" value="상영종료">
-                	</c:when>
-                	<c:otherwise>
-                		<input type="button" value="상영예정">
-                	</c:otherwise>
+                  <c:when test="${on == 0}">
+                                            상영종료
+                  </c:when>
+                  <c:when test="${on == 1}">
+                                            상영중
+                  </c:when>
+                  <c:otherwise>
+                                            상영예정
+                  </c:otherwise>
                 </c:choose>
-            </div>
+            </span><br>
+            <h4>출연 : ${detailVO.mvActor}</h4>
+          </div>
+          <div class="movie_desc">
+            <p class="text">
+              ${detailVO.mvSummary}
+            </p>
+          </div>
         </div>
-        <div id="right">
-            <div id="detail">
-            	<h1>${detailVO.mvTitle}</h1><br>
-            	<div id="detailLeft">
-	                <p>감독 : ${detailVO.mvDirector}</p><br>
-	                <p>배우 : ${detailVO.mvActor}</p><br>
-	                <p>장르 : ${detailVO.mvGenre}</p><br>
-	                <p>
-	                	<c:set var="agelimit" value="${detailVO.mvAgelimit}"/>
-	                	<c:choose>
-		                	<c:when test="${agelimit == 1}">
-		                		전체 이용 관람가
-		                	</c:when>
-		                	<c:otherwise>
-		                		${agelimit}세 이상 관람가
-		                	</c:otherwise>
-	                	</c:choose>
-	                </p><br>
-	                <p>러닝타임 : ${detailVO.mvTime}분</p><br>
-	                <p>
-	                	<c:set var="nation" value="${detailVO.mvNation}"/>
-	                	<c:choose>
-		                	<c:when test="${nation == 1}">
-		                		국내영화
-		                	</c:when>
-		                	<c:otherwise>
-		                		해외영화
-		                	</c:otherwise>
-	                	</c:choose>
-	                </p><br>
-            	</div>
-            	<div id="detailRight">
-            		<p>${detailVO.mvReleased} 개봉</p><br>
-	                <p>
-	                	<c:set var="on" value="${detailVO.mvOn}"/>
-	                	<c:choose>
-		                	<c:when test="${on == 0}">
-		                		상영종료
-		                	</c:when>
-		                	<c:when test="${on == 1}">
-		                		상영중
-		                	</c:when>
-		                	<c:otherwise>
-		                		상영예정
-		                	</c:otherwise>
-	                	</c:choose>
-	                </p><br>
-	                <h3>줄거리</h3>
-            		<p>${detailVO.mvSummary}</p>
-            	</div>
-            </div>
+        <div class="blur_back bright_back" style="background-image: url(${detailVO.imRoute2})"></div>
+      </div>
+<!--         <div id="left"> -->
+<!--             <div id="poster"> -->
+<%--                 <img src="${detailVO.imRoute}"> --%>
+<!--             </div> -->
+<%--             <div id="stat" style="background-image : url(${detailVO.imRoute2})"> --%>
+<!--                 통계영역(별점, 리뷰개수, 상영기간, ) -->
+<!--                 <h2>평균 별점</h2><br> -->
+<!--                 <h3 id="avgRating"></h3><br> -->
+<!--                 <h2>총 리뷰수</h2><br>  -->
+<!--                 <h3 id="totalReview"></h3><br> -->
+<%--                 <c:set var="mvOn" value="${detailVO.mvOn}"/> --%>
+<%--                 <c:choose> --%>
+<%--                 	<c:when test="${mvOn == 1}"> --%>
+<%--                 		<input type="button" value="예매하기" onClick="location.href='${MISS_RESERVE}'"> --%>
+<%--                 	</c:when> --%>
+<%--                 	<c:when test="${mvOn == 0}"> --%>
+<!--                 		<input type="button" value="상영종료"> -->
+<%--                 	</c:when> --%>
+<%--                 	<c:otherwise> --%>
+<!--                 		<input type="button" value="상영예정"> -->
+<%--                 	</c:otherwise> --%>
+<%--                 </c:choose> --%>
+<!--             </div> -->
+<!--         </div> -->
             <div id="moviecut">
+            <h1 style="text-align: center">영화 스틸컷</h1>
                 <div id="movie">
                     <div id="slideshow">
                         <ul class="slides">
-                        	<c:choose>
-                        		<c:when test="${scList.size() > 0}">
-                        			<c:forEach var="sc" items="${scList}">
-                        				<li>
-			                                <img src="${sc.imRoute}">
-			                            </li>
-                        			</c:forEach>
-                        		</c:when>
-                        	</c:choose>
+                           <c:choose>
+                               <c:when test="${scList.size() > 0}">
+                                   <c:forEach var="sc" items="${scList}">
+                                       <li>
+                                           <img src="${sc.imRoute}">
+                                       </li>
+                                   </c:forEach>
+                               </c:when>
+                           </c:choose>
                         </ul>
                         <p class="controller">
                             <span class="prev" id="prev">&lang;</span>
@@ -137,6 +438,7 @@
                     </div>
                 </div>
             </div>
+                
             <div id="reviewDiv">
                 <form action="">
                 	<p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p>
@@ -151,35 +453,35 @@
                     <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)">
                 </form>
                 	<input type="submit" value="작성완료" id="add">
-                <table id="movie_table">
-                	<thead>
-	                    <tr>
-	                        <th style="text-align : center">닉네임</th>
-	                        <th style="text-align : center">한줄평</th>
-	                        <th style="text-align : center">별점</th>
-	                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:choose>
-                    	<c:when test="${rvList.size() > 0}">
-                    		<c:forEach var="rv" items="${rvList}" end="4">
-                    			<tr>
-			                        <td>${rv.mbNickname}</td>
-			                        <td>${rv.rReview}</td>
-			                        <td>${rv.rRating}</td>
-			                    </tr>
-                    		</c:forEach>
-                    	</c:when>
-                    </c:choose>
-                    </tbody>
-                </table><br>
+                	
+                	<table id="movie_table">
+                	   <thead>
+                	       <tr>
+                	           <th style="width: 300px">닉네임</th>
+                	           <th style="width: 1000px">한줄평</th>
+                	           <th style="width: 100px">별점</th>
+                	       </tr>
+                	   </thead>
+                	   <tbody>
+	               	       <c:choose>
+		                       <c:when test="${rvList.size() > 0}">
+		                           <c:forEach var="rv" items="${rvList}" end="4">
+		                               <tr>
+		                                   <td>${rv.mbNickname}</td>
+		                                   <td>${rv.rReview}</td>
+		                                   <td>${rv.rRating}</td>
+		                               </tr>
+		                           </c:forEach>
+		                       </c:when>
+		                    </c:choose>
+                	   </tbody>
+                	</table>
             	<div class="text-center">
 		            <div class="text-center col-sm-12 col-md-12 col-lg-12">
 		                <div id="page-selection" class="text-center page"></div>
 		            </div>
 		        </div>
             </div>
-        </div>
     </div>
     <!-- 푸터영역 -->
 	<%@include file="../cmn/footer.jsp"%>
