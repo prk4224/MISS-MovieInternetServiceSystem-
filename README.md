@@ -2,7 +2,6 @@
 
 <img src="https://capsule-render.vercel.app/api?type=slice&color=E34F26&height=350&section=header&text=Welcome!%20We%20Are%20MISS!%20&fontSize=50&fontColor=FFFFFF&fontAlignY=42&rotate=22" width="75%" height="75%"/>
 <img src="https://user-images.githubusercontent.com/107021908/174239639-c2fb9584-427d-4d8a-acc2-450561de3ace.jpg" width="75%" height="75%"/>
-<img src="https://user-images.githubusercontent.com/107021908/174239499-8df2eacb-e1ac-4488-8e99-f3d616c885f9.jpg" width="75%" height="75%"/>
 
 
 
@@ -28,7 +27,7 @@
 ### 1-1. 담당업무 
 |이름|담당업무|
 |:-------:|:-------|
-|**김동호**| 메인, 영화 상세 페이지, DB 연결, 백엔드 파트 |
+|김동호(PM)| 메인, 영화 상세 페이지, DB 연결, 백엔드 파트 |
 |옥지웅| 로그인, 헤더, 로고 |  
 |박재홍| 결제페이지, 결제 완료페이지 |
 |문한민| 마이페이지(개인정보), 푸터|
@@ -45,23 +44,21 @@
 
 
 # 3. Project 기획:seedling:   
-![뉴로고]()  
+![뉴로고](https://user-images.githubusercontent.com/50819376/178106157-5b87c1b2-42f7-48c7-8e23-b305203bc623.png)  
 집에서 편하게 영화를 볼 수 있는 페이지를 만들고자 하였습니다.  
 해당 웹 페이지를 이용하여 최신 영화를 볼 수 있습니다.  
 ### 3-1. 개발환경  
-![개발환경]()  
-### 3-2. 진행일정 
-![진행일정](https://user-images.githubusercontent.com/50819376/174428651-1804b2b5-6c35-41c0-8e1e-e090a197cf81.JPG)   
+![개발환경](https://user-images.githubusercontent.com/50819376/178106207-403ca0f9-1be2-41e6-a534-a1f34b2b1b21.JPG)  
+### 3-2. 진행일정(WBS)
+![진행일정](https://user-images.githubusercontent.com/50819376/178106270-a7780da9-ac93-4b2c-8a8d-264d2e07ba28.JPG)   
  
 # 4. Project 설계:sunflower:   
 
 ### 4-1. 요구사항정의서  
-![요구사항정의서](https://user-images.githubusercontent.com/50819376/174428676-cf3f4e8b-2bbb-4b13-a606-6fba016a53d1.JPG)    
-### 4-2. 프로세스 흐름도   
-![프로세스 흐름도2]()  
+![요구사항정의서](https://user-images.githubusercontent.com/50819376/178106382-3eb9b5f7-def9-4d83-b0c5-ec79fd4c8d20.JPG)    
 
-### 4-3. exERD    
-<img src="https://user-images.githubusercontent.com/50819376/174428686-2a227391-92b4-4897-97ae-63dcc290bc8d.JPG" width="85%" height="85%"/>
+### 4-2. exERD    
+<img src="https://user-images.githubusercontent.com/50819376/178106297-d3349d50-408e-4365-856e-3f73d2b7ae6a.JPG" width="85%" height="85%"/>
 
 # 5. 기능시연:deciduous_tree:   
 ### 5-1. 로그인  
