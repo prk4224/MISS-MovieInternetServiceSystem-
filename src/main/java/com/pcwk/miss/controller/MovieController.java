@@ -137,6 +137,16 @@ public class MovieController {
 		
 		model.addAttribute("movie", outVO);
 		return "movie/screen";
+//		return "movie/movie_loading";
+	}
+	
+	@RequestMapping(value="/movieLoading.do", method = RequestMethod.GET)
+	public String movieLoadingView(WatchMovieVO inVO, HttpServletRequest request) {
+		inVO.setMvNum(Integer.parseInt(request.getParameter("mvNum")));
+		inVO.setMiQuality(Integer.parseInt(request.getParameter("miQuality")));
+		
+		
+		return "movie/movie_loading";
 	}
 	
 	// http://localhost:8081/miss/movie/movieList.do

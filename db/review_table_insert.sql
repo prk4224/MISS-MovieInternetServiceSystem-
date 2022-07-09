@@ -939,6 +939,47 @@ INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 1, 
 '킹스맨 영화가 아님 느리고 지루하고 액션이 부족', '비행선장', 13);
 
+-- 11
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 1, 
+'토르 시리즈 중 제일 밋밋... 쿠키 마저도 밋밋...', 'ABCDEFGHIJKLMNOPQRSTUVWXY', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 1, 
+'아카데미 주연상급 배우들도 이런 내용에선 답이 없다.', '그렘린즈', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 1, 
+'차라리 로키를 살려내라. 디즈니놈들아! 소문난 잔치에 쿠키 쿠키 말고 먹을게 없다,', 'Romeo', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 2, 
+'이건 아니잖아 이건 아니잖아 ㅠㅠㅠ', 'dril75', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 2, 
+'토르 시리즈는 이제 놓아줘야 되나 ㅠ', 'jash244', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 2, 
+'솔로무비는 라그나로크에서 멈췄어야 했다. 닥스2가 큰실망이였다면 이 영화는 순수노잼. 굳이 안만들어도 됐을 아무도 궁금하지 않은 영화', '무적의 기사 라만차의 돈키호테', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 2, 
+'마블시네마의 종말을 알리는 영화네요. 이터널스,닥터2 심지어 토르2편보다 더 최악입니다. 그리고 아이맥스 화면,사운드믹싱,CG도 역대급으로 형편없습니다. 마블 좋아해도 그냥 디플로 보세요. 크리스찬베일 연기만 최고였습니다', '0tt', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 3, 
+'햄식이형 여기까지가 끝인가보오 ㅠ', 'sasik45', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 3, 
+'너무 뻔한 마블영화 스타일이 나왔습니다 ㅠ', 'kibin00', 11);
+
+INSERT INTO REVIEW
+VALUES(review_num_seq.NEXTVAL, 5, 
+'다들 왜 탑건이랑 비교하지 토르는 토르 나름대로 마블의 재미요소를 다 기대충족시킴 개 꿀잼인데', 'pi8765', 11);
+
 -- 10
 INSERT INTO REVIEW
 VALUES(review_num_seq.NEXTVAL, 3, 

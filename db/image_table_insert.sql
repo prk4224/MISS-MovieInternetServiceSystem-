@@ -3,8 +3,7 @@ SELECT * FROM IMAGE;
 DESC IMAGE;
 
 -- 일단 포스터만 넣어둠 10개
--- 1번 메인포스터, 2번서브포스터, 3-6번 스틸컷
--- cgv또는 movie-phinf에서 따온 이미지만 사용! 다른곳은 액박뜸
+-- 1번 메인포스터, 2번서브스틸컷, 3-6번 스틸컷
 INSERT INTO IMAGE
 VALUES(1, 1, 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000084/84949/84949_1000.jpg');
 

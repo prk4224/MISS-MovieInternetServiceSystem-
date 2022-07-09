@@ -286,7 +286,8 @@
             alert('관람 시간이 아닙니다.');
             sessionStorage.removeItem('miTime');    
           } else{
-        location.href = "/miss/movie/screen.do?mvNum=" + sessionStorage.getItem("mvNum")+"&miQuality=" + sessionStorage.getItem("miQuality");
+//         location.href = "/miss/movie/screen.do?mvNum=" + sessionStorage.getItem("mvNum")+"&miQuality=" + sessionStorage.getItem("miQuality");
+        location.href = "/miss/movie/movieLoading.do?mvNum=" + sessionStorage.getItem("mvNum")+"&miQuality=" + sessionStorage.getItem("miQuality");
         sessionStorage.removeItem('mvNum');
         sessionStorage.removeItem('miQuality');
         sessionStorage.removeItem('miTime');

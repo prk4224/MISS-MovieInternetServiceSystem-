@@ -14,6 +14,7 @@
 		WHERE t1.mv_num = t2.mv_num
 		AND t2.mv_seq = 1
 		AND t1.mv_on = 1
+		ORDER BY t1.mv_num
 	</select>
 	
 	<!-- 상영임박영화 조회 -->

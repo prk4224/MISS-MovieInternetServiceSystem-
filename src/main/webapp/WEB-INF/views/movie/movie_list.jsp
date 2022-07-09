@@ -330,7 +330,7 @@ a:hover {
                                                         <label>감독</label> <span>${list0.mvDirector}</span>
                                                     </div>
                                                     <div class="movie-running-time">
-                                                        <label>장르</label> <span>${list0.mvReleased}</span>
+                                                        <label>개봉일</label> <span>${list0.mvReleased}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -374,7 +374,7 @@ a:hover {
                                                         <label>감독</label> <span>${list1.mvDirector}</span>
                                                     </div>
                                                     <div class="movie-running-time">
-                                                        <label>장르</label> <span>${list1.mvReleased}</span>
+                                                        <label>개봉일</label> <span>${list1.mvReleased}</span>
                                                     </div>
                                                 </div>
                                             </div>

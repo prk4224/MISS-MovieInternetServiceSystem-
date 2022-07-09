@@ -19,6 +19,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	
+	
+	<meta http-equiv="refresh" content="170;url=/miss/movie/main.do">
+
+
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 	<script src="${CP_RES}/js/jquery-1.12.4.js"></script>
 	<title>영화 상영 페이지</title>
