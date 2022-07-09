@@ -62,25 +62,31 @@
 
 # 5. 기능시연:deciduous_tree:   
 ### 5-1. 로그인  
-![로그인]()  
+![로그인](https://user-images.githubusercontent.com/50819376/178107772-37fefbab-6fdb-4424-89e2-cb6997a9e3f3.gif)  
 
 ### 5-2. 메인 페이지  
-![메인페이지]()  
+![메인](https://user-images.githubusercontent.com/50819376/178110039-ba95d47f-e837-444b-8e2f-47d257d31fd6.gif)  
 
-### 5-3. 영화 상세페이지  
-![영화 상세]()  
+### 5-3. 영화 상세, 리뷰페이지  
+![영화상세, 리뷰](https://user-images.githubusercontent.com/50819376/178110060-f157d780-106b-41e4-ad15-57a98464275b.gif)
 
-### 5-4. 영화 예매  
-![영화 예매]()  
+### 5-4. 영화목록 페이지
+![영화목록](https://user-images.githubusercontent.com/50819376/178110069-536892e0-1426-4bf1-9b44-866095e144ff.gif)
 
-### 5-5. 결제페이지  
-![결제 페이지]()  
+### 5-5. 영화 예매  
+![영화 예매](https://user-images.githubusercontent.com/50819376/178110091-eeb1f60f-1588-414e-a2d8-29980ddd0eb0.gif)  
 
-### 5-6. FAQ  
-![FAQ]()  
+### 5-6. 결제페이지  
+![결제 페이지](https://user-images.githubusercontent.com/50819376/178110103-98a4e084-dfa8-4fdc-8124-65127c17baca.gif)  
 
-### 5-7. 마이페이지  
-![마이 페이지]()  
+### 5-7. FAQ  
+![FAQ](https://user-images.githubusercontent.com/50819376/178110116-91a58842-7964-45df-9728-d4a27d8447ab.gif)  
+
+### 5-8. 마이페이지  
+![마이 페이지](https://user-images.githubusercontent.com/50819376/178110121-e6d51d44-851b-44ce-b3ff-a06f835e4727.gif)  
+
+### 5-9. 상영페이지
+![영화상영](https://user-images.githubusercontent.com/50819376/178110139-b4eb8a2c-73f4-4ba9-adc4-2c85294f4120.gif)
 
 # 6. Collaboration:fallen_leaf:   
 <img src="https://img.shields.io/badge/JAVA-007396?style=flat-square&logo=java&logoColor=white"/>
