@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MISS, 최신 영화를 집에서</title>
+<link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 <!-- 부트스트랩 -->
 <link href="${CP_RES}/css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->

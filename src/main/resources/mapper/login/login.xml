@@ -50,10 +50,10 @@
 		    c_ratio,
 		    c_kind
 		)
-		VALUES(c_num_seq.NEXTVAL,
+		VALUES(COLUMN_SEQ.NEXTVAL,
 			#{mbNum},
 			'신규 회원가입 축하쿠폰',
-			1,
+			2,
 			50,
 			1)
 	</insert>
