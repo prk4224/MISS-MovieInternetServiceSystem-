@@ -342,7 +342,7 @@
                      </c:when>
                      <c:when test="${memberIn.mbGrade == 3}">
                                                  
-                       <p><img src="${CP_RES}/img/다이아.png" style="width:27%"></p>   
+                       <p><img src="${CP_RES}/img/플레.png" style="width:27%"></p>   
                      </c:when>
                      <c:otherwise>
                                                  
@@ -445,7 +445,7 @@
                                                                        영화보기</button>                                               
                                         </c:when>
                                        <c:otherwise>
-                                          <div id="CancleComp">취소 완료</div>
+                                          <div id="CancleComp">예매 취소</div>
                                       </c:otherwise>
                                    </c:choose>
                                                

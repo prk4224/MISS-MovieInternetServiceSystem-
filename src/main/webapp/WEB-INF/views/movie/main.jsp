@@ -45,12 +45,12 @@
 			                    </div>
 			                    <div class="caption1">
 			                    	<p style="display: none">${np.mvNum}</p>
-			                        <h1>${np.mvTitle}</h1><br><br>
-			                        <h2>감독</h2><br>
-			                        <p>${np.mvDirector}</p><br>
-			                        <h2>출연</h2><br>
-			                        <p>${np.mvActor}</p><br>
-			                        <h2>런닝타임</h2>
+			                        <h1>${np.mvTitle}</h1>
+			                        <h3>감독</h3>
+			                        <p>${np.mvDirector}</p>
+			                        <h3>출연</h3>
+			                        <p>${np.mvActor}</p>
+			                        <h3>런닝타임</h3>
 			                        <p>${np.mvTime}분</p>
 			                    </div>
 			                </li>
@@ -77,11 +77,23 @@
 			                            <img src="${ps.imRoute}">
 			                            <div class="caption2">
 			                            	<h3 style="display: none">${ps.mvNum}</h3>
-			                                <h1>${ps.mvTitle}</h1><br>
-			                                <h2>상영시간</h2>
-			                                <h3>${ps.miTime}</h3><br>
-			                                <h2>화질</h2>
-			                                <h3>${ps.miQuality}P</h3>
+			                                <h2>${ps.mvTitle}</h2>
+			                                <h3>상영시간</h3>
+			                                <h4>${ps.miTime}</h4>
+			                                <h3>화질</h3>
+			                                <h4>
+			                                	<c:choose>
+			                                		<c:when test="${ps.miQuality == 720}">
+			                                			HD
+			                                		</c:when>
+			                                		<c:when test="${ps.miQuality == 1080}">
+			                                			FHD
+			                                		</c:when>
+			                                		<c:otherwise>
+			                                			QHD
+			                                		</c:otherwise>
+			                                	</c:choose>
+			                                </h4>
 			                            </div>
 			                        </li>
                     			</c:forEach>
