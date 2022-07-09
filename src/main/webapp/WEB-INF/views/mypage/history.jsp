@@ -32,7 +32,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
     <!--스타일 시트 -->
     <style type="text/css">
-
+    @font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    @font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
     .main_box {
             width: 900px;
             height: 300px;
@@ -42,6 +53,7 @@
             padding: 20px;
             border:none;
             border-radius:8px;
+            font-family: 'NEXON Lv1 Gothic OTF';
     }
     
 
@@ -86,6 +98,7 @@
              width:900px;
              text-align:center;
              border-collapse:collapse;
+             font-family: 'NEXON Lv1 Gothic OTF';
     }
     
     #movieTicket {
@@ -96,6 +109,7 @@
              width: 900px;
              border-collapse: collapse;
              text-align:center;
+             font-family: 'NEXON Lv1 Gothic OTF';
     }
     
     .subtitle {
@@ -179,7 +193,7 @@
         $(document).on("click","#moCancle", function(){
 //          let tNum = $(this).parent().parent().children(2).eq(3).text()
 //          console.log("tNum : " + tNum);
-            if(!confirm('영화를 취소하시겠습니까?')){
+            if(!confirm('결제를 취소하시겠습니까?')){
                 return;
             }
                 let tNum = $(this).parent().parent().children(2).eq(3).text();
@@ -269,7 +283,7 @@
         console.log(typeof movieTime);
       
         if(nowTime < (movieTime-10000) || nowTime>(movieTime+10000)){
-            confirm('관람 시간이 아닙니다.');
+            alert('관람 시간이 아닙니다.');
             sessionStorage.removeItem('miTime');    
           } else{
         location.href = "/miss/movie/screen.do?mvNum=" + sessionStorage.getItem("mvNum")+"&miQuality=" + sessionStorage.getItem("miQuality");
@@ -459,5 +473,8 @@
                     </c:otherwise>
                 </c:choose>
         </table>
+        <!-- 푸터영역 -->
+		<%@include file="../cmn/footer.jsp"%>
+		<!-- //푸터영역 -->
 </body>
 </html>

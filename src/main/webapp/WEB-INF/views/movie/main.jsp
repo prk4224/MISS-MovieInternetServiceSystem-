@@ -27,10 +27,10 @@
 </head>
 <body>
     <!-- 헤더영역 -->
-	<%@include file="../cmn/header_black.jsp"%>
+	<%@include file="../cmn/header.jsp"%>
 	<!-- //헤더영역 -->
     <div id="contents">
-        <div id="status">
+        <div id="status" style="margin-top: 20px;">
             <h1>현재 상영중</h1>
         </div>
         <div id="slideshow1">

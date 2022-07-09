@@ -126,22 +126,7 @@
 		opacity:0.4;
 	}
 	
-	#logo {
-		margin:0 auto;
-		width:300px;
-		font-size:60px;
-		font-weight:bold;
-		text-align:center;
-		font-family: 'NEXON Lv1 Gothic OTF Bold';
-		color:lightgray;
-		-webkit-transition:0.2s ease all;
-		   -moz-transition:0.2s ease all;
-		    -ms-transition:0.2s ease all;
-		     -o-transition:0.2s ease all;
-		        transition:0.2s ease all;
-	}
-	
-	#logo:hover, label:hover {
+	label:hover {
 		color: #13338B;
 	}
 	</style>
@@ -237,22 +222,22 @@
 </head>
 <body>
 	<div class="contents">
-        <h3 id="logo">JOIN US</h3>
+		<img src="${CP_RES}/img/MISSlogo.png" style="width: 100%">
 
         <label for="mbEmail">이메일</label>
         <input type="email" id="mbEmail" placeholder="${param.email}" autocomplete="off" readonly/>
       
         <label for="mbName">이름</label>
-        <input type="text" id="mbName" placeholder="Type in your username.." autocomplete="off" required maxlength="3"/>
+        <input type="text" id="mbName" placeholder="본명(3자)" autocomplete="off" required maxlength="3"/>
       
         <label for="mbNickname">닉네임</label>
-        <input type="text" id="mbNickname" placeholder="10자 이내" autocomplete="off" required />
+        <input type="text" id="mbNickname" placeholder="리뷰닉네임(10자 이내)" autocomplete="off" required />
         
         <label for="mbBirth">생년월일</label>
         <input type="date" id="mbBirth"  autocomplete="off" required/>
 
         <label for="mbTel">휴대전화</label>
-        <input type="tel" id="mbTel" placeholder="전화번호 입력(Ex.01012345678)" maxlength="11" autocomplete="off" required />
+        <input type="tel" id="mbTel" placeholder="전화번호 입력(Ex. 01012345678)" maxlength="11" autocomplete="off" required />
       
         <input type="submit" name="submit" value="가입하기" id="doInsert" />
     </div>

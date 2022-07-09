@@ -157,6 +157,9 @@
   background: #1e50d9;
 ;
     }
+    #contents{
+    	height: 600px;
+    }
 	</style>
     
     <!-- 부트스트랩 -->
@@ -281,35 +284,13 @@
     <!-- 헤더영역 -->
     <%@include file="../cmn/header.jsp"%>
     <!-- //헤더영역 -->
-   
+   <div id="contents">
         <div>
             <div class="name" style="width: 300px; height: 40px; position: absolute; top: 210px; left: 250px;">영화 제목</div>
             <div class="name" style="width: 993px; height: 40px; position: absolute; top: 210px; left: 555px;">시간</div>
             <div style="width:992px; height: 390px; position:absolute; top:250px; left:555px; background-color:#e9e9e9;border: solid 1px #ffffff;">
             	<div id="showTIme1" style="position: absolute;width:100%;">
-	                <%--  <c:choose>
-			        	<c:when test="${timeList.size() > 0}">
-			        		<c:forEach var="timeList" items="${timeList}">
-			       				<div class="timeBt">
-			       					<span>${timeList.miTime}</span><br>
-			       					<span style="color: red">
-				       					<c:choose>
-					       					<c:when test="${timeList.miQuality == 720}">
-					       						HD
-					       					</c:when>
-					       					<c:when test="${timeList.miQuality == 1080}">
-					       						FHD
-					       					</c:when>
-					       					<c:otherwise>
-					       						QHD
-					       					</c:otherwise>
-				       					</c:choose>
-			       					</span>
-			       				</div>
-			        		</c:forEach>
-			        	</c:when>
-			        </c:choose> --%>
-			        <div style="text-align:center; padding : 150px 0;font-size: 35px; color: #13338B;">영화를 선택하여 주세요.</div>
+			        <div style="text-align:center; padding : 150px 0;font-size: 35px; color: #13338B;">영화를 선택해 주세요.</div>
           		</div>
             </div>
              <div class="scrollB">
@@ -333,8 +314,8 @@
     
         
     <button type="button" class="rBt" onclick='goBuy()'>
-       예약하기</button>
-
+       예매하기</button>
+	</div>
    
     <!-- 푸터영역 -->
     <%@include file="../cmn/footer.jsp"%>

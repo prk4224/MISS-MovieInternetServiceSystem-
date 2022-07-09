@@ -132,21 +132,20 @@
 </head>
 <body>
     <header>
-        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/Misslogo.png" style="height:8vh; width:auto;"></a>
+        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/MISSlogo.png" style="height:8vh; width:auto;"></a>
         <nav id="menu">
             <ul>
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>
                 <li><a class="menuLink" href="${MISS}/pay/reserve.do">영화 예매</a></li>
                 <li><a class="menuLink" href="${MISS}/faq/faq.do">FAQ</a></li>
                 <li><a class="menuLink" id="mbNum">마이페이지</a></li> <!-- 예매내역, 회원정보 -->
-                    	
+                
             </ul>
             
              
+             <div id = "nickName"><span id="headNickname" style="color: black; font-size: 1.2vmax"></span></div>
              <div><button id="logout" value="Logout"><img src="${CP_RES}/img/logout.png"></button></div>
              <div id = "logoutText">Logout</div>
-             <div id = "nickName"><span id="headNickname" style="color: black; font-size: 1.2vmax"></span></div>
-             
         </nav>
     </header>
 </body>

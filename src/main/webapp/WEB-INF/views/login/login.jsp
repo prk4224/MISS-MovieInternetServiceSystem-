@@ -146,7 +146,7 @@
     </div>
     <!-- //초기에 MISS 내려오는 화면 -->
     
-    <a class="miss-logo" id="miss-logo" href="#"><img id = "logoimg" src="${CP_RES}/img/MissLogoWi.png" ></a>    
+    <a class="miss-logo" id="miss-logo"><img id = "logoimg" src="${CP_RES}/img/MISSlogowi.png" ></a>    
     
     <!-- 네이버, 카카오 로그인 노출 영역 -->
     <div class="login-form">
@@ -158,9 +158,10 @@
     
 	<footer>
 	    <p align="center" style="font-size:10px; color:darkgray;">
-	                고객센터(이용및 결제 문의) : miss-contact@miss.com<br>
-	                주식회사 미스 / 대표 김동호 / 서울특별시 마포구 서강로 136 2,3층 / 사업자 등록번호 123-45-6789 / 대표번호 02-345-6789 <br>
-	                MISS.All Rights Reserved
+	                서울특별시 마포구 서강로 136 2,3층 코리아IT아카데미 신촌점(대흥동)<br>
+			대표이사 : 김동호 / 사업자 등록번호 : 123-45-67890 / 통신판매업신고번호 : 2022-서울마포-1130<br>
+			호스팅사업자 : MISS / 대표번호 : 02-1234-5678 / 대표이메일 : miss@gmail.com<br>
+			©MISS. All Rights Reserved
 	    </p>            
 	</footer> 
     <!----------------------- java script ------------------------->

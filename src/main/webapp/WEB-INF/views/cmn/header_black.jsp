@@ -135,7 +135,7 @@
 </head>
 <body>
     <header>
-        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/MissLogoWi.png" style="height:8vh; width:auto;"></a>
+        <a id="logo" href="${MISS}/movie/main.do"><img src="${CP_RES}/img/MISSlogo.png" style="height:8vh; width:auto;"></a>
         <nav id="menu">
             <ul>
                 <li><a class="menuLink" href="${MISS}/movie/movieList.do">영화 목록</a></li>

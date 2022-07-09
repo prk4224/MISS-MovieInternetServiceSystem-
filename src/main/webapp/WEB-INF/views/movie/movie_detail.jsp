@@ -483,30 +483,6 @@
         </div>
         <div class="blur_back bright_back" style="background-image: url(${detailVO.imRoute2})"></div>
       </div>
-<!--         <div id="left"> -->
-<!--             <div id="poster"> -->
-<%--                 <img src="${detailVO.imRoute}"> --%>
-<!--             </div> -->
-<%--             <div id="stat" style="background-image : url(${detailVO.imRoute2})"> --%>
-<!--                 통계영역(별점, 리뷰개수, 상영기간, ) -->
-<!--                 <h2>평균 별점</h2><br> -->
-<!--                 <h3 id="avgRating"></h3><br> -->
-<!--                 <h2>총 리뷰수</h2><br>  -->
-<!--                 <h3 id="totalReview"></h3><br> -->
-<%--                 <c:set var="mvOn" value="${detailVO.mvOn}"/> --%>
-<%--                 <c:choose> --%>
-<%--                 	<c:when test="${mvOn == 1}"> --%>
-<%--                 		<input type="button" value="예매하기" onClick="location.href='${MISS_RESERVE}'"> --%>
-<%--                 	</c:when> --%>
-<%--                 	<c:when test="${mvOn == 0}"> --%>
-<!--                 		<input type="button" value="상영종료"> -->
-<%--                 	</c:when> --%>
-<%--                 	<c:otherwise> --%>
-<!--                 		<input type="button" value="상영예정"> -->
-<%--                 	</c:otherwise> --%>
-<%--                 </c:choose> --%>
-<!--             </div> -->
-<!--         </div> -->
             <div id="moviecut">
             <h1 id="stillCutH1">영화 스틸컷</h1>
                 <div id="movie">
@@ -551,23 +527,6 @@
 				    <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)">
                 </form>
                 <input type="submit" value="리뷰등록" id="add">
-<!--             <div id="reviewDiv"> -->
-<!--                 <form action=""> -->
-<%--                 	<p style="display: none" id="mvNum" name="mvNum">${detailVO.mvNum}</p> --%>
-                	
-<!--                     <select name="rRating" id="rRating"> -->
-<!--                         <option selected value="5">5</option> -->
-<!--                         <option value="4">4</option> -->
-<!--                         <option value="3">3</option> -->
-<!--                         <option value="2">2</option> -->
-<!--                         <option value="1">1</option> -->
-<!--                     </select> -->
-<!--                     <input type="text" value="" id="mbNickname" name="mbNickname" readonly> -->
-<!--                     <input type="text" id="rReview" name="rReview" placeholder="리뷰를 입력하세요(50자 이내)"> -->
-<!--                 </form> -->
-<!--                 	<input type="submit" value="작성완료" id="add"> -->
-					
-
 
                 	<table id="movie_table">
                 	   <thead>
@@ -596,7 +555,6 @@
 		                <div id="page-selection" class="text-center page"></div>
 		            </div>
 		        </div>
-<!--             </div> -->
     </div>
     <!-- 푸터영역 -->
 	<%@include file="../cmn/footer.jsp"%>
