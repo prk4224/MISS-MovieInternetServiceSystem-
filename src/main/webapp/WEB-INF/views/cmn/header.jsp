@@ -64,21 +64,16 @@
             font-weight: bold;                        
             font-family: 'NEXON Lv1 Gothic OTF Bold'; /*추후 폰트 수정*/
     }
-    #logoutText{
-    	
-    	margin-top:0.5%;
-    	margin-left: 93%;
-    }
     
     #nickName{
-    	float: right;
-    	margin-right: 3%;
-    	margin-top: 1%;
+    	float:left;
+		margin-left: 14%;
+    	margin-top: 2.5%;
     }
     
     /*로그인 a태그 스타일*/
     #logout {
-    	margin-left:17vw;
+    margin-left: 0.5%;
     	margin-top: 2%;
         width: 3vw;
         height: 5vh;
@@ -143,9 +138,8 @@
             </ul>
             
              
-             <div id = "nickName"><span id="headNickname" style="color: black; font-size: 1.2vmax"></span></div>
+             <div id = "nickName"><span id="headNickname" style="color: black; font-size: 1vmax"></span></div>
              <div><button id="logout" value="Logout"><img src="${CP_RES}/img/logout.png"></button></div>
-             <div id = "logoutText">Logout</div>
         </nav>
     </header>
 </body>

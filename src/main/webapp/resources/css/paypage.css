@@ -1,4 +1,4 @@
-
+a
 @font-face {
     font-family: 'NEXON Lv1 Gothic OTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
@@ -42,7 +42,7 @@ body {
 	display:none;
 	float: left;
 	width: 35vw;
-    height: 30vh;
+    height: 80vh;
     margin-left: 4vw;
     box-shadow: 0px 0px 7px rgb(54, 54, 54);
     background-image: url("../img/paper2.jpeg");

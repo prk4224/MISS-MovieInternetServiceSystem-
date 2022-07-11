@@ -297,8 +297,8 @@ public class PayController {
         // 회원 결제 횟수
         int payCnt  = payService.payCount(outVO);
         int patGrade = 1;
-        if(payCnt <= 5) patGrade = 1;
-        else if(payCnt > 5 && payCnt <= 20) patGrade = 2;
+        if(payCnt <= 1) patGrade = 1;
+        else if(payCnt > 1 && payCnt <= 20) patGrade = 2;
         else if(payCnt > 20 && payCnt <= 50 ) patGrade = 3;
         else patGrade = 4;
         

@@ -194,8 +194,27 @@
         
        
        
-        
+        let myRadio = document.getElementsByName('couponList');
+        let setCheck;
+        let x = 0;
+        for(x = 0; x < myRadio.length; x++){
+        	
+        	myRadio[x].onclick =function(){
+        		if(setCheck != this) {
+            		setCheck = this;
+            	}
+            	else {
+            		this.checked = false;
+            		setCheck = null;
+            	}
+        	};
+        	
+        }
        
+        $("input[type = radio]").on("click", function(){
+        	console.log("input");
+        	
+        });
         
        $("#kakaoapibtn").on("click", function(e){
     	   

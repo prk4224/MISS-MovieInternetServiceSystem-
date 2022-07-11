@@ -45,7 +45,16 @@
             	<div>결제금액 : ${m_price} 원</div> 
             </div>
             <div id = "precaution">
-                <div>주의사항 ! </div>
+            	<div>주의 사항 !</div>
+                <div class = "precaution_contents">- 본 관람권은 MISS에서 상영하는 영화의 전용 티켓입니다. </div>
+                <div class = "precaution_contents">- 본 영화는 상영시간 10분전 부터 상영 가능합니다.</div>
+                <div class = "precaution_contents">- 상영시작 10분 후부터는 입장 하실 수 없습니다.</div>
+                <div class = "precaution_contents">- 예매취소는 마이페이지에서 하실 수 있습니다</div>
+                <div class = "precaution_contents">- 본 서비스는 스트리밍 서비스이므로 네크워크가 원할한 환경에서 시청 바랍니다.</div>
+                <div class = "precaution_contents">- 영상이 끊기거나 문제가 있을 경우 <span style="color:indianred">02-1234-5678</span> 번으로 연락 주시기 바랍니다. </div>
+                <div class = "precaution_contents">- 영화 상영 시작 후 에는 환불이 불가합니다.</div>
+                
+
             </div>
 
         </div>
