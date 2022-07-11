@@ -47,10 +47,9 @@ body {
 	font-weight: 600;
 	font-size: 30px;
 	text-align: center;
-    transform: translate(-5%, -50%);
-    word-spacing: 60px;
-    text-decoration-line: none;
-    
+	transform: translate(-5%, -50%);
+	word-spacing: 60px;
+	text-decoration-line: none;
 }
 
 .intro {
@@ -242,6 +241,19 @@ a:hover {
 		margin: 0;
 	}
 }
+
+#toTop {
+	background: none;
+	position: fixed;
+	bottom: 30px;
+	right: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px
+}
 </style>
 </head>
 
@@ -389,6 +401,7 @@ a:hover {
             </div>
         </div>
     </div>
+     <a id="toTop" href="#"><img src="${CP_RES}/img/top.png" width="55" height="55" alt="맨 위로"></a>
     <!-- 푸터영역 -->
     <%@include file="../cmn/footer.jsp"%>
     <!-- //푸터영역 -->
@@ -409,5 +422,9 @@ a:hover {
 			})
 		})
 	</script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+ <script src="./images/jquery.scroll.pack.js"></script>
+	<script src="./images/jquery.easing.js"></script>
+
 </body>
 </html>
