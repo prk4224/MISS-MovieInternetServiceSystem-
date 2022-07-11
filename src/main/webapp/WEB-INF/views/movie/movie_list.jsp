@@ -410,21 +410,20 @@ a:hover {
 			console.log("ready!");
 			$(".list0").on("click", function(){
 				let mvNum = $(this).children().eq(0).text();
+				console.log("mvNum : " + $(this).children().eq(0).text());
 				location.href = "movie_detail.do?mvNum=" + mvNum;
 			})
 			$(".list1").on("click", function(){
 				let mvNum = $(this).children().eq(0).text();
+				console.log("mvNum : " + $(this).children().eq(0).text());
 				location.href = "movie_detail.do?mvNum=" + mvNum;
 			})
 			$(".list2").on("click", function(){
 				let mvNum = $(this).children().eq(0).text();
+				console.log("mvNum : " + $(this).children().eq(0).text());
 				location.href = "movie_detail.do?mvNum=" + mvNum;
 			})
 		})
 	</script>
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
- <script src="./images/jquery.scroll.pack.js"></script>
-	<script src="./images/jquery.easing.js"></script>
-
 </body>
 </html>
