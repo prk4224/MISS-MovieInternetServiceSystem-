@@ -293,7 +293,7 @@
                    <div class="cd-faq-content">
                        <p>
                         작성일 : ${list02.qDate}<br>
-                        ${list02.qDate}
+                        ${list02.qContents}
                        </p>
                    </div>
                </li>
