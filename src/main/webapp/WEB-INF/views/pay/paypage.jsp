@@ -94,7 +94,7 @@
                 <div id = "point">   
                 	POINT : <input type = "text" id = "user_point" value = "${userpoint}" readonly="readonly">                 
                     사용 : 
-                    <input id = "u_point" type = "number" style="width: 4vmax; height: 1.7vmax; text-align: right;  border: none; font-size: 1.2vw;" value = "0">
+                    <input id = "u_point" type = "number" style="width: 4vmax; height: 1.7vmax; text-align: right;  border: none; font-size: 1.2vw;" value = "0" min = "0">
                     <button id = "pointbtn">적용</button>
                 </div>
                 <div id = "result_pay">최종결제금액

@@ -26,5 +26,11 @@ INSERT INTO FAQ (Q_NUM,Q_KIND,Q_TITLE,Q_CONTENTS,Q_DATE)
 VALUES(q_num_seq.NEXTVAL,1,'[시스템점검] 2022년 5월 시스템 점검 안내',' 안녕하십니까, MISS입니다. <br>원활하고 안정된 서비스 제공을 위하여 2022년 5월 새벽 시스템 점검 작업이예정되어 있습니다.  점검 시간 중 MISS홈페이지의 모든 서비스가 중단될 예정이오니 이용에 불편 없으시기바랍니다.  <br><br>1. 일시   - 6/28 02시 ~ 07시 <br>2. 내용 <br>- 정기 M작업(시스템 성능 개선 작업) <br>- 작업 대상 : 극장영업시스템, 온라인 서비스(홈페이지모바일) <br>더욱 안정적이고 편리한 서비스를 제공하는 MISS가 되겠습니다.   감사합니다.','20220627');
 INSERT INTO FAQ (Q_NUM,Q_KIND,Q_TITLE,Q_CONTENTS,Q_DATE)
 VALUES(q_num_seq.NEXTVAL,2,'[홈페이지] 인터넷 예매 후 예매 내용 확인은 어떻게 하나요?','인터넷 예매 후 예매내역 확인을 원하시는 경우 다음과 같이 확인하세요.  <br><br>홈페이지 로그인 → [MY AGE] → [MY 예매내역]','20220627');
+INSERT INTO FAQ (Q_NUM,Q_KIND,Q_TITLE,Q_CONTENTS,Q_DATE)
+VALUES(q_num_seq.NEXTVAL,2,'등급별 혜택이 궁금합니다.','실버등급 100포인트<br> 골드등급 200포인트<br> 플래티넘등급350포인트<br> 다이아등급600포인트 적립','20220630');
+INSERT INTO FAQ (Q_NUM,Q_KIND,Q_TITLE,Q_CONTENTS,Q_DATE)
+VALUES(q_num_seq.NEXTVAL,2,'인터넷 예매 시 결제방법에는 어떤 것들이 있나요?','홈페이지 결제 시 카카오페이 결제 가능합니다.','20220705');
+INSERT INTO FAQ (Q_NUM,Q_KIND,Q_TITLE,Q_CONTENTS,Q_DATE)
+VALUES(q_num_seq.NEXTVAL,2,'모아둔 포인트로 어떤것을 할 수 있나요?','영화 예매시 포인트를 현금처럼 사용 하실 수 있습니다.','20220710');
 
 COMMIT;
