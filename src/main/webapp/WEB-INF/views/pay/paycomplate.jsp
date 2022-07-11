@@ -16,7 +16,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="${CP}/favicon.ico">
 </head>
 <body>
-	<header>MISS</header>
+    <header>MISS</header>
     <hr/>
     
     <h2>결제가 완료되었습니다.</h2>
@@ -26,7 +26,7 @@
     </div>
 
      <div id = "movie_comimp">
-     	<div id = "movie_ticket">MOVIE TICKET</div>
+        <div id = "movie_ticket">MOVIE TICKET</div>
 
         <div id = "qua_age">
             <div id = "quality">화질 : ${miQuality}p</div>
@@ -41,11 +41,11 @@
             </div>
             <div id = "w_time" style="font-size: 1.5vmax; color:rgb(167, 0, 0)">관람 시간 : ${m_time} 분</div>
             <div id = "pay_num" style="font-size: 1.2vmax;" >
-            	<div>결제번호 : ${info.tid}  </div>
-            	<div>결제금액 : ${m_price} 원</div> 
+                <div>결제번호 : ${info.tid}  </div>
+                <div>결제금액 : ${m_price} 원</div> 
             </div>
             <div id = "precaution">
-            	<div>주의 사항 !</div>
+                <div>주의 사항 !</div>
                 <div class = "precaution_contents">- 본 관람권은 MISS에서 상영하는 영화의 전용 티켓입니다. </div>
                 <div class = "precaution_contents">- 본 영화는 상영시간 10분전 부터 상영 가능합니다.</div>
                 <div class = "precaution_contents">- 상영시작 10분 후부터는 입장 하실 수 없습니다.</div>
@@ -74,15 +74,15 @@
     </script>
     
     <script type="text/javascript">
-	  $(document).ready(function(){
-	    console.log("document.ready");
-	    let mbNum = sessionStorage.getItem("mbNum");
-	   
-	    $("#mypagebutton").on("click", function(){
-	    	window.location.href = "http://localhost:8081/miss/mypage/historyView.do?mbNum=" + mbNum;
-		  });
-	    
-	  });
-	</script>
+      $(document).ready(function(){
+        console.log("document.ready");
+        let mbNum = sessionStorage.getItem("mbNum");
+       
+        $("#mypagebutton").on("click", function(){
+            window.location.href = "http://localhost:8081/miss/mypage/historyView.do?mbNum=" + mbNum;
+          });
+        
+      });
+    </script>
 </body>
 </html>

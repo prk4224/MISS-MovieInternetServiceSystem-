@@ -1,61 +1,121 @@
+ 
 
 * {
+
 margin: 0;
+
 padding: 0; 
+
 box-sizing: border-box; 
+
 }
 
+ 
+
+ 
 
 /* Splash Screens  */
 
+ 
+
 .intro{ 
+
     position: fixed;
+
     z-index: 1;
+
     left : 0;
+
     top : 0;
+
     width : 100%;
+
     height: 100vh;
+
     background-color: #161616;
+
     transition: 1s;
+
 }
+
+ 
 
 #movie_img{
-	width: 6vmax;
-	height: 6vmax;
-	margin-left: 5%;
-	max-height: 100%;
-	max-width: 100%;
-	
+
+    width: 6vmax;
+
+    height: 6vmax;
+
+    margin-left: 5%;
+
+    max-height: 100%;
+
+    max-width: 100%;
+
+    
+
 }
 
+ 
+
+ 
 
 .logo-header{
+
     position: absolute;
+
     width: 30vmax;
+
     top: 43%;
-    left: 55%;
+
+    left: 50%;
+
     transform: translate(-50%,-50%);
+
     color: #E9E9E9;
+
 }
+
  
+
 .logo{
+
     position: relative;
+
     display: inline;
+
     bottom: -10px;
+
     opacity: 0;
+
     font-size: 6vmax;
+
     font-weight: 900;
+
     margin-left: 1vmax;
+
 }
+
+ 
 
 .logo.active{
+
     bottom: 0;
+
     opacity: 1;
+
     transition: ease-in-out 0.5s;
+
 }
 
+ 
+
 .logo.fade{
+
     bottom: 4vmax;
+
     opacity: 0;
+
     transition: ease-in-out 0.5s;
+
 }
