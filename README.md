@@ -26,12 +26,11 @@
 ### 1-1. 담당업무 
 |이름|담당업무|
 |:-------:|:-------|
-|김동호(PM)| 메인, 영화 상세 페이지, DB 연결, 백엔드 파트 |
-|옥지웅| 로그인, 헤더, 로고 |  
-|박재홍| 결제페이지, 결제 완료페이지 |
-|문한민| 마이페이지(개인정보), 푸터|
-|김소희| FAQ, 영화 정보페이지|
-|박건후| 예매페이지, 마이페이지(예매내역) |  
+|김동호(PM)| 메인(Backend), 영화 상세(Backend,Frontend), 로그인(Backend), 회원가입(Backend,Frontend), 예매(Backend), 영화목록(Backend), FAQ(Backend), 상영(Backend) |
+|박재홍| 결제페이지(Backend,Frontend), 결제 완료페이지(Backend,Frontend), 로고 디자인, 스플래쉬 스크린, 헤더, 푸터|
+|옥지웅| 로그인 (Frontend)|  
+|김소희| 메인(Frontend), FAQ(Frontend), 영화 정보페이지(Frontend)|
+|박건후| 예매페이지(Frontend), 마이페이지(예매내역)(Backend,Frontend) |  
 
 
 # 2. Project 목적:sun_with_face:   
